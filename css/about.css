@@ -1,0 +1,238 @@
+
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+:root{--black:#080808;--yellow:#f2d400}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--black);font-family:KineksText,Arial,sans-serif}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.page{min-height:100vh;padding:28px 5.35vw 28px;display:flex;flex-direction:column}
+header{display:flex;align-items:flex-start;justify-content:space-between}.logo{display:block;width:62px}.logo img{display:block;width:100%;height:auto}.nav{display:flex;gap:30px;font-size:12px;font-weight:600;line-height:1;padding-top:4px}.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.about-head{padding-top:53px;padding-bottom:48px;border-bottom:2px solid var(--black)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:13px}
+.about-head h1{font-size:clamp(64px,7.7vw,116px);line-height:.94;letter-spacing:-.075em;margin:0 0 18px;font-weight:700}
+.about-head p{font-size:13px;line-height:1.14;max-width:475px;margin:0}
+.journey{padding:34px 0 54px;border-bottom:2px solid var(--black)}
+.journey-head{text-align:center}.journey-head .kicker{margin-bottom:9px}.journey-head h2{font-size:clamp(27px,3.2vw,46px);line-height:.9;letter-spacing:-.06em;margin:0 0 9px}.journey-head p{font-size:10px;line-height:1.15;margin:0}
+.timeline{max-width:1000px;margin:34px auto 0}
+.timeline-item{display:grid;grid-template-columns:100px 42px minmax(260px,1fr) 250px;gap:20px;min-height:150px;position:relative}
+.year{font-size:11px;font-weight:600;padding-top:3px;text-align:right}
+.marker{position:relative}.marker:before{content:"";position:absolute;left:50%;top:7px;bottom:-20px;width:1px;background:#555;transform:translateX(-50%)}.timeline-item:last-child .marker:before{display:none}.dot{position:absolute;top:3px;left:50%;width:13px;height:13px;border-radius:50%;background:var(--yellow);transform:translateX(-50%)}
+.timeline-copy{padding-top:0}.timeline-copy .label{font-size:8px;font-weight:700;text-transform:uppercase;margin-bottom:2px}.timeline-copy h3{font-size:22px;line-height:.9;letter-spacing:-.045em;margin:0 0 8px}.timeline-copy p{font-size:10px;line-height:1.22;margin:0;max-width:330px}
+.timeline-image{display:flex;align-items:flex-start;justify-content:center;height:120px}.timeline-image img{max-width:210px;max-height:115px;width:auto;object-fit:contain}
+.foundry{padding:38px 0 45px;border-bottom:2px solid var(--black);text-align:center}.foundry h2{font-size:clamp(38px,4.8vw,68px);line-height:.87;letter-spacing:-.065em;margin:0 0 15px}.foundry p{font-size:11px;line-height:1.14;max-width:760px;margin:0 auto}
+.founder{display:grid;grid-template-columns:230px 1fr;gap:38px;padding:25px 0 28px;border-bottom:2px solid var(--black);align-items:start}.founder-photo img{width:100%;aspect-ratio:1/1;object-fit:cover}.founder-info .name{font-size:21px;font-weight:700;line-height:1;margin-bottom:3px}.founder-info .role{font-size:9px;margin-bottom:15px}.founder-info p{font-size:10px;line-height:1.23;margin:0;max-width:850px}
+.bottom{margin-top:auto;padding-top:55px;display:flex;justify-content:space-between;align-items:flex-end}.information{font-size:10px;line-height:1.55}.information strong{display:block;font-size:11px;line-height:1;margin-bottom:4px}.information a{display:block;width:max-content}.information a:hover{text-decoration:underline;text-underline-offset:3px}.copyright{text-align:right}.copyright .brand{font-size:26px;font-weight:700;letter-spacing:-.055em;line-height:.9}.copyright .copy{font-size:9px;line-height:1;margin-top:4px}
+@media(max-width:800px){.page{padding:20px 5vw 24px}.logo{width:55px}.nav{gap:14px;font-size:11px}.about-head{padding-top:45px}.about-head h1{font-size:56px;line-height:.94}.journey{padding-top:30px}.timeline-item{grid-template-columns:55px 25px 1fr;gap:12px;min-height:135px}.year{text-align:left}.timeline-image{display:none}.timeline-copy h3{font-size:20px}.foundry h2{font-size:40px}.founder{grid-template-columns:120px 1fr;gap:20px}.founder-info p{font-size:9px}.bottom{padding-top:50px}.copyright .brand{font-size:22px}}
+
+
+/* Responsive type scale — shared tuning */
+.about-head h1{font-size:clamp(64px,9.5vw,140px);line-height:.93;letter-spacing:-.07em}
+.about-head .intro{font-size:clamp(15px,1.25vw,18px);line-height:1.32}
+.journey h2,.foundry h2,.why h2{font-size:clamp(28px,3.3vw,50px);line-height:.98}
+.timeline-copy h3{font-size:clamp(18px,1.65vw,24px);line-height:.98}
+.timeline-copy p{font-size:clamp(10px,.82vw,12px);line-height:1.28}
+.founder-info .name{font-size:clamp(21px,2vw,30px)}
+.founder-info .role,.founder-info p{font-size:clamp(10px,.8vw,12px);line-height:1.3}
+@media(max-width:800px){
+ .about-head{padding-top:46px}
+ .about-head h1{font-size:clamp(48px,13.2vw,72px);line-height:.98;letter-spacing:-.06em}
+ .about-head .intro{font-size:14px;line-height:1.32}
+ .journey h2,.foundry h2,.why h2{font-size:clamp(26px,7.2vw,34px);line-height:1.02}
+ .timeline-item{grid-template-columns:55px 25px 1fr;gap:10px;min-height:120px}
+ .timeline-copy h3{font-size:18px;line-height:1.02}
+ .timeline-copy p{font-size:11px;line-height:1.3}
+ .foundry h2{font-size:clamp(30px,8.2vw,40px)}
+ .founder{grid-template-columns:105px 1fr;gap:18px}
+ .founder-info .name{font-size:24px}
+ .founder-info .role,.founder-info p{font-size:10px;line-height:1.3}
+}
+
+/* Final About responsive tuning */
+.about-head h1 span{white-space:nowrap}
+.about-head h1{
+  font-size:clamp(58px,8.2vw,118px);
+  line-height:.94;
+  letter-spacing:-.065em;
+}
+.about-head p{
+  font-size:clamp(14px,1.15vw,17px);
+  line-height:1.34;
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.journey-head h2{
+  font-size:clamp(28px,3.2vw,46px);
+  line-height:1.02;
+}
+.journey-head p{
+  font-size:clamp(12px,.95vw,14px);
+  line-height:1.35;
+}
+.foundry h2{
+  font-size:clamp(36px,4.3vw,62px);
+  line-height:.96;
+}
+.foundry p{
+  font-size:clamp(11px,.82vw,13px);
+  line-height:1.3;
+  max-width:850px;
+}
+@media(max-width:800px){
+  .page{padding:18px 5vw 24px}
+  .logo{width:48px}
+  .nav{gap:12px;font-size:10.5px}
+  .about-head{padding-top:48px}
+  .about-head .kicker{font-size:11px;margin-bottom:26px}
+  .about-head h1{
+    font-size:clamp(43px,11.8vw,62px);
+    line-height:.98;
+    letter-spacing:-.055em;
+  }
+  .about-head p{
+    font-size:14px;
+    line-height:1.34;
+    max-width:620px;
+    margin-top:25px;
+  }
+  .journey{padding-top:46px}
+  .journey-head h2{font-size:clamp(26px,7.2vw,34px);line-height:1.03}
+  .journey-head p{font-size:12px;line-height:1.34}
+  .timeline{margin-top:26px}
+  .timeline-item{
+    grid-template-columns:48px 20px 1fr;
+    gap:10px;
+    min-height:125px;
+    padding:18px 0;
+  }
+  .timeline-image{display:none}
+  .year{font-size:10px}
+  .timeline-copy .label{font-size:9px}
+  .timeline-copy h3{font-size:18px;line-height:1.05}
+  .timeline-copy p{font-size:11px;line-height:1.32}
+  .foundry{padding:42px 0 40px}
+  .foundry h2{font-size:clamp(32px,8.8vw,42px);line-height:1}
+  .foundry p{font-size:12px;line-height:1.34;max-width:620px}
+  .founder{grid-template-columns:1fr;gap:20px;padding-top:25px}
+  .founder-photo{max-width:180px}
+  .founder-info .name{font-size:26px}
+  .founder-info .role{font-size:10px}
+  .founder-info p{font-size:11px;line-height:1.35}
+  .bottom{padding-top:48px}
+  .copyright .brand{font-size:22px}
+}
+@media(max-width:370px){
+  .nav{gap:9px;font-size:10px}
+  .about-head h1{font-size:40px}
+  .about-head p{font-size:13px}
+}
+
+/* About — final mobile type tuning */
+@media (max-width:800px){
+  .about-head h1{
+    font-size:clamp(39px,10.5vw,55px);
+    line-height:1.00;
+    letter-spacing:-.052em;
+  }
+
+  .about-head p{
+    font-size:13px;
+    line-height:1.40;
+    max-width:560px;
+  }
+
+  .journey-head h2,
+  .why h2,
+  .foundry h2{
+    font-size:clamp(25px,6.7vw,32px);
+    line-height:1.05;
+    letter-spacing:-.025em;
+  }
+
+  .journey-head p{
+    font-size:12px;
+    line-height:1.38;
+  }
+
+  .timeline-copy p{
+    font-size:11px;
+    line-height:1.38;
+  }
+
+  .why p,
+  .foundry p,
+  .founder-info p{
+    font-size:13px;
+    line-height:1.40;
+  }
+
+  .why{
+    max-width:620px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .founder-info .name{
+    font-size:24px;
+    line-height:1.02;
+  }
+
+  .founder-info .role{
+    font-size:10px;
+    line-height:1.3;
+    margin-top:5px;
+  }
+
+  .founder-info p + p{
+    margin-top:18px;
+  }
+}
+
+@media (max-width:370px){
+  .about-head h1{font-size:37px}
+  .about-head p{font-size:12.5px}
+  .why p,
+  .foundry p,
+  .founder-info p{font-size:12.5px}
+}
+
+/* About — final mobile composition */
+@media (max-width:800px){
+  .about-head h1{
+    font-size:clamp(39px,10.5vw,55px);
+    line-height:1.00;
+    letter-spacing:-.052em;
+  }
+  .about-head h1 span{
+    white-space:nowrap;
+  }
+
+  /* Founder becomes: photo → name → role → bio */
+  .founder{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .founder-photo{
+    order:1;
+    width:100%;
+    max-width:280px;
+  }
+  .founder-info{
+    order:2;
+  }
+}
+@media (max-width:370px){
+  .about-head h1{font-size:37px}
+}
+
+/* About — mobile hero final size adjustment */
+@media (max-width:800px){
+  .about-head h1{
+    font-size:clamp(36px,9.6vw,50px);
+    line-height:1.02;
+    letter-spacing:-.05em;
+  }
+}
+@media (max-width:370px){
+  .about-head h1{font-size:35px}
+}

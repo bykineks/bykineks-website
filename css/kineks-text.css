@@ -1,0 +1,173 @@
+
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-Light.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-Oblique.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-MediumOblique.woff2") format("woff2");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-SemiBoldOblique.woff2") format("woff2");font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-BoldOblique.woff2") format("woff2");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:KineksText;src:url("../assets/fonts/KineksText-LightOblique.woff2") format("woff2");font-weight:300;font-style:italic;font-display:swap}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#080808;font-family:KineksText,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.page{min-height:100vh;padding:28px 5.35vw 30px}
+header{display:flex;align-items:flex-start;justify-content:space-between}.logo{width:62px;display:block}.logo img{width:100%;display:block}.nav{display:flex;gap:30px;font-size:12px;font-weight:600;padding-top:4px}.nav a:hover{text-decoration:underline;text-underline-offset:4px}.nav .active{text-decoration:underline;text-underline-offset:4px}
+
+.product{padding-top:42px}.product-title{font-size:clamp(70px,11vw,165px);line-height:.82;letter-spacing:-.075em;text-align:center;margin:0 0 38px;font-weight:500}
+.top-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;border-top:1.5px solid #111;padding-top:17px}
+.kicker{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:9px}.copy{font-size:14px;line-height:1.38;font-weight:500;max-width:680px}.copy p{margin:0 0 15px}
+.styles{font-size:12px;line-height:1.4}.styles strong{font-size:10px;letter-spacing:.08em}
+.styles div{font-size:13px;line-height:1.45;margin-bottom:3px}
+.style-light,.style-light-oblique{font-weight:300}
+.style-regular,.style-oblique{font-weight:400}
+.style-medium,.style-medium-oblique{font-weight:500}
+.style-semibold,.style-semibold-oblique{font-weight:600}
+.style-bold,.style-bold-oblique{font-weight:700}
+.style-light-oblique,.style-oblique,.style-medium-oblique,.style-semibold-oblique,.style-bold-oblique{font-style:italic}
+
+
+.statement{margin-top:52px;border-top:1.5px solid #111;border-bottom:1.5px solid #111;padding:25px 0;font-size:18px;line-height:1.25;font-weight:500}
+.stylespec{margin-top:38px}.style-row{display:grid;grid-template-columns:160px 1fr;gap:30px;border-bottom:1px solid #bbb;padding:21px 0}.style-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding-top:7px}.sample{font-size:34px;line-height:1.08;font-weight:400}.sample.oblique{font-style:italic}.sample.light{font-weight:300}.sample.medium{font-weight:500}.sample.semibold{font-weight:600}.sample.bold{font-weight:700}
+
+.glyph-section{margin-top:48px;border-top:1.5px solid #111;padding-top:18px}.glyph-title{font-size:10px;font-weight:700;letter-spacing:.08em;margin-bottom:10px}.glyph-grid{display:grid;grid-template-columns:repeat(13,1fr);border-left:1px solid #bbb;border-top:1px solid #bbb}.glyph{height:55px;border-right:1px solid #bbb;border-bottom:1px solid #bbb;display:flex;align-items:center;justify-content:center;font-size:25px}.glyph.small{font-size:18px}.glyph.large{font-size:30px}
+
+.availability{margin-top:52px;border-top:1.5px solid #111;padding-top:22px;display:flex;justify-content:space-between;gap:30px}.availability h2{font-size:18px;margin:0}.links{display:flex;gap:25px;font-size:13px;font-weight:600}.links a{text-decoration:underline;text-underline-offset:4px}
+.footer{margin-top:70px;border-top:1.5px solid #111;padding-top:24px;display:flex;justify-content:space-between}.info{font-size:10px;line-height:1.55}.info strong{display:block;font-size:11px;margin-bottom:4px}.info a{display:block;width:max-content}.brand{text-align:right;font-size:32px;font-weight:700;letter-spacing:-.06em;line-height:.9}.copyline{font-size:9px;margin-top:5px}
+
+@media(max-width:800px){
+.page{padding:20px 5vw 24px}.logo{width:55px}.nav{gap:14px;font-size:11px}.product{padding-top:45px}.product-title{font-size:65px;line-height:.88}.top-grid{grid-template-columns:1fr;gap:35px}.statement{font-size:16px}.style-row{grid-template-columns:1fr;gap:10px}.sample{font-size:28px}.glyph-grid{grid-template-columns:repeat(8,1fr)}.availability{display:block}.links{margin-top:15px;flex-wrap:wrap}.footer{display:block}.brand{text-align:left;margin-top:25px}
+}
+
+
+/* Responsive type scale — shared tuning */
+.product-title{font-size:clamp(68px,10.5vw,155px);line-height:.9;letter-spacing:-.07em}
+.copy{font-size:clamp(13px,1.05vw,15px);line-height:1.42}
+.statement{font-size:clamp(16px,1.35vw,19px);line-height:1.3}
+.sample{font-size:clamp(26px,2.35vw,35px);line-height:1.12}
+@media(max-width:800px){
+ .product{padding-top:45px}
+ .product-title{font-size:clamp(54px,14vw,76px);line-height:.94}
+ .top-grid{gap:30px}
+ .copy{font-size:14px;line-height:1.4}
+ .statement{font-size:16px;line-height:1.3}
+ .style-row{padding:18px 0}
+ .sample{font-size:clamp(24px,7vw,29px);line-height:1.14}
+ .glyph{height:50px;font-size:22px}
+ .glyph.small{font-size:16px}
+ .glyph.large{font-size:25px}
+}
+
+/* Kineks Text — responsive tuning */
+.product-title{
+  font-size:clamp(62px,9.8vw,145px);
+  line-height:.92;
+  letter-spacing:-.07em;
+}
+.top-grid{
+  gap:clamp(45px,6vw,80px);
+}
+.copy{
+  font-size:15px;
+  line-height:1.45;
+}
+.statement{
+  font-size:clamp(16px,1.25vw,19px);
+  line-height:1.32;
+}
+.style-row{
+  grid-template-columns:150px 1fr;
+  gap:28px;
+  padding:22px 0;
+}
+.sample{
+  font-size:clamp(25px,2.15vw,34px);
+  line-height:1.13;
+}
+.glyph{height:56px}
+
+@media(max-width:800px){
+  .page{padding:18px 5vw 24px}
+  .logo{width:48px}
+  .nav{gap:12px;font-size:10.5px}
+
+  .product{padding-top:46px}
+  .product-title{
+    font-size:clamp(48px,12.5vw,65px);
+    line-height:.96;
+    letter-spacing:-.055em;
+    margin-bottom:32px;
+  }
+
+  .top-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+    padding-top:15px;
+  }
+  .kicker{font-size:10px;margin-bottom:10px}
+  .copy{
+    font-size:13px;
+    line-height:1.43;
+  }
+  .copy p{margin-bottom:14px}
+
+  .statement{
+    margin-top:40px;
+    padding:21px 0;
+    font-size:15px;
+    line-height:1.36;
+  }
+
+  .stylespec{margin-top:28px}
+  .style-row{
+    grid-template-columns:1fr;
+    gap:9px;
+    padding:19px 0;
+  }
+  .style-label{
+    font-size:9px;
+    padding-top:0;
+  }
+  .sample{
+    font-size:clamp(22px,6.3vw,28px);
+    line-height:1.15;
+  }
+
+  .glyph-section{
+    margin-top:40px;
+    padding-top:15px;
+  }
+  .glyph-title{font-size:9px;margin-bottom:9px}
+  .glyph-grid{grid-template-columns:repeat(8,1fr)}
+  .glyph{height:48px;font-size:20px}
+  .glyph.small{font-size:15px}
+  .glyph.large{font-size:23px}
+
+  .availability{
+    margin-top:42px;
+    padding-top:19px;
+  }
+  .availability h2{font-size:17px}
+  .links{
+    margin-top:14px;
+    gap:17px;
+    font-size:11px;
+  }
+
+  .footer{
+    margin-top:55px;
+    padding-top:22px;
+  }
+  .brand{
+    font-size:27px;
+    text-align:left;
+    margin-top:22px;
+  }
+}
+
+@media(max-width:370px){
+  .nav{gap:9px;font-size:10px}
+  .product-title{font-size:46px}
+  .copy{font-size:12.5px}
+  .sample{font-size:21px}
+  .glyph-grid{grid-template-columns:repeat(7,1fr)}
+}
