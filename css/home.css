@@ -320,18 +320,27 @@ header{
   font-weight:700
 }
 
-.font-row.kineks-text a:hover{
-  color:var(--yellow)
-}
-
 .font-row.compact{
   font-family:KineksCompact,sans-serif;
   font-weight:700
 }
 
-.font-row.compact a:hover{
-  color:var(--yellow)
+
+/* =========================================================
+   ACTIVE FONT HOVER
+   ========================================================= */
+
+.font-row.kineks-text:hover,
+.font-row.kineks-text:hover a,
+.font-row.compact:hover,
+.font-row.compact:hover a{
+  color:var(--yellow) !important;
 }
+
+
+/* =========================================================
+   OTHER FONT SPECIMENS
+   ========================================================= */
 
 .font-row.arshila span{
   font-family:Arshila,sans-serif;
