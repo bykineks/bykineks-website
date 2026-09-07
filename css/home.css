@@ -321,12 +321,16 @@ header{
 }
 
 .font-row.kineks-text a:hover{
-  opacity:.6
+  color:var(--yellow)
 }
 
 .font-row.compact{
   font-family:KineksCompact,sans-serif;
   font-weight:700
+}
+
+.font-row.compact a:hover{
+  color:var(--yellow)
 }
 
 .font-row.arshila span{
