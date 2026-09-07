@@ -222,6 +222,40 @@ font-weight:700
 font-style:italic
 }
 
+
+/* =========================================================
+   FONT INFORMATION
+   ========================================================= */
+
+.font-info{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:48px
+}
+
+.font-info-item{
+border-top:1px solid #111;
+padding-top:14px
+}
+
+.font-info-label{
+font-size:14px;
+line-height:1.2;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:#777;
+margin-bottom:12px
+}
+
+.font-info-value{
+font-size:21px;
+line-height:1.2;
+letter-spacing:.01em;
+color:#080808
+}
+
+
 .statement{
 margin-top:52px;
 border-top:1.5px solid #111;
@@ -436,6 +470,29 @@ line-height:1.43
 .copy p{
 margin-bottom:14px
 }
+
+
+/* FONT INFORMATION — MOBILE */
+
+.font-info{
+grid-template-columns:repeat(2,1fr);
+gap:24px 16px;
+margin-top:40px
+}
+
+.font-info-item{
+padding-top:12px
+}
+
+.font-info-label{
+font-size:11px;
+margin-bottom:9px
+}
+
+.font-info-value{
+font-size:19px
+}
+
 
 .statement{
 margin-top:40px;
