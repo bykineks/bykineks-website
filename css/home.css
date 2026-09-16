@@ -375,7 +375,8 @@ header{
   letter-spacing:-.065em;
   color:var(--black);
   cursor:pointer;
-  transition:color .15s ease
+  transition:color .15s ease;
+  transform:translateY(4px)
 }
 
 .font-row.bia:hover a{
