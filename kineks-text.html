@@ -290,6 +290,197 @@ loading="lazy">
 </div>
 
 <script>
+const glyphSets = {
+
+basicLatin:[
+
+"A","B","C","D","E","F","G","H","I","J","K","L","M",
+
+"N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+
+"a","b","c","d","e","f","g","h","i","j","k","l","m",
+
+"n","o","p","q","r","s","t","u","v","w","x","y","z"
+
+],
+
+punctuation:[
+
+".",",","-","+","*","~","/","\\",":",";","<","=",">",
+
+"!","?","'","''","#","@","%","&","(",")","{","|","}",
+
+"†","‡","[","]","‘","’","“","”","‚","„","•","_","–","—",
+
+"¯","™","®","©","¡","¿","°","ƒ","−","±","×","÷","¦","…",
+
+"·","`","ˆ","¨","ª","º","¹","²","³","‰","§","´","¸","‹",
+
+"›","«","»","˘","˙","˚","˝","˛","ˇ","̦","≠"
+
+],
+
+numerals:[
+
+"0","1","2","3","4","5","6","7","8","9",
+
+"$","€","¢","£","¥","₣","₤"
+
+],
+
+latinExtended:[
+
+"Þ","À","Á","Â","Ã","Ä","Å","Ā","Ă","Ą","Æ","Ç","Ð","Đ",
+
+"È","É","Ê","Ë","Ē","Ĕ","Ę","Ě","Ì","Í","Î","Ï","Ł","Ñ",
+
+"Ò","Ó","Ô","Õ","Ö","Ø","Œ","Š","Ù","Ú","Û","Ü","Ÿ","Ý",
+
+"Ž","Ć","Ċ","Č","Ď","Ĝ","Ğ","Ġ","Ģ","Ĥ","Ħ","Ĩ","Ī","Į",
+
+"İ","Ĳ","Ĵ","Ķ","Ĺ","Ļ","Ľ","Ŀ","Ń","Ņ","Ň","Ō","Ŏ","Ő",
+
+"Ŕ","Ŗ","Ř","Ś","Ŝ","Ş","Ţ","Ť","Ŧ","Ũ","Ū","Ŭ","Ů","Ű",
+
+"Ų","Ŵ","Ŷ","Ź","Ż","Ẁ","Ẃ","Ẅ",
+
+"ƒ","ı","þ","ß","ð",
+
+"à","á","â","ã","ä","å","æ","ç","đ","è","é","ê","ë",
+
+"ì","í","î","ï","ł","ñ","ò","ó","ô","õ","ö","ø","œ","š",
+
+"ù","ú","û","ü","ý","ÿ","ž","ā","ă","ą","ć","ĉ","ċ","č",
+
+"ď","ē","ĕ","ė","ę","ě","ĝ","ğ","ġ","ģ","ĥ","ħ","ĩ","ī",
+
+"į","ĳ","ĵ","ķ","ĸ","ĺ","ļ","ŀ","ń","ņ","ň","ŉ","ō","ŏ",
+
+"ő","œ","ŕ","ŗ","ř","ś","ŝ","ş","š","ţ","ť","ŧ","ũ","ū",
+
+"ŭ","ů","ű","ų","ŵ","ŷ","ź","ż","ſ","ș","ț","ȷ","ẁ","ẃ","ẅ"
+
+],
+
+ligatures:[
+
+"fi",
+"fl",
+"ff",
+"ffi",
+"ffl",
+"ſt"
+
+]
+
+};
+
+
+function getGridColumnCount(grid){
+
+return getComputedStyle(grid)
+.gridTemplateColumns
+.split(" ")
+.filter(Boolean)
+.length;
+
+}
+
+
+function createGlyphGrid(
+id,
+glyphs,
+extra=""
+){
+
+const grid =
+document.getElementById(id);
+
+
+glyphs.forEach(glyph => {
+
+const cell =
+document.createElement("div");
+
+cell.className =
+"glyph " + extra;
+
+cell.textContent =
+glyph;
+
+grid.appendChild(cell);
+
+});
+
+
+const columns =
+getGridColumnCount(grid);
+
+
+const remainder =
+glyphs.length % columns;
+
+
+if(remainder !== 0){
+
+const emptyCells =
+columns - remainder;
+
+
+for(let i=0;i<emptyCells;i++){
+
+const cell =
+document.createElement("div");
+
+cell.className =
+"glyph empty";
+
+cell.setAttribute(
+"aria-hidden",
+"true"
+);
+
+grid.appendChild(cell);
+
+}
+
+}
+
+}
+
+
+createGlyphGrid(
+"basic-latin",
+glyphSets.basicLatin
+);
+
+
+createGlyphGrid(
+"punctuation",
+glyphSets.punctuation,
+"small"
+);
+
+
+createGlyphGrid(
+"numerals",
+glyphSets.numerals,
+"large"
+);
+
+
+createGlyphGrid(
+"latin-extended",
+glyphSets.latinExtended
+);
+
+
+createGlyphGrid(
+"ligatures",
+glyphSets.ligatures,
+"ligature"
+);
+
 const typePreview = document.getElementById("typePreview");
 const typeStyleName = document.getElementById("typeStyleName");
 
