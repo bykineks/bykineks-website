@@ -366,8 +366,11 @@ header{
 .font-row.bia a{
   font-family:Bia,serif;
   font-weight:700;
-  color:var(--yellow);
-  cursor:pointer
+  color:var(--black);
+  cursor:pointer;
+  line-height:.88;
+  transform:translateY(2px);
+  transition:color .15s ease
 }
 
 .font-row.bia:hover a{
