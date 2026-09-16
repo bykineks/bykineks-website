@@ -41,7 +41,7 @@
 
 @font-face{
   font-family:Bia;
-  src:url("../assets/fonts/Bia-SerifLowBold.woff2") format("woff2");
+  src:url("../assets/fonts/Bia-SerifHighBold.woff2") format("woff2");
   font-weight:700;
   font-style:normal;
   font-display:swap
@@ -358,10 +358,22 @@ header{
   font-weight:700
 }
 
-.font-row.bia span{
+
+/* =========================================================
+   BIA
+   ========================================================= */
+
+.font-row.bia a{
   font-family:Bia,serif;
-  font-weight:700
+  font-weight:700;
+  color:var(--yellow);
+  cursor:pointer
 }
+
+.font-row.bia:hover a{
+  color:var(--yellow)
+}
+
 
 .font-row.bilgen span{
   font-family:Bilgen,sans-serif;
