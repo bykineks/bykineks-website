@@ -1,0 +1,70 @@
+/* Family Overview specimen fonts — one real font per family */
+@font-face{font-family:BiaOverviewSansLow;src:url("../assets/fonts/Bia-SansLow.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:BiaOverviewSansHigh;src:url("../assets/fonts/Bia-SansHigh.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:BiaOverviewSerifLow;src:url("../assets/fonts/Bia-SerifLow.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:BiaOverviewSerifHigh;src:url("../assets/fonts/Bia-SerifHigh.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+
+@font-face{font-family:BiaVariable;src:url("../assets/fonts/Bia-Variable.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+
+@font-face{font-family:KineksCompactUI;src:url("../assets/fonts/KineksCompact-Light.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:KineksCompactUI;src:url("../assets/fonts/KineksCompact-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:KineksCompactUI;src:url("../assets/fonts/KineksCompact-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:KineksCompactUI;src:url("../assets/fonts/KineksCompact-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
+
+/* Glyph specimen font: Bia Serif Low Bold */
+@font-face{
+font-family:BiaGlyphs;
+src:url("../assets/fonts/Bia-SerifLowBold.woff2") format("woff2");
+font-weight:700;
+font-style:normal;
+font-display:swap
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#080808;font-family:KineksCompactUI,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font-family:inherit}
+.page{min-height:100vh;padding:28px 5.35vw 30px}
+header{display:flex;justify-content:space-between;align-items:flex-start}
+.logo{width:62px;display:block}.logo img{width:100%;display:block}.nav{display:flex;gap:30px;font-size:12px;font-weight:600;padding-top:4px}.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+main{padding-top:55px}.hero{text-align:center;border-bottom:1.5px solid #111;padding:6px 0 34px;overflow:visible}.hero h1{font-family:BiaVariable,sans-serif;font-size:clamp(68px,10vw,160px);line-height:.94;letter-spacing:-.07em;margin:0 0 14px;font-weight:700;display:block;position:relative;top:-8px}
+.bia-variable{font-variation-settings:"SERF" 0,"CNTR" 0,"wght" 650,"wdth" 100,"ital" 0;animation:biaMorph 18s ease-in-out infinite alternate;overflow:visible}
+.bia-variable:hover{animation-play-state:paused}
+@keyframes biaMorph{
+0%{font-variation-settings:"SERF" 0,"CNTR" 0,"wght" 450,"wdth" 75,"ital" 0}
+25%{font-variation-settings:"SERF" 0,"CNTR" 25,"wght" 650,"wdth" 100,"ital" 0}
+50%{font-variation-settings:"SERF" 1,"CNTR" 70,"wght" 600,"wdth" 120,"ital" 0}
+75%{font-variation-settings:"SERF" 1,"CNTR" 35,"wght" 450,"wdth" 90,"ital" 1}
+100%{font-variation-settings:"SERF" 0,"CNTR" 0,"wght" 650,"wdth" 110,"ital" 0}
+}.tagline{max-width:680px;margin:12px auto 0;font-family:KineksCompactUI,Arial,sans-serif;font-size:15px;line-height:1.38;font-weight:400}
+.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(45px,6vw,90px);padding:34px 0 55px;border-bottom:1.5px solid #111}.kicker{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px}.copy{font-size:15px;line-height:1.5;max-width:720px}.copy p{margin:0 0 17px}.font-info{display:grid;grid-template-columns:repeat(2,1fr);gap:25px 22px}.info-item{border-top:1px solid #111;padding-top:12px}.info-item span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:#777;margin-bottom:10px}.info-item strong{font-size:20px;font-weight:400;line-height:1.1}
+.system-section,.matrix-section,.glyph-section,.language-section{padding:52px 0 0}.section-head{display:flex;justify-content:space-between;align-items:baseline;border-top:1.5px solid #111;padding-top:16px;margin-bottom:25px}.system-count{font-size:11px;color:#777}.controls{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px}.control-block label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:#777;margin-bottom:9px}.control-row{display:flex;flex-wrap:wrap;gap:7px}.control-row button{font:inherit;font-size:12px;font-weight:600;background:#fff;border:1px solid #bbb;padding:8px 11px;cursor:pointer}.control-row button:hover,.control-row button.active{background:#080808;color:#fff;border-color:#080808}
+.selected-meta{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid #bbb;margin-top:30px;padding-bottom:10px;font-size:10px;text-transform:uppercase;letter-spacing:.07em}.selected-meta span:last-child{color:#777;text-transform:none;letter-spacing:0}
+.specimen-controls{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:18px 28px;align-items:end;margin-top:22px;border-bottom:1px solid #bbb;padding-bottom:20px}.specimen-control{min-width:0}.control-heading{display:flex;align-items:center;gap:7px;margin-bottom:9px}.control-heading label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#777}.control-heading input[type=number]{width:68px;border:0;border-bottom:1px solid #111;border-radius:0;padding:0 0 2px;font:inherit;font-size:12px;font-weight:600;background:#fff;outline:none}.control-heading span{font-size:10px;color:#777}.specimen-control input[type=range]{width:100%;margin:0;accent-color:#080808;cursor:pointer}.reset-button{border:1px solid #bbb;background:#fff;padding:7px 10px;font:inherit;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap}.reset-button:hover{background:#080808;color:#fff;border-color:#080808}
+.live-specimen{font-size:112px;line-height:.94;letter-spacing:-.045em;padding:55px 0;outline:none;cursor:text;overflow-wrap:break-word}.specimen-note{font-size:10px;color:#777;border-top:1px solid #bbb;padding-top:10px}.family-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#bbb;border:1px solid #bbb}.family-card{background:#fff;padding:20px;cursor:pointer;min-height:250px}.family-card:hover{background:#f7f7f7}.family-card-head{display:flex;justify-content:space-between;font-size:12px}.family-card-head span{color:#777}.family-card-sample{font-size:130px;line-height:.8;letter-spacing:-.08em;margin:45px 0}.family-card-grid{display:flex;flex-wrap:wrap;gap:6px;font-size:9px;color:#777}.family-card-grid span{border:1px solid #ddd;padding:5px 7px}
+.glyph-intro{font-size:13px;line-height:1.45;color:#555;max-width:850px}.glyph-group{margin-top:32px}.glyph-title{display:flex;justify-content:space-between;align-items:baseline;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}.glyph-title small{font-size:9px;color:#777;font-weight:400;letter-spacing:0}.glyph-grid{display:grid;grid-template-columns:repeat(14,1fr);border-left:1px solid #bbb;border-top:1px solid #bbb}.glyph{font-family:BiaGlyphs,serif;height:58px;border-right:1px solid #bbb;border-bottom:1px solid #bbb;display:flex;align-items:center;justify-content:center;font-size:24px;overflow:hidden}.language-list{font-size:13px;line-height:2.1;padding-bottom:45px}.availability{margin-top:52px;border-top:1.5px solid #111;padding-top:22px;display:flex;justify-content:space-between;gap:40px}.availability h2{font-size:18px;margin:0}.links{display:flex;gap:25px;font-size:13px;font-weight:600;flex-wrap:wrap;justify-content:flex-end}.links a{text-decoration:underline;text-underline-offset:4px}.footer{margin-top:70px;border-top:1.5px solid #111;padding-top:24px;display:flex;justify-content:space-between;align-items:flex-start}.info{font-size:10px;line-height:1.55}.info strong{display:block;font-size:11px;margin-bottom:4px}.info a{display:block;width:max-content}.brand-block{text-align:right}.brand{font-size:32px;font-weight:700;letter-spacing:-.06em;line-height:.9}.copyline{font-size:9px;margin-top:5px;font-weight:400;letter-spacing:0}
+@media(max-width:800px){.page{padding:18px 5vw 24px}.logo{width:48px}.nav{gap:12px;font-size:10.5px}main{padding-top:45px}.hero{padding-bottom:28px}.hero h1{font-size:clamp(68px,18vw,120px);line-height:.84;margin-bottom:9px}.tagline{font-size:14px;margin-top:12px}.intro-grid{grid-template-columns:1fr;gap:35px;padding-bottom:40px}.copy{font-size:13px}.font-info{grid-template-columns:repeat(2,1fr);gap:22px 15px}.info-item strong{font-size:18px}.controls{grid-template-columns:1fr}.specimen-controls{grid-template-columns:1fr 1fr;gap:18px 20px}.reset-button{justify-self:start}.live-specimen{font-size:clamp(40px,11vw,75px);padding:40px 0}.family-cards{grid-template-columns:1fr}.glyph-grid{grid-template-columns:repeat(8,1fr)}.glyph{font-family:BiaGlyphs,serif;height:48px;font-size:19px}.availability{display:block}.links{justify-content:flex-start;margin-top:15px;font-size:11px}.footer{display:block}.brand-block{text-align:left;margin-top:22px}.brand{font-size:27px}}
+@media(max-width:370px){.glyph-grid{grid-template-columns:repeat(7,1fr)}.glyph{font-family:BiaGlyphs,serif;height:45px;font-size:17px}.specimen-controls{grid-template-columns:1fr}}
+
+/* Family Overview: each Aa uses its corresponding family */
+.family-0 .family-card-sample{font-family:BiaOverviewSansLow,sans-serif}
+.family-1 .family-card-sample{font-family:BiaOverviewSansHigh,sans-serif}
+.family-2 .family-card-sample{font-family:BiaOverviewSerifLow,serif}
+.family-3 .family-card-sample{font-family:BiaOverviewSerifHigh,serif}
+
+
+/* Type System preview image — newly added section only */
+.system-preview-image{
+  width:100%;
+  margin:34px 0 0;
+}
+.system-preview-image img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+@media(max-width:800px){
+  .system-preview-image{margin-top:24px}
+}
