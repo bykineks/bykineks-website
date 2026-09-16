@@ -368,8 +368,8 @@ header{
   font-weight:700;
   color:var(--black);
   cursor:pointer;
-  line-height:.88;
-  transform:translateY(2px);
+  line-height:1;
+  transform:translateY(6px);
   transition:color .15s ease
 }
 
@@ -377,6 +377,10 @@ header{
   color:var(--yellow)
 }
 
+
+/* =========================================================
+   OTHER FONT SPECIMENS
+   ========================================================= */
 
 .font-row.bilgen span{
   font-family:Bilgen,sans-serif;
