@@ -385,6 +385,31 @@ header{
 
 
 /* =========================================================
+   CAELIA
+   ========================================================= */
+
+.font-row.caelia{
+  height:100px;
+}
+
+.font-row.caelia a{
+  font-family:Caelia,sans-serif;
+  font-weight:700;
+  font-size:clamp(48px,5.1vw,72px);
+  line-height:1;
+  letter-spacing:-.065em;
+  color:var(--black);
+  cursor:pointer;
+  transition:color .15s ease;
+  transform:translateY(4px)
+}
+
+.font-row.caelia:hover a{
+  color:var(--yellow)
+}
+
+
+/* =========================================================
    OTHER FONT SPECIMENS
    ========================================================= */
 
@@ -392,11 +417,6 @@ header{
   font-family:Bilgen,sans-serif;
   font-weight:900;
   font-size:clamp(28px,3.4vw,48px)
-}
-
-.font-row.caelia span{
-  font-family:Caelia,sans-serif;
-  font-weight:700
 }
 
 .font-row.dareva span{
@@ -542,6 +562,15 @@ header{
   }
 
   .font-row.bia a{
+    font-size:clamp(38px,10vw,42px);
+    line-height:1;
+  }
+
+  .font-row.caelia{
+    height:78px;
+  }
+
+  .font-row.caelia a{
     font-size:clamp(38px,10vw,42px);
     line-height:1;
   }
