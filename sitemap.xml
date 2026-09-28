@@ -2,7 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bykineks.com/</loc></url>
   <url><loc>https://bykineks.com/about.html</loc></url>
-  <url><loc>https://bykineks.com/blog.html</loc></url>
+  <url><loc>https://bykineks.com/blog/</loc></url>
+  <url><loc>https://bykineks.com/blog/designing-dareva/</loc></url>
+  <url><loc>https://bykineks.com/blog/wakaba/</loc></url>
   <url><loc>https://bykineks.com/contact.html</loc></url>
   <url><loc>https://bykineks.com/kineks-text.html</loc></url>
 </urlset>
