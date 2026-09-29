@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field — Bykineks Labs</title>
+<meta name="description" content="Field — an interactive generative typography experiment by Bykineks Labs using Kineks Compact.">
+<link rel="stylesheet" href="field.css">
+</head>
+<body>
+<main class="field-lab">
+  <header class="lab-header">
+    <a class="brand" href="../../index.html" aria-label="Back to Bykineks Labs">← LABS</a>
+    <span class="lab-label">BYKINEKS LABS / FIELD</span>
+  </header>
+
+  <section class="intro">
+    <div>
+      <p class="eyebrow">FIELD</p>
+      <h1>Type has a field.</h1>
+    </div>
+    <p class="intro-copy">A field of letters can become something larger. Type a character or a word and watch its own glyphs trace the shape.</p>
+  </section>
+
+  <section class="controls" aria-label="Field controls">
+    <div class="control-group text-control">
+      <label for="textInput">Target</label>
+      <div class="target-row">
+        <input id="textInput" type="text" value="KINEKS" maxlength="12" autocomplete="off" spellcheck="false" aria-label="Target text">
+        <div class="target-actions" aria-label="Field actions">
+          <button id="formButton" type="button">Form</button>
+          <button id="scatterButton" type="button">Scatter</button>
+          <button id="swarmButton" type="button">Swarm</button>
+          <button id="flowButton" type="button">Flow</button>
+        </div>
+      </div>
+    </div>
+    <div class="fixed-spec"><span>PARTICLE</span><strong>5 PT</strong></div>
+    <div class="fixed-spec"><span>COUNT</span><strong>300–1000 / GLYPH</strong></div>
+    </div>
+    <div class="actions">
+      <button id="pauseButton" type="button">Pause</button>
+      <button id="resetButton" type="button">Reset ↺</button>
+    </div>
+  </section>
+
+  <section id="stage" class="stage" aria-label="Interactive typographic field">
+    <canvas id="canvas"></canvas>
+    <div class="stage-hint">Move your pointer through the field. Each glyph is packed with 300–1000 smaller glyphs, filling its shape without touching.</div>
+  </section>
+
+  <footer class="lab-footer">
+    <span>Kineks Compact Bold</span>
+    <span id="status">A · 100 PARTICLES</span>
+  </footer>
+</main>
+<script src="field.js"></script>
+</body>
+</html>
