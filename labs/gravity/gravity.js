@@ -12,8 +12,10 @@
   const PT_TO_PX = 96 / 72;
   const worlds = {
     earth: { label: 'Earth', g: 1, gravity: 980, bounce: 0.30, drag: 0.997 },
+    space: { label: 'Space', g: 0, gravity: 0, bounce: 1, drag: 0.9998 },
     moon:  { label: 'Moon',  g: 0.16, gravity: 155, bounce: 0.72, drag: 0.999 },
-    sun:   { label: 'Sun',   g: 27.01, gravity: 3600, bounce: 0.08, drag: 0.985 }
+    sun:   { label: 'Sun',   g: 27.01, gravity: 3600, bounce: 0.08, drag: 0.985 },
+    blackhole: { label: 'Black Hole', g: null, gravity: 0, bounce: 0, drag: 0.992 }
   };
 
   let world = 'earth';
@@ -188,14 +190,21 @@
     active = true;
     const data = worlds[next];
     worldButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.world === next));
-    worldStatus.textContent = `${data.label} · ${data.g.toFixed(2)} g`;
+    worldStatus.textContent = data.g === null ? data.label : `${data.label} · ${data.g.toFixed(2)} g`;
 
     // The sentence stays exactly where it was until the user chooses a world.
     // Then gravity takes over from rest.
-    bodies.forEach(b => {
+    bodies.forEach((b, i) => {
       b.vx = 0;
       b.vy = 0;
       b.va = 0;
+      if (next === 'space') {
+        const a = (i / Math.max(1, bodies.length)) * Math.PI * 2 + (Math.random() - 0.5) * 0.7;
+        const speed = 18 + Math.random() * 28;
+        b.vx = Math.cos(a) * speed;
+        b.vy = Math.sin(a) * speed;
+        b.va = (Math.random() - 0.5) * 0.6;
+      }
     });
   }
 
@@ -287,6 +296,48 @@
 
     bodies.forEach(b => {
       if (b.dragging) return;
+
+      if (world === 'blackhole') {
+        // Strong radial attraction toward the center. The previous inverse-square
+        // force became almost zero at normal stage distances, so the glyphs barely moved.
+        const cx = w * 0.5;
+        const cy = h * 0.5;
+        const bx = b.x + b.width * 0.5;
+        const by = b.y + b.height * 0.5;
+        const dx = cx - bx;
+        const dy = cy - by;
+        const dist = Math.hypot(dx, dy);
+
+        if (dist > 3) {
+          const nx = dx / dist;
+          const ny = dy / dist;
+
+          // Desired velocity grows with distance, producing a visible pull
+          // while easing as each glyph reaches the singularity.
+          const desiredSpeed = Math.min(1900, 260 + dist * 3.8);
+          const desiredVX = nx * desiredSpeed;
+          const desiredVY = ny * desiredSpeed;
+          const follow = 1 - Math.exp(-7.5 * dt);
+
+          b.vx += (desiredVX - b.vx) * follow;
+          b.vy += (desiredVY - b.vy) * follow;
+
+          // Slight orbital rotation while falling inward.
+          b.va += b.vx * 0.0011;
+          b.angle += b.va * dt * 60;
+          b.x += b.vx * dt;
+          b.y += b.vy * dt;
+        } else {
+          // Once captured, keep the glyphs packed around the center.
+          b.vx *= Math.pow(0.03, dt);
+          b.vy *= Math.pow(0.03, dt);
+          b.x = cx - b.width * 0.5;
+          b.y = cy - b.height * 0.5;
+          b.angle += b.va * dt * 60;
+        }
+        return;
+      }
+
       b.vy += data.gravity * dt;
       b.vx *= Math.pow(data.drag, dt * 60);
       b.vy *= Math.pow(data.drag, dt * 60);
@@ -306,9 +357,11 @@
       }
     });
 
-    for (let pass = 0; pass < 2; pass++) {
-      for (let i = 0; i < bodies.length; i++) {
-        for (let j = i + 1; j < bodies.length; j++) collide(bodies[i], bodies[j]);
+    if (world !== 'blackhole') {
+      for (let pass = 0; pass < 2; pass++) {
+        for (let i = 0; i < bodies.length; i++) {
+          for (let j = i + 1; j < bodies.length; j++) collide(bodies[i], bodies[j]);
+        }
       }
     }
   }
