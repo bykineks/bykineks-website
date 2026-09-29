@@ -42,28 +42,28 @@
 <style>
 @font-face{
   font-family:"Kineks Compact";
-  src:url("assets/fonts/KineksCompact-Light.woff2") format("woff2");
+  src:url("../assets/fonts/KineksCompact-Light.woff2") format("woff2");
   font-weight:300;
   font-style:normal;
   font-display:swap;
 }
 @font-face{
   font-family:"Kineks Compact";
-  src:url("assets/fonts/KineksCompact-Regular.woff2") format("woff2");
+  src:url("../assets/fonts/KineksCompact-Regular.woff2") format("woff2");
   font-weight:400;
   font-style:normal;
   font-display:swap;
 }
 @font-face{
   font-family:"Kineks Compact";
-  src:url("assets/fonts/KineksCompact-SemiBold.woff2") format("woff2");
+  src:url("../assets/fonts/KineksCompact-SemiBold.woff2") format("woff2");
   font-weight:600;
   font-style:normal;
   font-display:swap;
 }
 @font-face{
   font-family:"Kineks Compact";
-  src:url("assets/fonts/KineksCompact-Bold.woff2") format("woff2");
+  src:url("../assets/fonts/KineksCompact-Bold.woff2") format("woff2");
   font-weight:700;
   font-style:normal;
   font-display:swap;
@@ -71,7 +71,7 @@
 
 @font-face{
   font-family:"Kineks Text";
-  src:url("assets/fonts/KineksText-Bold.woff2") format("woff2");
+  src:url("../assets/fonts/KineksText-Bold.woff2") format("woff2");
   font-weight:700;
   font-style:normal;
   font-display:swap;
@@ -79,14 +79,14 @@
 
 @font-face{
   font-family:"Bia Variable";
-  src:url("assets/fonts/Bia-Variable.woff2") format("woff2");
+  src:url("../assets/fonts/Bia-Variable.woff2") format("woff2");
   font-weight:300 700;
   font-style:normal;
   font-display:swap;
 }
 @font-face{
   font-family:"Bilgen Variable";
-  src:url("assets/fonts/Bilgen-VF.woff2") format("woff2");
+  src:url("../assets/fonts/Bilgen-VF.woff2") format("woff2");
   font-weight:100 900;
   font-style:normal;
   font-display:swap;
@@ -184,19 +184,7 @@ h1{
   line-height:.8;
   letter-spacing:-.07em;
 }
-.gravity{
-  font-family:"Kineks Text",Arial,sans-serif;
-  font-weight:700;
-  transform:rotate(-4deg);
-}
-.bia{
-  font-family:"Bia Variable",Arial,sans-serif;
-  font-variation-settings:"SERF" 45,"CNTR" 25,"wght" 600,"wdth" 100,"ital" 0;
-}
-.bilgen{
-  font-family:"Bilgen Variable",Arial,sans-serif;
-  font-variation-settings:"wght" 700,"slnt" -4;
-}
+.visual-text{font-family:"Kineks Compact",Arial,sans-serif;font-weight:700;}
 .info{
   min-width:0;
   overflow:hidden;
@@ -303,7 +291,7 @@ h1{
   .intro{font-size:14px}
   .experiment{grid-template-columns:36px 1fr;gap:16px;padding:24px 0}
   .visual{min-height:220px}
-  .visual-text{font-size:18vw}
+  .visual-text{font-size:11vw}
   .footer{flex-direction:column;gap:8px}
 }
 </style>
@@ -335,7 +323,7 @@ h1{
     <a class="experiment" href="gravity/">
       <div class="number">01</div>
       <div class="visual">
-        <div class="visual-text gravity">KINEKS</div>
+        <div class="visual-text">KINEKS TEXT</div>
       </div>
       <div class="info">
         <div>
@@ -352,7 +340,7 @@ h1{
     <a class="experiment" href="bia/">
       <div class="number">02</div>
       <div class="visual">
-        <div class="visual-text bia">Bia</div>
+        <div class="visual-text">BIA</div>
       </div>
       <div class="info">
         <div>
@@ -369,7 +357,7 @@ h1{
     <a class="experiment" href="bilgen/">
       <div class="number">03</div>
       <div class="visual">
-        <div class="visual-text bilgen">INTERLOCK</div>
+        <div class="visual-text">BILGEN</div>
       </div>
       <div class="info">
         <div>
@@ -377,6 +365,23 @@ h1{
           <div class="lab-title">INTERLOCK</div>
           <div class="description">
             A study of variable weight, slant, rhythm, and connected forms.
+          </div>
+        </div>
+        <div class="open">Open Experiment →</div>
+      </div>
+    </a>
+
+    <a class="experiment" href="field/">
+      <div class="number">04</div>
+      <div class="visual">
+        <div class="visual-text">KINEKS COMPACT</div>
+      </div>
+      <div class="info">
+        <div>
+          <div class="family">Kineks Compact</div>
+          <div class="lab-title">FIELD</div>
+          <div class="description">
+            Turn type into a field of particles. Form, scatter, swarm, and flow through responsive glyphs.
           </div>
         </div>
         <div class="open">Open Experiment →</div>
