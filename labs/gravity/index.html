@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gravity — Bykineks Labs</title>
+<meta name="description" content="Gravity — an interactive typography experiment by Bykineks Labs using Kineks Text Bold.">
+<link rel="stylesheet" href="gravity.css">
+</head>
+<body>
+<main class="gravity-lab">
+  <header class="lab-header">
+    <a class="brand" href="../../index.html" aria-label="Bykineks home">BYKINEKS</a>
+    <span class="lab-label">LABS / 01</span>
+  </header>
+
+  <section class="intro">
+    <div>
+      <p class="eyebrow">GRAVITY</p>
+      <h1>Type has mass.</h1>
+    </div>
+    <p class="intro-copy">Type a phrase, change its scale, then choose a world. The same letters behave differently under different gravity.</p>
+  </section>
+
+  <section class="controls" aria-label="Gravity controls">
+    <div class="control-group text-control">
+      <label for="textInput">Text</label>
+      <input id="textInput" type="text" value="Kineks Text" autocomplete="off" spellcheck="false" maxlength="80">
+    </div>
+
+    <div class="control-group size-control">
+      <div class="control-top"><label for="sizeRange">Size</label><output id="sizeValue" for="sizeRange">72 pt</output></div>
+      <input id="sizeRange" type="range" min="12" max="240" value="72" step="1">
+    </div>
+
+    <div class="worlds" role="group" aria-label="Choose gravity">
+      <button class="world active" data-world="earth" type="button"><span>Earth</span><small>1.00 g</small></button>
+      <button class="world" data-world="moon" type="button"><span>Moon</span><small>0.16 g</small></button>
+      <button class="world" data-world="sun" type="button"><span>Sun</span><small>27.01 g</small></button>
+    </div>
+
+    <div class="actions"><button id="meteorButton" class="meteor" type="button">Meteor</button><button id="resetButton" class="reset" type="button">Reset ↺</button></div>
+  </section>
+
+  <section id="stage" class="stage" aria-label="Interactive gravity stage">
+    <div class="stage-hint">Drag the letters. Throw them. Let gravity do the rest.</div>
+    <div id="word" class="word" aria-live="polite"></div>
+  </section>
+
+  <footer class="lab-footer">
+    <span>Kineks Text Bold</span>
+    <span id="worldStatus">Earth · 1.00 g</span>
+  </footer>
+</main>
+<script src="gravity.js"></script>
+</body>
+</html>

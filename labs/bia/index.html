@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bia — Interpolation Lab | Bykineks</title>
+<link rel="stylesheet" href="bia-interpolation.css">
+</head>
+<body>
+<main class="lab">
+  <header class="topbar">
+    <a class="back" href="../">← Labs</a>
+    <div class="label">BYKINEKS LABS / BIA</div>
+  </header>
+
+  <section class="stage" aria-label="Bia variable font interpolation experiment">
+    <div
+      id="word"
+      class="word"
+      contenteditable="true"
+      spellcheck="false"
+      role="textbox"
+      aria-label="Editable Bia text"
+    >Bia</div>
+  </section>
+
+  <section class="controls">
+    <div class="control-head">
+      <span>INTERPOLATION</span>
+      <span id="status">PLAYING · 18 S</span>
+    </div>
+
+    <div class="control-row">
+      <label class="size-control">
+        <span>Size</span>
+        <input id="size" type="range" min="76" max="320" value="180" step="1">
+        <output id="sizeValue">180 px</output>
+      </label>
+
+      <label>
+        <span>Animation</span>
+        <button id="toggle" type="button">Pause</button>
+      </label>
+
+      <label>
+        <span>Speed</span>
+        <input id="speed" type="range" min="6" max="30" value="18" step="1">
+        <output id="speedValue">18 s</output>
+      </label>
+
+      <button id="reset" type="button">Reset ↺</button>
+    </div>
+
+    <div class="font-meta"><span>BIA VARIABLE</span><span>909 KB</span></div>
+
+<div class="axis-readout" aria-live="polite">
+      <span>SERF <b id="serf">0</b></span>
+      <span>CNTR <b id="cntr">0</b></span>
+      <span>WGHT <b id="wght">450</b></span>
+      <span>WDTH <b id="wdth">75</b></span>
+      <span>ITAL <b id="ital">0</b></span>
+    </div>
+  </section>
+
+  <p class="hint">Type your own word or name. Bia keeps interpolating while you edit.</p>
+</main>
+
+<script>
+const word = document.getElementById("word");
+const toggle = document.getElementById("toggle");
+const reset = document.getElementById("reset");
+const speed = document.getElementById("speed");
+const speedValue = document.getElementById("speedValue");
+const size = document.getElementById("size");
+const sizeValue = document.getElementById("sizeValue");
+const status = document.getElementById("status");
+const readouts = {
+  serf: document.getElementById("serf"),
+  cntr: document.getElementById("cntr"),
+  wght: document.getElementById("wght"),
+  wdth: document.getElementById("wdth"),
+  ital: document.getElementById("ital")
+};
+
+const DEFAULT_TEXT = "Bia";
+const DEFAULT_DURATION = 18;
+let paused = false;
+let raf = 0;
+let startedAt = performance.now();
+let pausedAt = 0;
+let duration = DEFAULT_DURATION * 1000;
+
+const stops = [
+  { t: 0.00, SERF: 0, CNTR: 0,  W: 450, WDTH: 75,  ITAL: 0 },
+  { t: 0.25, SERF: 0, CNTR: 25, W: 650, WDTH: 100, ITAL: 0 },
+  { t: 0.50, SERF: 1, CNTR: 70, W: 600, WDTH: 120, ITAL: 0 },
+  { t: 0.75, SERF: 1, CNTR: 35, W: 450, WDTH: 90,  ITAL: 1 },
+  { t: 1.00, SERF: 0, CNTR: 0,  W: 650, WDTH: 110, ITAL: 0 }
+];
+
+function clamp(v, min, max) {
+  return Math.max(min, Math.min(max, v));
+}
+
+function ease(t) {
+  return t * t * (3 - 2 * t);
+}
+
+function sample(progress) {
+  const p = progress <= 0.5 ? progress * 2 : (1 - progress) * 2;
+  let a = stops[0], b = stops[1];
+
+  for (let i = 0; i < stops.length - 1; i++) {
+    if (p >= stops[i].t && p <= stops[i + 1].t) {
+      a = stops[i];
+      b = stops[i + 1];
+      break;
+    }
+  }
+
+  const local = ease((p - a.t) / (b.t - a.t || 1));
+  return {
+    SERF: a.SERF + (b.SERF - a.SERF) * local,
+    CNTR: a.CNTR + (b.CNTR - a.CNTR) * local,
+    W: a.W + (b.W - a.W) * local,
+    WDTH: a.WDTH + (b.WDTH - a.WDTH) * local,
+    ITAL: a.ITAL + (b.ITAL - a.ITAL) * local
+  };
+}
+
+function renderAxes(values) {
+  word.style.fontVariationSettings =
+    `"SERF" ${values.SERF}, "CNTR" ${values.CNTR}, "wght" ${values.W}, "wdth" ${values.WDTH}, "ital" ${values.ITAL}`;
+
+  readouts.serf.textContent = values.SERF.toFixed(2);
+  readouts.cntr.textContent = Math.round(values.CNTR);
+  readouts.wght.textContent = Math.round(values.W);
+  readouts.wdth.textContent = Math.round(values.WDTH);
+  readouts.ital.textContent = values.ITAL.toFixed(2);
+}
+
+function frame(now) {
+  if (!paused) {
+    const elapsed = now - startedAt;
+    const progress = (elapsed % duration) / duration;
+    renderAxes(sample(progress));
+  }
+  raf = requestAnimationFrame(frame);
+}
+
+toggle.addEventListener("click", () => {
+  paused = !paused;
+
+  if (paused) {
+    pausedAt = performance.now();
+    toggle.textContent = "Play";
+    status.textContent = "PAUSED";
+  } else {
+    const now = performance.now();
+    startedAt += now - pausedAt;
+    toggle.textContent = "Pause";
+    status.textContent = `PLAYING · ${speed.value} S`;
+  }
+});
+
+size.addEventListener("input", () => {
+  const value = clamp(Number(size.value), 76, 320);
+  word.style.fontSize = `${value}px`;
+  sizeValue.textContent = `${value} px`;
+});
+
+speed.addEventListener("input", () => {
+  const oldDuration = duration;
+  duration = Number(speed.value) * 1000;
+  speedValue.textContent = `${speed.value} s`;
+  status.textContent = paused ? "PAUSED" : `PLAYING · ${speed.value} S`;
+
+  if (!paused) {
+    const now = performance.now();
+    const phase = ((now - startedAt) % oldDuration) / oldDuration;
+    startedAt = now - phase * duration;
+  }
+});
+
+reset.addEventListener("click", () => {
+  word.textContent = DEFAULT_TEXT;
+  size.value = 180;
+  sizeValue.textContent = "180 px";
+  word.style.fontSize = "180px";
+  speed.value = DEFAULT_DURATION;
+  speedValue.textContent = `${DEFAULT_DURATION} s`;
+  duration = DEFAULT_DURATION * 1000;
+  paused = false;
+  toggle.textContent = "Pause";
+  status.textContent = `PLAYING · ${DEFAULT_DURATION} S`;
+  startedAt = performance.now();
+  word.focus();
+});
+
+word.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") event.preventDefault();
+});
+
+document.fonts.ready.then(() => {
+  word.style.fontSize = "180px";
+  renderAxes(sample(0));
+  requestAnimationFrame(frame);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bykineks Labs / Bilgen</title>
+<style>
+@font-face {
+  font-family:"Bilgen Variable";
+  src:url("../assets/fonts/Bilgen-VF.woff2") format("woff2");
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  width:100%;
+  min-height:100%;
+  background:#fff;
+  color:#111;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.page{
+  min-height:100vh;
+  padding:30px 5.4vw 28px;
+  display:flex;
+  flex-direction:column;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
+  line-height:1;
+  letter-spacing:.03em;
+  color:#111;
+}
+
+.topbar a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.meta-title{
+  color:#666;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.stage{
+  flex:1;
+  min-height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 0 54px;
+}
+
+.specimen{
+  width:100%;
+  max-width:1200px;
+  text-align:center;
+  outline:none;
+  cursor:text;
+  font-family:"Bilgen Variable", sans-serif;
+  font-size:clamp(76px, 12vw, 210px);
+  line-height:.82;
+  letter-spacing:-.055em;
+  color:#111;
+  text-transform:uppercase;
+  font-variation-settings:"wght" 650,"slnt" 0;
+  font-feature-settings:"liga" 1,"clig" 1,"calt" 1,"dlig" 1,"salt" 0;
+  overflow-wrap:anywhere;
+}
+
+.specimen.interlock-1{letter-spacing:-.11em}
+.specimen.interlock-2{letter-spacing:-.17em}
+.specimen.interlock-3{letter-spacing:-.23em}
+.specimen.interlock-4{letter-spacing:-.29em}
+.specimen.auto-animate{
+  animation:bilgenMorph var(--speed,18s) ease-in-out infinite alternate;
+}
+@keyframes bilgenMorph{
+  0%{font-variation-settings:"wght" 300,"slnt" 15}
+  50%{font-variation-settings:"wght" 900,"slnt" 0}
+  100%{font-variation-settings:"wght" 300,"slnt" -15}
+}
+
+
+.controls{
+  border-top:1px solid #222;
+  border-bottom:1px solid #d7d7d7;
+}
+
+.control-header{
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #d7d7d7;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.status{
+  color:#666;
+  font-weight:400;
+}
+
+.control-row{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  min-height:64px;
+  border-bottom:1px solid #d7d7d7;
+  flex-wrap:wrap;
+}
+
+.control{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+
+.control label{
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.value{
+  width:52px;
+  color:#666;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+input[type=range]{
+  width:300px;
+  height:4px;
+  margin:0;
+  appearance:none;
+  -webkit-appearance:none;
+  background:#ddd;
+  border-radius:999px;
+  outline:none;
+}
+
+input[type=range]::-webkit-slider-thumb{
+  appearance:none;
+  -webkit-appearance:none;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#111;
+  border:0;
+}
+
+input[type=range]::-moz-range-thumb{
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#111;
+  border:0;
+}
+
+input[type=range]::-moz-range-track{
+  height:4px;
+  background:#ddd;
+  border-radius:999px;
+}
+
+button{
+  appearance:none;
+  border:1px solid #aaa;
+  background:#fff;
+  color:#111;
+  height:36px;
+  padding:0 16px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+button:hover{border-color:#111}
+
+.info-row{
+  min-height:70px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  padding:12px 0 0;
+}
+
+.info-left{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.family{
+  font-size:12px;
+  color:#666;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.axes{
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  font-size:10px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+.axes span{color:#666}
+.axes b{color:#111}
+
+.file-size{
+  color:#666;
+  font-size:12px;
+}
+
+.hint{
+  font-size:12px;
+  color:#666;
+}
+
+@media(max-width:900px){
+  .page{padding:22px 20px 24px}
+  .stage{min-height:440px}
+  .control-row{gap:14px 20px;padding:14px 0}
+  input[type=range]{width:220px}
+}
+
+@media(max-width:620px){
+  .topbar{font-size:11px}
+  .stage{min-height:380px;padding:40px 0}
+  .specimen{font-size:clamp(62px, 18vw, 110px)}
+  .control-row{align-items:flex-start;flex-direction:column;gap:12px}
+  .control{width:100%;display:grid;grid-template-columns:76px minmax(0,1fr) 52px}
+  input[type=range]{width:100%}
+  .info-row{grid-template-columns:1fr}
+  .file-size{padding-bottom:8px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topbar">
+    <a href="../">← LABS</a>
+    <div class="meta-title">BYKINEKS LABS / BILGEN</div>
+  </header>
+
+  <section class="stage">
+    <div id="specimen" class="specimen" contenteditable="true" spellcheck="false"
+         aria-label="Editable Bilgen specimen">INTERLOCK</div>
+  </section>
+
+  <section class="controls">
+    <div class="control-header">
+      <span>INTERLOCK</span>
+      <span id="status" class="status">PLAYING · 18 S</span>
+    </div>
+
+    <div class="control-row">
+      <div class="control">
+        <label for="size">Size</label>
+        <input id="size" type="range" min="76" max="320" value="180">
+        <span id="sizeValue" class="value">180 px</span>
+      </div>
+
+      <div class="control">
+        <label>Animation</label>
+        <button id="play" type="button">Pause</button>
+      </div>
+
+      <div class="control">
+        <label for="speed">Speed</label>
+        <input id="speed" type="range" min="6" max="30" value="18">
+        <span id="speedValue" class="value">18 s</span>
+      </div>
+
+
+      <button id="reset" type="button">Reset ↻</button>
+    </div>
+
+    <div class="info-row">
+      <div class="info-left">
+        <div class="family">BILGEN VARIABLE</div>
+        <div class="axes">
+          <span>Wght <b id="weightValue">650</b></span>
+          <span>Slnt <b id="slantValue">0</b></span>
+        </div>
+        <div class="hint">Type your own word or sentence. Bilgen continuously interpolates while you edit.</div>
+      </div>
+      <div class="file-size">Variable Font</div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const specimen = document.getElementById("specimen");
+  const size = document.getElementById("size");
+  const speed = document.getElementById("speed");
+  const play = document.getElementById("play");
+  const reset = document.getElementById("reset");
+  const sizeValue = document.getElementById("sizeValue");
+  const speedValue = document.getElementById("speedValue");
+  const weightValue = document.getElementById("weightValue");
+  const slantValue = document.getElementById("slantValue");
+  const status = document.getElementById("status");
+
+  let playing = true;
+  let readoutTimer = null;
+
+  function clamp(n, min, max) {
+    return Math.max(min, Math.min(max, n));
+  }
+
+  function updateStatic() {
+    const s = clamp(Number(size.value), 76, 320);
+    const spd = clamp(Number(speed.value), 6, 30);
+
+    specimen.style.fontSize = s + "px";
+    specimen.style.setProperty("--speed", spd + "s");
+
+    sizeValue.textContent = s + " px";
+    speedValue.textContent = spd + " s";
+    status.textContent = (playing ? "PLAYING" : "PAUSED") + " · " + spd + " S";
+  }
+
+  function restartAnimation() {
+    specimen.classList.remove("auto-animate");
+    void specimen.offsetWidth;
+    if (playing) specimen.classList.add("auto-animate");
+  }
+
+  function updateReadout() {
+    if (!playing) return;
+
+    const animation = specimen.getAnimations().find(a =>
+      a.animationName === "bilgenMorph"
+    );
+    if (!animation) return;
+
+    const duration = clamp(Number(speed.value), 6, 30) * 1000;
+    const current = Number(animation.currentTime || 0);
+    const phase = (current % (duration * 2)) / duration;
+    const p = phase <= 1 ? phase : 2 - phase;
+
+    const w = Math.round(300 + p * 600);
+    const sl = Math.round(15 - p * 30);
+
+    weightValue.textContent = String(w);
+    slantValue.textContent = sl > 0 ? "+" + sl : String(sl);
+  }
+
+  size.addEventListener("input", updateStatic);
+
+  speed.addEventListener("input", () => {
+    updateStatic();
+    restartAnimation();
+  });
+
+  play.addEventListener("click", () => {
+    playing = !playing;
+    play.textContent = playing ? "Pause" : "Play";
+    updateStatic();
+    restartAnimation();
+  });
+
+  reset.addEventListener("click", () => {
+    size.value = 180;
+    speed.value = 18;
+    playing = true;
+    play.textContent = "Pause";
+    updateStatic();
+    restartAnimation();
+  });
+
+  updateStatic();
+  restartAnimation();
+  readoutTimer = window.setInterval(updateReadout, 100);
+})();
+</script>
+</body>
+</html>
