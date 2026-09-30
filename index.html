@@ -50,9 +50,9 @@
 
   <div class="hero-kicker">BYKINEKS</div>
 
-  <h1>
+  <h1 id="hero-type">
     <span class="hero-line-one">Typography, built as</span><br>
-    Systems.
+    <span class="hero-line-two">Systems.</span>
   </h1>
 
   <p>
@@ -164,6 +164,82 @@
       row.style.setProperty('--mx', '50%');
     });
   });
+</script>
+
+<script>
+(function(){
+  const heading = document.getElementById('hero-type');
+  if (!heading) return;
+
+  const textElements = heading.querySelectorAll('.hero-line-one, .hero-line-two');
+
+  textElements.forEach(function(el){
+    const text = el.textContent;
+    el.textContent = '';
+
+    Array.from(text).forEach(function(char){
+      if (char === ' ') {
+        const space = document.createElement('span');
+        space.className = 'hero-space';
+        space.textContent = ' ';
+        el.appendChild(space);
+      } else {
+        const span = document.createElement('span');
+        span.className = 'hero-char';
+        span.textContent = char;
+        el.appendChild(span);
+      }
+    });
+  });
+
+  const chars = heading.querySelectorAll('.hero-char');
+  let raf = null;
+  let pointerX = window.innerWidth / 2;
+  let active = false;
+
+  function update(){
+    raf = null;
+    if (!active) return;
+
+    chars.forEach(function(char){
+      const rect = char.getBoundingClientRect();
+      const center = rect.left + rect.width / 2;
+
+      // Left of the cursor becomes bold; right becomes light.
+      // A soft 120px transition keeps the weight field fluid.
+      const distance = center - pointerX;
+      const transition = 120;
+      let t = (distance + transition) / (transition * 2);
+      t = Math.max(0, Math.min(1, t));
+      t = t * t * (3 - 2 * t);
+
+      const weight = 700 - (400 * t);
+      char.style.setProperty('--hero-wght', weight.toFixed(1));
+    });
+  }
+
+  function move(x){
+    pointerX = x;
+    active = true;
+    if (!raf) raf = requestAnimationFrame(update);
+  }
+
+  heading.addEventListener('pointerenter', function(e){
+    active = true;
+    move(e.clientX);
+  });
+
+  heading.addEventListener('pointermove', function(e){
+    move(e.clientX);
+  });
+
+  heading.addEventListener('pointerleave', function(){
+    active = false;
+    chars.forEach(function(char){
+      char.style.setProperty('--hero-wght','400');
+    });
+  });
+})();
 </script>
 
 <footer class="bottom">
