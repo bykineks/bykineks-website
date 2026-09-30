@@ -289,7 +289,49 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden
+  overflow:hidden;
+  position:relative;
+  isolation:isolate;
+  --mx:50%;
+  transition:background-color .45s cubic-bezier(.22,1,.36,1);
+}
+
+.font-row::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(242,212,0,.055) calc(var(--mx) - 18%),
+    rgba(242,212,0,.12) var(--mx),
+    rgba(242,212,0,.055) calc(var(--mx) + 18%),
+    transparent 100%);
+  transform:translateX(9%);
+  opacity:0;
+  transition:opacity .45s ease, transform .6s cubic-bezier(.22,1,.36,1);
+}
+
+.font-row > span,
+.font-row > a{
+  position:relative;
+  z-index:1;
+  transition:transform .55s cubic-bezier(.22,1,.36,1), color .35s ease;
+  transform:translateX(0);
+}
+
+.font-row:not(.disabled):hover{
+  background:#fafafa;
+}
+
+.font-row:not(.disabled):hover::before{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.font-row:not(.disabled):hover > span,
+.font-row:not(.disabled):hover > a{
+  transform:translateX(calc((var(--mx) - 50%) * .08));
 }
 
 .font-row span,
@@ -333,8 +375,40 @@ header{
 .font-row.kineks-text:hover,
 .font-row.kineks-text:hover a,
 .font-row.compact:hover,
-.font-row.compact:hover a{
+.font-row.compact:hover a,
+.font-row.bia:hover a,
+.font-row.caelia:hover a{
   color:var(--yellow) !important;
+}
+
+@media (hover:none){
+  .font-row:not(.disabled):hover{
+    background:transparent;
+  }
+
+  .font-row:not(.disabled):hover::before{
+    opacity:0;
+    transform:translateX(9%);
+  }
+
+  .font-row:not(.disabled):hover > span,
+  .font-row:not(.disabled):hover > a{
+    transform:none;
+  }
+
+  .font-row:not(.disabled).is-touching{
+    background:#fafafa;
+  }
+
+  .font-row:not(.disabled).is-touching::before{
+    opacity:1;
+    transform:translateX(0);
+  }
+
+  .font-row:not(.disabled).is-touching > span,
+  .font-row:not(.disabled).is-touching > a{
+    transform:translateX(calc((var(--mx) - 50%) * .08));
+  }
 }
 
 
@@ -376,7 +450,6 @@ header{
   color:var(--black);
   cursor:pointer;
   transition:color .15s ease;
-  transform:translateY(4px)
 }
 
 .font-row.bia:hover a{
@@ -401,7 +474,6 @@ header{
   color:var(--black);
   cursor:pointer;
   transition:color .15s ease;
-  transform:translateY(4px)
 }
 
 .font-row.caelia:hover a{
@@ -454,7 +526,13 @@ header{
 
 .information{
   font-size:10px;
-  line-height:1.55
+  line-height:1.55;
+  padding-right:46px;
+  border-right:2px solid var(--black);
+  min-height:108px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start
 }
 
 .information strong{
@@ -475,7 +553,8 @@ header{
 }
 
 .copyright{
-  text-align:right
+  text-align:right;
+  margin-left:auto
 }
 
 .copyright .brand{
@@ -589,7 +668,9 @@ header{
   }
 
   .information{
-    font-size:9px
+    font-size:9px;
+    padding-right:24px;
+    min-height:96px
   }
 
 }
