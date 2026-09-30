@@ -152,72 +152,90 @@ h1{
   color:#666;
 }
 
-.experiments{padding-top:0}
-.experiment{
-  display:grid;
-  grid-template-columns:90px minmax(0,1fr) minmax(0,300px);
-  gap:30px;
-  min-height:430px;
-  padding:34px 0;
-  border-bottom:1px solid #d7d7d7;
-  text-decoration:none;
-  color:#111;
+.experiments{padding:0;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(420px,.8fr);gap:7vw;min-height:720px}
+.experiment-stage{position:sticky;top:28px;height:calc(100vh - 56px);min-height:620px;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:34px;background:#f7f7f5}
+.stage-kicker{position:absolute;top:34px;left:34px;font-size:10px;font-weight:600;color:#666;letter-spacing:.08em;text-transform:uppercase;z-index:10}
+.stage-number{position:absolute;top:34px;right:34px;font-size:10px;font-weight:600;color:#666;letter-spacing:.08em;z-index:10}
+
+.preview-gravity,.preview-bia,.preview-bilgen,.preview-field,.preview-bezier{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
 }
-.number{
-  font-size:10px;
-  font-weight:600;
-  color:#666;
-  letter-spacing:.08em;
+
+/* 01 — Gravity: same Kineks Text idea, but contained inside the preview. */
+.preview-gravity{
+  gap:0;font-family:"Kineks Text",Arial,sans-serif;font-weight:700;
+  font-size:clamp(72px,9vw,132px);letter-spacing:-.075em;
+  height:55%;top:22%;bottom:auto;align-items:flex-start;
 }
-.visual{
-  min-height:360px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:#f7f7f5;
+.preview-gravity span{display:inline-block;position:relative;animation:gravityDrop 3.4s ease-in infinite}
+.preview-gravity span:nth-child(1){animation-delay:0s}.preview-gravity span:nth-child(2){animation-delay:.12s}.preview-gravity span:nth-child(3){animation-delay:.24s}.preview-gravity span:nth-child(4){animation-delay:.36s}.preview-gravity span:nth-child(5){animation-delay:.48s}.preview-gravity span:nth-child(6){animation-delay:.60s}
+@keyframes gravityDrop{
+  0%,14%{transform:translateY(-20px) rotate(0)}
+  38%{transform:translateY(115px) rotate(4deg)}
+  52%{transform:translateY(145px) rotate(-2deg)}
+  65%,100%{transform:translateY(120px) rotate(0)}
 }
-.visual-text{
-  white-space:nowrap;
-  text-align:center;
-  font-size:clamp(70px,8vw,145px);
-  line-height:.8;
-  letter-spacing:-.07em;
+
+/* 02 — Bia: quiet variable interpolation, no oversized collision. */
+.preview-bia{
+  font-family:"Bia Variable",Arial,sans-serif;font-size:clamp(100px,13vw,190px);
+  line-height:.8;letter-spacing:-.065em;animation:biaMorph 5s ease-in-out infinite;
 }
-.visual-text{font-family:"Kineks Compact",Arial,sans-serif;font-weight:700;}
-.info{
-  min-width:0;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding:4px 0;
+@keyframes biaMorph{
+  0%,100%{font-variation-settings:"SERF" 0,"CNTR" 0,"wght" 450,"wdth" 75,"ital" 0;transform:scale(.9)}
+  25%{font-variation-settings:"SERF" 0,"CNTR" 25,"wght" 650,"wdth" 100,"ital" 0;transform:scale(1)}
+  50%{font-variation-settings:"SERF" 1,"CNTR" 70,"wght" 600,"wdth" 120,"ital" 0;transform:scale(.94)}
+  75%{font-variation-settings:"SERF" 1,"CNTR" 35,"wght" 450,"wdth" 90,"ital" 1;transform:scale(.97)}
 }
-.lab-title{
-  font-size:clamp(28px,3vw,44px);
-  line-height:.95;
-  letter-spacing:-.04em;
-  margin-bottom:18px;
-  overflow-wrap:anywhere;
+
+/* 03 — Bilgen: use the actual INTERLOCK specimen, kept comfortably inside. */
+.preview-bilgen{
+  width:92%;left:4%;right:4%;font-family:"Bilgen Variable",Arial,sans-serif;
+  font-size:clamp(58px,7.8vw,112px);font-weight:650;line-height:.82;
+  letter-spacing:-.10em;text-transform:uppercase;white-space:nowrap;
+  animation:bilgenMorphPreview 4.8s ease-in-out infinite;
 }
-.family{
-  font-size:11px;
-  color:#666;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+@keyframes bilgenMorphPreview{
+  0%,100%{font-variation-settings:"wght" 300,"slnt" 15;letter-spacing:-.06em;transform:skewX(-3deg)}
+  50%{font-variation-settings:"wght" 900,"slnt" 0;letter-spacing:-.15em;transform:skewX(0)}
 }
-.description{
-  font-size:13px;
-  line-height:1.5;
-  color:#666;
-  max-width:260px;
+
+/* 04 — Field: a restrained particle hint based on the actual Field behavior. */
+.preview-field{overflow:hidden}
+.preview-field .field-word{
+  position:relative;z-index:1;font-family:"Kineks Compact",Arial,sans-serif;
+  font-size:clamp(90px,12vw,170px);font-weight:700;letter-spacing:-.065em;
+  color:#151515;opacity:.08;transform:translateY(2px)
 }
-.open{
-  font-size:11px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+.preview-field i{position:absolute;width:5px;height:5px;border-radius:50%;background:#111;left:50%;top:50%;animation:fieldParticle 3.6s ease-in-out infinite}
+.preview-field i:nth-of-type(2n){width:4px;height:4px}.preview-field i:nth-of-type(3n){animation-delay:-.6s}.preview-field i:nth-of-type(4n){animation-delay:-1.2s}.preview-field i:nth-of-type(5n){animation-delay:-1.8s}.preview-field i:nth-of-type(6n){animation-delay:-2.4s}
+@keyframes fieldParticle{
+  0%,100%{transform:translate(-50%,-50%) translate(0,0)}
+  50%{transform:translate(-50%,-50%) translate(var(--dx),var(--dy))}
 }
-.experiment:hover .open{text-decoration:underline}
+
+/* 05 — Bézier: small curve study, matching the playground's yellow nodes. */
+.preview-bezier svg{width:min(62%,420px);height:auto;overflow:visible}
+.preview-bezier path{fill:none;stroke:#111;stroke-width:2.2}
+.preview-bezier line{stroke:#b9b9b5;stroke-width:1}
+.preview-bezier circle{fill:#F2C400;stroke:#111;stroke-width:1.5}
+.preview-bezier .bezier-letter{position:absolute;font-family:"Dareva Preview",Arial,sans-serif;font-size:clamp(110px,15vw,190px);font-weight:700;opacity:.055;letter-spacing:-.08em;transform:translateY(4%)}
+
+
+.preview-field i:nth-of-type(1){--dx:-90px;--dy:-55px}.preview-field i:nth-of-type(2){--dx:-45px;--dy:-75px}.preview-field i:nth-of-type(3){--dx:5px;--dy:-90px}.preview-field i:nth-of-type(4){--dx:60px;--dy:-62px}.preview-field i:nth-of-type(5){--dx:105px;--dy:-25px}.preview-field i:nth-of-type(6){--dx:120px;--dy:30px}.preview-field i:nth-of-type(7){--dx:80px;--dy:72px}.preview-field i:nth-of-type(8){--dx:25px;--dy:92px}.preview-field i:nth-of-type(9){--dx:-35px;--dy:72px}.preview-field i:nth-of-type(10){--dx:-92px;--dy:38px}.preview-field i:nth-of-type(11){--dx:-118px;--dy:-8px}.preview-field i:nth-of-type(12){--dx:-72px;--dy:-42px}.preview-field i:nth-of-type(13){--dx:42px;--dy:-34px}.preview-field i:nth-of-type(14){--dx:75px;--dy:12px}.preview-field i:nth-of-type(15){--dx:35px;--dy:48px}.preview-field i:nth-of-type(16){--dx:-15px;--dy:54px}.preview-field i:nth-of-type(17){--dx:-62px;--dy:15px}.preview-field i:nth-of-type(18){--dx:-28px;--dy:-18px}.preview-field i:nth-of-type(19){--dx:12px;--dy:5px}.preview-field i:nth-of-type(20){--dx:52px;--dy:25px}.preview-field i:nth-of-type(21){--dx:-48px;--dy:-90px}.preview-field i:nth-of-type(22){--dx:92px;--dy:-72px}.preview-field i:nth-of-type(23){--dx:-110px;--dy:70px}.preview-field i:nth-of-type(24){--dx:112px;--dy:82px}.preview-field i:nth-of-type(25){--dx:-125px;--dy:-70px}.preview-field i:nth-of-type(26){--dx:128px;--dy:-5px}.preview-field i:nth-of-type(27){--dx:-100px;--dy:100px}.preview-field i:nth-of-type(28){--dx:100px;--dy:105px}.preview-field i:nth-of-type(29){--dx:-5px;--dy:-110px}.preview-field i:nth-of-type(30){--dx:8px;--dy:110px}
+
+.experiment-list{min-width:0;padding:0}
+.experiment{display:grid;grid-template-columns:42px minmax(0,1fr);gap:24px;min-height:175px;padding:34px 0;border-bottom:1px solid #d7d7d7;text-decoration:none;color:#111;transition:color .18s ease}
+.experiment:first-child{border-top:1px solid #d7d7d7}
+.number{font-size:10px;font-weight:600;color:#666;letter-spacing:.08em;padding-top:4px;transition:color .18s ease}
+.info{min-width:0;display:flex;flex-direction:column;justify-content:space-between;min-height:106px;padding:0}
+.lab-title{font-size:clamp(28px,3.2vw,52px);line-height:.92;letter-spacing:-.045em;margin-bottom:14px;overflow-wrap:anywhere;transition:color .18s ease}
+.family{font-size:11px;color:#666;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;transition:color .18s ease}
+.description{font-size:13px;line-height:1.5;color:#666;max-width:360px;transition:color .18s ease}
+.open{font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:20px;transition:color .18s ease}
+.experiment:hover,.experiment:hover .number,.experiment:hover .family,.experiment:hover .description,.experiment:hover .open,.experiment:hover .lab-title{color:#F2C400}
+
 
 .footer{
   margin-top:70px;
@@ -272,16 +290,7 @@ h1{
 }
 
 @media(max-width:900px){
-  .page{padding:22px 20px 40px}
-  .hero{padding:100px 0 80px}
-  .experiment{
-    grid-template-columns:44px 1fr;
-    min-height:0;
-  }
-  .visual{grid-column:1/-1;min-height:280px;order:2}
-  .info{grid-column:2;order:1;min-height:150px}
-  .number{grid-column:1;order:1}
-  .open{margin-top:28px}
+  .page{padding:22px 20px 40px}.hero{padding:100px 0 80px}.experiments{display:block;min-height:0}.experiment-stage{position:relative;top:auto;height:55vw;min-height:300px;max-height:520px;margin-bottom:28px}.preview-gravity{font-size:18vw}.preview-bia{font-size:21vw}.preview-bilgen{font-size:12vw}.preview-field .field-word{font-size:22vw}.preview-bezier svg{width:70%}.experiment{grid-template-columns:44px 1fr;min-height:0;padding:28px 0}.info{min-height:0}.open{margin-top:28px}
 }
 
 @media(max-width:560px){
@@ -292,6 +301,7 @@ h1{
   .experiment{grid-template-columns:36px 1fr;gap:16px;padding:24px 0}
   .visual{min-height:220px}
   .visual-text{font-size:11vw}
+  .preview-gravity{font-size:22vw}.preview-bia{font-size:25vw}.preview-bilgen{font-size:14vw}.preview-field .field-word{font-size:28vw}
   .footer{flex-direction:column;gap:8px}
 }
 </style>
@@ -320,73 +330,43 @@ h1{
   </section>
 
   <section class="experiments">
-    <a class="experiment" href="gravity/">
-      <div class="number">01</div>
-      <div class="visual">
-        <div class="visual-text">KINEKS TEXT</div>
-      </div>
-      <div class="info">
-        <div>
-          <div class="family">Kineks Text</div>
-          <div class="lab-title">GRAVITY</div>
-          <div class="description">
-            A type experiment driven by gravity, weight, and motion.
-          </div>
-        </div>
-        <div class="open">Open Experiment →</div>
-      </div>
-    </a>
+    <div class="experiment-stage" id="previewStage">
+      <div class="stage-kicker">Selected Experiment</div>
+      <div class="stage-number" id="previewNumber">01</div>
 
-    <a class="experiment" href="bia/">
-      <div class="number">02</div>
-      <div class="visual">
-        <div class="visual-text">BIA</div>
+      <div class="preview-gravity" aria-hidden="true">
+        <span>K</span><span>I</span><span>N</span><span>E</span><span>K</span><span>S</span>
       </div>
-      <div class="info">
-        <div>
-          <div class="family">Bia Variable</div>
-          <div class="lab-title">INTERPOLATION</div>
-          <div class="description">
-            Explore continuous transitions across Bia's variable axes.
-          </div>
-        </div>
-        <div class="open">Open Experiment →</div>
+      <div class="preview-bia" aria-hidden="true">Bia</div>
+      <div class="preview-bilgen" aria-hidden="true">INTERLOCK</div>
+      <div class="preview-field" aria-hidden="true">
+        <span class="field-word">KINEKS</span>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
-    </a>
+      <div class="preview-bezier" aria-hidden="true">
+        <svg viewBox="0 0 420 280" preserveAspectRatio="xMidYMid meet">
+          <path class="bezier-curve" d="M55 220 C120 35 280 45 365 185"/>
+          <line x1="55" y1="220" x2="120" y2="70"/>
+          <line x1="365" y1="185" x2="295" y2="75"/>
+          <circle cx="55" cy="220" r="7"/>
+          <circle cx="120" cy="70" r="6"/>
+          <circle cx="295" cy="75" r="6"/>
+          <circle cx="365" cy="185" r="7"/>
+        </svg>
+        <span class="bezier-letter">A</span>
+      </div>
 
-    <a class="experiment" href="bilgen/">
-      <div class="number">03</div>
-      <div class="visual">
-        <div class="visual-text">BILGEN</div>
-      </div>
-      <div class="info">
-        <div>
-          <div class="family">Bilgen Variable</div>
-          <div class="lab-title">INTERLOCK</div>
-          <div class="description">
-            A study of variable weight, slant, rhythm, and connected forms.
-          </div>
-        </div>
-        <div class="open">Open Experiment →</div>
-      </div>
-    </a>
+    </div>
 
-    <a class="experiment" href="field/">
-      <div class="number">04</div>
-      <div class="visual">
-        <div class="visual-text">KINEKS COMPACT</div>
-      </div>
-      <div class="info">
-        <div>
-          <div class="family">Kineks Compact</div>
-          <div class="lab-title">FIELD</div>
-          <div class="description">
-            Turn type into a field of particles. Form, scatter, swarm, and flow through responsive glyphs.
-          </div>
-        </div>
-        <div class="open">Open Experiment →</div>
-      </div>
-    </a>
+    <div class="experiment-list">
+      <a class="experiment" href="gravity/" data-number="01"><div class="number">01</div><div class="info"><div><div class="family">Kineks Text</div><div class="lab-title">GRAVITY</div><div class="description">A type experiment driven by gravity, weight, and motion.</div></div><div class="open">Open Experiment →</div></div></a>
+      <a class="experiment" href="bia/" data-number="02"><div class="number">02</div><div class="info"><div><div class="family">Bia Variable</div><div class="lab-title">INTERPOLATION</div><div class="description">Explore continuous transitions across Bia's variable axes.</div></div><div class="open">Open Experiment →</div></div></a>
+      <a class="experiment" href="bilgen/" data-number="03"><div class="number">03</div><div class="info"><div><div class="family">Bilgen Variable</div><div class="lab-title">INTERLOCK</div><div class="description">A study of variable weight, slant, rhythm, and connected forms.</div></div><div class="open">Open Experiment →</div></div></a>
+      <a class="experiment" href="field/" data-number="04"><div class="number">04</div><div class="info"><div><div class="family">Kineks Compact</div><div class="lab-title">FIELD</div><div class="description">Turn type into a field of particles. Form, scatter, swarm, and flow through responsive glyphs.</div></div><div class="open">Open Experiment →</div></div></a>
+      <a class="experiment" href="bezier/" data-number="05"><div class="number">05</div><div class="info"><div><div class="family">Dareva Bold Micro</div><div class="lab-title">BÉZIER PLAYGROUND</div><div class="description">A study of the curves and control points that build a glyph.</div></div><div class="open">Open Experiment →</div></div></a>
+    </div>
   </section>
 
   <footer class="footer">
@@ -403,6 +383,33 @@ h1{
       <div class="copyline">2021–2026 Bykineks. All rights reserved</div>
     </div>
   </footer>
+  <script>
+    const experiments = document.querySelectorAll(".experiment");
+    const stage = document.getElementById("previewStage");
+    const stageNumber = document.getElementById("previewNumber");
+    const previews = {
+      "01": stage.querySelector(".preview-gravity"),
+      "02": stage.querySelector(".preview-bia"),
+      "03": stage.querySelector(".preview-bilgen"),
+      "04": stage.querySelector(".preview-field"),
+      "05": stage.querySelector(".preview-bezier")
+    };
+    function selectExperiment(number){
+      stageNumber.textContent = number;
+      Object.entries(previews).forEach(([key,el]) => {
+        el.style.opacity = key === number ? "1" : "0";
+      });
+      stage.dataset.active = number;
+    }
+
+    experiments.forEach(item => {
+      item.addEventListener("mouseenter", () => selectExperiment(item.dataset.number));
+      item.addEventListener("focus", () => selectExperiment(item.dataset.number));
+    });
+
+    selectExperiment("01");
+  </script>
+
 </main>
 </body>
 </html>
