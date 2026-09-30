@@ -127,6 +127,44 @@
 
 </main>
 
+<script>
+  document.querySelectorAll('.font-row:not(.disabled)').forEach(function(row){
+    row.addEventListener('pointermove', function(e){
+      const rect = row.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      row.style.setProperty('--mx', x + '%');
+    });
+
+    row.addEventListener('pointerleave', function(){
+      row.style.setProperty('--mx', '50%');
+      row.classList.remove('is-touching');
+    });
+
+    row.addEventListener('pointerdown', function(e){
+      if (e.pointerType === 'touch') {
+        document.querySelectorAll('.font-row.is-touching').forEach(function(active){
+          active.classList.remove('is-touching');
+        });
+        const rect = row.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        row.style.setProperty('--mx', x + '%');
+        row.classList.add('is-touching');
+      }
+    });
+
+    row.addEventListener('pointerup', function(e){
+      if (e.pointerType === 'touch') {
+        row.classList.remove('is-touching');
+        row.style.setProperty('--mx', '50%');
+      }
+    });
+
+    row.addEventListener('pointercancel', function(){
+      row.classList.remove('is-touching');
+      row.style.setProperty('--mx', '50%');
+    });
+  });
+</script>
 
 <footer class="bottom">
 
