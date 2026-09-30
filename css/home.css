@@ -125,6 +125,17 @@
 }
 
 
+
+/* KINEKS TEXT VARIABLE */
+@font-face{
+  font-family:KineksTextVF;
+  src:url("../assets/fonts/Kineks Text-VF.woff2") format("woff2");
+  font-weight:300 700;
+  font-style:normal;
+  font-display:swap
+}
+
+
 /* =========================================================
    KINEKS COMPACT
    ========================================================= */
@@ -260,6 +271,37 @@ header{
   letter-spacing:.01em;
   max-width:900px;
   margin:0 auto
+}
+
+
+
+/* =========================================================
+   HERO VARIABLE WEIGHT INTERACTION
+   ========================================================= */
+
+.hero h1{
+  font-family:KineksTextVF,KineksText,Arial,sans-serif;
+  font-weight:400;
+}
+
+.hero h1 .hero-char{
+  display:inline-block;
+  font-family:KineksTextVF,KineksText,Arial,sans-serif;
+  font-weight:var(--hero-wght,400);
+  font-variation-settings:"wght" var(--hero-wght,400), "slnt" 0;
+  transition:font-weight .08s linear;
+  will-change:font-weight;
+}
+
+.hero h1 .hero-space{
+  display:inline;
+  white-space:pre;
+}
+
+@media(max-width:700px){
+  .hero h1 .hero-char{
+    transition:none;
+  }
 }
 
 
