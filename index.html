@@ -192,10 +192,17 @@
     });
   });
 
-  const chars = heading.querySelectorAll('.hero-char');
+  const chars = Array.from(heading.querySelectorAll('.hero-char'));
   let raf = null;
   let pointerX = window.innerWidth / 2;
+  let pointerY = window.innerHeight / 2;
   let active = false;
+
+  function reset(){
+    chars.forEach(function(char){
+      char.style.setProperty('--hero-wght','700');
+    });
+  }
 
   function update(){
     raf = null;
@@ -203,42 +210,56 @@
 
     chars.forEach(function(char){
       const rect = char.getBoundingClientRect();
-      const center = rect.left + rect.width / 2;
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
-      // Left of the cursor becomes bold; right becomes light.
-      // A soft 120px transition keeps the weight field fluid.
-      const distance = center - pointerX;
-      const transition = 120;
-      let t = (distance + transition) / (transition * 2);
+      const dx = centerX - pointerX;
+      const dy = centerY - pointerY;
+
+      /*
+        The character closest to the cursor stays Bold (700).
+        Weight falls smoothly toward Light (300) as distance
+        from the cursor increases.
+      */
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const radius = 260;
+
+      let t = distance / radius;
       t = Math.max(0, Math.min(1, t));
+
+      // Smooth falloff: 700 at cursor → 300 farther away.
       t = t * t * (3 - 2 * t);
 
       const weight = 700 - (400 * t);
+
       char.style.setProperty('--hero-wght', weight.toFixed(1));
     });
   }
 
-  function move(x){
+  function move(x, y){
     pointerX = x;
+    pointerY = y;
     active = true;
-    if (!raf) raf = requestAnimationFrame(update);
+
+    if (!raf) {
+      raf = requestAnimationFrame(update);
+    }
   }
 
   heading.addEventListener('pointerenter', function(e){
-    active = true;
-    move(e.clientX);
+    move(e.clientX, e.clientY);
   });
 
   heading.addEventListener('pointermove', function(e){
-    move(e.clientX);
+    move(e.clientX, e.clientY);
   });
 
   heading.addEventListener('pointerleave', function(){
     active = false;
-    chars.forEach(function(char){
-      char.style.setProperty('--hero-wght','400');
-    });
+    reset();
   });
+
+  reset();
 })();
 </script>
 
