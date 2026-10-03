@@ -48,7 +48,7 @@
 
 <section class="hero">
 
-  <div class="hero-kicker">BYKINEKS</div>
+  <div class="hero-kicker home-brand-glitch" id="homeBrandGlitch" aria-label="Bykineks">BYKINEKS</div>
 
   <h1 id="hero-type">
     <span class="hero-line-one">Typography, built as</span><br>
@@ -126,6 +126,94 @@
 </section>
 
 </main>
+
+<script>
+(function(){
+  const brand = document.getElementById('homeBrandGlitch');
+  if(!brand) return;
+
+  const normal = 'BYKINEKS';
+  let running = false;
+
+  function render(state){
+    brand.innerHTML = state;
+  }
+
+  function base(){
+    return '<span>BY</span><span>K</span><span>I</span><span>N</span><span>E</span><span>K</span><span>S</span>';
+  }
+
+  function glitchState(type){
+    switch(type){
+      case 'turned-k':
+        return '<span>BY</span><span>Ʞ</span><span>I</span><span>N</span><span>E</span><span>K</span><span>S</span>';
+      case 'diagonal-k':
+        return '<span>BY</span><span class="k-diagonal">K</span><span>I</span><span>N</span><span>E</span><span>K</span><span>S</span>';
+      case 'turned-k-2':
+        return '<span>BY</span><span>K</span><span>I</span><span>N</span><span>E</span><span>Ʞ</span><span>S</span>';
+      case 'n':
+        return '<span>BY</span><span>K</span><span>I</span><span>И</span><span>E</span><span>K</span><span>S</span>';
+      case 'e':
+        return '<span>BY</span><span>K</span><span>I</span><span>N</span><span>Ξ</span><span>K</span><span>S</span>';
+      case 'by':
+        return '<span class="by-alt">BY</span><span>K</span><span>I</span><span>N</span><span>E</span><span>K</span><span>S</span>';
+      case 'kineks':
+        return '<span>BY</span><span class="kineks-alt">KINEKS</span>';
+      default:
+        return base();
+    }
+  }
+
+  function shuffle(list){
+    const a = list.slice();
+    for(let i=a.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [a[i],a[j]]=[a[j],a[i]];
+    }
+    return a;
+  }
+
+  const rules = [
+    'turned-k',
+    'diagonal-k',
+    'turned-k-2',
+    'n',
+    'e',
+    'by',
+    'kineks'
+  ];
+
+  function runGlitch(){
+    if(running) return;
+    running = true;
+
+    const order = shuffle(rules);
+    let i = 0;
+
+    function next(){
+      if(i >= order.length){
+        render(base());
+        running = false;
+        setTimeout(runGlitch, 2000);
+        return;
+      }
+
+      render(glitchState(order[i]));
+      i++;
+
+      setTimeout(function(){
+        render(base());
+        setTimeout(next, 90);
+      }, 150);
+    }
+
+    next();
+  }
+
+  render(base());
+  setTimeout(runGlitch, 250);
+})();
+</script>
 
 <script>
   document.querySelectorAll('.font-row:not(.disabled)').forEach(function(row){
