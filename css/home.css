@@ -418,6 +418,7 @@ header{
 .font-row.kineks-text:hover a,
 .font-row.compact:hover,
 .font-row.compact:hover a,
+.font-row.arshila:hover a,
 .font-row.bia:hover a,
 .font-row.caelia:hover a{
   color:var(--yellow) !important;
@@ -458,10 +459,23 @@ header{
    OTHER FONT SPECIMENS
    ========================================================= */
 
-.font-row.arshila span{
+.font-row.arshila{
+  height:100px;
+}
+
+.font-row.arshila a{
   font-family:Arshila,sans-serif;
   font-weight:900;
-  letter-spacing:-.06em
+  font-size:clamp(48px,5.1vw,72px);
+  line-height:1;
+  letter-spacing:-.065em;
+  color:var(--black);
+  cursor:pointer;
+  transition:color .15s ease;
+}
+
+.font-row.arshila:hover a{
+  color:var(--yellow)
 }
 
 .font-row.avita span{
