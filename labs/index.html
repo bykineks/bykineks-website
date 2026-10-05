@@ -203,6 +203,10 @@ h1{
 
 /* 04 — Field: a restrained particle hint based on the actual Field behavior. */
 .preview-field{overflow:hidden}
+.preview-glyph-field{display:flex;align-items:center;justify-content:center;position:absolute;inset:0;font-family:"Caelia Labs Preview",serif;font-size:28vw;line-height:1;letter-spacing:-.06em;overflow:hidden}
+.preview-glyph-field::before{content:"A";position:absolute;transform:translate(-34px,8px);opacity:.96}
+.preview-glyph-field::after{content:"g";position:absolute;transform:translate(105px,-58px) scale(.42);opacity:.34}
+
 .preview-field .field-word{
   position:relative;z-index:1;font-family:"Kineks Compact",Arial,sans-serif;
   font-size:clamp(90px,12vw,170px);font-weight:700;letter-spacing:-.065em;
@@ -346,6 +350,7 @@ h1{
         <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
         <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
+      <div class="preview-glyph-field" aria-hidden="true"><span></span></div>
       <div class="preview-bezier" aria-hidden="true">
         <svg viewBox="0 0 420 280" preserveAspectRatio="xMidYMid meet">
           <path class="bezier-curve" d="M55 220 C120 35 280 45 365 185"/>
@@ -367,6 +372,7 @@ h1{
       <a class="experiment" href="bilgen/" data-number="03"><div class="number">03</div><div class="info"><div><div class="family">Bilgen Variable</div><div class="lab-title">INTERLOCK</div><div class="description">A study of variable weight, slant, rhythm, and connected forms.</div></div><div class="open">Open Experiment →</div></div></a>
       <a class="experiment" href="field/" data-number="04"><div class="number">04</div><div class="info"><div><div class="family">Kineks Compact</div><div class="lab-title">FIELD</div><div class="description">Turn type into a field of particles. Form, scatter, swarm, and flow through responsive glyphs.</div></div><div class="open">Open Experiment →</div></div></a>
       <a class="experiment" href="bezier/" data-number="05"><div class="number">05</div><div class="info"><div><div class="family">Dareva Bold Micro</div><div class="lab-title">BÉZIER PLAYGROUND</div><div class="description">A study of the curves and control points that build a glyph.</div></div><div class="open">Open Experiment →</div></div></a>
+      <a class="experiment" href="glyph-field/" data-number="06"><div class="number">06</div><div class="info"><div><div class="family">Caelia Bold</div><div class="lab-title">GLYPH FIELD</div><div class="description">Explore 1,604 glyphs as a navigable 3D universe. Search, focus, orbit, and travel through Caelia.</div></div><div class="open">Open Experiment →</div></div></a>
     </div>
   </section>
 
@@ -393,7 +399,8 @@ h1{
       "02": stage.querySelector(".preview-bia"),
       "03": stage.querySelector(".preview-bilgen"),
       "04": stage.querySelector(".preview-field"),
-      "05": stage.querySelector(".preview-bezier")
+      "05": stage.querySelector(".preview-bezier"),
+      "06": stage.querySelector(".preview-glyph-field")
     };
     function selectExperiment(number){
       stageNumber.textContent = number;
