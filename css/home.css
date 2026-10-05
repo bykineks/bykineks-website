@@ -40,9 +40,9 @@
 }
 
 @font-face{
-  font-family:Bia;
-  src:url("../assets/fonts/Bia-SerifHighBold.woff2") format("woff2");
-  font-weight:700;
+  font-family:BiaVariable;
+  src:url("../assets/fonts/Bia-VF.woff2") format("woff2");
+  font-weight:300 700;
   font-style:normal;
   font-display:swap
 }
@@ -518,9 +518,23 @@ header{
   font-weight:900
 }
 
-.font-row.alvera span{
+.font-row.alvera{
+  height:100px;
+}
+
+.font-row.alvera a{
   font-family:Alvera,sans-serif;
-  font-weight:700
+  font-weight:700;
+  font-size:clamp(48px,5.1vw,72px);
+  line-height:1;
+  letter-spacing:-.065em;
+  color:var(--black);
+  cursor:pointer;
+  transition:color .15s ease;
+}
+
+.font-row.alvera:hover a{
+  color:var(--yellow)
 }
 
 
@@ -533,8 +547,9 @@ header{
 }
 
 .font-row.bia a{
-  font-family:Bia,serif;
+  font-family:BiaVariable,Arial,sans-serif;
   font-weight:700;
+  font-variation-settings:"SERF" 0,"CNTR" 100,"wght" 700,"wdth" 100,"ital" 0;
   font-size:clamp(48px,5.1vw,72px);
   line-height:1;
   letter-spacing:-.065em;
