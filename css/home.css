@@ -1,3 +1,4 @@
+@font-face{font-family:KineksSymbol;src:url("../assets/fonts/Kineks-Symbol.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 /* =========================================================
    BYKINEKS HOME
    ========================================================= */
@@ -301,6 +302,7 @@ header{
 }
 
 .hero p{
+  font-family:KineksCompact,sans-serif;
   font-size:16px;
   line-height:1.28;
   letter-spacing:.01em;
@@ -349,6 +351,7 @@ header{
 }
 
 .featured-title{
+  font-family:KineksCompact,sans-serif;
   text-align:center;
   font-size:12px;
   font-weight:700;
@@ -499,14 +502,52 @@ header{
 }
 
 .font-row.arshila a{
-  font-family:Arshila,sans-serif;
-  font-weight:900;
-  font-size:clamp(48px,5.1vw,72px);
-  line-height:1;
-  letter-spacing:-.065em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:clamp(320px,32vw,420px);
+  height:78px;
   color:var(--black);
   cursor:pointer;
   transition:color .15s ease;
+}
+
+.font-row.arshila .arshila-glyphmark{
+  display:block;
+  width:115%;
+  height:100%;
+  overflow:visible;
+  transform:translateY(12px);
+}
+
+.font-row.arshila a span{
+  font-family:inherit;
+  font-weight:inherit;
+}
+
+.font-row.arshila .glyph-swsh{
+  font-feature-settings:"swsh" 1;
+}
+
+.font-row.arshila .glyph-salt{
+  font-feature-settings:"salt" 1;
+}
+
+.font-row.arshila .glyph-ss06{
+  font-feature-settings:"ss06" 1;
+}
+
+.font-row.arshila .glyph-dlig{
+  font-feature-settings:"dlig" 1;
+  font-variant-ligatures:discretionary-ligatures;
+}
+
+.font-row.arshila .glyph-titl{
+  font-feature-settings:"titl" 1;
+}
+
+.font-row.arshila .glyph-fina{
+  font-feature-settings:"fina" 1;
 }
 
 .font-row.arshila:hover a{
@@ -549,7 +590,7 @@ header{
 .font-row.bia a{
   font-family:BiaVariable,Arial,sans-serif;
   font-weight:700;
-  font-variation-settings:"SERF" 0,"CNTR" 100,"wght" 700,"wdth" 100,"ital" 0;
+  font-variation-settings:"SERF" 1,"CNTR" 100,"wght" 700,"wdth" 100,"ital" 0;
   font-size:clamp(48px,5.1vw,72px);
   line-height:1;
   letter-spacing:-.065em;
@@ -811,3 +852,5 @@ header{
   }
 
 }
+
+.font-row.symbol{font-family:KineksSymbol,sans-serif;font-weight:400}
