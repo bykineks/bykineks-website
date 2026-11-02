@@ -460,6 +460,8 @@ header{
    ACTIVE FONT HOVER
    ========================================================= */
 
+.font-row.neela:hover > a,
+.font-row.wakaba:hover > a,
 .font-row.gin:hover > a,
 .font-row.dareva:hover > a,
 .font-row.bilgen:hover > a,
@@ -904,15 +906,15 @@ header{
 }
 .font-row.symbol > a:focus-visible { color: var(--yellow); }
 
-.font-row:is(.avita, .bilgen, .dareva, .gin) > a {
+.font-row:is(.avita, .bilgen, .dareva, .gin, .neela, .wakaba) > a {
   display: grid;
   place-items: center;
   width: 100%;
   height: 100%;
 }
-.font-row:is(.avita, .bilgen, .dareva, .gin):not(.disabled) > a { transform: none; }
-.font-row:is(.avita, .bilgen, .dareva, .gin) span { transition: transform .55s cubic-bezier(.22,1,.36,1); }
+.font-row:is(.avita, .bilgen, .dareva, .gin, .neela, .wakaba):not(.disabled) > a { transform: none; }
+.font-row:is(.avita, .bilgen, .dareva, .gin, .neela, .wakaba) span { transition: transform .55s cubic-bezier(.22,1,.36,1); }
 @media (hover: hover) {
-  .font-row:is(.avita, .bilgen, .dareva, .gin):hover span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
+  .font-row:is(.avita, .bilgen, .dareva, .gin, .neela, .wakaba):hover span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
 }
-.font-row:is(.avita, .bilgen, .dareva, .gin).is-touching span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
+.font-row:is(.avita, .bilgen, .dareva, .gin, .neela, .wakaba).is-touching span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
