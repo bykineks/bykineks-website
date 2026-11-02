@@ -37,6 +37,7 @@ const errors = [];
 const warnings = [];
 const products = [];
 const articles = [];
+const labExperiments = [];
 const titleOwners = new Map();
 const descriptionOwners = new Map();
 
@@ -80,13 +81,20 @@ for (const file of htmlFiles) {
   const isRootHtml = !file.includes('/');
   const isProduct = isRootHtml && !nonProductRootPages.has(file);
   const isArticle = /<meta\s+property=["']og:type["']\s+content=["']article["']/i.test(source) || /<article\b/i.test(source);
+  const isLabExperiment = file.startsWith('labs/') && file !== 'labs/index.html';
   const canonical = canonicalFor(file);
+
+  if (isLabExperiment) labExperiments.push(file);
 
   const title = capture(/<title>([^<]+)<\/title>/i, source);
   const description = capture(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i, source);
 
-  if (!title) errors.push(`${file}: missing <title>`);
-  if (!description) errors.push(`${file}: missing meta description`);
+  if (!title) {
+    (isLabExperiment ? warnings : errors).push(`${file}: missing <title>`);
+  }
+  if (!description) {
+    (isLabExperiment ? warnings : errors).push(`${file}: missing meta description`);
+  }
 
   addOwner(titleOwners, title, file);
   addOwner(descriptionOwners, description, file);
@@ -184,7 +192,7 @@ if (!sitemap.includes('<loc>https://bykineks.com/</loc>')) {
   errors.push('sitemap.xml: homepage missing');
 }
 
-console.log(`SEO/GEO audit: ${htmlFiles.length} public HTML pages, ${products.length} product pages, ${articles.length} articles.`);
+console.log(`SEO/GEO audit: ${htmlFiles.length} public HTML pages, ${products.length} product pages, ${articles.length} articles, ${labExperiments.length} lab experiments.`);
 
 if (warnings.length) {
   console.log('\nWarnings:');
