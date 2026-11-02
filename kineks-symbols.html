@@ -49,7 +49,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="css/kineks-compact.css">
+<link rel="stylesheet" href="css/kineks.css">
 
 <style>
 @font-face {
@@ -57,15 +57,11 @@
   src: url("assets/fonts/KineksSymbol.woff2") format("woff2");
   font-display: swap;
 }
-.symbol { font-family: KineksSymbol, sans-serif; font-weight: 400; }
-.glyph-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.glyph { height: clamp(76px, 12vw, 154px); font-size: clamp(44px, 7vw, 92px); }
-.pairing { font-size: clamp(22px, 3vw, 40px); line-height: 1.35; }
-.pairing .symbol { margin-inline-end: .45em; }
-.symbol-poster { margin: clamp(30px, 4vw, 52px) 0 0; }
-.symbol-poster img { display: block; width: 100%; height: auto; }
-.symbol-poster figcaption { margin-top: 8px; }
-.glyph-grid + .glyph-title { margin-top: 28px; }
+.product-title, .type-preview, .glyph, .glyph-preview-char, .symbol {
+  font-family: KineksSymbol, KineksCompactUI, sans-serif;
+  font-weight: 400;
+  font-synthesis: none;
+}
 </style>
 </head>
 
@@ -115,56 +111,78 @@ Contact
 <main class="product">
   <h1 class="product-title">Kineks Symbol</h1>
 
-  <section class="top-grid" aria-label="About Kineks Symbol">
-    <div>
-      <div class="kicker">About</div>
-      <div class="copy">
+<section class="top-grid about-layout">
+  <div><div class="kicker">About</div>
+    <div class="copy">
         <p>Kineks Symbol is a symbol system designed to work alongside the Kineks family. Its signs give directions on maps, identify facilities in public spaces and mark actions on screen. Arrows and pictograms share proportions so they can sit together on one sign or beside a short label.</p>
-        <p>Designed by Dede Kurniawan and published by Bykineks in 2026. <a href="https://www.myfonts.com/collections/kineks-symbol-font-bykineks">View the family on MyFonts ↗</a></p>
+        <p>Designed by Dede Kurniawan and published by Bykineks in 2026.</p>
       </div>
-      <div class="font-info">
-        <div class="font-info-item"><div class="font-info-label">Family</div><div class="font-info-value"><a href="kineks.html">Kineks</a></div></div>
-        <div class="font-info-item"><div class="font-info-label">Styles</div><div class="font-info-value">1</div></div>
-        <div class="font-info-item"><div class="font-info-label">Format</div><div class="font-info-value">WOFF2</div></div>
-        <div class="font-info-item"><div class="font-info-label">Class</div><div class="font-info-value">Symbols</div></div>
+  </div>
+  <div class="about-meta">
+    <div class="about-meta-item"><div class="font-info-label">Published</div><div class="font-info-value">2026</div></div>
+    <div class="about-meta-item"><div class="font-info-label">Designed By</div><div class="font-info-value">Dede Kurniawan</div></div>
+    <div class="about-meta-item"><div class="font-info-label">Fonts</div><div class="font-info-value">1</div></div>
+    <div class="about-meta-item"><div class="font-info-label">Style</div><div class="font-info-value">Bold</div></div>
+    <div class="about-meta-item"><div class="font-info-label">Family</div><div class="font-info-value">Kineks</div></div>
+    <div class="about-meta-item"><div class="font-info-label">Classification</div><div class="font-info-value">Symbols</div></div>
+  </div>
+</section>
+
+<section class="type-system" aria-label="Kineks Symbol type tester">
+  <div class="type-system-head"><div class="type-system-title">Type system</div><div class="type-system-count">1 Style</div></div>
+  <div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable symbol specimen" spellcheck="false">← ↑ → ↓ ↗ ● ◆</div>
+  <div class="specimen-note">Kineks Symbol · Bold</div>
+<div class="specimen-controls">
+  <div class="specimen-control"><div class="control-heading"><label for="sizeRange">Size</label><input aria-label="Size in pixels" id="sizeInput" type="number" min="12" max="240" step="1" value="60"><span>px</span></div><input id="sizeRange" type="range" min="12" max="240" step="1" value="60"></div>
+  <div class="specimen-control"><div class="control-heading"><label for="leadingRange">Leading</label><input aria-label="Line height" id="leadingInput" type="number" min="0.60" max="2" step="0.01" value="1.15"></div><input id="leadingRange" type="range" min="0.60" max="2" step="0.01" value="1.15"></div>
+  <div class="specimen-control"><div class="control-heading"><label for="trackingRange">Tracking</label><input aria-label="Tracking in em" id="trackingInput" type="number" min="-0.08" max="0.05" step="0.005" value="0"><span>em</span></div><input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="0"></div>
+  <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
+</div>
+  <div class="specimen-note">Click the specimen to edit. Adjust size, leading and tracking.</div>
+</section>
+
+<section class="glyph-section" id="glyphs">
+  <div class="glyph-overview-head"><div class="glyph-overview-title">Character Set</div><div class="system-count">16 selected glyphs</div></div>
+  <div class="glyph-study">
+    <div class="glyph-preview" aria-live="polite">
+      <div class="glyph-preview-char" id="glyphPreview">←</div>
+      <div class="glyph-preview-meta"><span id="glyphCode">U+2190</span><span id="glyphCategory">Directions</span></div>
+    </div>
+    <div class="glyph-groups">
+      <div class="glyph-group is-open"><button type="button" class="glyph-title" aria-expanded="true"><span>Directions</span><small>8</small></button>
+        <div class="glyph-grid">
+          <button type="button" class="glyph" aria-label="← U+2190">←</button>
+          <button type="button" class="glyph" aria-label="↑ U+2191">↑</button>
+          <button type="button" class="glyph" aria-label="→ U+2192">→</button>
+          <button type="button" class="glyph" aria-label="↓ U+2193">↓</button>
+          <button type="button" class="glyph" aria-label="↖ U+2196">↖</button>
+          <button type="button" class="glyph" aria-label="↗ U+2197">↗</button>
+          <button type="button" class="glyph" aria-label="↘ U+2198">↘</button>
+          <button type="button" class="glyph" aria-label="↙ U+2199">↙</button>
+        </div>
+      </div>
+      <div class="glyph-group is-open"><button type="button" class="glyph-title" aria-expanded="true"><span>Geometric forms</span><small>8</small></button>
+        <div class="glyph-grid">
+          <button type="button" class="glyph" aria-label="■ U+25A0">■</button>
+          <button type="button" class="glyph" aria-label="□ U+25A1">□</button>
+          <button type="button" class="glyph" aria-label="● U+25CF">●</button>
+          <button type="button" class="glyph" aria-label="○ U+25CB">○</button>
+          <button type="button" class="glyph" aria-label="▲ U+25B2">▲</button>
+          <button type="button" class="glyph" aria-label="△ U+25B3">△</button>
+          <button type="button" class="glyph" aria-label="◆ U+25C6">◆</button>
+          <button type="button" class="glyph" aria-label="◇ U+25C7">◇</button>
+        </div>
       </div>
     </div>
-    <div>
-      <div class="kicker">In use · Gallery directory</div>
-      <div class="pairing"><span class="symbol" role="img" aria-label="Left">←</span>Collection</div>
-      <div class="pairing"><span class="symbol" role="img" aria-label="Up">↑</span>Reading room</div>
-      <div class="pairing"><span class="symbol" role="img" aria-label="Right">→</span>Gallery 02</div>
-      <p class="styles">Labels set in <a href="kineks-compact.html">Kineks Compact</a></p>
-    </div>
-  </section>
-  <figure class="symbol-poster">
-    <img src="assets/images/kineks-symbol-gallery.webp" width="1800" height="1200" alt="White Kineks Symbol arrows arranged around circles and squares on blue, above rows of dice, clocks and geometric marks.">
-    <figcaption class="kicker">Kineks Symbol · Arrows and geometric studies</figcaption>
-  </figure>
-  <section class="glyph-section" aria-label="Selected glyphs">
-    <h2 class="glyph-title">DIRECTIONS</h2>
-    <div class="glyph-grid">
-      <span class="glyph symbol">←</span>
-      <span class="glyph symbol">↑</span>
-      <span class="glyph symbol">→</span>
-      <span class="glyph symbol">↓</span>
-      <span class="glyph symbol">↖</span>
-      <span class="glyph symbol">↗</span>
-      <span class="glyph symbol">↘</span>
-      <span class="glyph symbol">↙</span>
-    </div>
-    <h2 class="glyph-title">GEOMETRIC FORMS</h2>
-    <div class="glyph-grid">
-      <span class="glyph symbol">■</span>
-      <span class="glyph symbol">□</span>
-      <span class="glyph symbol">●</span>
-      <span class="glyph symbol">○</span>
-      <span class="glyph symbol">▲</span>
-      <span class="glyph symbol">△</span>
-      <span class="glyph symbol">◆</span>
-      <span class="glyph symbol">◇</span>
-    </div>
-  </section>
+  </div>
+</section>
+
+<section class="language-section" aria-label="Wayfinding example">
+  <div class="language-head"><div class="language-title">IN USE</div><div class="language-count">Kineks Symbol + Kineks Compact</div></div>
+  <div class="language-list"><span class="symbol" aria-label="Left">←</span> Collection<br><span class="symbol" aria-label="Up">↑</span> Reading room<br><span class="symbol" aria-label="Right">→</span> Gallery 02</div>
+</section>
+<section class="image-preview-section"><img src="assets/images/kineks-symbol-gallery.webp" width="1800" height="1200" alt="White Kineks Symbol arrows arranged around circles and squares on blue, above rows of dice, clocks and geometric marks."></section>
+<section class="availability"><h2>Availability</h2><div class="links"><a href="https://www.myfonts.com/collections/kineks-symbol-font-bykineks">Buy licences ↗</a></div></section>
 </main>
 
 <!-- FOOTER -->
@@ -240,5 +258,49 @@ BYKINEKS
 
 
 </div>
+<script>
+const specimen = document.getElementById('typePreview');
+const sample = specimen.textContent;
+const controls = [
+  ['size', 'fontSize', 'px'],
+  ['leading', 'lineHeight', ''],
+  ['tracking', 'letterSpacing', 'em']
+];
+function resetSpecimen() {
+  specimen.textContent = sample;
+  for (const [name] of controls) {
+    const range = document.getElementById(name + 'Range');
+    range.value = name === 'size' && matchMedia('(max-width:800px)').matches ? 40 : range.defaultValue;
+    range.dispatchEvent(new Event('input'));
+  }
+}
+for (const [name, property, unit] of controls) {
+  const range = document.getElementById(name + 'Range');
+  const field = document.getElementById(name + 'Input');
+  range.addEventListener('input', () => {
+    field.value = range.value;
+    specimen.style[property] = range.value + unit;
+  });
+  field.addEventListener('change', () => {
+    if (field.value !== '') range.value = field.value;
+    range.dispatchEvent(new Event('input'));
+  });
+}
+resetSpecimen();
+document.getElementById('resetSpecimen').addEventListener('click', resetSpecimen);
+for (const group of document.querySelectorAll('.glyph-group')) {
+  const heading = group.querySelector('.glyph-title');
+  heading.addEventListener('click', () => {
+    heading.setAttribute('aria-expanded', group.classList.toggle('is-open'));
+  });
+  for (const button of group.querySelectorAll('.glyph')) {
+    button.addEventListener('click', () => {
+      document.getElementById('glyphPreview').textContent = button.textContent;
+      document.getElementById('glyphCode').textContent = button.getAttribute('aria-label').split(' ')[1];
+      document.getElementById('glyphCategory').textContent = heading.querySelector('span').textContent;
+    });
+  }
+}
+</script>
 </body>
 </html>
