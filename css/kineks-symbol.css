@@ -22,8 +22,7 @@
 }
 
 .product-title { font-family: KineksCompactUI, sans-serif; font-weight: 400; }
-.empty-glyph { font: 12px Arial, sans-serif; }
-.glyph svg, .glyph-preview-char svg { width: .75em; height: .8em; fill: currentColor; }
+.glyph svg, .glyph-preview-char svg { display: block; width: 1.2em; height: 1.2em; fill: currentColor; }
 .symbol-grid { grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); }
 .glyph-preview-meta span:first-child { white-space: normal; }
 @media (max-width: 800px) {
