@@ -20,6 +20,34 @@
 <meta name="twitter:description" content="Articles, case studies, and notes from Bykineks on type design, typography, branding, and the process behind our typefaces.">
 <link rel="stylesheet" href="../css/blog.css">
 <title>Blog — Bykineks</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "https://bykineks.com/blog/#blog",
+      "url": "https://bykineks.com/blog/",
+      "name": "Bykineks Blog",
+      "description": "Articles, case studies, and notes from Bykineks on type design, typography, branding, and the process behind our typefaces.",
+      "publisher": {"@id": "https://bykineks.com/#organization"},
+      "blogPost": [
+        {"@id": "https://bykineks.com/blog/what-is-a-type-system/#article"},
+        {"@id": "https://bykineks.com/blog/designing-dareva/#article"},
+        {"@id": "https://bykineks.com/blog/wakaba/#article"}
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://bykineks.com/blog/#webpage",
+      "url": "https://bykineks.com/blog/",
+      "name": "Blog — Bykineks",
+      "isPartOf": {"@id": "https://bykineks.com/#website"},
+      "mainEntity": {"@id": "https://bykineks.com/blog/#blog"}
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -44,6 +72,22 @@
   <h1 class="blog-heading">Latest</h1>
 
   <div class="article-list">
+
+    <a class="article-link" href="what-is-a-type-system/index.html">
+      <div class="article-thumb placeholder" aria-label="Type systems article thumbnail">
+        Systems
+      </div>
+
+      <div class="article-info">
+        <h2 class="article-title">
+          What Is a Type System? Why Modern Typeface Families Need More Than Styles
+        </h2>
+
+        <div class="article-meta">
+          Published Nov 3, 2026 · 6 min read
+        </div>
+      </div>
+    </a>
 
     <a class="article-link" href="designing-dareva/index.html">
       <div class="article-thumb placeholder" aria-label="Dareva article thumbnail">
