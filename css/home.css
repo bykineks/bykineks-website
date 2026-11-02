@@ -863,7 +863,13 @@ header{
 
 }
 
-.font-row.symbol { font-family: KineksCompact, sans-serif; font-weight: 400; }
+@font-face {
+  font-family: KineksBoldSlab;
+  src: url("../assets/fonts/Kineks-BoldSlab.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+.font-row.symbol { font-family: KineksBoldSlab, serif; font-weight: 700; }
 .font-row.symbol > a {
   display: flex;
   width: 100%;
@@ -871,7 +877,20 @@ header{
   align-items: center;
   justify-content: center;
 }
-.font-row.symbol:hover > a { transform: none; }
+.font-row.symbol:not(.disabled) > a { transform: none; }
+.font-row.symbol .symbol-label {
+  display: inline-flex;
+  align-items: center;
+  transition: transform .55s cubic-bezier(.22,1,.36,1);
+}
+@media (hover: hover) {
+  .font-row.symbol:hover .symbol-label {
+    transform: translateX(calc((var(--mx) - 50%) * .08));
+  }
+}
+.font-row.symbol.is-touching .symbol-label {
+  transform: translateX(calc((var(--mx) - 50%) * .08));
+}
 .font-row.symbol > a:focus-visible { outline: 2px solid currentColor; outline-offset: -3px; }
 
 .font-row.symbol .symbol-mark {
