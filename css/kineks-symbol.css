@@ -20,3 +20,13 @@
 @media (max-width: 800px) {
   .symbol-grid .glyph { height: 48px; font-size: 24px; }
 }
+
+.product-title { font-family: KineksCompactUI, sans-serif; font-weight: 400; }
+.empty-glyph { font: 12px Arial, sans-serif; }
+.glyph svg, .glyph-preview-char svg { width: .75em; height: .8em; fill: currentColor; }
+.symbol-grid { grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); }
+.glyph-preview-meta span:first-child { white-space: normal; }
+@media (max-width: 800px) {
+  .glyph-preview { position: sticky; top: 0; z-index: 2; height: 130px; max-width: none; }
+  .glyph-preview-char { font-size: 64px; padding: 0; }
+}

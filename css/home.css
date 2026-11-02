@@ -863,4 +863,13 @@ header{
 
 }
 
-.font-row.symbol{font-family:KineksSymbol,sans-serif;font-weight:400}
+.font-row.symbol { font-family: KineksCompact, sans-serif; font-weight: 400; }
+.font-row.symbol > a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.font-row.symbol:hover > a { transform: none; }
+.font-row.symbol > a:focus-visible { outline: 2px solid currentColor; outline-offset: -3px; }
