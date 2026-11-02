@@ -52,7 +52,7 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 - Bia
 - Kineks Text
 - Kineks Compact
-- Kineks Symbol
+- Kineks Symbols
 - Bia Labs interpolation experiment
 
 The article explains the terminology without presenting “type system” as a rigid standards-defined taxonomy. It uses Kineks and Bia as factual examples and links specialized Kineks members as examples of role-based system design.
@@ -102,7 +102,7 @@ This creates a useful distinction: Kineks Text as a dedicated text member of a w
 - typography and symbols in design systems
 
 **Primary product**
-- Kineks Symbol
+- Kineks Symbols
 
 **Recommended article direction**
 `When Symbols Become Type: Building Arrows and Pictograms into a Typographic System`
@@ -140,15 +140,15 @@ Focus on design consistency, script-specific conventions, spacing, language supp
 
 ## Internal-link relationships to build gradually
 
-- Type-system article → Kineks, Bia, Kineks Text, Kineks Compact, Kineks Symbol, and Bia Labs.
+- Type-system article → Kineks, Bia, Kineks Text, Kineks Compact, Kineks Symbols, and Bia Labs.
 - Dense-interface article → Kineks Compact, Kineks, and the type-system article.
 - Kineks Compact → dense-interface article when a safe full-file edit path is available.
 - Dareva product ↔ Designing Dareva article.
 - Wakaba product ↔ Saff & Co. packaging case study.
-- Kineks ↔ Kineks Text ↔ Kineks Compact ↔ Kineks Symbol.
+- Kineks ↔ Kineks Text ↔ Kineks Compact ↔ Kineks Symbols.
 - Bia product ↔ Bia Labs experiment.
 - Bilgen product ↔ Bilgen Labs experiment.
-- Kineks Symbol ↔ future symbol-system article.
+- Kineks Symbols ↔ future symbol-system article.
 - Avita / Caelia ↔ future multilingual typography article.
 - Arshila ↔ future OpenType article.
 
@@ -157,7 +157,7 @@ Links should be placed where the relationship is contextually useful. Avoid addi
 ## Content priority order
 
 1. **Text typeface vs optical-size system** — connects Kineks Text and Dareva and builds on an existing strong article.
-2. **Symbols as a typographic system** — gives Kineks Symbol a useful non-branded query surface.
+2. **Symbols as a typographic system** — gives Kineks Symbols a useful non-branded query surface.
 3. **Multilingual vs multi-script typography** — supports Bykineks's broader expertise and multiple products.
 4. Then product-specific design stories for Caelia, Arshila, Bilgen, Alvera, Neela, and GIN.
 

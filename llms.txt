@@ -20,7 +20,7 @@ Location: Indonesia
 - Kineks: https://bykineks.com/kineks.html
 - Kineks Text: https://bykineks.com/kineks-text.html
 - Kineks Compact: https://bykineks.com/kineks-compact.html
-- Kineks Symbol: https://bykineks.com/kineks-symbol.html
+- Kineks Symbols: https://bykineks.com/kineks-symbol.html
 - Bia: https://bykineks.com/bia.html
 - Caelia: https://bykineks.com/caelia.html
 - Dareva: https://bykineks.com/dareva.html
