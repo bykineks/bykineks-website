@@ -1,0 +1,16 @@
+@font-face { font-family: GinSpecimen; src: url("../assets/fonts/GIN.woff2?v=15") format("woff2"); font-weight: 400; font-display: swap; }
+.product-title, .type-preview { font-family: GinSpecimen, sans-serif; font-weight: 400; }
+.type-preview { font-feature-settings: "liga" 1; }
+.type-preview[data-ligatures="off"] { font-feature-settings: "liga" 0; }
+.family-controls { grid-template-columns: minmax(0, 24em); }
+.glyph-source { position: absolute; width: 0; height: 0; overflow: hidden; }
+.glyph-overview-title { margin: 0; }
+.glyph-group summary { padding: 12px 0; cursor: pointer; font-size: 13px; }
+.glyph-group small { float: right; }
+.glyph-group[open] .glyph-grid { display: grid; }
+.glyph svg { width: 80%; height: 80%; fill: currentColor; }
+.glyph-preview-char svg { width: 85%; height: 100%; min-height: 0; }
+.glyph-preview-meta span:first-child { max-width: 74%; white-space: normal; }
+@media (max-width: 800px) {
+  .glyph-preview { position: sticky; top: 0; z-index: 1; height: 145px; max-width: none; }
+}
