@@ -70,12 +70,13 @@ for (const file of htmlFiles) {
   addOwner(titleOwners, title, file);
   addOwner(descriptionOwners, description, file);
 
-  if (title && (title.length < 20 || title.length > 70)) {
-    warnings.push(`${file}: title length is ${title.length} characters`);
+  // Length is a diagnostic hint, not a ranking rule. Keep only extreme cases.
+  if (title && (title.length < 10 || title.length > 80)) {
+    warnings.push(`${file}: unusually sized title (${title.length} characters)`);
   }
 
-  if (description && (description.length < 70 || description.length > 180)) {
-    warnings.push(`${file}: meta description length is ${description.length} characters`);
+  if (description && (description.length < 40 || description.length > 220)) {
+    warnings.push(`${file}: unusually sized meta description (${description.length} characters)`);
   }
 
   if (!has(/<h1\b/i, source)) warnings.push(`${file}: no visible <h1>`);
