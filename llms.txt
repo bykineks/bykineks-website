@@ -33,6 +33,7 @@ Location: Indonesia
 ## Articles and research
 
 - Blog: https://bykineks.com/blog/
+- What Is a Type System? Why Modern Typeface Families Need More Than Styles: https://bykineks.com/blog/what-is-a-type-system/
 - Designing Dareva — Why One Typeface Wasn’t Enough: https://bykineks.com/blog/designing-dareva/
 - Wakaba article: https://bykineks.com/blog/wakaba/
 - Bykineks Labs: https://bykineks.com/labs/
