@@ -18,7 +18,8 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 | typefaces designed as systems | `/blog/what-is-a-type-system/` | `/`, `/about.html`, `/kineks.html`, `/bia.html` | Strong positioning + explanatory article |
 | type family vs superfamily vs type system | `/blog/what-is-a-type-system/` | `/kineks.html`, `/bia.html` | Strong query-oriented coverage |
 | large typeface superfamily for branding and editorial | `/kineks.html` | `/bia.html`, `/blog/what-is-a-type-system/` | Strong product coverage |
-| typeface for dense UI or limited space | `/kineks-compact.html` | future interface typography article | Strong product page, content gap |
+| typeface for dense UI or limited space | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact.html` | Strong query-oriented + product coverage |
+| typography for dashboards / compact interfaces | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact.html` | Strong query-oriented coverage |
 | typeface for long-form digital reading | `/kineks-text.html` and `/dareva.html` | `/blog/designing-dareva/` | Good, can be strengthened |
 | typeface with optical sizes | `/dareva.html` | `/blog/designing-dareva/` | Strong |
 | why optical size matters in digital typography | `/blog/designing-dareva/` | `/dareva.html` | Strong |
@@ -56,25 +57,27 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 
 The article explains the terminology without presenting “type system” as a rigid standards-defined taxonomy. It uses Kineks and Bia as factual examples and links specialized Kineks members as examples of role-based system design.
 
-## High-priority content opportunities
+### Dense-interface typography
 
-### 1. Interface typography: density without losing clarity
+**Published**: `/blog/designing-type-for-dense-interfaces/`
 
 **Primary query family**
-- best typeface for dense UI
+- typeface for dense UI
 - typography for dashboards
 - font for compact interfaces
 - typography for automotive or wearable displays
+- how to make interface typography fit limited space
 
-**Primary product**
+**Connected products and sources**
 - Kineks Compact
+- Kineks
+- Type-system article
 
-**Recommended article direction**
-`Designing Type for Dense Interfaces: What Changes When Space Gets Tight`
+The article treats density as an information and hierarchy problem rather than a simple request for narrower text. It covers proportion, x-height, spacing, numerals, hierarchy, production-size testing, and useful compression before presenting Kineks Compact as one practical example.
 
-The article should explain spacing, proportions, x-height, hierarchy, information density, labels, navigation, dashboards, notifications, wearables, and automotive displays. Kineks Compact can appear as the practical Bykineks example rather than the article being written as an advertisement.
+## High-priority content opportunities
 
-### 2. Reading systems: Kineks Text vs Dareva
+### 1. Reading systems: Kineks Text vs Dareva
 
 **Primary query family**
 - font for long-form screen reading
@@ -91,7 +94,7 @@ The article should explain spacing, proportions, x-height, hierarchy, informatio
 
 This creates a useful distinction: Kineks Text as a dedicated text member of a wider system, Dareva as an optical-size reading system.
 
-### 3. Symbol systems in product design
+### 2. Symbol systems in product design
 
 **Primary query family**
 - symbol font vs icon library
@@ -106,7 +109,7 @@ This creates a useful distinction: Kineks Text as a dedicated text member of a w
 
 Explain alignment, text flow, sizing, consistency, navigation, repeating forms, and why symbols living in a font can be useful inside a broader design system.
 
-### 4. Multilingual type systems
+### 3. Multilingual type systems
 
 **Primary query family**
 - multilingual typeface family
@@ -138,12 +141,13 @@ Focus on design consistency, script-specific conventions, spacing, language supp
 ## Internal-link relationships to build gradually
 
 - Type-system article → Kineks, Bia, Kineks Text, Kineks Compact, Kineks Symbol, and Bia Labs.
+- Dense-interface article → Kineks Compact, Kineks, and the type-system article.
+- Kineks Compact → dense-interface article when a safe full-file edit path is available.
 - Dareva product ↔ Designing Dareva article.
 - Wakaba product ↔ Saff & Co. packaging case study.
 - Kineks ↔ Kineks Text ↔ Kineks Compact ↔ Kineks Symbol.
 - Bia product ↔ Bia Labs experiment.
 - Bilgen product ↔ Bilgen Labs experiment.
-- Kineks Compact ↔ future dense-interface article.
 - Kineks Symbol ↔ future symbol-system article.
 - Avita / Caelia ↔ future multilingual typography article.
 - Arshila ↔ future OpenType article.
@@ -152,11 +156,10 @@ Links should be placed where the relationship is contextually useful. Avoid addi
 
 ## Content priority order
 
-1. **Dense-interface typography** — clear problem/solution fit for Kineks Compact.
-2. **Text typeface vs optical-size system** — connects Kineks Text and Dareva and builds on an existing strong article.
-3. **Symbols as a typographic system** — gives Kineks Symbol a useful non-branded query surface.
-4. **Multilingual vs multi-script typography** — supports Bykineks's broader expertise and multiple products.
-5. Then product-specific design stories for Caelia, Arshila, Bilgen, Alvera, Neela, and GIN.
+1. **Text typeface vs optical-size system** — connects Kineks Text and Dareva and builds on an existing strong article.
+2. **Symbols as a typographic system** — gives Kineks Symbol a useful non-branded query surface.
+3. **Multilingual vs multi-script typography** — supports Bykineks's broader expertise and multiple products.
+4. Then product-specific design stories for Caelia, Arshila, Bilgen, Alvera, Neela, and GIN.
 
 ## What not to do
 
