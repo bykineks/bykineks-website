@@ -1,0 +1,39 @@
+name: Apply GEO schema rollout
+
+on:
+  push:
+    branches: [geo-foundation]
+    paths:
+      - 'scripts/apply-geo-schema.mjs'
+      - '.github/workflows/apply-geo-schema.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: geo-foundation
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply GEO schema
+        run: node scripts/apply-geo-schema.mjs
+      - name: Commit generated schema changes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No schema changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html kineks-text.html kineks-compact.html kineks-symbol.html bia.html caelia.html dareva.html arshila.html avita.html
+          git commit -m "Apply GEO schema across core typeface pages"
+          git push origin HEAD:geo-foundation
