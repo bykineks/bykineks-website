@@ -460,6 +460,7 @@ header{
    ACTIVE FONT HOVER
    ========================================================= */
 
+.font-row.symbol:hover > a,
 .font-row.kineks:hover > a,
 .font-row.kineks-text:hover,
 .font-row.kineks-text:hover a,

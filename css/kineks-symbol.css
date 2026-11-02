@@ -1,0 +1,22 @@
+@font-face {
+  font-family: KineksSymbol;
+  src: url("../assets/fonts/Kineks-Symbol.woff2") format("woff2");
+  font-display: swap;
+}
+.glyph-preview-char, .glyph { font-family: KineksSymbol, sans-serif; }
+.glyph-overview-title, .symbol-hint { margin: 0; }
+.symbol-hint { font-size: 14px; }
+.symbol-group h3 { margin: 18px 0 8px; font-size: 12px; }
+.symbol-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+}
+.symbol-grid .glyph { width: 100%; height: 64px; font-size: 32px; color: #111; }
+.symbol-grid .glyph[aria-pressed="true"] { background: #111; color: white; }
+.glyph-preview-meta span:first-child { max-width: 75%; }
+.links button:disabled { padding: 0; border: 0; background: none; font: inherit; color: #666; }
+@media (max-width: 800px) {
+  .symbol-grid .glyph { height: 48px; font-size: 24px; }
+}
