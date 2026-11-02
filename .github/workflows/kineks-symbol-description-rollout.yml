@@ -1,0 +1,37 @@
+name: Kineks Symbol description rollout
+
+on:
+  push:
+    branches: [kineks-symbol-description]
+    paths:
+      - 'scripts/update-kineks-symbol-description.mjs'
+      - '.github/workflows/kineks-symbol-description-rollout.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: kineks-symbol-description
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Update Kineks Symbol description
+        run: node scripts/update-kineks-symbol-description.mjs
+      - name: Commit update
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add kineks-symbol.html
+          git commit -m "Update Kineks Symbol description"
+          git push origin HEAD:kineks-symbol-description
