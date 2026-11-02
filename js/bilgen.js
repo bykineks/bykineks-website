@@ -42,7 +42,7 @@
  const specimenText = preview.textContent;
  function reset() {
    selector.value = 'assets/fonts/bilgen/Bilgen-Regular.woff2';
-   interlock.value = 'first';
+   interlock.value = 'mix';
    applyInterlock();
    preview.textContent = specimenText;
    for (const [id, value] of [['size', innerWidth <= 800 ? 40 : 60], ['leading', 1.15], ['tracking', 0]]) {

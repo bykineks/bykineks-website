@@ -26,5 +26,6 @@
 
 .family-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .type-preview { font-feature-settings: "liga" 0, "dlig" 1; }
+.type-preview[data-interlock="mix"] { font-feature-settings: "liga" 1, "dlig" 1; }
 .type-preview[data-interlock="second"] { font-feature-settings: "liga" 1, "dlig" 0; }
 .type-preview[data-interlock="off"] { font-feature-settings: "liga" 0, "dlig" 0; }

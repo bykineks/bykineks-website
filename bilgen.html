@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Explore Bilgen, a geometric sans serif in 27 styles. Try its interlocking capitals, weights and slants, and browse its glyphs.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bilgen-geometric-sans-variable-font-27-styles-interlock-ligatures.webp">
 <link rel="stylesheet" href="css/kineks.css">
-<link rel="stylesheet" href="css/bilgen.css">
+<link rel="stylesheet" href="css/bilgen.css?v=mix">
 </head>
 <body>
 <div class="page">
@@ -37,7 +37,7 @@
 <section class="top-grid about-layout">
 <div>
 <div class="kicker">About</div>
-<div class="copy"><p>Bilgen is a condensed geometric sans with interlocking capitals. Type two capitals together and their strokes can nest into a single glyph. Switch between the two sets below to see a different join for the same pair.</p><p>Nine weights from Thin to Black come in upright, left-leaning and right-leaning styles.</p></div></div>
+<div class="copy"><p>Bilgen is a condensed geometric sans with interlocking capitals. Type two capitals together and their strokes can nest into a single glyph. Try Mix to combine joins from both sets in one word.</p><p>Nine weights from Thin to Black come in upright, left-leaning and right-leaning styles.</p></div></div>
 <div class="about-meta">
 <div class="about-meta-item"><div class="font-info-label">Designed by</div><div class="font-info-value">Dede Kurniawan</div></div>
 <div class="about-meta-item"><div class="font-info-label">Styles</div><div class="font-info-value">27</div></div>
@@ -74,14 +74,14 @@
 <option value="assets/fonts/bilgen/Bilgen-SemiBoldRight.woff2">Semi Bold Right</option>
 <option value="assets/fonts/bilgen/Bilgen-Thin.woff2">Thin</option>
 <option value="assets/fonts/bilgen/Bilgen-ThinLeft.woff2">Thin Left</option>
-<option value="assets/fonts/bilgen/Bilgen-ThinRight.woff2">Thin Right</option></select></div><div class="axis-control"><label for="interlock">Interlock</label><select id="interlock"><option value="first" selected>Set 1</option><option value="second">Set 2</option><option value="off">Off</option></select></div></div>
-<div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">BILGEN INTERLOCK</div><div id="styleStatus" class="specimen-note" role="status">Bilgen Regular</div><div class="specimen-controls">
+<option value="assets/fonts/bilgen/Bilgen-ThinRight.woff2">Thin Right</option></select></div><div class="axis-control"><label for="interlock">Interlock</label><select id="interlock"><option value="mix" selected>Mix</option><option value="first">Set 1</option><option value="second">Set 2</option><option value="off">Off</option></select></div></div>
+<div id="typePreview" class="type-preview" data-interlock="mix" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">BILGEN INTERLOCK</div><div id="styleStatus" class="specimen-note" role="status">Bilgen Regular</div><div class="specimen-controls">
   <div class="specimen-control"><div class="control-heading"><label for="sizeRange">Size</label><input aria-label="Size in pixels" id="sizeInput" type="number" min="12" max="240" step="1" value="60"><span>px</span></div><input id="sizeRange" type="range" min="12" max="240" step="1" value="60"></div>
   <div class="specimen-control"><div class="control-heading"><label for="leadingRange">Leading</label><input aria-label="Line height" id="leadingInput" type="number" min="0.60" max="2" step="0.01" value="1.15"></div><input id="leadingRange" type="range" min="0.60" max="2" step="0.01" value="1.15"></div>
   <div class="specimen-control"><div class="control-heading"><label for="trackingRange">Tracking</label><input aria-label="Tracking in em" id="trackingInput" type="number" min="-0.08" max="0.05" step="0.005" value="0"><span>em</span></div><input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="0"></div>
   <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
 </div>
-<div class="specimen-note">Type in capitals to try the interlocks. Compare Set 1 and Set 2, or choose Off to see the letters separately.</div>
+<div class="specimen-note">Type in capitals to try the interlocks. Mix combines both sets as you type. Choose a single set to compare, or Off to see the separate letters.</div>
 </section>
 
 <section id="glyphs" class="glyph-section"><div class="glyph-overview-head"><h2 class="glyph-overview-title">Character set</h2><div class="system-count">Bilgen Regular · 1,733 visible glyphs</div></div>
@@ -3625,6 +3625,6 @@
 <footer class="footer"><div class="info"><strong>Information</strong><a href="about.html">About ↗</a><a href="contact.html">Contact Us ↗</a><a href="https://id.pinterest.com/bykineks/" target="_blank">Pinterest ↗</a><a href="https://www.instagram.com/bykineks/" target="_blank">Instagram ↗</a><a href="https://www.linkedin.com/company/bykineks/?viewAsMember=true" target="_blank">LinkedIn ↗</a></div><div><div class="brand">BYKINEKS</div><div class="copyline">2021–2026 Bykineks. All rights reserved</div></div></footer>
 </div>
 
-<script src="js/bilgen.js"></script>
+<script src="js/bilgen.js?v=mix"></script>
 </body>
 </html>
