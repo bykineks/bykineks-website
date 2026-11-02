@@ -3,11 +3,27 @@ import path from 'node:path';
 
 const root = process.cwd();
 const baseUrl = 'https://bykineks.com/';
-const ignore = new Set(['blog.html']);
+const ignoredFiles = new Set(['blog.html']);
+const ignoredDirs = new Set(['.git', '.github', 'assets', 'css', 'js', 'scripts', 'node_modules']);
+const nonProductRootPages = new Set(['index.html', 'about.html', 'contact.html', 'blog.html']);
 
-const htmlFiles = fs.readdirSync(root)
-  .filter((name) => name.endsWith('.html') && !ignore.has(name))
-  .sort();
+function collectHtml(dir = root) {
+  const files = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      if (ignoredDirs.has(entry.name)) continue;
+      files.push(...collectHtml(path.join(dir, entry.name)));
+      continue;
+    }
+    if (!entry.name.endsWith('.html')) continue;
+    const rel = path.relative(root, path.join(dir, entry.name)).split(path.sep).join('/');
+    if (ignoredFiles.has(rel)) continue;
+    files.push(rel);
+  }
+  return files;
+}
+
+const htmlFiles = collectHtml().sort();
 
 const sitemapPath = path.join(root, 'sitemap.xml');
 const llmsPath = path.join(root, 'llms.txt');
@@ -20,11 +36,14 @@ const robots = fs.existsSync(robotsPath) ? fs.readFileSync(robotsPath, 'utf8') :
 const errors = [];
 const warnings = [];
 const products = [];
+const articles = [];
 const titleOwners = new Map();
 const descriptionOwners = new Map();
 
 function canonicalFor(file) {
-  return file === 'index.html' ? baseUrl : `${baseUrl}${file}`;
+  if (file === 'index.html') return baseUrl;
+  if (file.endsWith('/index.html')) return `${baseUrl}${file.slice(0, -'index.html'.length)}`;
+  return `${baseUrl}${file}`;
 }
 
 function has(pattern, source) {
@@ -58,7 +77,9 @@ function localTargetExists(file, href) {
 
 for (const file of htmlFiles) {
   const source = fs.readFileSync(path.join(root, file), 'utf8');
-  const isProduct = /<main\s+class=["'][^"']*\bproduct\b/i.test(source);
+  const isRootHtml = !file.includes('/');
+  const isProduct = isRootHtml && !nonProductRootPages.has(file);
+  const isArticle = /<meta\s+property=["']og:type["']\s+content=["']article["']/i.test(source) || /<article\b/i.test(source);
   const canonical = canonicalFor(file);
 
   const title = capture(/<title>([^<]+)<\/title>/i, source);
@@ -125,6 +146,26 @@ for (const file of htmlFiles) {
       warnings.push(`${file}: product page is not referenced in llms.txt`);
     }
   }
+
+  if (isArticle) {
+    articles.push(file);
+
+    if (!sitemap.includes(`<loc>${canonical}</loc>`)) {
+      errors.push(`${file}: article missing from sitemap.xml`);
+    }
+
+    if (!has(/<meta\s+name=["']author["']/i, source)) warnings.push(`${file}: article missing meta author`);
+    if (!has(/"@type"\s*:\s*"Article"/i, source)) warnings.push(`${file}: article missing Article JSON-LD`);
+    if (!has(/"datePublished"\s*:/i, source)) warnings.push(`${file}: article schema missing datePublished`);
+    if (!has(/"mainEntityOfPage"\s*:/i, source)) warnings.push(`${file}: article schema missing mainEntityOfPage`);
+
+    if (!source.includes('https://bykineks.com/about.html#dede-kurniawan')) {
+      warnings.push(`${file}: article author is not linked to the canonical Dede Kurniawan entity`);
+    }
+    if (!source.includes('https://bykineks.com/#organization')) {
+      warnings.push(`${file}: article publisher is not linked to the canonical Bykineks entity`);
+    }
+  }
 }
 
 for (const [title, files] of titleOwners) {
@@ -143,7 +184,7 @@ if (!sitemap.includes('<loc>https://bykineks.com/</loc>')) {
   errors.push('sitemap.xml: homepage missing');
 }
 
-console.log(`SEO/GEO audit: ${htmlFiles.length} root HTML pages, ${products.length} product pages.`);
+console.log(`SEO/GEO audit: ${htmlFiles.length} public HTML pages, ${products.length} product pages, ${articles.length} articles.`);
 
 if (warnings.length) {
   console.log('\nWarnings:');
