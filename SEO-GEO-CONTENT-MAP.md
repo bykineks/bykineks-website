@@ -15,14 +15,15 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 | User intent / question | Primary Bykineks source | Supporting source | Current strength |
 | --- | --- | --- | --- |
 | independent Indonesian type foundry | `/` | `/about.html` | Strong entity coverage |
-| typefaces designed as systems | `/` | `/about.html`, `/kineks.html`, `/bia.html` | Strong positioning |
-| large typeface superfamily for branding and editorial | `/kineks.html` | `/bia.html` | Strong product coverage |
+| typefaces designed as systems | `/blog/what-is-a-type-system/` | `/`, `/about.html`, `/kineks.html`, `/bia.html` | Strong positioning + explanatory article |
+| type family vs superfamily vs type system | `/blog/what-is-a-type-system/` | `/kineks.html`, `/bia.html` | Strong query-oriented coverage |
+| large typeface superfamily for branding and editorial | `/kineks.html` | `/bia.html`, `/blog/what-is-a-type-system/` | Strong product coverage |
 | typeface for dense UI or limited space | `/kineks-compact.html` | future interface typography article | Strong product page, content gap |
 | typeface for long-form digital reading | `/kineks-text.html` and `/dareva.html` | `/blog/designing-dareva/` | Good, can be strengthened |
 | typeface with optical sizes | `/dareva.html` | `/blog/designing-dareva/` | Strong |
 | why optical size matters in digital typography | `/blog/designing-dareva/` | `/dareva.html` | Strong |
 | symbol font with arrows, pictograms and geometric forms | `/kineks-symbol.html` | future symbol systems article | Strong product page, content gap |
-| transitional serif and sans superfamily | `/bia.html` | `/labs/bia/` | Strong product / experimental support |
+| transitional serif and sans superfamily | `/bia.html` | `/labs/bia/`, `/blog/what-is-a-type-system/` | Strong product / experimental support |
 | Gothic Sans / architectural display typeface | `/caelia.html` | future Caelia design article | Strong product page, content gap |
 | geometric sans with Latin, Greek and Cyrillic | `/avita.html` | future multilingual sans article | Strong product page, content gap |
 | modern serif with extensive OpenType features | `/arshila.html` | future OpenType article | Strong product page, content gap |
@@ -32,6 +33,28 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 | handwritten display font for packaging | `/wakaba.html` | `/blog/wakaba/` | Strong contextual case study, schema pending |
 | dot matrix / retro-futuristic variable typeface | `/alvera.html` | future modular type article | Strong product page, schema pending |
 | experimental variable typography | `/labs/` | individual Labs experiments | Strong Labs identity; experiment metadata can improve gradually |
+
+## Published query-oriented content
+
+### Typeface family vs superfamily vs type system
+
+**Published**: `/blog/what-is-a-type-system/`
+
+**Primary query family**
+- what is a type system
+- typeface family vs superfamily
+- type family vs type system
+- how to build a typography system for branding
+
+**Connected products and sources**
+- Kineks
+- Bia
+- Kineks Text
+- Kineks Compact
+- Kineks Symbol
+- Bia Labs interpolation experiment
+
+The article explains the terminology without presenting “type system” as a rigid standards-defined taxonomy. It uses Kineks and Bia as factual examples and links specialized Kineks members as examples of role-based system design.
 
 ## High-priority content opportunities
 
@@ -101,23 +124,6 @@ Explain alignment, text flow, sizing, consistency, navigation, repeating forms, 
 
 Focus on design consistency, script-specific conventions, spacing, language support, OpenType behavior, and the limits of claiming multilingual coverage.
 
-### 5. Typeface as a system, not a collection of styles
-
-**Primary query family**
-- what is a type superfamily
-- typeface family vs superfamily
-- how to build a typography system for branding
-- choosing one type system for multiple brand applications
-
-**Primary products**
-- Kineks
-- Bia
-
-**Recommended article direction**
-`Typeface Family, Superfamily, or Type System? What Actually Changes for Designers`
-
-This is strategically important because it directly supports Bykineks's core positioning: typefaces designed as systems.
-
 ## Secondary content opportunities
 
 - `How Width Changes Typographic Voice` → Avita, Bia, Neela, Kineks.
@@ -131,6 +137,7 @@ This is strategically important because it directly supports Bykineks's core pos
 
 ## Internal-link relationships to build gradually
 
+- Type-system article → Kineks, Bia, Kineks Text, Kineks Compact, Kineks Symbol, and Bia Labs.
 - Dareva product ↔ Designing Dareva article.
 - Wakaba product ↔ Saff & Co. packaging case study.
 - Kineks ↔ Kineks Text ↔ Kineks Compact ↔ Kineks Symbol.
@@ -145,12 +152,11 @@ Links should be placed where the relationship is contextually useful. Avoid addi
 
 ## Content priority order
 
-1. **Typeface family vs superfamily vs type system** — strongest direct support for Bykineks positioning.
-2. **Dense-interface typography** — clear problem/solution fit for Kineks Compact.
-3. **Text typeface vs optical-size system** — connects Kineks Text and Dareva and builds on an existing strong article.
-4. **Symbols as a typographic system** — gives Kineks Symbol a useful non-branded query surface.
-5. **Multilingual vs multi-script typography** — supports Bykineks's broader expertise and multiple products.
-6. Then product-specific design stories for Caelia, Arshila, Bilgen, Alvera, Neela, and GIN.
+1. **Dense-interface typography** — clear problem/solution fit for Kineks Compact.
+2. **Text typeface vs optical-size system** — connects Kineks Text and Dareva and builds on an existing strong article.
+3. **Symbols as a typographic system** — gives Kineks Symbol a useful non-branded query surface.
+4. **Multilingual vs multi-script typography** — supports Bykineks's broader expertise and multiple products.
+5. Then product-specific design stories for Caelia, Arshila, Bilgen, Alvera, Neela, and GIN.
 
 ## What not to do
 
