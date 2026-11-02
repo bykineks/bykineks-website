@@ -9,6 +9,14 @@
    ========================================================= */
 
 @font-face{
+  font-family:KineksSans;
+  src:url("../assets/fonts/Kineks-BoldSans.woff2") format("woff2");
+  font-weight:700;
+  font-style:normal;
+  font-display:swap
+}
+
+@font-face{
   font-family:KineksSerif;
   src:url("../assets/fonts/Kineks-BoldSerif.woff2") format("woff2");
   font-weight:700;
@@ -432,8 +440,8 @@ header{
    FONT SPECIMENS
    ========================================================= */
 
-.font-row.kineks span{
-  font-family:KineksSerif,serif;
+.font-row.kineks > a{
+  font-family:KineksSans,sans-serif;
   font-weight:700
 }
 
@@ -452,6 +460,7 @@ header{
    ACTIVE FONT HOVER
    ========================================================= */
 
+.font-row.kineks:hover > a,
 .font-row.kineks-text:hover,
 .font-row.kineks-text:hover a,
 .font-row.compact:hover,
