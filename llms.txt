@@ -10,6 +10,8 @@ Contact: https://bykineks.com/contact.html
 
 Bykineks develops typefaces as systems rather than isolated styles, with an emphasis on clarity, visual character, multilingual support, OpenType features, and adaptability across print and digital environments.
 
+Topics covered by the official site include type systems, interface typography, digital reading, multilingual typography, symbols, variable fonts, and type-design practice.
+
 Founder and Type Designer: Dede Kurniawan
 Location: Indonesia
 
