@@ -873,3 +873,14 @@ header{
 }
 .font-row.symbol:hover > a { transform: none; }
 .font-row.symbol > a:focus-visible { outline: 2px solid currentColor; outline-offset: -3px; }
+
+.font-row.symbol .symbol-mark {
+  font-family: KineksSymbol, sans-serif;
+  font-weight: 400;
+  font-size: .78em;
+  letter-spacing: .03em;
+  width: 2.2em;
+  margin-inline-start: .15em;
+  text-align: center;
+}
+.font-row.symbol > a:focus-visible { color: var(--yellow); }
