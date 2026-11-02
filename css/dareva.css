@@ -1,0 +1,38 @@
+@font-face {
+  font-family: DarevaDisplay;
+  src: url("../assets/fonts/dareva/Dareva-BoldDisplay.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: DarevaRegular;
+  src: url("../assets/fonts/dareva/Dareva-RegularText.woff2") format("woff2");
+  font-display: swap;
+}
+.product-title { font-family: DarevaDisplay, sans-serif; font-weight: 700; }
+.type-preview { font-family: DarevaRegular, sans-serif; }
+.family-controls { grid-template-columns: minmax(0, 24em); }
+.glyph-source { position: absolute; width: 0; height: 0; overflow: hidden; }
+.glyph-overview-title { margin: 0; }
+.glyph-group summary { padding: 12px 0; cursor: pointer; font-size: 13px; }
+.glyph-group small { float: right; }
+.glyph-group[open] .glyph-grid { display: grid; }
+.glyph svg { width: 80%; height: 80%; fill: currentColor; }
+.glyph-preview-char svg { width: 85%; height: 100%; min-height: 0; }
+.glyph-preview-meta span:first-child { max-width: 74%; white-space: normal; }
+@media (max-width: 800px) {
+  .glyph-preview { position: sticky; top: 0; z-index: 1; height: 145px; max-width: none; }
+}
+
+@font-face { font-family: DarevaStudyMicro; src: url("../assets/fonts/dareva/Dareva-RegularMicro.woff2") format("woff2"); font-display: swap; }
+
+@font-face { font-family: DarevaStudyDisplay; src: url("../assets/fonts/dareva/Dareva-RegularDisplay.woff2") format("woff2"); font-display: swap; }
+
+.optical-study { border-top: 1px solid; margin-top: 48px; padding-top: 16px; }
+.optical-study h2 { margin: 0; }
+.optical-examples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.optical-examples small, .optical-examples span { display: block; }
+.optical-examples span { font: clamp(32px,5vw,72px) DarevaRegular,sans-serif; }
+.optical-examples div:first-child span { font-family: DarevaStudyMicro,sans-serif; }
+.optical-examples div:last-child span { font-family: DarevaStudyDisplay,sans-serif; }
+@media (max-width: 650px) { .optical-examples { grid-template-columns: 1fr; } }
