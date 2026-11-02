@@ -520,7 +520,6 @@ header{
   height:78px;
   color:var(--black);
   cursor:pointer;
-  transition:color .15s ease;
 }
 
 .font-row.arshila .arshila-glyphmark{
@@ -582,7 +581,6 @@ header{
   letter-spacing:-.065em;
   color:var(--black);
   cursor:pointer;
-  transition:color .15s ease;
 }
 
 .font-row.alvera:hover a{
@@ -607,7 +605,6 @@ header{
   letter-spacing:-.065em;
   color:var(--black);
   cursor:pointer;
-  transition:color .15s ease;
 }
 
 .font-row.bia:hover a{
@@ -631,7 +628,6 @@ header{
   letter-spacing:-.065em;
   color:var(--black);
   cursor:pointer;
-  transition:color .15s ease;
 }
 
 .font-row.caelia:hover a{
