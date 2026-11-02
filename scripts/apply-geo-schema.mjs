@@ -93,132 +93,97 @@ const products = [
     category: 'Typeface family',
     releaseDate: '2026',
     props: {
-      Styles: '10',
-      Glyphs: '389',
-      Classification: 'Neo-Grotesque',
-      'Language support': '90 languages',
-      'Variable axes': 'Weight, Oblique',
-      Version: '1.000'
+      Styles: '10', Glyphs: '389', Classification: 'Neo-Grotesque',
+      'Language support': '90 languages', 'Variable axes': 'Weight, Oblique', Version: '1.000'
     }
   },
   {
-    file: 'kineks-compact.html',
-    name: 'Kineks Compact',
+    file: 'kineks-compact.html', name: 'Kineks Compact',
     title: 'Kineks Compact — Space-Efficient Neo-Grotesque Typeface | Bykineks',
     url: 'https://bykineks.com/kineks-compact.html',
     image: 'https://bykineks.com/assets/images/kineks-compact-type-system-10-styles.webp',
     description: 'Kineks Compact is a neo-grotesque sans typeface designed for space-efficient digital interfaces, compact displays, and information-dense environments.',
-    category: 'Typeface family',
-    releaseDate: '2026',
-    props: {
-      Styles: '10',
-      Glyphs: '388',
-      Classification: 'Neo-Grotesque',
-      'Primary use': 'UI, dashboards, navigation, notifications, wearable and automotive displays'
-    }
+    category: 'Typeface family', releaseDate: '2026',
+    props: { Styles: '10', Glyphs: '388', Classification: 'Neo-Grotesque', 'Primary use': 'UI, dashboards, navigation, notifications, wearable and automotive displays' }
   },
   {
-    file: 'kineks-symbol.html',
-    name: 'Kineks Symbol',
+    file: 'kineks-symbol.html', name: 'Kineks Symbol',
     title: 'Kineks Symbol — Symbol Typeface | Bykineks',
     url: 'https://bykineks.com/kineks-symbol.html',
     image: 'https://bykineks.com/assets/images/kineks-symbols-geometric-symbol-typeface-icons-visual-language.webp',
     description: 'Kineks Symbol brings arrows, geometric forms, and pictograms into a single symbol typeface for navigation, marks, patterns, and visual systems.',
     category: 'Symbol typeface',
-    props: {
-      Styles: 'Regular',
-      Glyphs: '356',
-      'Visible glyphs in specimen': '351',
-      Content: 'Arrows, geometric forms, pictograms and symbols'
-    }
+    props: { Styles: 'Regular', Glyphs: '356', 'Visible glyphs in specimen': '351', Content: 'Arrows, geometric forms, pictograms and symbols' }
   },
   {
-    file: 'bia.html',
-    name: 'Bia',
-    title: 'Bia — 200-Style Transitional Typeface | Bykineks',
-    url: 'https://bykineks.com/bia.html',
-    image: 'https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp',
+    file: 'bia.html', name: 'Bia', title: 'Bia — 200-Style Transitional Typeface | Bykineks',
+    url: 'https://bykineks.com/bia.html', image: 'https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp',
     description: 'Bia is a transitional type system with 200 styles across Serif Low, Serif High, Sans Low, and Sans High, unified by a shared typographic structure.',
-    category: 'Typeface superfamily',
-    releaseDate: '2023',
-    props: {
-      Styles: '200',
-      Glyphs: '1,037',
-      Classification: 'Transitional',
-      'Language support': '102 languages',
-      'Variable axes': 'Serif, Contrast, Slant, Weight, Width',
-      Version: '2.100'
-    }
+    category: 'Typeface superfamily', releaseDate: '2023',
+    props: { Styles: '200', Glyphs: '1,037', Classification: 'Transitional', 'Language support': '102 languages', 'Variable axes': 'Serif, Contrast, Slant, Weight, Width', Version: '2.100' }
   },
   {
-    file: 'caelia.html',
-    name: 'Caelia',
-    title: 'Caelia — Gothic Sans Typeface | Bykineks',
-    url: 'https://bykineks.com/caelia.html',
-    image: 'https://bykineks.com/assets/images/caelia-gothic-sans-typeface-bykineks.webp',
+    file: 'caelia.html', name: 'Caelia', title: 'Caelia — Gothic Sans Typeface | Bykineks',
+    url: 'https://bykineks.com/caelia.html', image: 'https://bykineks.com/assets/images/caelia-gothic-sans-typeface-bykineks.webp',
     description: 'Caelia is a Gothic Sans typeface shaped by sharp architectural character, pointed geometry, strong verticality, and sculptural proportions.',
-    category: 'Typeface family',
-    releaseDate: '2024',
-    props: {
-      Styles: '5',
-      Glyphs: '1,932',
-      Classification: 'Gothic Sans',
-      Version: '1.0',
-      'Script coverage': 'Latin, IPA, Cyrillic and Greek'
-    }
+    category: 'Typeface family', releaseDate: '2024',
+    props: { Styles: '5', Glyphs: '1,932', Classification: 'Gothic Sans', Version: '1.0', 'Script coverage': 'Latin, IPA, Cyrillic and Greek' }
   },
   {
-    file: 'dareva.html',
-    name: 'Dareva',
-    title: 'Dareva — Neo-Humanist Sans Serif | Bykineks',
-    url: 'https://bykineks.com/dareva.html',
-    image: 'https://bykineks.com/assets/images/dareva-neo-humanist-sans-optical-size-typeface-digital-reading.webp',
+    file: 'dareva.html', name: 'Dareva', title: 'Dareva — Neo-Humanist Sans Serif | Bykineks',
+    url: 'https://bykineks.com/dareva.html', image: 'https://bykineks.com/assets/images/dareva-neo-humanist-sans-optical-size-typeface-digital-reading.webp',
     description: 'Dareva is a neo-humanist sans serif designed for screen reading, with Micro, Text, and Display optical sizes and matching obliques.',
     category: 'Typeface family',
-    props: {
-      Styles: '36',
-      Classification: 'Neo-Humanist Sans',
-      'Optical sizes': 'Micro, Text, Display',
-      Weights: '6 per optical size',
-      'Glyphs in Regular Text': '361'
-    }
+    props: { Styles: '36', Classification: 'Neo-Humanist Sans', 'Optical sizes': 'Micro, Text, Display', Weights: '6 per optical size', 'Glyphs in Regular Text': '361' }
   },
   {
-    file: 'arshila.html',
-    name: 'Arshila',
-    title: 'Arshila — Modern Serif Typeface | Bykineks',
-    url: 'https://bykineks.com/arshila.html',
-    image: 'https://bykineks.com/assets/images/arshila-modern-serif-54-styles-swash-ligatures.webp',
+    file: 'arshila.html', name: 'Arshila', title: 'Arshila — Modern Serif Typeface | Bykineks',
+    url: 'https://bykineks.com/arshila.html', image: 'https://bykineks.com/assets/images/arshila-modern-serif-54-styles-swash-ligatures.webp',
     description: 'Arshila is a modern serif typeface combining classical proportions, high contrast, crisp terminals, fluid curves, and extensive OpenType features.',
-    category: 'Typeface family',
-    releaseDate: '2023',
-    props: {
-      Styles: '54',
-      Glyphs: '2,500',
-      Classification: 'Modern Serif',
-      'Language support': '110 languages',
-      'Variable axes': 'Weight, Width, Slant',
-      Version: '2.0'
-    }
+    category: 'Typeface family', releaseDate: '2023',
+    props: { Styles: '54', Glyphs: '2,500', Classification: 'Modern Serif', 'Language support': '110 languages', 'Variable axes': 'Weight, Width, Slant', Version: '2.0' }
   },
   {
-    file: 'avita.html',
-    name: 'Avita',
-    title: 'Avita — Geometric Sans Serif | Bykineks',
-    url: 'https://bykineks.com/avita.html',
-    image: 'https://bykineks.com/assets/images/avita-geometric-sans-typeface-54-styles-103-languages.webp',
+    file: 'avita.html', name: 'Avita', title: 'Avita — Geometric Sans Serif | Bykineks',
+    url: 'https://bykineks.com/avita.html', image: 'https://bykineks.com/assets/images/avita-geometric-sans-typeface-54-styles-103-languages.webp',
     description: 'Avita is a geometric sans serif with 54 styles across nine weights, three widths, and matching obliques, with Latin, Greek, and Cyrillic support.',
+    category: 'Typeface family', releaseDate: '2022',
+    props: { Styles: '54', 'Glyphs in Regular': '737', Languages: '103', Classification: 'Geometric Sans', Weights: '9', Widths: '3', 'Script coverage': 'Latin, Greek and Cyrillic' }
+  },
+  {
+    file: 'bilgen.html', name: 'Bilgen', title: 'Bilgen — Geometric Sans Serif | Bykineks',
+    url: 'https://bykineks.com/bilgen.html', image: 'https://bykineks.com/assets/images/bilgen-geometric-sans-variable-font-27-styles-interlock-ligatures.webp',
+    description: 'Bilgen is a condensed geometric sans with interlocking capitals and 27 styles spanning nine weights with upright, left-leaning, and right-leaning variants.',
     category: 'Typeface family',
-    releaseDate: '2022',
-    props: {
-      Styles: '54',
-      'Glyphs in Regular': '737',
-      Languages: '103',
-      Classification: 'Geometric Sans',
-      Weights: '9',
-      Widths: '3',
-      'Script coverage': 'Latin, Greek and Cyrillic'
-    }
+    props: { Styles: '27', 'Glyphs in Regular': '1,737', Languages: '66+', Classification: 'Geometric Sans', Weights: '9', 'Slant variants': 'Upright, Left, Right', 'OpenType feature': 'Interlocking capitals' }
+  },
+  {
+    file: 'gin.html', name: 'GIN', title: 'GIN — Calligraffiti Script | Bykineks',
+    url: 'https://bykineks.com/gin.html', image: 'https://bykineks.com/assets/images/gin-calligraffiti-script-font-decorative-lettering-typeface.webp',
+    description: 'GIN is a calligraffiti-inspired display script with expressive directional strokes and standard fi and fl ligatures.',
+    category: 'Display script typeface',
+    props: { Styles: '1', Glyphs: '232', Classification: 'Calligraffiti Script', 'Standard ligatures': 'fi, fl' }
+  },
+  {
+    file: 'neela.html', name: 'Neela', title: 'Neela — Art Nouveau Serif | Bykineks',
+    url: 'https://bykineks.com/neela.html', image: 'https://bykineks.com/assets/images/neela-serif-nouveau-typeface-27-styles-62-languages.webp',
+    description: 'Neela is an Art Nouveau serif family with 27 styles, combining nine weights with Normal, Condensed, and Expanded widths.',
+    category: 'Typeface family',
+    props: { Styles: '27', 'Glyphs in Regular': '206', Classification: 'Art Nouveau Serif', Weights: '9', Widths: 'Normal, Condensed, Expanded' }
+  },
+  {
+    file: 'wakaba.html', name: 'Wakaba', title: 'Wakaba — Handwritten Display | Bykineks',
+    url: 'https://bykineks.com/wakaba.html', image: 'https://bykineks.com/assets/images/wakaba-playful-display-font-handwritten-organic-lettering.webp',
+    description: 'Wakaba is a playful handwritten display typeface with rounded strokes, irregular rhythm, and standard ffi, fi, and fl ligatures.',
+    category: 'Handwritten display typeface',
+    props: { Styles: '1', Glyphs: '303', Classification: 'Handwritten Display', 'Standard ligatures': 'ffi, fi, fl' }
+  },
+  {
+    file: 'alvera.html', name: 'Alvera', title: 'Alvera — Modular Dot Matrix Sans Variable Typeface | Bykineks',
+    url: 'https://bykineks.com/alvera.html', image: 'https://bykineks.com/assets/images/alvera-dot-matrix-display-typeface-1134-glyphs-circle-square.webp',
+    description: 'Alvera is a modular Dot Matrix Sans variable typeface with retro-futuristic character, Circle and Square configurations, and a grid-based visual system.',
+    category: 'Variable typeface family', releaseDate: '2025',
+    props: { Styles: '4', Glyphs: '1060', Classification: 'Dot Matrix Sans', 'Language support': '114 languages', 'Variable axes': 'Weight, Grade', Version: '1.0' }
   }
 ];
 
@@ -234,11 +199,7 @@ function productSchema(p) {
     brand: { '@id': ORG },
     manufacturer: { '@id': ORG },
     creator: { '@id': PERSON },
-    additionalProperty: Object.entries(p.props).map(([name, value]) => ({
-      '@type': 'PropertyValue',
-      name,
-      value
-    }))
+    additionalProperty: Object.entries(p.props).map(([name, value]) => ({ '@type': 'PropertyValue', name, value }))
   };
   if (p.releaseDate) product.releaseDate = p.releaseDate;
 
