@@ -112,7 +112,7 @@ const products = [
     url: 'https://bykineks.com/kineks-symbol.html',
     image: 'https://bykineks.com/assets/images/kineks-symbols-geometric-symbol-typeface-icons-visual-language.webp',
     description: 'Kineks Symbol brings arrows, geometric forms, and pictograms into a single symbol typeface for navigation, marks, patterns, and visual systems.',
-    category: 'Symbol typeface',
+    category: 'Symbol typeface', releaseDate: '2026',
     props: { Styles: 'Regular', Glyphs: '356', 'Visible glyphs in specimen': '351', Content: 'Arrows, geometric forms, pictograms and symbols' }
   },
   {
@@ -133,7 +133,7 @@ const products = [
     file: 'dareva.html', name: 'Dareva', title: 'Dareva — Neo-Humanist Sans Serif | Bykineks',
     url: 'https://bykineks.com/dareva.html', image: 'https://bykineks.com/assets/images/dareva-neo-humanist-sans-optical-size-typeface-digital-reading.webp',
     description: 'Dareva is a neo-humanist sans serif designed for screen reading, with Micro, Text, and Display optical sizes and matching obliques.',
-    category: 'Typeface family',
+    category: 'Typeface family', releaseDate: '2026',
     props: { Styles: '36', Classification: 'Neo-Humanist Sans', 'Optical sizes': 'Micro, Text, Display', Weights: '6 per optical size', 'Glyphs in Regular Text': '361' }
   },
   {
@@ -154,28 +154,28 @@ const products = [
     file: 'bilgen.html', name: 'Bilgen', title: 'Bilgen — Geometric Sans Serif | Bykineks',
     url: 'https://bykineks.com/bilgen.html', image: 'https://bykineks.com/assets/images/bilgen-geometric-sans-variable-font-27-styles-interlock-ligatures.webp',
     description: 'Bilgen is a condensed geometric sans with interlocking capitals and 27 styles spanning nine weights with upright, left-leaning, and right-leaning variants.',
-    category: 'Typeface family',
+    category: 'Typeface family', releaseDate: '2024',
     props: { Styles: '27', 'Glyphs in Regular': '1,737', Languages: '66+', Classification: 'Geometric Sans', Weights: '9', 'Slant variants': 'Upright, Left, Right', 'OpenType feature': 'Interlocking capitals' }
   },
   {
     file: 'gin.html', name: 'GIN', title: 'GIN — Calligraffiti Script | Bykineks',
     url: 'https://bykineks.com/gin.html', image: 'https://bykineks.com/assets/images/gin-calligraffiti-script-font-decorative-lettering-typeface.webp',
     description: 'GIN is a calligraffiti-inspired display script with expressive directional strokes and standard fi and fl ligatures.',
-    category: 'Display script typeface',
+    category: 'Display script typeface', releaseDate: '2022',
     props: { Styles: '1', Glyphs: '232', Classification: 'Calligraffiti Script', 'Standard ligatures': 'fi, fl' }
   },
   {
     file: 'neela.html', name: 'Neela', title: 'Neela — Art Nouveau Serif | Bykineks',
     url: 'https://bykineks.com/neela.html', image: 'https://bykineks.com/assets/images/neela-serif-nouveau-typeface-27-styles-62-languages.webp',
     description: 'Neela is an Art Nouveau serif family with 27 styles, combining nine weights with Normal, Condensed, and Expanded widths.',
-    category: 'Typeface family',
+    category: 'Typeface family', releaseDate: '2023',
     props: { Styles: '27', 'Glyphs in Regular': '206', Classification: 'Art Nouveau Serif', Weights: '9', Widths: 'Normal, Condensed, Expanded' }
   },
   {
     file: 'wakaba.html', name: 'Wakaba', title: 'Wakaba — Handwritten Display | Bykineks',
     url: 'https://bykineks.com/wakaba.html', image: 'https://bykineks.com/assets/images/wakaba-playful-display-font-handwritten-organic-lettering.webp',
     description: 'Wakaba is a playful handwritten display typeface with rounded strokes, irregular rhythm, and standard ffi, fi, and fl ligatures.',
-    category: 'Handwritten display typeface',
+    category: 'Handwritten display typeface', releaseDate: '2022',
     props: { Styles: '1', Glyphs: '303', Classification: 'Handwritten Display', 'Standard ligatures': 'ffi, fi, fl' }
   },
   {
