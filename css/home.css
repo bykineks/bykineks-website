@@ -460,6 +460,7 @@ header{
    ACTIVE FONT HOVER
    ========================================================= */
 
+.font-row.avita:hover > a,
 .font-row.symbol:hover > a,
 .font-row.kineks:hover > a,
 .font-row.kineks-text:hover,
@@ -903,3 +904,16 @@ header{
   text-align: center;
 }
 .font-row.symbol > a:focus-visible { color: var(--yellow); }
+
+.font-row.avita > a {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+.font-row.avita:not(.disabled) > a { transform: none; }
+.font-row.avita span { transition: transform .55s cubic-bezier(.22,1,.36,1); }
+@media (hover: hover) {
+  .font-row.avita:hover span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
+}
+.font-row.avita.is-touching span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
