@@ -1106,3 +1106,17 @@ header{
     transform:translateY(-50%);
   }
 }
+
+/* Restore Arshila's large desktop specimen; mobile sizing stays untouched. */
+@media (min-width:701px){
+  .font-row.arshila > a{
+    width:clamp(560px,55vw,760px);
+    max-width:100%;
+    height:90px;
+  }
+  .font-row.arshila .arshila-glyphmark{
+    width:100%;
+    height:90px;
+    transform:translateY(7px);
+  }
+}
