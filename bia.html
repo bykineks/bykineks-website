@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Bia is a transitional type system by Dede Kurniawan and Bykineks, featuring 200 styles across Serif Low, Serif High, Sans Low, and Sans High.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp">
 <title>Bia — 200-Style Transitional Typeface | Bykineks</title>
-<link rel="stylesheet" href="css/bia.css?v=foundation-1">
+<link rel="stylesheet" href="css/bia.css?v=exploration-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -130,6 +130,7 @@
   <h1 class="bia-variable" aria-label="Bia">Bia</h1>
   <button type="button" id="toggleHeroMotion" class="motion-toggle" aria-pressed="false">Pause title animation</button>
   <p class="tagline">A transitional type system exploring the balance between classical form, contemporary proportions, and expressive typographic contrast.</p>
+  <div class="hero-actions"><a href="#system">Try Bia ↓</a><a href="#voices">Explore four voices ↓</a><a href="#availability">Buy licences ↓</a></div>
 </section>
 
 
@@ -153,10 +154,20 @@
   </div>
 </section>
 
+<section id="voices" class="voices-section" aria-labelledby="voices-title">
+<div class="section-head"><h2 id="voices-title" class="kicker">Four voices. One system.</h2><span class="system-count">Serif × Contrast</span></div>
+<p class="voices-intro">The same word, weight, and width. Choose a voice to explore it with your own text.</p>
+<div class="voice-grid"><button type="button" class="voice-card" data-voice="serif-low" aria-pressed="false" aria-controls="liveSpecimen"><span class="voice-name">Serif Low</span><span class="voice-sample" aria-hidden="true" style="font-variation-settings:'SERF' 1,'CNTR' 0,'wght' 400,'wdth' 100,'ital' 0">Form</span><span class="voice-action">Try this voice ↓</span></button>
+<button type="button" class="voice-card" data-voice="serif-high" aria-pressed="false" aria-controls="liveSpecimen"><span class="voice-name">Serif High</span><span class="voice-sample" aria-hidden="true" style="font-variation-settings:'SERF' 1,'CNTR' 100,'wght' 400,'wdth' 100,'ital' 0">Form</span><span class="voice-action">Try this voice ↓</span></button>
+<button type="button" class="voice-card" data-voice="sans-low" aria-pressed="false" aria-controls="liveSpecimen"><span class="voice-name">Sans Low</span><span class="voice-sample" aria-hidden="true" style="font-variation-settings:'SERF' 0,'CNTR' 0,'wght' 400,'wdth' 100,'ital' 0">Form</span><span class="voice-action">Try this voice ↓</span></button>
+<button type="button" class="voice-card" data-voice="sans-high" aria-pressed="false" aria-controls="liveSpecimen"><span class="voice-name">Sans High</span><span class="voice-sample" aria-hidden="true" style="font-variation-settings:'SERF' 0,'CNTR' 100,'wght' 400,'wdth' 100,'ital' 0">Form</span><span class="voice-action">Try this voice ↓</span></button></div>
+</section>
+
 <section id="system" class="system-section" aria-labelledby="system-title">
-  <div class="section-head"><h2 class="kicker" id="system-title">Variable Type System</h2><div class="system-count">5 Axes</div></div>
+  <div class="section-head"><h2 class="kicker" id="system-title" tabindex="-1">Variable Type System</h2><div class="system-count">5 Axes</div></div>
+  <div class="sample-toolbar" role="group" aria-label="Sample text"><span class="sample-label">Sample text</span><div class="sample-options"><button type="button" data-sample="headline" aria-pressed="true">Headline</button><button type="button" data-sample="brand" aria-pressed="false">Brand name</button><button type="button" data-sample="paragraph" aria-pressed="false">Paragraph</button><button type="button" data-sample="numerals" aria-pressed="false">Numerals</button></div></div>
   <div class="variable-playground">
-    <div id="liveSpecimen" class="live-specimen" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Editable Bia specimen" aria-describedby="specimen-help">Bright young designers quickly pack six dozen boxes, mixing bold ideas with quiet details while exploring typography, rhythm, contrast, and form.</div>
+    <div id="liveSpecimen" class="live-specimen" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Editable Bia specimen" aria-describedby="specimen-help">A study in form.</div>
     <div class="variable-controls" aria-label="Bia variable font controls">
       <button id="playVariable" class="icon-control" type="button" aria-label="Play variable animation" aria-pressed="false">▶</button>
       <button id="resetVariable" class="icon-control" type="button" aria-label="Reset variable font">↻</button>
@@ -182,7 +193,7 @@
     </div>
     <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
   </div>
-  <div class="specimen-note" id="specimen-help">Click the specimen text to edit it. Adjust the variable axes, size, leading, and tracking below.</div>
+  <div class="specimen-note" id="specimen-help">Click the specimen text to edit it. Choose sample text or type your own. Change a voice or adjust the axes without losing your words.</div>
 </section>
 
 <section id="glyphs" class="glyph-section" aria-labelledby="character-set-title">
@@ -237,6 +248,6 @@
 </footer>
 </div>
 
-<script src="js/bia.js?v=foundation-1"></script>
+<script src="js/bia.js?v=exploration-1"></script>
 </body>
 </html>

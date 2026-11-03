@@ -10,7 +10,11 @@ const axes={
   wdth:{range:'wdthRange',value:'wdthValue',key:'wdth'}
 };
 
-const DEFAULT_VARIABLE={SERF:0,CNTR:70,wght:650,wdth:100,ital:0};
+const VOICES={
+  'serif-low':{SERF:1,CNTR:0},'serif-high':{SERF:1,CNTR:100},
+  'sans-low':{SERF:0,CNTR:0},'sans-high':{SERF:0,CNTR:100}
+};
+const DEFAULT_VARIABLE={SERF:1,CNTR:0,wght:400,wdth:100,ital:0};
 let variableState={...DEFAULT_VARIABLE};
 let animationFrame=null;
 let animationStart=0;
@@ -24,6 +28,10 @@ function formatAxis(key,value){
 function applyVariable(){
   const specimen=$('liveSpecimen');
   specimen.style.fontVariationSettings=`"SERF" ${variableState.SERF},"CNTR" ${variableState.CNTR},"wght" ${variableState.wght},"wdth" ${variableState.wdth},"ital" ${variableState.ital}`;
+  document.querySelectorAll('[data-voice]').forEach(button=>{
+    const voice=VOICES[button.dataset.voice];
+    button.setAttribute('aria-pressed',String(variableState.SERF===voice.SERF && variableState.CNTR===voice.CNTR));
+  });
   Object.values(axes).forEach(axis=>{
     $(axis.range).value=variableState[axis.key];
     $(axis.value).value=formatAxis(axis.key,variableState[axis.key]);
@@ -105,7 +113,14 @@ function startAnimation(){
 $('playVariable').addEventListener('click',()=>animationFrame!==null?stopAnimation():startAnimation());
 $('resetVariable').addEventListener('click',resetVariable);
 
-const DEFAULT_SPECIMEN={size:Math.round(parseFloat(getComputedStyle($('liveSpecimen')).fontSize)),leading:1.40,tracking:-0.045};
+const compactScreen=matchMedia('(max-width:800px)');
+const SAMPLES={
+  headline:{text:'A study in form.',size:72,mobileSize:48,leading:1.1,tracking:-0.025},
+  brand:{text:'Forma Studio',size:96,mobileSize:56,leading:1.05,tracking:-0.035},
+  paragraph:{text:'Good typography gives ideas a voice. Bia brings a shared structure to different expressions, from quiet reading to a confident headline.',size:24,mobileSize:24,leading:1.4,tracking:0},
+  numerals:{text:'0123456789\n€125.00 / $98.50\n09:41 — 2026',size:56,mobileSize:36,leading:1.2,tracking:0}
+};
+const DEFAULT_SPECIMEN={size:compactScreen.matches?48:72,leading:1.1,tracking:-0.025};
 $('sizeRange').value=DEFAULT_SPECIMEN.size;
 $('sizeInput').value=DEFAULT_SPECIMEN.size;
 function applySpecimenControls(){
@@ -222,3 +237,24 @@ document.addEventListener('visibilitychange',()=>{
   else setHeroPaused(heroToggle.getAttribute('aria-pressed')==='true');
 });
 setHeroPaused(reducedMotion.matches);
+
+function selectSample(key){
+  const sample=SAMPLES[key];
+  $('liveSpecimen').textContent=sample.text;
+  for(const [range,input,value] of [
+    ['sizeRange','sizeInput',compactScreen.matches?sample.mobileSize:sample.size],
+    ['leadingRange','leadingInput',sample.leading],['trackingRange','trackingInput',sample.tracking]
+  ]){$(range).value=value;$(input).value=$(range).value;}
+  document.querySelectorAll('[data-sample]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.sample===key)));
+  applySpecimenControls();
+}
+document.querySelectorAll('[data-sample]').forEach(button=>button.addEventListener('click',()=>{stopAnimation();selectSample(button.dataset.sample)}));
+$('liveSpecimen').addEventListener('input',()=>document.querySelectorAll('[data-sample]').forEach(button=>button.setAttribute('aria-pressed','false')));
+document.querySelectorAll('[data-voice]').forEach(button=>button.addEventListener('click',()=>{
+  stopAnimation();
+  variableState={...variableState,...VOICES[button.dataset.voice]};
+  applyVariable();
+  $('system-title').focus({preventScroll:true});
+  $('system').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'start'});
+}));
+selectSample('headline');
