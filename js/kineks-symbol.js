@@ -1,5 +1,14 @@
 const study = document.querySelector('.glyph-study');
 study.addEventListener('click', (event) => {
+  const title = event.target.closest('button.glyph-title');
+  if (title) {
+    const group = title.closest('.symbol-group');
+    const open = title.getAttribute('aria-expanded') !== 'true';
+    title.setAttribute('aria-expanded', String(open));
+    group.classList.toggle('is-open', open);
+    group.querySelector('.symbol-grid').hidden = !open;
+    return;
+  }
   const button = event.target.closest('button.glyph');
   if (!button) return;
   study.querySelector('[aria-pressed="true"]').setAttribute('aria-pressed', 'false');

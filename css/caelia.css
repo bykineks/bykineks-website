@@ -102,3 +102,32 @@ main{padding-top:55px}
 }
 @media(max-width:520px){.family-cards{grid-template-columns:1fr}}
 @media(max-width:370px){.glyph-grid{grid-template-columns:repeat(7,1fr)}.glyph{height:45px;font-size:17px}.specimen-controls{grid-template-columns:1fr}}
+
+/* Character Set: local layout and controls, using the existing Caelia fonts. */
+.glyph-overview-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}
+.glyph-overview-head h2{font-size:32px;line-height:1;letter-spacing:-.02em;font-weight:600;margin:0}
+#character-set-count{font-size:11px;color:#777;white-space:nowrap}
+.glyph-study{display:grid;grid-template-columns:minmax(280px,340px) minmax(0,1fr);gap:36px;align-items:start}
+.glyph-preview{position:sticky;top:24px;height:340px;border:1px solid #111;padding:18px;display:flex;flex-direction:column;background:#fff;min-width:0}
+#glyph-preview-char{display:flex;align-items:center;justify-content:center;flex:1;min-height:0;font-size:clamp(110px,9vw,180px);line-height:1;font-family:CaeliaGlyphs,sans-serif;font-weight:700;font-synthesis:none;font-variant-ligatures:common-ligatures;overflow-wrap:anywhere}
+.glyph-preview-meta{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #bbb;padding-top:9px;font-size:9px;letter-spacing:.08em;text-transform:uppercase}
+#glyph-preview-category{color:#777;text-align:right}
+.glyph-groups{border-top:1px solid #bbb;min-width:0}
+.glyph-group{border-bottom:1px solid #bbb}
+.glyph-group h3{margin:0}
+.glyph-group .glyph-title{width:100%;min-height:44px;display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0;padding:13px 2px 12px;border:0;background:#fff;color:#111;font:inherit;font-size:10px;font-weight:700;letter-spacing:.08em;text-align:left;text-transform:uppercase;cursor:pointer}
+.glyph-title span{display:flex;align-items:center;gap:9px}
+.glyph-title span::before{content:'+';width:11px;font-size:13px;font-weight:400}
+.glyph-title[aria-expanded=true] span::before{content:'−'}
+.glyph-title small{font-size:9px;font-weight:400;letter-spacing:0;color:#777;white-space:nowrap}
+.glyph-group .glyph-grid{grid-template-columns:repeat(auto-fill,minmax(48px,1fr));margin-bottom:12px}
+.glyph-grid[hidden]{display:none}
+.glyph-grid .glyph{width:100%;border:0;border-right:1px solid #bbb;border-bottom:1px solid #bbb;background:#fff;color:#111;font-family:CaeliaGlyphs,sans-serif;font-weight:700;cursor:pointer;padding:0;font-variant-ligatures:common-ligatures}
+.glyph-title:hover,.glyph-grid .glyph:hover{background:#f3f3f3}
+.glyph-grid .glyph[aria-pressed=true]{background:#111;color:#fff}
+.glyph-title:focus-visible,.glyph-grid .glyph:focus-visible{outline:2px solid #111;outline-offset:-3px}
+.glyph.ligature{font-size:22px}
+@media(max-width:800px){.glyph-overview-head h2{font-size:26px}.glyph-study{grid-template-columns:1fr;gap:22px}.glyph-preview{position:static;height:240px}#glyph-preview-char{font-size:clamp(100px,25vw,150px)}}
+
+.glyph-group{margin-top:0}.glyph-title{margin-bottom:0}.glyph-grid .glyph{font-synthesis:none}
+.glyph-overview-head{border-top:1.5px solid #111;padding-top:16px}
