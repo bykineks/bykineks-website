@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Bia is a transitional type system by Dede Kurniawan and Bykineks, featuring 200 styles across Serif Low, Serif High, Sans Low, and Sans High.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp">
 <title>Bia — 200-Style Transitional Typeface | Bykineks</title>
-<link rel="stylesheet" href="css/bia.css?v=final-1">
+<link rel="stylesheet" href="css/bia.css?v=review-2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -128,7 +128,7 @@
 <main>
 <section class="hero">
   <h1 class="bia-variable" aria-label="Bia">Bia</h1>
-  <button type="button" id="toggleHeroMotion" class="motion-toggle" aria-pressed="false">Pause title animation</button>
+  <button type="button" id="toggleHeroMotion" class="motion-toggle" aria-pressed="false" aria-label="Pause title animation" title="Pause title animation"><span aria-hidden="true">Ⅱ</span></button>
   <p class="tagline">A transitional type system exploring the balance between classical form, contemporary proportions, and expressive typographic contrast.</p>
   <div class="hero-actions"><a href="#system">Try Bia ↓</a><a href="#voices">Explore four voices ↓</a><a href="#availability">Buy licences ↓</a></div>
 </section>
@@ -153,6 +153,8 @@
     <div class="info-item"><span>Classification</span><strong>Transitional</strong></div>
   </div>
 </section>
+
+<nav class="section-nav" aria-label="Bia page sections"><a href="#system">Try</a><a href="#compare">Compare</a><a href="#in-context">In context</a><a href="#glyphs">Characters</a><a href="#availability">Licensing</a></nav>
 
 <section id="voices" class="voices-section" aria-labelledby="voices-title">
 <div class="section-head"><h2 id="voices-title" class="kicker">Four voices. One system.</h2><span class="system-count">Serif × Contrast</span></div>
@@ -193,8 +195,8 @@
     </div>
     <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
   </div>
-<details class="opentype-tools"><summary>OpenType features</summary><fieldset><legend>Apply to the playground text</legend><div class="feature-options"><label><input type="checkbox" data-feature="liga" checked><span>Standard ligatures<small>fi · fl · ffi</small></span></label><label><input type="checkbox" data-feature="dlig"><span>Discretionary ligature<small>BY</small></span></label><label><input type="checkbox" data-feature="ss01"><span>Alternates 1<small>A · E · O · a</small></span></label><label><input type="checkbox" data-feature="ss02"><span>Alternate E<small>E</small></span></label><label><input type="checkbox" data-feature="frac"><span>Fractions<small>1/2 · 3/4</small></span></label></div><div class="feature-actions"><button type="button" id="tryFeatures">Try feature sample</button><button type="button" id="resetFeatures">Reset features</button></div></fieldset></details>
-<div class="setting-actions" role="group" aria-label="Playground settings"><button type="button" id="saveSetting">Save on this browser</button><button type="button" id="loadSetting">Restore saved setting</button><button type="button" id="copySetting">Copy setting link</button></div><p id="settingStatus" class="section-note" role="status"></p><div id="settingLinkFallback" hidden><label for="settingLink">Copy this setting link</label><input id="settingLink" readonly type="text"></div>
+<details class="opentype-tools"><summary>OpenType features</summary><fieldset><legend>Apply to the playground text</legend><div class="feature-options"><label><input type="checkbox" data-feature="liga" checked><span>Standard ligatures<small>fi · fl · ffi</small></span></label><label><input type="checkbox" data-feature="dlig"><span>Discretionary ligature<small>BY</small></span></label><label><input type="checkbox" data-feature="ss01"><span>Alternates 1<small>A · E · O · a</small></span></label><label><input type="checkbox" data-feature="ss02"><span>Alternate E<small>E</small></span></label><label><input type="checkbox" data-feature="frac"><span>Fractions<small>1/2 · 3/4</small></span></label></div><div class="feature-actions"><button type="button" id="tryFeatures">Try feature sample</button><button type="button" id="resetFeatures">Reset features</button></div><p class="section-note">Alternate sets are applied one at a time.</p></fieldset></details>
+<details class="save-share-tools"><summary>Save &amp; share</summary><div class="setting-actions" role="group" aria-label="Playground settings"><button type="button" id="saveSetting">Save on this browser</button><button type="button" id="loadSetting">Restore saved setting</button><button type="button" id="copySetting">Copy setting link</button></div><div id="settingLinkFallback" hidden><label for="settingLink">Copy this setting link</label><input id="settingLink" readonly type="text"></div></details><p id="settingStatus" class="section-note" role="status"></p>
   <div class="specimen-note" id="specimen-help">Click the specimen text to edit it. Choose sample text or type your own. Change a voice or adjust the axes without losing your words.</div>
 </section>
 
@@ -268,6 +270,6 @@
 </footer>
 </div>
 
-<script src="js/bia.js?v=final-1"></script>
+<script src="js/bia.js?v=review-2"></script>
 </body>
 </html>

@@ -140,12 +140,13 @@ function syncSpecimenControl(rangeId,inputId){
     applySpecimenControls();
   }
   input.addEventListener('input',()=>{
+    // Keep incomplete typing intact; commit and bound it on Enter or blur.
     const value=input.valueAsNumber;
-    if(!Number.isFinite(value)) return;
-    range.value=String(Math.min(Number(range.max),Math.max(Number(range.min),value)));
-    if(value<Number(range.min)||value>Number(range.max)) input.value=range.value;
+    if(!Number.isFinite(value)||value<Number(range.min)||value>Number(range.max)) return;
+    range.value=String(value);
     applySpecimenControls();
   });
+  input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();commitValue()}});
   input.addEventListener('change',commitValue);
   input.addEventListener('blur',commitValue);
 }
@@ -229,7 +230,10 @@ const heroToggle=$('toggleHeroMotion');
 function setHeroPaused(paused){
   heroTitle.style.animationPlayState=paused?'paused':'running';
   heroToggle.setAttribute('aria-pressed',String(paused));
-  heroToggle.textContent=paused?'Play title animation':'Pause title animation';
+  const label=paused?'Play title animation':'Pause title animation';
+  heroToggle.setAttribute('aria-label',label);
+  heroToggle.title=label;
+  heroToggle.querySelector('span').textContent=paused?'▶':'Ⅱ';
 }
 heroToggle.addEventListener('click',()=>setHeroPaused(heroToggle.getAttribute('aria-pressed')!=='true'));
 reducedMotion.addEventListener('change',()=>{stopAnimation();setHeroPaused(reducedMotion.matches)});
@@ -275,9 +279,18 @@ updateComparison();
 /* OpenType controls expose only features verified in Bia's GSUB table. */
 const featureInputs=[...document.querySelectorAll('[data-feature]')];
 function applyFeatures(){
+  // Restored links from older versions may enable both alternate sets.
+  const alternate1=featureInputs.find(input=>input.dataset.feature==='ss01');
+  const alternate2=featureInputs.find(input=>input.dataset.feature==='ss02');
+  if(alternate1.checked && alternate2.checked)alternate1.checked=false;
   $('liveSpecimen').style.fontFeatureSettings=featureInputs.map(input=>'"'+input.dataset.feature+'" '+Number(input.checked)).join(',');
 }
-featureInputs.forEach(input=>input.addEventListener('change',applyFeatures));
+featureInputs.forEach(input=>input.addEventListener('change',()=>{
+  if(input.checked && ['ss01','ss02'].includes(input.dataset.feature)){
+    featureInputs.filter(other=>['ss01','ss02'].includes(other.dataset.feature)&&other!==input).forEach(other=>other.checked=false);
+  }
+  applyFeatures();
+}));
 $('resetFeatures').addEventListener('click',()=>{featureInputs.forEach(input=>input.checked=input.dataset.feature==='liga');applyFeatures()});
 $('tryFeatures').addEventListener('click',()=>{
   stopAnimation();
@@ -289,11 +302,16 @@ applyFeatures();
 /* Search the existing preview entries without changing the repertoire. */
 const searchGroups=[...document.querySelectorAll('#glyphGroups .glyph-group')];
 let groupStateBeforeSearch=null;
+let selectedBeforeSearch=null;
 function filterCharacters(){
   const query=$('glyphSearch').value.trim();
   const normalized=query.toLowerCase();
-  if(query && !groupStateBeforeSearch) groupStateBeforeSearch=searchGroups.map(group=>group.classList.contains('is-open'));
+  if(query && !groupStateBeforeSearch){
+    groupStateBeforeSearch=searchGroups.map(group=>group.classList.contains('is-open'));
+    selectedBeforeSearch=document.querySelector('#glyphGroups .glyph[aria-pressed="true"]');
+  }
   let total=0;
+  let firstMatch=null;
   searchGroups.forEach((group,index)=>{
     const cells=[...group.querySelectorAll('.glyph')];
     const title=group.querySelector('.glyph-title');
@@ -305,7 +323,7 @@ function filterCharacters(){
       const names=Array.from(char,c=>CHARACTER_NAMES[c]||'').join(' ');
       const found=!query || (Array.from(query).length===1?char===query:(char+' '+codes+' '+names+' '+category).toLowerCase().includes(normalized));
       cell.hidden=!found;
-      if(found)matches++;
+      if(found){matches++;if(!firstMatch)firstMatch=cell;}
     });
     total+=matches;
     group.hidden=matches===0;
@@ -316,7 +334,15 @@ function filterCharacters(){
     title.querySelector('small').textContent=query?matches+' results':cells.length+' glyphs';
   });
   $('glyphSearchStatus').textContent=query?(total?total+' matching preview entries':'No matching characters. Try a character, Unicode code, or category.'):'';
-  if(!query)groupStateBeforeSearch=null;
+  const selected=query?firstMatch:selectedBeforeSearch;
+  if(selected){
+    const category=selected.closest('.glyph-group').querySelector('.glyph-title span').textContent;
+    showGlyphPreview(selected.textContent,category,selected);
+  }else if(query){
+    document.querySelectorAll('.glyph[aria-pressed="true"]').forEach(cell=>cell.setAttribute('aria-pressed','false'));
+    glyphPreview.textContent='—';glyphPreviewName.textContent='No matching character';glyphPreviewCategory.textContent='';
+  }
+  if(!query){groupStateBeforeSearch=null;selectedBeforeSearch=null;}
 }
 $('glyphSearch').addEventListener('input',filterCharacters);
 $('clearGlyphSearch').addEventListener('click',()=>{$('glyphSearch').value='';filterCharacters();$('glyphSearch').focus()});

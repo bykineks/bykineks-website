@@ -37,3 +37,12 @@
 - No JavaScript errors observed during these checks.
 
 Checks used the available desktop browser. Safari/iOS rendering and an operating-system reduced-motion preference change have not been tested directly; reduced-motion behavior is implemented in CSS and preference listeners. Production has not been updated by this work.
+
+## Final review fixes
+
+- Number inputs preserve intermediate keystrokes. A browser test entered `7`, then `2`, then Enter and verified `72 px`. Out-of-range values are committed on Enter/change/blur.
+- Alternate sets ss01/ss02 are mutually exclusive; the latest user selection wins. Older saved state enabling both is normalized to ss02.
+- Character search previews its first result, shows an empty-result state, and restores the selected glyph and open categories when cleared.
+- Added compact sticky section navigation; anchor offsets account for the two-row mobile navigation.
+- Grouped secondary storage tools in Save & share and made title motion control an accessible icon.
+- Retested save/restore after grouping, keyboard interaction and responsive navigation at 320, 390, 768 and 1440 px; no horizontal overflow or JavaScript errors observed.
