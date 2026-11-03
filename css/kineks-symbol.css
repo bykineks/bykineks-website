@@ -1,9 +1,11 @@
 @font-face {
   font-family: KineksSymbol;
+  font-weight: 700;
+  font-style: normal;
   src: url("../assets/fonts/Kineks-Symbol.woff2") format("woff2");
   font-display: swap;
 }
-.glyph-preview-char, .glyph { font-family: KineksSymbol, sans-serif; }
+.glyph-preview-char, .glyph { font-family: KineksSymbol, sans-serif; font-weight: 700; }
 .glyph-overview-title { margin: 0; }
 .system-count { font-size: 11px; color: #777; }
 .symbol-group h3 { margin: 0; font-size: inherit; }

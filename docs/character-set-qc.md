@@ -10,7 +10,7 @@ Inspected the repository's original WOFF2 files with fontTools 4.68.0 and Brotli
 | Kineks Compact | 10 | 388 | 367 | 21 |
 | Caelia | 5 | 1,932 | 1,607 | 325 |
 
-Also inspected the additional `KineksCompact-SemiBoldOblique.woff2` asset: its counts match the ten styles. Every font opened successfully. Weights match their filenames, except Kineks Symbol has internal OS/2 weight 700 while the website markets its sole style as Regular. This is recorded for a future source-font decision; the binary and product style label are unchanged.
+Also inspected the additional `KineksCompact-SemiBoldOblique.woff2` asset: its counts match the ten styles. Every font opened successfully. Kineks Symbol has internal OS/2 weight 700. The product owner confirmed its style is Bold; the visible style, structured product data and CSS font declaration now match that weight. No font binary was changed.
 
 All code points used by the existing previews are supported by their respective fonts. This verifies character coverage, not every OpenType shaping outcome.
 
