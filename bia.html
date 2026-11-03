@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Bia is a transitional type system by Dede Kurniawan and Bykineks, featuring 200 styles across Serif Low, Serif High, Sans Low, and Sans High.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp">
 <title>Bia — 200-Style Transitional Typeface | Bykineks</title>
-<link rel="stylesheet" href="css/bia.css?v=context-1">
+<link rel="stylesheet" href="css/bia.css?v=final-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -193,6 +193,8 @@
     </div>
     <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
   </div>
+<details class="opentype-tools"><summary>OpenType features</summary><fieldset><legend>Apply to the playground text</legend><div class="feature-options"><label><input type="checkbox" data-feature="liga" checked><span>Standard ligatures<small>fi · fl · ffi</small></span></label><label><input type="checkbox" data-feature="dlig"><span>Discretionary ligature<small>BY</small></span></label><label><input type="checkbox" data-feature="ss01"><span>Alternates 1<small>A · E · O · a</small></span></label><label><input type="checkbox" data-feature="ss02"><span>Alternate E<small>E</small></span></label><label><input type="checkbox" data-feature="frac"><span>Fractions<small>1/2 · 3/4</small></span></label></div><div class="feature-actions"><button type="button" id="tryFeatures">Try feature sample</button><button type="button" id="resetFeatures">Reset features</button></div></fieldset></details>
+<div class="setting-actions" role="group" aria-label="Playground settings"><button type="button" id="saveSetting">Save on this browser</button><button type="button" id="loadSetting">Restore saved setting</button><button type="button" id="copySetting">Copy setting link</button></div><p id="settingStatus" class="section-note" role="status"></p><div id="settingLinkFallback" hidden><label for="settingLink">Copy this setting link</label><input id="settingLink" readonly type="text"></div>
   <div class="specimen-note" id="specimen-help">Click the specimen text to edit it. Choose sample text or type your own. Change a voice or adjust the axes without losing your words.</div>
 </section>
 
@@ -219,6 +221,7 @@
     <div class="system-count" id="preview-count"></div>
   </div>
   <p class="character-set-note">1,037 glyphs in the font. This preview shows selected characters and ligatures in Bia Serif Low Bold.</p>
+  <div class="glyph-search"><label for="glyphSearch">Find a character</label><div><input id="glyphSearch" type="search" placeholder="Character, Unicode, name, or category" aria-describedby="glyphSearchHelp"><button type="button" id="clearGlyphSearch">Clear</button></div><p id="glyphSearchHelp">Try A, U+0041, arrow, or ligatures.</p><p id="glyphSearchStatus" role="status"></p></div>
   <div class="glyph-study">
     <div class="glyph-preview" aria-live="polite">
       <div class="glyph-preview-char" id="glyphPreview">A</div>
@@ -265,6 +268,6 @@
 </footer>
 </div>
 
-<script src="js/bia.js?v=context-1"></script>
+<script src="js/bia.js?v=final-1"></script>
 </body>
 </html>
