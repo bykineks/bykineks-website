@@ -22,7 +22,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link rel="stylesheet" href="css/home.css?v=arshila-swash-fix-20261104">
+<link rel="stylesheet" href="css/home.css?v=kineks-accordion-20261104">
 <!-- GEO:HOME-SCHEMA -->
 <script type="application/ld+json">
 {
@@ -117,18 +117,30 @@
 
   <div class="font-list">
 
-    <div class="font-row kineks">
-      <a href="kineks.html">Kineks</a>
-    </div>
-
-    <div class="font-row symbol"><a href="kineks-symbol.html"><span class="symbol-label">Kineks Symbols</span></a></div>
-      <div class="font-row kineks-text">
-      <a href="kineks-text.html">Kineks Text</a>
-    </div>
-
-    <div class="font-row compact">
-      <a href="kineks-compact.html">Kineks Compact</a>
-    </div>
+    <details class="kineks-accordion">
+      <summary class="font-row kineks kineks-trigger">
+        <span class="kineks-trigger-name">Kineks</span>
+        <span class="kineks-toggle-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="kineks-choices">
+        <a class="kineks-choice kineks-choice-original" href="kineks.html">
+          <span class="kineks-choice-name">Kineks</span>
+          <span class="kineks-choice-meta">Original family <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="kineks-choice kineks-choice-symbols" href="kineks-symbol.html">
+          <span class="kineks-choice-name">Kineks Symbols</span>
+          <span class="kineks-choice-meta">Symbols &amp; visual elements <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="kineks-choice kineks-choice-text" href="kineks-text.html">
+          <span class="kineks-choice-name">Kineks Text</span>
+          <span class="kineks-choice-meta">Reading &amp; editorial <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="kineks-choice kineks-choice-compact" href="kineks-compact.html">
+          <span class="kineks-choice-name">Kineks Compact</span>
+          <span class="kineks-choice-meta">Compact text &amp; interfaces <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </details>
 
     <div class="font-row arshila">
       <a href="arshila.html" aria-label="Arshila">
