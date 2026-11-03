@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Bia is a transitional type system by Dede Kurniawan and Bykineks, featuring 200 styles across Serif Low, Serif High, Sans Low, and Sans High.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp">
 <title>Bia — 200-Style Transitional Typeface | Bykineks</title>
-<link rel="stylesheet" href="css/bia.css?v=context-gallery-2">
+<link rel="stylesheet" href="css/bia.css?v=specimen-layout-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -167,20 +167,14 @@
 
 <section id="system" class="system-section" aria-labelledby="system-title">
   <div class="section-head"><h2 class="kicker" id="system-title" tabindex="-1">Variable Type System</h2><div class="system-count">5 Axes</div></div>
-  <div class="sample-toolbar" role="group" aria-label="Sample text"><span class="sample-label">Sample text</span><div class="sample-options"><button type="button" data-sample="headline" aria-pressed="true">Headline</button><button type="button" data-sample="brand" aria-pressed="false">Brand name</button><button type="button" data-sample="paragraph" aria-pressed="false">Paragraph</button><button type="button" data-sample="numerals" aria-pressed="false">Numerals</button></div></div>
   <div class="variable-playground">
-    <div id="liveSpecimen" class="live-specimen" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Editable Bia specimen" aria-describedby="specimen-help">A study in form.</div>
-    <div class="variable-controls" aria-label="Bia variable font controls">
-      <button id="playVariable" class="icon-control" type="button" aria-label="Play variable animation" aria-pressed="false">▶</button>
-      <button id="resetVariable" class="icon-control" type="button" aria-label="Reset variable font">↻</button>
-      <div class="axis-control"><label for="serfRange">Serif <output id="serfValue">0</output></label><input id="serfRange" type="range" min="0" max="1" step="0.01" value="0"></div>
-      <div class="axis-control"><label for="cntrRange">Contrast <output id="cntrValue">70</output></label><input id="cntrRange" type="range" min="0" max="100" step="1" value="70"></div>
-      <div class="axis-control"><label for="italRange">Italic <output id="italValue">0</output></label><input id="italRange" type="range" min="0" max="1" step="0.01" value="0"></div>
-      <div class="axis-control"><label for="wghtRange">Weight <output id="wghtValue">650</output></label><input id="wghtRange" type="range" min="300" max="700" step="1" value="650"></div>
-      <div class="axis-control"><label for="wdthRange">Width <output id="wdthValue">100</output></label><input id="wdthRange" type="range" min="50" max="150" step="1" value="100"></div>
-    </div>
-  </div>
-  <div class="specimen-controls">
+    <div class="specimen-column">
+      <div class="sample-toolbar" role="group" aria-label="Sample text"><div class="sample-options"><button type="button" data-sample="headline" aria-pressed="true">Headline</button><button type="button" data-sample="brand" aria-pressed="false">Brand name</button><button type="button" data-sample="paragraph" aria-pressed="false">Paragraph</button><button type="button" data-sample="numerals" aria-pressed="false">Numerals</button></div></div>
+      <div class="specimen-stage">
+        <div id="liveSpecimen" class="live-specimen" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Editable Bia specimen" aria-describedby="specimen-help">A study in form.</div>
+        <span class="edit-hint" aria-hidden="true">Click to edit</span>
+      </div>
+      <div class="specimen-controls">
     <div class="specimen-control">
       <div class="control-heading"><label for="sizeRange">Size</label><input id="sizeInput" aria-label="Font size in pixels" type="number" min="24" max="240" step="1" value="24"><span>px</span></div>
       <input id="sizeRange" type="range" min="24" max="240" step="1" value="24">
@@ -193,7 +187,21 @@
       <div class="control-heading"><label for="trackingRange">Tracking</label><input id="trackingInput" aria-label="Letter spacing in em" type="number" min="-0.08" max="0.05" step="0.005" value="-0.045"><span>em</span></div>
       <input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="-0.045">
     </div>
-    <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
+    <button id="resetSpecimen" class="reset-button" type="button" aria-label="Reset text size, leading and tracking">Reset type</button>
+  </div>
+    </div>
+    <div class="variable-controls" role="group" aria-labelledby="axes-title">
+      <h3 class="kicker" id="axes-title">Variable axes</h3>
+      <div class="axis-control"><label for="serfRange">Serif <output id="serfValue">0</output></label><input id="serfRange" type="range" min="0" max="1" step="0.01" value="0"></div>
+      <div class="axis-control"><label for="cntrRange">Contrast <output id="cntrValue">70</output></label><input id="cntrRange" type="range" min="0" max="100" step="1" value="70"></div>
+      <div class="axis-control"><label for="italRange">Italic <output id="italValue">0</output></label><input id="italRange" type="range" min="0" max="1" step="0.01" value="0"></div>
+      <div class="axis-control"><label for="wghtRange">Weight <output id="wghtValue">650</output></label><input id="wghtRange" type="range" min="300" max="700" step="1" value="650"></div>
+      <div class="axis-control"><label for="wdthRange">Width <output id="wdthValue">100</output></label><input id="wdthRange" type="range" min="50" max="150" step="1" value="100"></div>
+      <div class="axis-actions">
+        <button id="playVariable" type="button" aria-label="Play variable animation" aria-pressed="false">Animate</button>
+        <button id="resetVariable" type="button" aria-label="Reset variable axes">Reset axes</button>
+      </div>
+    </div>
   </div>
 <details class="opentype-tools"><summary>OpenType features</summary><fieldset><legend>Apply to the playground text</legend><div class="feature-options"><label><input type="checkbox" data-feature="liga" checked><span>Standard ligatures<small>fi · fl · ffi</small></span></label><label><input type="checkbox" data-feature="dlig"><span>Discretionary ligature<small>BY</small></span></label><label><input type="checkbox" data-feature="ss01"><span>Alternates 1<small>A · E · O · a</small></span></label><label><input type="checkbox" data-feature="ss02"><span>Alternate E<small>E</small></span></label><label><input type="checkbox" data-feature="frac"><span>Fractions<small>1/2 · 3/4</small></span></label></div><div class="feature-actions"><button type="button" id="tryFeatures">Try feature sample</button><button type="button" id="resetFeatures">Reset features</button></div><p class="section-note">Alternate sets are applied one at a time.</p></fieldset></details>
 <details class="save-share-tools"><summary>Save &amp; share</summary><div class="setting-actions" role="group" aria-label="Playground settings"><button type="button" id="saveSetting">Save on this browser</button><button type="button" id="loadSetting">Restore saved setting</button><button type="button" id="copySetting">Copy setting link</button></div><div id="settingLinkFallback" hidden><label for="settingLink">Copy this setting link</label><input id="settingLink" readonly type="text"></div></details><p id="settingStatus" class="section-note" role="status"></p>
@@ -279,7 +287,7 @@
 </footer>
 </div>
 
-<script src="js/bia.js?v=review-2"></script>
+<script src="js/bia.js?v=specimen-layout-1"></script>
 <script>
 (() => {
   const track = document.getElementById('bia-gallery-track');
