@@ -49,7 +49,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="css/kineks-compact.css">
+<link rel="stylesheet" href="css/kineks-compact.css?v=character-set-qc">
 
 <!-- GEO:PRODUCT-SCHEMA -->
 <script type="application/ld+json">
@@ -535,75 +535,17 @@ Click the specimen text to edit it. Select any combination above to preview all 
 
 <!-- GLYPHS -->
 
-<section class="glyph-section">
-
-
-<div class="glyph-title">
-BASIC LATIN
-</div>
-
-<div
-class="glyph-grid"
-id="basic-latin">
-</div>
-
-
-<div
-class="glyph-title"
-style="margin-top:28px">
-
-PUNCTUATION &amp; SYMBOLS
-
-</div>
-
-<div
-class="glyph-grid"
-id="punctuation">
-</div>
-
-
-<div
-class="glyph-title"
-style="margin-top:28px">
-
-NUMERAL &amp; CURRENCIES
-
-</div>
-
-<div
-class="glyph-grid"
-id="numerals">
-</div>
-
-
-<div
-class="glyph-title"
-style="margin-top:28px">
-
-LATIN EXTENDED-A
-
-</div>
-
-<div
-class="glyph-grid"
-id="latin-extended">
-</div>
-
-
-<div
-class="glyph-title"
-style="margin-top:28px">
-
-STANDARD LIGATURES
-</div>
-
-<div
-class="glyph-grid"
-id="ligatures">
-</div>
-
-
-</section>
+<section id="glyphs" class="glyph-section" aria-labelledby="character-set-title">
+<div class="glyph-overview-head"><h2 id="character-set-title">Character Set</h2><span id="character-set-count"></span></div>
+<p class="character-set-note">388 glyphs in the font. The preview shows selected characters and sequences.</p>
+<div class="glyph-study">
+<div class="glyph-preview" aria-live="polite"><div id="glyph-preview-char" aria-hidden="true">A</div><div class="glyph-preview-meta"><span id="glyph-preview-name">A</span><span id="glyph-preview-category">Basic Latin</span></div></div>
+<div class="glyph-groups"><div class="glyph-group"><h3><button type="button" class="glyph-title" aria-expanded="false" aria-controls="basic-latin"><span>Basic Latin</span><small></small></button></h3><div class="glyph-grid" id="basic-latin" hidden></div></div>
+<div class="glyph-group"><h3><button type="button" class="glyph-title" aria-expanded="false" aria-controls="punctuation"><span>Punctuation &amp; Symbols</span><small></small></button></h3><div class="glyph-grid" id="punctuation" hidden></div></div>
+<div class="glyph-group"><h3><button type="button" class="glyph-title" aria-expanded="false" aria-controls="numerals"><span>Numeral &amp; Currencies</span><small></small></button></h3><div class="glyph-grid" id="numerals" hidden></div></div>
+<div class="glyph-group"><h3><button type="button" class="glyph-title" aria-expanded="false" aria-controls="latin-extended"><span>Latin Extended-A</span><small></small></button></h3><div class="glyph-grid" id="latin-extended" hidden></div></div>
+<div class="glyph-group"><h3><button type="button" class="glyph-title" aria-expanded="false" aria-controls="ligatures"><span>Standard Ligatures</span><small></small></button></h3><div class="glyph-grid" id="ligatures" hidden></div></div></div>
+</div></section>
 
 
 <!-- LANGUAGE SUPPORT -->
@@ -958,111 +900,44 @@ ligatures:[
 };
 
 
-function getGridColumnCount(grid){
-
-return getComputedStyle(grid)
-.gridTemplateColumns
-.split(" ")
-.filter(Boolean)
-.length;
-
+function createGlyphGrid(id, glyphs, extra = "") {
+  const grid = document.getElementById(id);
+  const group = grid.closest('.glyph-group');
+  const title = group.querySelector('.glyph-title');
+  const category = title.querySelector('span').textContent;
+  title.querySelector('small').textContent = glyphs.length + ' glyphs';
+  title.addEventListener('click', () => {
+    const open = title.getAttribute('aria-expanded') !== 'true';
+    title.setAttribute('aria-expanded', String(open));
+    grid.hidden = !open;
+  });
+  glyphs.forEach(glyph => {
+    const cell = document.createElement('button');
+    cell.type = 'button';
+    cell.className = 'glyph ' + extra;
+    cell.textContent = glyph;
+    cell.setAttribute('aria-label', 'Glyph ' + glyph);
+    cell.setAttribute('aria-pressed', 'false');
+    const showPreview = () => {
+      document.querySelectorAll('.glyph[aria-pressed="true"]').forEach(item => item.setAttribute('aria-pressed', 'false'));
+      cell.setAttribute('aria-pressed', 'true');
+      document.getElementById('glyph-preview-char').textContent = glyph;
+      document.getElementById('glyph-preview-name').textContent = glyph;
+      document.getElementById('glyph-preview-category').textContent = category;
+    };
+    cell.addEventListener('click', showPreview);
+    cell.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') showPreview(); });
+    cell.addEventListener('focus', showPreview);
+    grid.appendChild(cell);
+  });
 }
-
-
-function createGlyphGrid(
-id,
-glyphs,
-extra=""
-){
-
-const grid =
-document.getElementById(id);
-
-
-glyphs.forEach(glyph => {
-
-const cell =
-document.createElement("div");
-
-cell.className =
-"glyph " + extra;
-
-cell.textContent =
-glyph;
-
-grid.appendChild(cell);
-
-});
-
-
-const columns =
-getGridColumnCount(grid);
-
-
-const remainder =
-glyphs.length % columns;
-
-
-if(remainder !== 0){
-
-const emptyCells =
-columns - remainder;
-
-
-for(let i=0;i<emptyCells;i++){
-
-const cell =
-document.createElement("div");
-
-cell.className =
-"glyph empty";
-
-cell.setAttribute(
-"aria-hidden",
-"true"
-);
-
-grid.appendChild(cell);
-
-}
-
-}
-
-}
-
-
-createGlyphGrid(
-"basic-latin",
-glyphSets.basicLatin
-);
-
-
-createGlyphGrid(
-"punctuation",
-glyphSets.punctuation,
-"small"
-);
-
-
-createGlyphGrid(
-"numerals",
-glyphSets.numerals,
-"large"
-);
-
-
-createGlyphGrid(
-"latin-extended",
-glyphSets.latinExtended
-);
-
-
-createGlyphGrid(
-"ligatures",
-glyphSets.ligatures,
-"ligature"
-);
-
+createGlyphGrid('basic-latin', glyphSets.basicLatin);
+createGlyphGrid('punctuation', glyphSets.punctuation, 'small');
+createGlyphGrid('numerals', glyphSets.numerals, 'large');
+createGlyphGrid('latin-extended', glyphSets.latinExtended);
+createGlyphGrid('ligatures', glyphSets.ligatures, 'ligature');
+document.querySelector('#basic-latin .glyph').setAttribute('aria-pressed', 'true');
+document.getElementById('character-set-count').textContent = Object.values(glyphSets).reduce((total, glyphs) => total + glyphs.length, 0) + ' preview entries';
 
 /* =========================================================
    TYPE SYSTEM
