@@ -1078,3 +1078,31 @@ header{
   .kineks-toggle-icon::after,
   .kineks-choice{transition:none}
 }
+
+/* Keep the Kineks disclosure icon inside its row on every screen. */
+.kineks-trigger{
+  position:relative;
+  overflow:hidden;
+}
+.kineks-trigger .kineks-toggle-icon{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  right:clamp(12px,2vw,24px);
+  width:18px;
+  height:18px;
+  margin:0;
+  padding:0;
+  line-height:0;
+  transform:translateY(-50%);
+  flex:none;
+}
+@media(max-width:700px){
+  .kineks-trigger .kineks-toggle-icon{
+    top:50%;
+    right:12px;
+    width:16px;
+    height:16px;
+    transform:translateY(-50%);
+  }
+}
