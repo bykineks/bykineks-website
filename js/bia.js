@@ -258,3 +258,16 @@ document.querySelectorAll('[data-voice]').forEach(button=>button.addEventListene
   $('system').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'start'});
 }));
 selectSample('headline');
+
+function updateComparison(){
+  const text=$('compareText').value;
+  for(const side of ['left','right']){
+    const voice=VOICES[$('compare-'+side).value];
+    const preview=$('compare-preview-'+side);
+    preview.textContent=text;
+    preview.style.fontVariationSettings='"SERF" '+voice.SERF+',"CNTR" '+voice.CNTR+',"wght" 400,"wdth" 100,"ital" 0';
+  }
+}
+$('compareText').addEventListener('input',updateComparison);
+document.querySelectorAll('[data-compare-side]').forEach(select=>select.addEventListener('change',updateComparison));
+updateComparison();
