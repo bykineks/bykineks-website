@@ -403,32 +403,7 @@
 </script>
 
 
-<script>
-(() => {
-  const link = document.querySelector('.symbol > a');
-  const mark = link.querySelector('.symbol-mark');
-  const pool = Array.from('←↑→↓↔↕↖↗↘↙↩↪⇐⇑⇒⇓◆●▲▼');
-  const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  let timer;
-  function shuffle() {
-    const choices = pool.filter(glyph => !mark.textContent.includes(glyph));
-    const pick = () => choices.splice(Math.floor(Math.random() * choices.length), 1)[0];
-    mark.textContent = pick() + pick();
-  }
-  function sync() {
-    clearInterval(timer);
-    if (!document.hidden && !motion.matches && link.matches(':hover, :focus-visible')) {
-      shuffle();
-      timer = setInterval(shuffle, 650);
-    }
-  }
-  shuffle();
-  for (const event of ['pointerenter', 'pointerleave', 'focus', 'blur']) link.addEventListener(event, sync);
-  motion.addEventListener('change', sync);
-  document.addEventListener('visibilitychange', sync);
-  sync();
-})();
-</script>
+
 
 <footer class="bottom">
 
