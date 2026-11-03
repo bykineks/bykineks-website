@@ -919,27 +919,34 @@ header{
 }
 .font-row:is(.avita, .bilgen, .dareva, .gin, .neela, .wakaba).is-touching span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
 
-/* Arshila mobile: scale the full ornamental specimen down and center it. */
+/* Arshila mobile: contained, smaller and optically centered specimen. */
 @media (max-width:700px){
   .font-row.arshila{
     height:100px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
   .font-row.arshila > a{
-    width:88%;
-    max-width:360px;
+    position:relative;
+    top:0;
+    width:76%;
+    max-width:300px;
     min-width:0;
-    height:78px;
-    flex-shrink:0;
-    transform:none;
-    top:10px;
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 1 auto;
+    transform:none !important;
   }
   .font-row.arshila .arshila-glyphmark{
     display:block;
     width:100%;
-    height:100%;
+    height:76px;
     max-width:100%;
-    max-height:100%;
-    overflow:visible;
-    transform:none;
+    max-height:76px;
+    overflow:hidden;
+    transform:translateY(5px);
   }
 }
