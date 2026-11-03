@@ -918,3 +918,21 @@ header{
   .font-row:is(.avita, .bilgen, .dareva, .gin, .neela, .wakaba):hover span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
 }
 .font-row:is(.avita, .bilgen, .dareva, .gin, .neela, .wakaba).is-touching span { transform: translateX(calc((var(--mx) - 50%) * .08)); }
+
+/* Keep Arshila's complete ornamental SVG within the mobile font row. */
+@media (max-width:700px){
+  .font-row.arshila a{
+    width:100%;
+    max-width:420px;
+    min-width:0;
+    height:78px;
+  }
+  .font-row.arshila .arshila-glyphmark{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    max-height:78px;
+    overflow:hidden;
+    transform:none;
+  }
+}
