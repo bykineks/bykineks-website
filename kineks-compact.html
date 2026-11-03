@@ -49,7 +49,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="css/kineks-compact.css?v=character-set">
+<link rel="stylesheet" href="css/kineks-compact.css?v=character-set-qc">
 
 <!-- GEO:PRODUCT-SCHEMA -->
 <script type="application/ld+json">
@@ -537,6 +537,7 @@ Click the specimen text to edit it. Select any combination above to preview all 
 
 <section id="glyphs" class="glyph-section" aria-labelledby="character-set-title">
 <div class="glyph-overview-head"><h2 id="character-set-title">Character Set</h2><span id="character-set-count"></span></div>
+<p class="character-set-note">388 glyphs in the font. The preview shows selected characters and sequences.</p>
 <div class="glyph-study">
 <div class="glyph-preview" aria-live="polite"><div id="glyph-preview-char" aria-hidden="true">A</div><div class="glyph-preview-meta"><span id="glyph-preview-name">A</span><span id="glyph-preview-category">Basic Latin</span></div></div>
 <div class="glyph-groups"><div class="glyph-group"><h3><button type="button" class="glyph-title" aria-expanded="false" aria-controls="basic-latin"><span>Basic Latin</span><small></small></button></h3><div class="glyph-grid" id="basic-latin" hidden></div></div>
@@ -917,13 +918,16 @@ function createGlyphGrid(id, glyphs, extra = "") {
     cell.textContent = glyph;
     cell.setAttribute('aria-label', 'Glyph ' + glyph);
     cell.setAttribute('aria-pressed', 'false');
-    cell.addEventListener('click', () => {
+    const showPreview = () => {
       document.querySelectorAll('.glyph[aria-pressed="true"]').forEach(item => item.setAttribute('aria-pressed', 'false'));
       cell.setAttribute('aria-pressed', 'true');
       document.getElementById('glyph-preview-char').textContent = glyph;
       document.getElementById('glyph-preview-name').textContent = glyph;
       document.getElementById('glyph-preview-category').textContent = category;
-    });
+    };
+    cell.addEventListener('click', showPreview);
+    cell.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') showPreview(); });
+    cell.addEventListener('focus', showPreview);
     grid.appendChild(cell);
   });
 }
@@ -933,7 +937,7 @@ createGlyphGrid('numerals', glyphSets.numerals, 'large');
 createGlyphGrid('latin-extended', glyphSets.latinExtended);
 createGlyphGrid('ligatures', glyphSets.ligatures, 'ligature');
 document.querySelector('#basic-latin .glyph').setAttribute('aria-pressed', 'true');
-document.getElementById('character-set-count').textContent = Object.values(glyphSets).reduce((total, glyphs) => total + glyphs.length, 0) + ' visible glyphs';
+document.getElementById('character-set-count').textContent = Object.values(glyphSets).reduce((total, glyphs) => total + glyphs.length, 0) + ' preview entries';
 
 /* =========================================================
    TYPE SYSTEM

@@ -1,7 +1,16 @@
 const characterSet = document.querySelector('#glyphs');
+// Enhance the existing specimen markup without duplicating its character data.
+for (const cell of characterSet.querySelectorAll('.glyph')) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = cell.className;
+  button.textContent = cell.textContent;
+  button.setAttribute('aria-pressed', 'false');
+  cell.replaceWith(button);
+}
 const glyphButtons = characterSet.querySelectorAll('button.glyph');
 characterSet.querySelector('#character-set-count').textContent =
-  glyphButtons.length.toLocaleString('en-US') + ' visible glyphs';
+  glyphButtons.length.toLocaleString('en-US') + ' preview entries';
 glyphButtons[0].setAttribute('aria-pressed', 'true');
 
 characterSet.addEventListener('click', (event) => {
@@ -21,3 +30,10 @@ characterSet.addEventListener('click', (event) => {
   characterSet.querySelector('#glyph-preview-category').textContent =
     glyph.closest('.glyph-group').querySelector('.glyph-title span').textContent;
 });
+
+for (const type of ['pointerover', 'focusin']) {
+  characterSet.addEventListener(type, event => {
+    const glyph = event.target.closest('button.glyph');
+    if (glyph && (type === 'focusin' || event.pointerType === 'mouse')) glyph.click();
+  });
+}

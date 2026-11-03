@@ -907,3 +907,5 @@ grid-template-columns:repeat(7,1fr)
 .glyph-title:focus-visible,.glyph-grid .glyph:focus-visible{outline:2px solid #111;outline-offset:-3px}
 .glyph.ligature{font-size:22px}
 @media(max-width:800px){.glyph-overview-head h2{font-size:26px}.glyph-study{grid-template-columns:1fr;gap:22px}.glyph-preview{position:static;height:240px}#glyph-preview-char{font-size:clamp(100px,25vw,150px)}}
+
+.character-set-note{font-size:12px;line-height:1.45;color:#555;margin:0 0 24px}

@@ -17,3 +17,10 @@ study.addEventListener('click', (event) => {
   document.querySelector('#symbol-name').textContent = button.getAttribute('aria-label');
   document.querySelector('#symbol-code').textContent = button.dataset.code;
 });
+
+for (const type of ['pointerover', 'focusin']) {
+  study.addEventListener(type, event => {
+    const glyph = event.target.closest('button.glyph');
+    if (glyph && (type === 'focusin' || event.pointerType === 'mouse')) glyph.click();
+  });
+}

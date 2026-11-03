@@ -36,3 +36,5 @@
   .glyph-preview { position: static; height: 240px; max-width: none; }
   .glyph-preview-char { font-size: clamp(100px, 25vw, 150px); }
 }
+
+.character-set-note{font-size:12px;line-height:1.45;color:#555;margin:0 0 24px}
