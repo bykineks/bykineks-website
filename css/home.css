@@ -946,7 +946,7 @@ header{
     height:76px;
     max-width:100%;
     max-height:76px;
-    overflow:hidden;
-    transform:translateY(5px);
+    overflow:visible;
+    transform:translateY(9px);
   }
 }
