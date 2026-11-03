@@ -931,6 +931,7 @@ header{
     height:78px;
     flex-shrink:0;
     transform:none;
+    top:10px;
   }
   .font-row.arshila .arshila-glyphmark{
     display:block;
