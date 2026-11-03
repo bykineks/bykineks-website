@@ -108,3 +108,23 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #111;
 .save-share-tools{padding:12px 0;border-bottom:1px solid #bbb}.save-share-tools summary{font-size:12px;min-height:44px;display:list-item;padding:12px 0;cursor:pointer}.save-share-tools .setting-actions{margin-top:12px}
 @media(max-width:800px){.section-nav{gap:0 20px;padding:0 10px}.hero .motion-toggle{top:0;right:0}}
 @media(prefers-reduced-motion:reduce){.hero .motion-toggle{display:none}}
+
+/* Bia in context */
+.bia-gallery-track {
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+.bia-gallery-track figure {
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+  scroll-snap-align: start;
+}
+.bia-gallery-track img { display: block; width: 100%; height: auto; }
+.bia-gallery-track figcaption { margin: 10px 0; font-size: 14px; }
+.bia-gallery-controls:not([hidden]) { display: flex; justify-content: flex-end; align-items: center; gap: 14px; }
+.bia-gallery-controls span { font-variant-numeric: tabular-nums; }
+.bia-gallery-controls button { width: 44px; height: 44px; border: 1px solid currentColor; background: transparent; color: inherit; font-size: 20px; cursor: pointer; }
+.bia-gallery-controls button[aria-disabled="true"] { opacity: .4; cursor: default; }

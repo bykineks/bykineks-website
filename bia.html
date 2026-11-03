@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Bia is a transitional type system by Dede Kurniawan and Bykineks, featuring 200 styles across Serif Low, Serif High, Sans Low, and Sans High.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp">
 <title>Bia — 200-Style Transitional Typeface | Bykineks</title>
-<link rel="stylesheet" href="css/bia.css?v=review-2">
+<link rel="stylesheet" href="css/bia.css?v=context-gallery-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -207,14 +207,21 @@
 <p class="section-note">Both previews use weight 400, normal width, and upright forms, so you can compare serif and contrast directly.</p>
 </section>
 
-<section id="in-context" class="context-section" aria-labelledby="context-title">
-<div class="section-head"><h2 id="context-title" class="kicker">Bia in context</h2><span class="system-count">Typographic demonstrations</span></div>
-<p class="voices-intro">One shared structure, different expressions. Three studies in how Bia can shape a composition.</p>
-<div class="context-grid">
-<article class="context-card"><h3>Editorial</h3><div class="context-art editorial-study"><span class="study-eyebrow">FORM / JOURNAL 01</span><p class="editorial-headline">The shape of a<br>quieter world.</p><div class="editorial-copy">A moment to look closer.<br>Space, rhythm, and the details between.</div></div><p class="context-caption">Serif High headlines · Sans Low supporting text</p></article>
-<article class="context-card"><h3>Identity</h3><div class="context-art identity-study"><span class="study-eyebrow">CREATIVE PRACTICE</span><p class="identity-wordmark">Forma.</p><div class="identity-detail">Ideas take shape.<br>Art direction / Design / Type</div></div><p class="context-caption">Sans High wordmark · Sans Low supporting text</p></article>
-<article class="context-card"><h3>Packaging</h3><div class="context-art packaging-study"><span class="study-eyebrow">OBJECT STUDY / 01</span><div class="package-label"><p>Everyday<br>forms.</p><span>OBJECTS / COLLECTION 01</span></div><span class="package-foot">A study in proportion.</span></div><p class="context-caption">Serif Low title · Sans Low label text</p></article>
-</div><p class="section-note">Concept studies created to demonstrate the typeface. These are not client projects or products for sale.</p>
+<section id="in-context" class="context-section" aria-labelledby="context-title" aria-roledescription="carousel">
+<div class="section-head"><h2 id="context-title" class="kicker">Bia in context</h2><span class="system-count">Six type studies</span></div>
+<div id="bia-gallery-track" class="bia-gallery-track" tabindex="0" role="group" aria-label="Type studies. Use the left and right arrow keys to browse.">
+  <figure><img src="assets/images/bia-context/bia-preview-05.webp" alt="Three mobile storefronts compare Bia Serif High, Sans Low and Sans High." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>Mobile storefronts</figcaption></figure>
+  <figure><img src="assets/images/bia-context/bia-preview-06.webp" alt="La Skin facial wash packaging with callouts identifying the Bia styles used on its label." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>Skincare packaging</figcaption></figure>
+  <figure><img src="assets/images/bia-context/bia-preview-07.webp" alt="Bia headlines and navigation in a series of black fashion and beauty layouts." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>Fashion websites</figcaption></figure>
+  <figure><img src="assets/images/bia-context/bia-preview-08.webp" alt="Midnight Haze perfume bottle and box with contrasting Bia lettering." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>Fragrance packaging</figcaption></figure>
+  <figure><img src="assets/images/bia-context/bia-preview-09.webp" alt="Spaced serif capitals on the cover and spine of Stuck in Time With You." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>Book cover</figcaption></figure>
+  <figure><img src="assets/images/bia-context/bia-preview-04.webp" alt="Annotated Daily News front page showing how Bia styles work across the masthead, headlines and body text." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>Newspaper typography</figcaption></figure>
+</div>
+<div class="bia-gallery-controls" hidden>
+  <button type="button" aria-controls="bia-gallery-track" aria-label="Previous study">&#8592;</button>
+  <span aria-live="polite" aria-atomic="true">01 / 06</span>
+  <button type="button" aria-controls="bia-gallery-track" aria-label="Next study">&#8594;</button>
+</div>
 </section>
 
 <section id="glyphs" class="glyph-section" aria-labelledby="character-set-title">
@@ -271,5 +278,44 @@
 </div>
 
 <script src="js/bia.js?v=review-2"></script>
+<script>
+(() => {
+  const track = document.getElementById('bia-gallery-track');
+  const controls = track.nextElementSibling;
+  const [previous, next] = controls.querySelectorAll('button');
+  const counter = controls.querySelector('span');
+  const slides = track.children;
+  const number = value => String(value).padStart(2, '0');
+  const index = () => Math.max(0, Math.min(slides.length - 1,
+    Math.round(track.scrollLeft / slides[0].getBoundingClientRect().width)));
+
+  function sync() {
+    const current = index();
+    const label = number(current + 1) + ' / ' + number(slides.length);
+    if (counter.textContent !== label) counter.textContent = label;
+    previous.setAttribute('aria-disabled', String(current === 0));
+    next.setAttribute('aria-disabled', String(current === slides.length - 1));
+  }
+
+  function move(step) {
+    const target = slides[index() + step];
+    if (!target) return;
+    track.scrollLeft += target.getBoundingClientRect().left - track.getBoundingClientRect().left;
+    sync();
+  }
+
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  track.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    move(event.key === 'ArrowLeft' ? -1 : 1);
+  });
+  track.addEventListener('scroll', sync, {passive: true});
+  window.addEventListener('resize', sync);
+  controls.hidden = false;
+  sync();
+})();
+</script>
 </body>
 </html>
