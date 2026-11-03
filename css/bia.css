@@ -110,6 +110,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #111;
 @media(prefers-reduced-motion:reduce){.hero .motion-toggle{display:none}}
 
 /* Bia in context */
+.bia-gallery-frame { position: relative; }
 .bia-gallery-track {
   display: flex;
   overflow-x: auto;
@@ -124,7 +125,17 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #111;
 }
 .bia-gallery-track img { display: block; width: 100%; height: auto; }
 .bia-gallery-track figcaption { margin: 10px 0; font-size: 14px; }
-.bia-gallery-controls:not([hidden]) { display: flex; justify-content: flex-end; align-items: center; gap: 14px; }
+.bia-gallery-controls:not([hidden]) {
+  position: absolute;
+  top: clamp(6px, 1vw, 16px);
+  right: clamp(6px, 1vw, 16px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  color: #111;
+  border: 1px solid #111;
+}
 .bia-gallery-controls span { font-variant-numeric: tabular-nums; }
-.bia-gallery-controls button { width: 44px; height: 44px; border: 1px solid currentColor; background: transparent; color: inherit; font-size: 20px; cursor: pointer; }
+.bia-gallery-controls button { width: 44px; height: 44px; border: 0; background: transparent; color: inherit; font-size: 20px; cursor: pointer; }
 .bia-gallery-controls button[aria-disabled="true"] { opacity: .4; cursor: default; }
