@@ -52,3 +52,13 @@ Mockup placement follows the OpenType feature library, before the playground. Se
 ## Variable layout correction
 
 User clarified the reading order: OpenType library, Shape your words (including OpenType controls), Arshila in use, Character Set. The playground now follows Bia's specimen-left/axes-right structure with typography controls under the specimen. Arshila's three axes and feature data are retained. OpenType controls start collapsed. Checked no page overflow at 320, 390, 768 and 1440 px; desktop uses two columns and mobile stacks. Verified sample switching, axis keyboard adjustment and axis reset in browser. JavaScript syntax and whitespace checks pass.
+
+## OpenType wardrobe expansion
+
+Replaced six partial looks with 23 off/on studies grouped into letterforms, swashes/ligatures, case/editorial details and figures/notation. Uses complete words (AURA, ATELIER, NIGHT, HIGH, office, Fable, season), notation for numeric features and isolated A for oversized swashes. Every example produced a different glyph sequence or positioning under HarfBuzz against the original variable WOFF2 at wght 600 / wdth 100 / ital 0. Case/ordinal/historical controls were added to the existing playground so every example has a visible, resettable control.
+
+salt's first alternate on the selected letters is the sans form; it also exposes other choices, so it is not described as a universal conversion. ordn applies to a/o following numerals (1a 2o), not English st/nd suffixes. fina substitutes A even within words, so its card does not promise end-only contextual behavior. sinf and subs share numeral mappings; locl and aalt are described without inventing separate visual styles.
+
+Try this example explicitly loads its displayed text and feature into the existing playground. The previous ambiguous Apply this look action preserved unrelated text, often hiding the effect. Feature/card state remains based on actual settings and matching text. Responsive browser checks at 320, 390, 768 and 1440 px found no document or card scroll overflow. Tested small-caps and ordinal example transfer and ordinal reset. Native font binaries and unrelated sections retained. Publication is not part of this revision yet.
+
+Swash follow-up: opening and closing cards are merged into ARSHILA (22 studies). Only first A uses swsh; only last A uses ss04; RSHIL explicitly disables both. The playground example uses the same scoped settings. Subsequent feature-control changes remove the scoped example markup and return to whole-text controls.
