@@ -20,12 +20,12 @@ function applyVariable(){
   $('liveSpecimen').style.fontVariationSettings=Object.entries(state).map(([tag,value])=>'"'+tag+'" '+value).join(',');
   for(const [tag,axis] of Object.entries(axes)){$(axis.range).value=state[tag];$(axis.value).value=tag==='ital'?Number(state[tag]).toFixed(2):Math.round(state[tag])}
 }
-function stopAnimation(){if(animationFrame!==null)cancelAnimationFrame(animationFrame);animationFrame=null;$('playVariable').textContent='▶';$('playVariable').setAttribute('aria-label','Play variable animation');$('playVariable').setAttribute('aria-pressed','false')}
+function stopAnimation(){if(animationFrame!==null)cancelAnimationFrame(animationFrame);animationFrame=null;$('playVariable').textContent='Animate';$('playVariable').setAttribute('aria-label','Play variable animation');$('playVariable').setAttribute('aria-pressed','false')}
 Object.entries(axes).forEach(([tag,axis])=>$(axis.range).addEventListener('input',()=>{stopAnimation();state[tag]=Number($(axis.range).value);applyVariable()}));
 $('resetVariable').addEventListener('click',()=>{stopAnimation();state={...defaults};applyVariable()});
 const frames=[{wght:900,wdth:100,ital:0},{wght:100,wdth:75,ital:0},{wght:500,wdth:125,ital:0},{wght:900,wdth:125,ital:1},{wght:900,wdth:100,ital:0}];
 function animate(time){const p=((time-animationStart)%8000)/8000*4;const index=Math.floor(p),t=p-index,e=t*t*(3-2*t);for(const tag of Object.keys(state))state[tag]=frames[index][tag]+(frames[index+1][tag]-frames[index][tag])*e;applyVariable();animationFrame=requestAnimationFrame(animate)}
-$('playVariable').addEventListener('click',()=>{if(animationFrame!==null){stopAnimation();return}animationStart=performance.now();$('playVariable').textContent='Ⅱ';$('playVariable').setAttribute('aria-label','Pause variable animation');$('playVariable').setAttribute('aria-pressed','true');animationFrame=requestAnimationFrame(animate)});
+$('playVariable').addEventListener('click',()=>{if(animationFrame!==null){stopAnimation();return}animationStart=performance.now();$('playVariable').textContent='Pause';$('playVariable').setAttribute('aria-label','Pause variable animation');$('playVariable').setAttribute('aria-pressed','true');animationFrame=requestAnimationFrame(animate)});
 function applySpecimen(){ $('liveSpecimen').style.fontSize=$('sizeRange').value+'px';$('liveSpecimen').style.lineHeight=$('leadingRange').value;$('liveSpecimen').style.letterSpacing=$('trackingRange').value+'em' }
 for(const [rangeId,inputId] of [['sizeRange','sizeInput'],['leadingRange','leadingInput'],['trackingRange','trackingInput']]){
  const range=$(rangeId),input=$(inputId);
@@ -82,6 +82,7 @@ for(const [index,[category,chars]] of Object.entries(SECTIONS).entries()){
   grid.append(cell);entries.push(cell);
  });group.append(heading,grid);$('glyphGroups').append(group);
 }
+document.querySelector('[data-text]').setAttribute('aria-pressed','true');
 showGlyph(entries[0]);$('glyphCount').textContent=entries.length.toLocaleString('en-US')+' preview entries';
 let previousSelection=null,previousGroups=null;
 function filterGlyphs(){const q=$('glyphSearch').value.trim(),query=q.toLowerCase();const groups=[...document.querySelectorAll('.glyph-group')];
