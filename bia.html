@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Bia is a transitional type system by Dede Kurniawan and Bykineks, featuring 200 styles across Serif Low, Serif High, Sans Low, and Sans High.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp">
 <title>Bia — 200-Style Transitional Typeface | Bykineks</title>
-<link rel="stylesheet" href="css/bia.css?v=specimen-layout-1">
+<link rel="stylesheet" href="css/bia.css?v=simple-playground-3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -130,7 +130,7 @@
   <h1 class="bia-variable" aria-label="Bia">Bia</h1>
   <button type="button" id="toggleHeroMotion" class="motion-toggle" aria-pressed="false" aria-label="Pause title animation" title="Pause title animation"><span aria-hidden="true">Ⅱ</span></button>
   <p class="tagline">A transitional type system exploring the balance between classical form, contemporary proportions, and expressive typographic contrast.</p>
-  <div class="hero-actions"><a href="#system">Try Bia ↓</a><a href="#voices">Explore four voices ↓</a><a href="#availability">Buy licences ↓</a></div>
+  <div class="hero-actions"><a href="#system">Try Bia ↓</a><a href="#compare">Compare Bia ↓</a><a href="#availability">Buy licences ↓</a></div>
 </section>
 
 
@@ -156,20 +156,11 @@
 
 <nav class="section-nav" aria-label="Bia page sections"><a href="#system">Try</a><a href="#compare">Compare</a><a href="#in-context">In context</a><a href="#glyphs">Characters</a><a href="#availability">Licensing</a></nav>
 
-<section id="voices" class="voices-section" aria-labelledby="voices-title">
-<div class="section-head"><h2 id="voices-title" class="kicker">Four voices. One system.</h2><span class="system-count">Serif × Contrast</span></div>
-<p class="voices-intro">The same word, weight, and width. Choose a voice to explore it with your own text.</p>
-<div class="voice-grid"><button type="button" class="voice-card" data-voice="serif-low" aria-pressed="false" aria-controls="liveSpecimen"><span class="voice-name">Serif Low</span><span class="voice-sample" aria-hidden="true" style="font-variation-settings:'SERF' 1,'CNTR' 0,'wght' 400,'wdth' 100,'ital' 0">Form</span><span class="voice-action">Try this voice ↓</span></button>
-<button type="button" class="voice-card" data-voice="serif-high" aria-pressed="false" aria-controls="liveSpecimen"><span class="voice-name">Serif High</span><span class="voice-sample" aria-hidden="true" style="font-variation-settings:'SERF' 1,'CNTR' 100,'wght' 400,'wdth' 100,'ital' 0">Form</span><span class="voice-action">Try this voice ↓</span></button>
-<button type="button" class="voice-card" data-voice="sans-low" aria-pressed="false" aria-controls="liveSpecimen"><span class="voice-name">Sans Low</span><span class="voice-sample" aria-hidden="true" style="font-variation-settings:'SERF' 0,'CNTR' 0,'wght' 400,'wdth' 100,'ital' 0">Form</span><span class="voice-action">Try this voice ↓</span></button>
-<button type="button" class="voice-card" data-voice="sans-high" aria-pressed="false" aria-controls="liveSpecimen"><span class="voice-name">Sans High</span><span class="voice-sample" aria-hidden="true" style="font-variation-settings:'SERF' 0,'CNTR' 100,'wght' 400,'wdth' 100,'ital' 0">Form</span><span class="voice-action">Try this voice ↓</span></button></div>
-</section>
-
 <section id="system" class="system-section" aria-labelledby="system-title">
-  <div class="section-head"><h2 class="kicker" id="system-title" tabindex="-1">Variable Type System</h2><div class="system-count">5 Axes</div></div>
+  <div class="section-head"><h2 class="kicker" id="system-title" tabindex="-1">Shape your words</h2><div class="system-count">5 Axes</div></div>
   <div class="variable-playground">
     <div class="specimen-column">
-      <div class="sample-toolbar" role="group" aria-label="Sample text"><div class="sample-options"><button type="button" data-sample="headline" aria-pressed="true">Headline</button><button type="button" data-sample="brand" aria-pressed="false">Brand name</button><button type="button" data-sample="paragraph" aria-pressed="false">Paragraph</button><button type="button" data-sample="numerals" aria-pressed="false">Numerals</button></div></div>
+      <div class="bia-playground-toolbar"><label>Family<select id="familyPreset" aria-label="Family"><option value="serif-low">Serif Low</option><option value="serif-high">Serif High</option><option value="sans-low">Sans Low</option><option value="sans-high">Sans High</option><option value="custom" disabled>Custom</option></select></label><label>Weight<select id="weightPreset" aria-label="Weight"><option value="300">Light</option><option value="400">Regular</option><option value="500">Medium</option><option value="600">Semi Bold</option><option value="700">Bold</option><option value="custom" disabled>Custom</option></select></label><label>Width<select id="widthPreset" aria-label="Width"><option value="50">Ultra Condensed</option><option value="75">Condensed</option><option value="100">Normal</option><option value="125">Expanded</option><option value="150">Ultra Expanded</option><option value="custom" disabled>Custom</option></select></label><label>Style<select id="stylePreset" aria-label="Style"><option value="0">Upright</option><option value="1">Italic</option><option value="custom" disabled>Custom</option></select></label><label>OpenType<select id="featurePreset" aria-label="OpenType"><option value="original">Original</option><option value="dlig">Discretionary ligature</option><option value="ss01">Alternates 1</option><option value="ss02">Alternate E</option><option value="frac">Fractions</option></select></label><button type="button" id="tryFeatures" hidden>Try example</button></div>
       <div class="specimen-stage">
         <div id="liveSpecimen" class="live-specimen" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Editable Bia specimen" aria-describedby="specimen-help">A study in form.</div>
         <span class="edit-hint" aria-hidden="true">Click to edit</span>
@@ -203,9 +194,7 @@
       </div>
     </div>
   </div>
-<details class="opentype-tools"><summary>OpenType features</summary><fieldset><legend>Apply to the playground text</legend><div class="feature-options"><label><input type="checkbox" data-feature="liga" checked><span>Standard ligatures<small>fi · fl · ffi</small></span></label><label><input type="checkbox" data-feature="dlig"><span>Discretionary ligature<small>BY</small></span></label><label><input type="checkbox" data-feature="ss01"><span>Alternates 1<small>A · E · O · a</small></span></label><label><input type="checkbox" data-feature="ss02"><span>Alternate E<small>E</small></span></label><label><input type="checkbox" data-feature="frac"><span>Fractions<small>1/2 · 3/4</small></span></label></div><div class="feature-actions"><button type="button" id="tryFeatures">Try feature sample</button><button type="button" id="resetFeatures">Reset features</button></div><p class="section-note">Alternate sets are applied one at a time.</p></fieldset></details>
-<details class="save-share-tools"><summary>Save &amp; share</summary><div class="setting-actions" role="group" aria-label="Playground settings"><button type="button" id="saveSetting">Save on this browser</button><button type="button" id="loadSetting">Restore saved setting</button><button type="button" id="copySetting">Copy setting link</button></div><div id="settingLinkFallback" hidden><label for="settingLink">Copy this setting link</label><input id="settingLink" readonly type="text"></div></details><p id="settingStatus" class="section-note" role="status"></p>
-  <div class="specimen-note" id="specimen-help">Click the specimen text to edit it. Choose sample text or type your own. Change a voice or adjust the axes without losing your words.</div>
+<div class="specimen-note" id="specimen-help">Click the specimen text to edit it. Choose a family or style, explore OpenType, and adjust the axes without losing your words.</div>
 </section>
 
 <section id="compare" class="compare-section" aria-labelledby="compare-title">
@@ -287,7 +276,7 @@
 </footer>
 </div>
 
-<script src="js/bia.js?v=specimen-layout-1"></script>
+<script src="js/bia.js?v=simple-playground-3"></script>
 <script>
 (() => {
   const track = document.getElementById('bia-gallery-track');

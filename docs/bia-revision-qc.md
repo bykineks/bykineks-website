@@ -46,3 +46,15 @@ Checks used the available desktop browser. Safari/iOS rendering and an operating
 - Added compact sticky section navigation; anchor offsets account for the two-row mobile navigation.
 - Grouped secondary storage tools in Save & share and made title motion control an accessible icon.
 - Retested save/restore after grouping, keyboard interaction and responsive navigation at 320, 390, 768 and 1440 px; no horizontal overflow or JavaScript errors observed.
+
+## Arshila-style simplification — 2026-11-04
+
+Started from clean published main b89cddf. Removed only the Four voices. One system section and its card handlers/styles; its hero link now targets the retained comparison section. The family distinctions remain in the font and are available in one Family selector (Serif Low/High, Sans Low/High). Weight, Width, Style and OpenType selectors replace the old sample toolbar, using Bia-specific values rather than Arshila's inventory. Five sliders remain available. Off-instance serif/contrast or style values display Custom. Manual family/style selection stops animation, while OpenType and Try example preserve animation and axes. Feature choices preserve custom text; explicit Try example replaces it.
+
+Re-audited original Bia-VF.woff2: SERF 0–1, CNTR 0–100, wght 300–700, wdth 50–150, ital 0–1. All 200 named instances exactly match four family pairs × five weights × five widths × two italic states. No binary, glyph array, original defaults or other pages changed. Removed the redundant OpenType disclosure in favor of the single dropdown; stored legacy combinations remain supported and are labeled Custom.
+
+Validation: browser tested named settings (Sans Low / Semi Bold / Condensed / Italic), Custom on all four selectors after slider edits, text retention, feature switching during interpolation, Try example, local Save/Restore and an existing v1 shared setting with intermediate axis coordinates and combined features. The legacy shared example restored text, coordinates and both dlig/ss02 flags, with Custom selected. Comparison text and context carousel navigation still respond. No page overflow at 320/390/768/820/1440 px; desktop uses one toolbar row and mobile uses two columns with OpenType spanning the row. JavaScript syntax, internal anchors and unique IDs checked. Not pushed or published with this local revision.
+
+## Remove unused lower panels
+
+User requested removal of both lower disclosures. OpenType is already handled by the toolbar dropdown. Removed Save & share markup, status/fallback UI, local save/restore and clipboard handlers, URL-state restoration, and associated styles. Existing stored data is left untouched. Family/style selectors, OpenType presets, animation, comparison, gallery and character study remain. The OpenType Custom option is removed because manually stacked saved settings are no longer exposed.
