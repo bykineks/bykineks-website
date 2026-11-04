@@ -11,11 +11,13 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Arshila
 
-- Page/assets: `arshila.html`, `css/arshila.css`; resolve all actual font files and existing inline scripts before editing.
-- User priority: extensive OpenType exploration. Lead with how features change real words/letterforms; group features by task and show verified triggers.
-- Current HTML claims 54 styles and over 2,500 glyphs; these are pending binary/package verification, not audited counts.
-- Inspect swashes, alternates, ligatures, caps and other features actually present. Do not infer semantics from tags: current labels include `c2sc` as Petite Caps and `titl` as Double Struck, which need source-font verification. Check conflicts rather than allowing or forbidding all stacking.
-- Character Set must use Arshila data and preview styles. Do not transplant Bia's four voices or Latin arrays.
+- Page/assets: arshila.html, css/arshila.css, js/arshila.js; original Arshila-VF.woff2 and Arshila-Black.woff2 preserved.
+- User priority: extensive OpenType exploration. Main experience now uses verified before/after looks, grouped controls, an advanced combination option and application mockups supplied by BYKINEKS.
+- Binary audit 2026-11-04: variable version 2.000, 54 named instances (9 weights × 3 widths × 2 italic states), 2,501 internal glyphs / 1,319 Unicode mappings. Product count 2,500 excludes .notdef. The static Black asset differs: 2,502 internal glyphs / 1,321 mappings; do not silently assume identical assets.
+- Actual axes: wght 100–900, wdth 75–125, ital 0–1. All preview text code points and all original liga/dlig sequences were verified against the variable font.
+- c2sc is a smaller petite-cap design in this font (A.c2sc cap height 508 vs a.smcp 558 at default coordinates); preserve the family-specific Petite Caps label. salt offers alternate lists; it is not a universal Sans Serif switch. titl provides double-struck forms.
+- The old ALTERNATES grid repeated 82 base characters with aalt, which could not address each advertised alternate. It now contains 21 explicitly mapped swsh/ss04/ss05/ss08/fina examples. The displayed total is 1,225 preview entries, not the complete font glyph count. Preview clones each cell's feature setting.
+- Existing 110 language names retained; full linguistic coverage is not independently certified. See arshila-revision-qc.md for limitations and conversion details.
 
 ## Bilgen
 
