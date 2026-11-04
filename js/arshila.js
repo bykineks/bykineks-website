@@ -139,3 +139,30 @@ const reducedMotion=matchMedia('(prefers-reduced-motion:reduce)');
 function pauseHero(paused){document.querySelector('.arshila-variable').style.animationPlayState=paused?'paused':'running';$('heroMotion').setAttribute('aria-pressed',String(paused));$('heroMotion').setAttribute('aria-label',paused?'Play title animation':'Pause title animation');$('heroMotion').firstElementChild.textContent=paused?'▶':'Ⅱ'}
 $('heroMotion').addEventListener('click',()=>pauseHero($('heroMotion').getAttribute('aria-pressed')!=='true'));reducedMotion.addEventListener('change',()=>{stopAnimation();pauseHero(reducedMotion.matches)});document.addEventListener('visibilitychange',()=>{if(document.hidden){stopAnimation();document.querySelector('.arshila-variable').style.animationPlayState='paused'}else pauseHero($('heroMotion').getAttribute('aria-pressed')==='true')});
 applyVariable();applyFeatures();resetSpecimen();pauseHero(reducedMotion.matches);
+
+/* Keep the complete wardrobe within one category panel at a time. */
+(() => {
+ const tabs=[...document.querySelectorAll('.wardrobe-tabs [role="tab"]')];
+ const panels=[...document.querySelectorAll('.wardrobe-group')];
+ function select(index,focus=false){
+  tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1;panels[i].hidden=i!==index;});
+  if(focus)tabs[index].focus();
+ }
+ tabs.forEach((tab,index)=>{
+  const panel=panels[index];panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',tab.id);panel.tabIndex=0;
+  tab.addEventListener('click',()=>select(index));
+  tab.addEventListener('keydown',event=>{
+   let target=index;
+   if(event.key==='ArrowRight')target=(index+1)%tabs.length;
+   else if(event.key==='ArrowLeft')target=(index+tabs.length-1)%tabs.length;
+   else if(event.key==='Home')target=0;
+   else if(event.key==='End')target=tabs.length-1;
+   else return;
+   event.preventDefault();select(target,true);
+  });
+ });
+ document.querySelector('.wardrobe-tabs').hidden=false;
+ document.querySelector('.wardrobe-swipe').hidden=false;
+ document.querySelector('.feature-library').classList.add('has-category-tabs');
+ select(0);
+})();

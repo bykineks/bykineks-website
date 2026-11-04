@@ -62,3 +62,7 @@ salt's first alternate on the selected letters is the sans form; it also exposes
 Try this example explicitly loads its displayed text and feature into the existing playground. The previous ambiguous Apply this look action preserved unrelated text, often hiding the effect. Feature/card state remains based on actual settings and matching text. Responsive browser checks at 320, 390, 768 and 1440 px found no document or card scroll overflow. Tested small-caps and ordinal example transfer and ordinal reset. Native font binaries and unrelated sections retained. Publication is not part of this revision yet.
 
 Swash follow-up: opening and closing cards are merged into ARSHILA (22 studies). Only first A uses swsh; only last A uses ss04; RSHIL explicitly disables both. The playground example uses the same scoped settings. Subsequent feature-control changes remove the scoped example markup and return to whole-text controls.
+
+## Compact wardrobe
+
+Four accessible category tabs show one group at a time; all 22 studies remain in the HTML. Cards have reduced spacing, and notes use a disclosure. On screens up to 600 px, each group becomes a horizontal scroll-snap strip instead of a tall stack. Without JavaScript all groups remain readable. Checked all four tabs (6/6/4/6 cards), arrow-key selection, example transfer and document overflow at 320, 390, 768 and 1440 px. No page overflow; native touch gesture not directly exercised. At 1440 px the selected six-card category occupies about 683 px including its header and tabs.
