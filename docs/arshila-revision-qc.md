@@ -48,3 +48,7 @@ Safari/iOS, an operating-system reduced-motion change and exhaustive shaping acr
 Replaced only the mockup grid and modal with Bia's full-width scroll-snap carousel. Browser checks passed for Next (02 / 06), keyboard ArrowRight (03 / 06), and the final-slide disabled state (06 / 06). At 320, 390, 768 and 1440 px, each slide matches the track width and the document has no horizontal overflow. Screenshot visually verified after resetting the viewport. Native touch swiping was not directly tested. JavaScript syntax and Git whitespace checks pass.
 
 Mockup placement follows the OpenType feature library, before the playground. Section navigation follows the same reading order.
+
+## Variable layout correction
+
+User clarified the reading order: OpenType library, Shape your words (including OpenType controls), Arshila in use, Character Set. The playground now follows Bia's specimen-left/axes-right structure with typography controls under the specimen. Arshila's three axes and feature data are retained. OpenType controls start collapsed. Checked no page overflow at 320, 390, 768 and 1440 px; desktop uses two columns and mobile stacks. Verified sample switching, axis keyboard adjustment and axis reset in browser. JavaScript syntax and whitespace checks pass.
