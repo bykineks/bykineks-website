@@ -82,3 +82,7 @@ Verified in browser: AURORA STUDIO retained while switching double-struck to swa
 User found category tabs plus feature chips too complex. Replaced them with two labeled native dropdowns (sample Text and OpenType style); all 17 presets remain available in one list. Try example is shown only after choosing a preset. Removed category-tab handlers. Advanced individual feature controls remain collapsed. Browser verified custom AURORA STUDIO preserved while switching styles with animation running, ARSHILA sample and scoped swashes, original-style reset, sample-text selection, and no page overflow at 320/390/768/1440 px.
 
 Removed the Advanced OpenType panel at user request. Preset feature tags now come directly from LOOKS rather than removed DOM controls; removed combination/reset listeners and unreachable Custom settings option. Original in the dropdown resets the preset.
+
+## Availability hierarchy
+
+Purchase links now form the first row (MyFonts primary, Monotype secondary); existing trial ZIP and specimen PDF are quieter links beneath. Destinations and download behavior retained. Button minimum heights are 48 px and resource links 44 px. Verified no document overflow at 320/390/768/1440 px. Demo ZIP CRC test passed; original OTF/TTF demo entries present. PDF exists with a PDF header. MyFonts destination resolves to Arshila by Bykineks; Monotype search could not be independently fetched by the web tool, so its existing search URL is retained and labeled Find on Monotype Fonts. No new trial/specimen functionality or assets added.
