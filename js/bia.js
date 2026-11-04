@@ -15,7 +15,7 @@ const VOICES={
   'serif-low':{SERF:1,CNTR:0},'serif-high':{SERF:1,CNTR:100},
   'sans-low':{SERF:0,CNTR:0},'sans-high':{SERF:0,CNTR:100}
 };
-const DEFAULT_VARIABLE={SERF:1,CNTR:0,wght:400,wdth:100,ital:0};
+const DEFAULT_VARIABLE={SERF:1,CNTR:100,wght:400,wdth:100,ital:0};
 let variableState={...DEFAULT_VARIABLE};
 let animationFrame=null;
 let animationStart=0;
@@ -44,7 +44,7 @@ function stopAnimation(){
     cancelAnimationFrame(animationFrame);
     animationFrame=null;
   }
-  $('playVariable').textContent='▶';
+  $('playVariable').textContent='Animate';
   $('playVariable').setAttribute('aria-label','Play variable animation');
   $('playVariable').setAttribute('aria-pressed','false');
 }
@@ -104,7 +104,7 @@ function animateVariable(time){
 
 function startAnimation(){
   if(animationFrame!==null)return;
-  $('playVariable').textContent='Ⅱ';
+  $('playVariable').textContent='Pause';
   $('playVariable').setAttribute('aria-label','Pause variable animation');
   $('playVariable').setAttribute('aria-pressed','true');
   animationStart=performance.now();
@@ -116,12 +116,12 @@ $('resetVariable').addEventListener('click',resetVariable);
 
 const compactScreen=matchMedia('(max-width:800px)');
 const SAMPLES={
-  headline:{text:'A study in form.',size:72,mobileSize:48,leading:1.1,tracking:-0.025},
+  headline:{text:'A study in form.',size:96,mobileSize:48,leading:1.1,tracking:-0.025},
   brand:{text:'Forma Studio',size:96,mobileSize:56,leading:1.05,tracking:-0.035},
   paragraph:{text:'Good typography gives ideas a voice. Bia brings a shared structure to different expressions, from quiet reading to a confident headline.',size:24,mobileSize:24,leading:1.4,tracking:0},
   numerals:{text:'0123456789\n€125.00 / $98.50\n09:41 — 2026',size:56,mobileSize:36,leading:1.2,tracking:0}
 };
-const DEFAULT_SPECIMEN={size:compactScreen.matches?48:72,leading:1.1,tracking:-0.025};
+const DEFAULT_SPECIMEN={size:compactScreen.matches?48:96,leading:1.1,tracking:-0.025};
 $('sizeRange').value=DEFAULT_SPECIMEN.size;
 $('sizeInput').value=DEFAULT_SPECIMEN.size;
 function applySpecimenControls(){
