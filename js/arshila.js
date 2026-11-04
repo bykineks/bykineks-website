@@ -6,9 +6,9 @@ const LOOKS={"outline":{"label":"Double-struck","text":"AURA","features":{"titl"
 const $=id=>document.getElementById(id);
 const axes={wght:{range:'wghtRange',value:'wghtValue'},wdth:{range:'wdthRange',value:'wdthValue'},ital:{range:'italRange',value:'italValue'}};
 const defaults={wght:900,wdth:100,ital:0};let state={...defaults};let animationFrame=null;let animationStart=0;
-const featureButtons=[...document.querySelectorAll('[data-feature]')];
+const featureTags=[...new Set(['liga',...Object.values(LOOKS).flatMap(look=>Object.keys(look.features))])];
 let activeLook=null;
-let features=Object.fromEntries(featureButtons.map(button=>[button.dataset.feature,button.dataset.feature==='liga'?1:0]));
+let features=Object.fromEntries(featureTags.map(tag=>[tag,Number(tag==='liga')]));
 function applyFeatures(){
  const specimen=$('liveSpecimen');
  specimen.classList.toggle('has-scoped-swash',activeLook==='swash');
@@ -29,9 +29,7 @@ function applyFeatures(){
    specimen.replaceChildren(wrapper);
   }
  }
- featureButtons.forEach(button=>{const on=!!features[button.dataset.feature];button.setAttribute('aria-pressed',String(on));button.classList.toggle('is-on',on)});
- const original=Object.entries(features).every(([tag,value])=>value===(tag==='liga'?1:0));
- $('featurePreset').value=activeLook||(original?'original':'custom');
+ $('featurePreset').value=activeLook||'original';
  $('useLookExample').hidden=!activeLook;
 }
 function applyVariable(){
@@ -55,18 +53,11 @@ for(const [rangeId,inputId] of [['sizeRange','sizeInput'],['leadingRange','leadi
 const mobile=matchMedia('(max-width:800px)');
 function resetSpecimen(){for(const [range,input,value] of [['sizeRange','sizeInput',mobile.matches?40:64],['leadingRange','leadingInput',1.2],['trackingRange','trackingInput',0]]){$(range).value=value;$(input).value=$(range).value}applySpecimen()}
 $('resetSpecimen').addEventListener('click',resetSpecimen);
-featureButtons.forEach(button=>button.addEventListener('click',()=>{
- activeLook=null;const tag=button.dataset.feature,on=!features[tag];
- if(on && ['Form','Figures'].includes(button.dataset.group) && !$('combineFeatures').checked)featureButtons.filter(other=>other.dataset.group===button.dataset.group).forEach(other=>features[other.dataset.feature]=0);
- features[tag]=Number(on);applyFeatures();$('featureStatus').textContent=button.querySelector('span').firstChild.textContent.trim()+(on?' enabled.':' disabled.');
-}));
-$('combineFeatures').addEventListener('change',()=>{activeLook=null;if(!$('combineFeatures').checked){for(const group of ['Form','Figures']){const selected=featureButtons.filter(button=>button.dataset.group===group&&features[button.dataset.feature]);selected.slice(0,-1).forEach(button=>features[button.dataset.feature]=0)}applyFeatures();$('featureStatus').textContent='Guided feature selection restored.'}});
-$('resetFeatures').addEventListener('click',()=>{activeLook=null;$('combineFeatures').checked=false;Object.keys(features).forEach(tag=>features[tag]=tag==='liga'?1:0);applyFeatures();$('featureStatus').textContent='Standard forms restored.'});
 $('featurePreset').addEventListener('change',()=>{
  activeLook=$('featurePreset').value==='original'?null:$('featurePreset').value;
  Object.keys(features).forEach(tag=>features[tag]=tag==='liga'?1:0);
  if(activeLook)Object.assign(features,LOOKS[activeLook].features);
- $('combineFeatures').checked=activeLook==='swash';applyFeatures();
+ applyFeatures();
  $('featureStatus').textContent=activeLook==='swash'?'Swashes apply to the first and last capital A.':'';
 });
 $('useLookExample').addEventListener('click',()=>{

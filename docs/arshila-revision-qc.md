@@ -80,3 +80,5 @@ Verified in browser: AURORA STUDIO retained while switching double-struck to swa
 ## Simplified unified toolbar
 
 User found category tabs plus feature chips too complex. Replaced them with two labeled native dropdowns (sample Text and OpenType style); all 17 presets remain available in one list. Try example is shown only after choosing a preset. Removed category-tab handlers. Advanced individual feature controls remain collapsed. Browser verified custom AURORA STUDIO preserved while switching styles with animation running, ARSHILA sample and scoped swashes, original-style reset, sample-text selection, and no page overflow at 320/390/768/1440 px.
+
+Removed the Advanced OpenType panel at user request. Preset feature tags now come directly from LOOKS rather than removed DOM controls; removed combination/reset listeners and unreachable Custom settings option. Original in the dropdown resets the preset.
