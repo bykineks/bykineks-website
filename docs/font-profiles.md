@@ -19,6 +19,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 - The old ALTERNATES grid repeated 82 base characters with aalt, which could not address each advertised alternate. It now contains 21 explicitly mapped swsh/ss04/ss05/ss08/fina examples. The displayed total is 1,225 preview entries, not the complete font glyph count. Preview clones each cell's feature setting.
 - Existing 110 language names retained; full linguistic coverage is not independently certified. See arshila-revision-qc.md for limitations and conversion details.
 
+- Wardrobe follow-up: 23 grouped off/on examples verified with HarfBuzz; ordinal a/o require preceding numerals, fina is not end-only, and sinf/subs share numeral forms. Explicit example actions load matching text.
+
 ## Bilgen
 
 - Page/assets: `bilgen.html`, `css/bilgen.css`, `js/bilgen.js`; resolve static/variable assets.

@@ -145,3 +145,16 @@ h2.kicker{margin-top:0}.glyph-overview-title{margin:0}.hero{position:relative}.h
 #system .specimen-note{border:0}
 #system .specimen-stage{min-height:clamp(280px,27vw,430px)}
 @media(max-width:800px){#system .specimen-stage{min-height:220px}#system .sample-tools{gap:0 20px}#system .sample-tools button{font-size:12px}}
+
+/* Grouped OpenType studies: consistent off/on baselines and readable examples. */
+.wardrobe-group{margin-top:32px}.wardrobe-group>h3{font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 14px}
+#feature-library .look-card{gap:18px;padding:22px;justify-content:flex-start}
+.look-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px;width:100%}.look-heading code{font:inherit;font-size:10px;color:#777;font-weight:400}
+.look-comparison{display:grid;grid-template-columns:24px minmax(0,1fr);align-items:center;gap:12px 10px;width:100%;min-height:164px}
+.look-state{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:#777}
+#feature-library .look-before,#feature-library .look-after{font-size:clamp(24px,2.4vw,36px);line-height:1.8;font-feature-settings:'liga' 0,'dlig' 0;font-variant:normal;padding:0;text-align:left;overflow-wrap:anywhere}
+#feature-library .look-after{color:#111}
+#feature-library .look-flourish .look-before,#feature-library .look-flourish .look-after{font-size:26px;padding-inline:28px}
+.look-note{font-size:11px;line-height:1.5;color:#555;min-height:3em}.look-card small{margin-top:auto}.wardrobe-note{margin-top:22px}
+@media(max-width:800px){#feature-library .look-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#feature-library .look-card{padding:16px}.look-heading{flex-wrap:wrap}.look-comparison{min-height:160px}}
+@media(max-width:600px){#feature-library .look-grid{grid-template-columns:1fr}#feature-library .look-before,#feature-library .look-after{font-size:32px}.look-comparison{min-height:152px}}
