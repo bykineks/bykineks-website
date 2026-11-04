@@ -76,3 +76,7 @@ The standalone wardrobe is now a compact category/feature picker inside Shape yo
 Swash preset applies opening swsh to the first capital A and closing ss04 to the last capital A (if distinct), leaving intervening letters normal; sample is ARSHILA. Scoped spans are built with textContent, and editing reapplies them on blur. Additional padding accommodates swash overhang.
 
 Verified in browser: AURORA STUDIO retained while switching double-struck to swashes during animation, axis values continued changing and play state stayed true; explicit sample produced ARSHILA; Original removed scoped markup without changing text. No document overflow at 320, 390, 768 and 1440 px. Original font binaries, mockups and character data retained. Not published as part of this local revision.
+
+## Simplified unified toolbar
+
+User found category tabs plus feature chips too complex. Replaced them with two labeled native dropdowns (sample Text and OpenType style); all 17 presets remain available in one list. Try example is shown only after choosing a preset. Removed category-tab handlers. Advanced individual feature controls remain collapsed. Browser verified custom AURORA STUDIO preserved while switching styles with animation running, ARSHILA sample and scoped swashes, original-style reset, sample-text selection, and no page overflow at 320/390/768/1440 px.
