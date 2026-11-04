@@ -9,6 +9,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 - Verified in the 2026-11-04 audit: five axes SERF/CNTR/wght/wdth/ital; 200 named instances; version 2.100; 1,038 internal glyphs including .notdef. The approved product count is 1,037 excluding that placeholder. 791 preview entries.
 - See `bia-revision-qc.md` for axis coordinates, actual feature examples and limitations. Bia's feature exclusions and counts apply only to Bia.
 
+- Current Bia playground: standalone Four voices cards removed. Family selector preserves the four SERF/CNTR pairs, alongside synchronized Weight/Width/Style/OpenType selectors. All 200 named combinations verified against Bia-VF. Intermediate axes show Custom; Save/share v1 and legacy combined features remain supported.
+
 ## Arshila
 
 - Page/assets: arshila.html, css/arshila.css, js/arshila.js; original Arshila-VF.woff2 and Arshila-Black.woff2 preserved.

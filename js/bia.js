@@ -15,6 +15,7 @@ const VOICES={
   'serif-low':{SERF:1,CNTR:0},'serif-high':{SERF:1,CNTR:100},
   'sans-low':{SERF:0,CNTR:0},'sans-high':{SERF:0,CNTR:100}
 };
+const stylePresets={wght:{id:'weightPreset',values:[300,400,500,600,700]},wdth:{id:'widthPreset',values:[50,75,100,125,150]},ital:{id:'stylePreset',values:[0,1]}};
 const DEFAULT_VARIABLE={SERF:1,CNTR:100,wght:400,wdth:100,ital:0};
 let variableState={...DEFAULT_VARIABLE};
 let animationFrame=null;
@@ -23,16 +24,20 @@ const $=id=>document.getElementById(id);
 
 function formatAxis(key,value){
   if(key==='SERF'||key==='ital') return Number(value).toFixed(2).replace(/\.00$/,'');
-  return Math.round(value);
+  return Number(value.toFixed(2));
 }
 
 function applyVariable(){
   const specimen=$('liveSpecimen');
   specimen.style.fontVariationSettings=`"SERF" ${variableState.SERF},"CNTR" ${variableState.CNTR},"wght" ${variableState.wght},"wdth" ${variableState.wdth},"ital" ${variableState.ital}`;
-  document.querySelectorAll('[data-voice]').forEach(button=>{
-    const voice=VOICES[button.dataset.voice];
-    button.setAttribute('aria-pressed',String(variableState.SERF===voice.SERF && variableState.CNTR===voice.CNTR));
-  });
+  const family=Object.entries(VOICES).find(([,voice])=>Math.abs(variableState.SERF-voice.SERF)<1e-6&&Math.abs(variableState.CNTR-voice.CNTR)<1e-6);
+  const familyValue=family?family[0]:'custom';
+  if($('familyPreset').value!==familyValue)$('familyPreset').value=familyValue;
+  for(const [key,preset] of Object.entries(stylePresets)){
+    const value=preset.values.find(value=>Math.abs(value-variableState[key])<1e-6);
+    const selected=value===undefined?'custom':String(value);
+    if($(preset.id).value!==selected)$(preset.id).value=selected;
+  }
   Object.values(axes).forEach(axis=>{
     $(axis.range).value=variableState[axis.key];
     $(axis.value).value=formatAxis(axis.key,variableState[axis.key]);
@@ -53,6 +58,15 @@ Object.values(axes).forEach(axis=>$(axis.range).addEventListener('input',()=>{
   stopAnimation();
   variableState[axis.key]=parseFloat($(axis.range).value);
   applyVariable();
+}));
+
+$('familyPreset').addEventListener('change',()=>{
+ const voice=VOICES[$('familyPreset').value];if(!voice)return;
+ stopAnimation();Object.assign(variableState,voice);applyVariable();
+});
+Object.entries(stylePresets).forEach(([key,preset])=>$(preset.id).addEventListener('change',()=>{
+ const value=Number($(preset.id).value);if(!preset.values.includes(value))return;
+ stopAnimation();variableState[key]=value;applyVariable();
 }));
 
 function resetVariable(){
@@ -115,15 +129,8 @@ $('playVariable').addEventListener('click',()=>animationFrame!==null?stopAnimati
 $('resetVariable').addEventListener('click',resetVariable);
 
 const compactScreen=matchMedia('(max-width:800px)');
-const SAMPLES={
-  headline:{text:'A study in form.',size:96,mobileSize:48,leading:1.1,tracking:-0.025},
-  brand:{text:'Forma Studio',size:96,mobileSize:56,leading:1.05,tracking:-0.035},
-  paragraph:{text:'Good typography gives ideas a voice. Bia brings a shared structure to different expressions, from quiet reading to a confident headline.',size:24,mobileSize:24,leading:1.4,tracking:0},
-  numerals:{text:'0123456789\n€125.00 / $98.50\n09:41 — 2026',size:56,mobileSize:36,leading:1.2,tracking:0}
-};
 const DEFAULT_SPECIMEN={size:compactScreen.matches?48:96,leading:1.1,tracking:-0.025};
-$('sizeRange').value=DEFAULT_SPECIMEN.size;
-$('sizeInput').value=DEFAULT_SPECIMEN.size;
+for(const [range,input,key] of [['sizeRange','sizeInput','size'],['leadingRange','leadingInput','leading'],['trackingRange','trackingInput','tracking']]){$(range).value=DEFAULT_SPECIMEN[key];$(input).value=$(range).value;}
 function applySpecimenControls(){
   const specimen=$('liveSpecimen');
   specimen.style.fontSize=$('sizeRange').value+'px';
@@ -243,27 +250,6 @@ document.addEventListener('visibilitychange',()=>{
 });
 setHeroPaused(reducedMotion.matches);
 
-function selectSample(key){
-  const sample=SAMPLES[key];
-  $('liveSpecimen').textContent=sample.text;
-  for(const [range,input,value] of [
-    ['sizeRange','sizeInput',compactScreen.matches?sample.mobileSize:sample.size],
-    ['leadingRange','leadingInput',sample.leading],['trackingRange','trackingInput',sample.tracking]
-  ]){$(range).value=value;$(input).value=$(range).value;}
-  document.querySelectorAll('[data-sample]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.sample===key)));
-  applySpecimenControls();
-}
-document.querySelectorAll('[data-sample]').forEach(button=>button.addEventListener('click',()=>{stopAnimation();selectSample(button.dataset.sample)}));
-$('liveSpecimen').addEventListener('input',()=>document.querySelectorAll('[data-sample]').forEach(button=>button.setAttribute('aria-pressed','false')));
-document.querySelectorAll('[data-voice]').forEach(button=>button.addEventListener('click',()=>{
-  stopAnimation();
-  variableState={...variableState,...VOICES[button.dataset.voice]};
-  applyVariable();
-  $('system-title').focus({preventScroll:true});
-  $('system').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'start'});
-}));
-selectSample('headline');
-
 function updateComparison(){
   const text=$('compareText').value;
   for(const side of ['left','right']){
@@ -276,26 +262,29 @@ function updateComparison(){
 $('compareText').addEventListener('input',updateComparison);
 document.querySelectorAll('[data-compare-side]').forEach(select=>select.addEventListener('change',updateComparison));
 updateComparison();
-/* OpenType controls expose only features verified in Bia's GSUB table. */
-const featureInputs=[...document.querySelectorAll('[data-feature]')];
+/* Bia's verified features; v1 saved combinations remain restorable. */
+const FEATURE_DEFAULTS={liga:true,dlig:false,ss01:false,ss02:false,frac:false};
+let featureState={...FEATURE_DEFAULTS};
+const FEATURE_SAMPLES={dlig:'BY',ss01:'A different point of view.',ss02:'ELEGANCE',frac:'1/2 3/4'};
 function applyFeatures(){
-  // Restored links from older versions may enable both alternate sets.
-  const alternate1=featureInputs.find(input=>input.dataset.feature==='ss01');
-  const alternate2=featureInputs.find(input=>input.dataset.feature==='ss02');
-  if(alternate1.checked && alternate2.checked)alternate1.checked=false;
-  $('liveSpecimen').style.fontFeatureSettings=featureInputs.map(input=>'"'+input.dataset.feature+'" '+Number(input.checked)).join(',');
+ if(featureState.ss01&&featureState.ss02)featureState.ss01=false;
+ $('liveSpecimen').style.fontFeatureSettings=Object.entries(featureState).map(([tag,on])=>'"'+tag+'" '+Number(on)).join(',');
+ let selected='custom';
+ if(Object.keys(FEATURE_DEFAULTS).every(tag=>featureState[tag]===FEATURE_DEFAULTS[tag]))selected='original';
+ else for(const tag of Object.keys(FEATURE_SAMPLES)){
+  const expected={...FEATURE_DEFAULTS,[tag]:true};
+  if(Object.keys(expected).every(key=>featureState[key]===expected[key])){selected=tag;break;}
+ }
+ $('featurePreset').value=selected;
+ $('tryFeatures').hidden=!FEATURE_SAMPLES[selected];
 }
-featureInputs.forEach(input=>input.addEventListener('change',()=>{
-  if(input.checked && ['ss01','ss02'].includes(input.dataset.feature)){
-    featureInputs.filter(other=>['ss01','ss02'].includes(other.dataset.feature)&&other!==input).forEach(other=>other.checked=false);
-  }
-  applyFeatures();
-}));
-$('resetFeatures').addEventListener('click',()=>{featureInputs.forEach(input=>input.checked=input.dataset.feature==='liga');applyFeatures()});
+$('featurePreset').addEventListener('change',()=>{
+ const tag=$('featurePreset').value;featureState={...FEATURE_DEFAULTS};
+ if(FEATURE_SAMPLES[tag])featureState[tag]=true;
+ applyFeatures();
+});
 $('tryFeatures').addEventListener('click',()=>{
-  stopAnimation();
-  $('liveSpecimen').textContent='office ffi / BY / A E O a / 1/2 3/4';
-  document.querySelectorAll('[data-sample]').forEach(button=>button.setAttribute('aria-pressed','false'));
+ const sample=FEATURE_SAMPLES[$('featurePreset').value];if(sample)$('liveSpecimen').textContent=sample;
 });
 applyFeatures();
 
@@ -352,7 +341,7 @@ const STORAGE_KEY='bykineks-bia-playground-v1';
 function collectSetting(){
   const text=$('liveSpecimen').textContent;
   if(text.length>5000)throw new Error('Use 5,000 characters or fewer to save or share a setting.');
-  return {v:1,text,axes:{...variableState},size:Number($('sizeRange').value),leading:Number($('leadingRange').value),tracking:Number($('trackingRange').value),features:Object.fromEntries(featureInputs.map(input=>[input.dataset.feature,input.checked]))};
+  return {v:1,text,axes:{...variableState},size:Number($('sizeRange').value),leading:Number($('leadingRange').value),tracking:Number($('trackingRange').value),features:{...featureState}};
 }
 function restoreSetting(state){
   if(!state||state.v!==1||typeof state.text!=='string'||state.text.length>5000||!state.axes)throw new Error('This setting could not be restored.');
@@ -371,8 +360,7 @@ function restoreSetting(state){
   for(const [range,input,key] of [['sizeRange','sizeInput','size'],['leadingRange','leadingInput','leading'],['trackingRange','trackingInput','tracking']]){
     $(range).value=String(state[key]);$(input).value=$(range).value;
   }
-  featureInputs.forEach(input=>input.checked=state.features&&typeof state.features[input.dataset.feature]==='boolean'?state.features[input.dataset.feature]:input.dataset.feature==='liga');
-  document.querySelectorAll('[data-sample]').forEach(button=>button.setAttribute('aria-pressed','false'));
+  featureState=Object.fromEntries(Object.entries(FEATURE_DEFAULTS).map(([tag,value])=>[tag,state.features&&typeof state.features[tag]==='boolean'?state.features[tag]:value]));
   applyVariable();applySpecimenControls();applyFeatures();
 }
 function setSettingStatus(message){$('settingStatus').textContent=message;}
