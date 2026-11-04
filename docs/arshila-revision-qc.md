@@ -68,3 +68,17 @@ Swash follow-up: opening and closing cards are merged into ARSHILA (22 studies).
 Four accessible category tabs show one group at a time; all 22 studies remain in the HTML. Cards have reduced spacing, and notes use a disclosure. On screens up to 600 px, each group becomes a horizontal scroll-snap strip instead of a tall stack. Without JavaScript all groups remain readable. Checked all four tabs (6/6/4/6 cards), arrow-key selection, example transfer and document overflow at 320, 390, 768 and 1440 px. No page overflow; native touch gesture not directly exercised. At 1440 px the selected six-card category occupies about 683 px including its header and tabs.
 
 User narrowed the compact wardrobe to 17 studies: removed Fractions, Ordinals, Historical forms, Case-sensitive punctuation and Alternate A cards and their LOOKS entries. Underlying playground feature controls remain available. The category counts are now 6 / 5 / 2 / 4.
+
+## Unified OpenType and variable workspace
+
+The standalone wardrobe is now a compact category/feature picker inside Shape your words, immediately below the specimen-text toolbar. Its 17 presets use the same live specimen and variable axes. Selecting a feature keeps user text, type size, axis values and running interpolation; it no longer scrolls or focuses another section. Use feature sample explicitly replaces text without resetting axes or animation. Original restores default features only. Full individual controls remain in the Advanced OpenType disclosure.
+
+Swash preset applies opening swsh to the first capital A and closing ss04 to the last capital A (if distinct), leaving intervening letters normal; sample is ARSHILA. Scoped spans are built with textContent, and editing reapplies them on blur. Additional padding accommodates swash overhang.
+
+Verified in browser: AURORA STUDIO retained while switching double-struck to swashes during animation, axis values continued changing and play state stayed true; explicit sample produced ARSHILA; Original removed scoped markup without changing text. No document overflow at 320, 390, 768 and 1440 px. Original font binaries, mockups and character data retained. Not published as part of this local revision.
+
+## Simplified unified toolbar
+
+User found category tabs plus feature chips too complex. Replaced them with two labeled native dropdowns (sample Text and OpenType style); all 17 presets remain available in one list. Try example is shown only after choosing a preset. Removed category-tab handlers. Advanced individual feature controls remain collapsed. Browser verified custom AURORA STUDIO preserved while switching styles with animation running, ARSHILA sample and scoped swashes, original-style reset, sample-text selection, and no page overflow at 320/390/768/1440 px.
+
+Removed the Advanced OpenType panel at user request. Preset feature tags now come directly from LOOKS rather than removed DOM controls; removed combination/reset listeners and unreachable Custom settings option. Original in the dropdown resets the preset.

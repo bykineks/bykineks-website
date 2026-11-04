@@ -21,6 +21,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 - Wardrobe follow-up: 23 grouped off/on examples verified with HarfBuzz; ordinal a/o require preceding numerals, fina is not end-only, and sinf/subs share numeral forms. Explicit example actions load matching text.
 
+- Unified workspace follow-up: the 17 retained wardrobe presets now share the live variable specimen. Feature selection preserves text, axes and interpolation; only Use feature sample replaces text. Swashes scope to first/last capital A.
+
 ## Bilgen
 
 - Page/assets: `bilgen.html`, `css/bilgen.css`, `js/bilgen.js`; resolve static/variable assets.
