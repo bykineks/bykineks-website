@@ -30,15 +30,21 @@ All originals are 2000 × 1000 PNGs. Converted in Pillow to WebP quality 88, met
 | Preview my08 2.0.png — music | 359,652 B | 99,856 B |
 | Preview my09 2.0.png — skincare | 71,890 B | 24,024 B |
 
-The six originals total 12,174,695 B; desktop WebPs total 1,326,744 B (about 89% smaller). Gallery thumbnails show uncropped images with explicit dimensions, responsive sources and lazy loading. A native modal dialog supports previous/next, arrow keys, Close and Escape.
+The six originals total 12,174,695 B; desktop WebPs total 1,326,744 B (about 89% smaller). The gallery follows Bia: one full-width, uncropped image per slide, overlaid previous/next controls and counter, caption underneath and native horizontal scrolling. Responsive sources, explicit dimensions and lazy loading are retained. The former grid and modal viewer were removed.
 
 ## Validation performed
 
 - WOFF2 table audit: glyphs, cmap, named instances, axes, GSUB tags/triggers, c2sc/smcp bounds. Every code point in the original preview and all original liga/dlig sequences are present in the variable font.
 - WebP files decoded successfully and a six-image contact sheet was visually inspected against the supplied reference images.
 - Browser interaction: looks preserve custom words, form selection replaces previous guided selection, advanced stacking works, smcp/c2sc coexist, paragraph preset uses reading size, numeric sequential 7 → 2 → Enter yields 72, and selected swsh glyph preview uses swsh.
-- Gallery open, Next, ArrowRight and Escape tested; mobile dialog fits the viewport.
+- Original modal checks were superseded by the Bia carousel revision; see the follow-up validation below.
 - Layout checked at 320, 390, 768, 820 and 1440 px: no horizontal overflow and no card scroll overflow. Swash example size/padding adjusted to keep its overhang within the card.
 - JavaScript syntax, schema JSON and Git whitespace checks pass; no JavaScript errors observed in the exercised browser flows.
 
 Safari/iOS, an operating-system reduced-motion change and exhaustive shaping across every style/language have not been directly tested. The original glyph arrays include a selection of coverage; the Character Set does not claim full coverage. Commercial font-package files were not inventoried beyond available web assets.
+
+## Bia carousel follow-up
+
+Replaced only the mockup grid and modal with Bia's full-width scroll-snap carousel. Browser checks passed for Next (02 / 06), keyboard ArrowRight (03 / 06), and the final-slide disabled state (06 / 06). At 320, 390, 768 and 1440 px, each slide matches the track width and the document has no horizontal overflow. Screenshot visually verified after resetting the viewport. Native touch swiping was not directly tested. JavaScript syntax and Git whitespace checks pass.
+
+Mockup placement follows the OpenType feature library, before the playground. Section navigation follows the same reading order.

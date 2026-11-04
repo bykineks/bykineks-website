@@ -3,7 +3,6 @@ const LANGUAGES=["Belarusian", "Bosnian", "Bulgarian", "Chechen", "Macedonian", 
 
 const ALT_ENTRIES=[{"text": "A", "features": {"swsh": 1}, "name": "swsh A"}, {"text": "B", "features": {"swsh": 1}, "name": "swsh B"}, {"text": "E", "features": {"swsh": 1}, "name": "swsh E"}, {"text": "F", "features": {"swsh": 1}, "name": "swsh F"}, {"text": "H", "features": {"swsh": 1}, "name": "swsh H"}, {"text": "O", "features": {"swsh": 1}, "name": "swsh O"}, {"text": "a", "features": {"swsh": 1}, "name": "swsh a"}, {"text": "A", "features": {"ss04": 1}, "name": "ss04 A"}, {"text": "B", "features": {"ss04": 1}, "name": "ss04 B"}, {"text": "E", "features": {"ss04": 1}, "name": "ss04 E"}, {"text": "F", "features": {"ss04": 1}, "name": "ss04 F"}, {"text": "H", "features": {"ss04": 1}, "name": "ss04 H"}, {"text": "a", "features": {"ss04": 1}, "name": "ss04 a"}, {"text": "n", "features": {"ss04": 1}, "name": "ss04 n"}, {"text": "A", "features": {"ss05": 1}, "name": "ss05 A"}, {"text": "F", "features": {"ss05": 1}, "name": "ss05 F"}, {"text": "a", "features": {"ss05": 1}, "name": "ss05 a"}, {"text": "n", "features": {"ss05": 1}, "name": "ss05 n"}, {"text": "H", "features": {"ss08": 1}, "name": "ss08 H"}, {"text": "O", "features": {"ss08": 1}, "name": "ss08 O"}, {"text": "A", "features": {"fina": 1}, "name": "fina A"}];
 const LOOKS={"editorial":{"label":"Ligature lettering","text":"AH BY","features":{"dlig":1}},"swash":{"label":"Swash lettering","text":"ARSHILA","features":{"swsh":1}},"stars":{"label":"Star forms","text":"STAR","features":{"ss06":1}},"outline":{"label":"Double struck","text":"AEON","features":{"titl":1}},"circles":{"label":"Circled lettering","text":"ABC 0123","features":{"ss02":1}},"stencil":{"label":"Stencil","text":"ATELIER","features":{"ss07":1}}};
-const MOCKUPS=[["fashion-editorial","Fashion editorial","Arshila on a fashion magazine spread"],["sticker-lettering","Expressive lettering","Arshila lettering on colorful laptop stickers"],["fashion-digital-layouts","Digital fashion layouts","Arshila in mobile fashion layouts"],["book-cover","Book cover","Arshila on the Emerald Elegance book-cover mockup"],["music-packaging","Music packaging","Arshila on an electronic-music CD package mockup"],["skincare-packaging","Skincare packaging","Arshila on skincare packaging mockups"]];
 const $=id=>document.getElementById(id);
 const axes={wght:{range:'wghtRange',value:'wghtValue'},wdth:{range:'wdthRange',value:'wdthValue'},ital:{range:'italRange',value:'italValue'}};
 const defaults={wght:900,wdth:100,ital:0};let state={...defaults};let animationFrame=null;let animationStart=0;
@@ -95,11 +94,45 @@ function filterGlyphs(){const q=$('glyphSearch').value.trim(),query=q.toLowerCas
 $('glyphSearch').addEventListener('input',filterGlyphs);$('clearSearch').addEventListener('click',()=>{$('glyphSearch').value='';filterGlyphs();$('glyphSearch').focus()});
 $('languageList').textContent=LANGUAGES.join(' · ');
 
-/* Supplied mockups, converted without cropping. */
-let currentMockup=0;
-function displayMockup(index){currentMockup=(index+MOCKUPS.length)%MOCKUPS.length;const [slug,label,alt]=MOCKUPS[currentMockup];$('largeMockup').src='assets/images/arshila-'+slug+'.webp';$('largeMockup').alt=alt;$('mockupCaption').textContent=label+' · '+(currentMockup+1)+' / '+MOCKUPS.length}
-document.querySelectorAll('[data-mockup]').forEach(button=>button.addEventListener('click',()=>{displayMockup(Number(button.dataset.mockup));$('mockupDialog').showModal()}));
-$('previousMockup').addEventListener('click',()=>displayMockup(currentMockup-1));$('nextMockup').addEventListener('click',()=>displayMockup(currentMockup+1));$('closeMockup').addEventListener('click',()=>$('mockupDialog').close());$('mockupDialog').addEventListener('keydown',event=>{if(event.key==='ArrowRight')displayMockup(currentMockup+1);if(event.key==='ArrowLeft')displayMockup(currentMockup-1)});
+/* Full-width mockup carousel, matching Bia. */
+(() => {
+  const track = document.getElementById('arshila-gallery-track');
+  const controls = track.nextElementSibling;
+  const [previous, next] = controls.querySelectorAll('button');
+  const counter = controls.querySelector('span');
+  const slides = track.children;
+  const number = value => String(value).padStart(2, '0');
+  const index = () => Math.max(0, Math.min(slides.length - 1,
+    Math.round(track.scrollLeft / slides[0].getBoundingClientRect().width)));
+
+  function sync() {
+    const current = index();
+    const label = number(current + 1) + ' / ' + number(slides.length);
+    if (counter.textContent !== label) counter.textContent = label;
+    previous.setAttribute('aria-disabled', String(current === 0));
+    next.setAttribute('aria-disabled', String(current === slides.length - 1));
+  }
+
+  function move(step) {
+    const target = slides[index() + step];
+    if (!target) return;
+    track.scrollLeft += target.getBoundingClientRect().left - track.getBoundingClientRect().left;
+    sync();
+  }
+
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  track.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    move(event.key === 'ArrowLeft' ? -1 : 1);
+  });
+  track.addEventListener('scroll', sync, {passive: true});
+  window.addEventListener('resize', sync);
+  controls.hidden = false;
+  sync();
+})();
+
 const reducedMotion=matchMedia('(prefers-reduced-motion:reduce)');
 function pauseHero(paused){document.querySelector('.arshila-variable').style.animationPlayState=paused?'paused':'running';$('heroMotion').setAttribute('aria-pressed',String(paused));$('heroMotion').setAttribute('aria-label',paused?'Play title animation':'Pause title animation');$('heroMotion').firstElementChild.textContent=paused?'▶':'Ⅱ'}
 $('heroMotion').addEventListener('click',()=>pauseHero($('heroMotion').getAttribute('aria-pressed')!=='true'));reducedMotion.addEventListener('change',()=>{stopAnimation();pauseHero(reducedMotion.matches)});document.addEventListener('visibilitychange',()=>{if(document.hidden){stopAnimation();document.querySelector('.arshila-variable').style.animationPlayState='paused'}else pauseHero($('heroMotion').getAttribute('aria-pressed')==='true')});
