@@ -262,7 +262,7 @@ function updateComparison(){
 $('compareText').addEventListener('input',updateComparison);
 document.querySelectorAll('[data-compare-side]').forEach(select=>select.addEventListener('change',updateComparison));
 updateComparison();
-/* Bia's verified features; v1 saved combinations remain restorable. */
+/* Bia's verified OpenType presets share the live specimen. */
 const FEATURE_DEFAULTS={liga:true,dlig:false,ss01:false,ss02:false,frac:false};
 let featureState={...FEATURE_DEFAULTS};
 const FEATURE_SAMPLES={dlig:'BY',ss01:'A different point of view.',ss02:'ELEGANCE',frac:'1/2 3/4'};
@@ -335,55 +335,3 @@ function filterCharacters(){
 }
 $('glyphSearch').addEventListener('input',filterCharacters);
 $('clearGlyphSearch').addEventListener('click',()=>{$('glyphSearch').value='';filterCharacters();$('glyphSearch').focus()});
-
-/* Save explicitly on this browser; shared state stays in the URL fragment. */
-const STORAGE_KEY='bykineks-bia-playground-v1';
-function collectSetting(){
-  const text=$('liveSpecimen').textContent;
-  if(text.length>5000)throw new Error('Use 5,000 characters or fewer to save or share a setting.');
-  return {v:1,text,axes:{...variableState},size:Number($('sizeRange').value),leading:Number($('leadingRange').value),tracking:Number($('trackingRange').value),features:{...featureState}};
-}
-function restoreSetting(state){
-  if(!state||state.v!==1||typeof state.text!=='string'||state.text.length>5000||!state.axes)throw new Error('This setting could not be restored.');
-  for(const axis of Object.values(axes)){
-    const value=state.axes[axis.key];
-    if(typeof value!=='number'||!Number.isFinite(value))throw new Error('This setting has invalid axis values.');
-  }
-  for(const key of ['size','leading','tracking'])if(typeof state[key]!=='number'||!Number.isFinite(state[key]))throw new Error('This setting has invalid text values.');
-  stopAnimation();
-  for(const axis of Object.values(axes)){
-    const range=$(axis.range);
-    range.value=String(Math.min(Number(range.max),Math.max(Number(range.min),state.axes[axis.key])));
-    variableState[axis.key]=Number(range.value);
-  }
-  $('liveSpecimen').textContent=state.text;
-  for(const [range,input,key] of [['sizeRange','sizeInput','size'],['leadingRange','leadingInput','leading'],['trackingRange','trackingInput','tracking']]){
-    $(range).value=String(state[key]);$(input).value=$(range).value;
-  }
-  featureState=Object.fromEntries(Object.entries(FEATURE_DEFAULTS).map(([tag,value])=>[tag,state.features&&typeof state.features[tag]==='boolean'?state.features[tag]:value]));
-  applyVariable();applySpecimenControls();applyFeatures();
-}
-function setSettingStatus(message){$('settingStatus').textContent=message;}
-$('saveSetting').addEventListener('click',()=>{
-  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(collectSetting()));$('loadSetting').disabled=false;setSettingStatus('Saved on this browser. Your text and settings stay on this device.');}
-  catch(error){setSettingStatus(error.message.startsWith('Use 5,000')?error.message:'Saving is unavailable in this browser. You can still copy a setting link.');}
-});
-$('loadSetting').addEventListener('click',()=>{
-  try{restoreSetting(JSON.parse(localStorage.getItem(STORAGE_KEY)));setSettingStatus('Saved playground setting restored.');}
-  catch{setSettingStatus('The saved setting could not be restored. Save a new setting to replace it.');}
-});
-$('copySetting').addEventListener('click',async()=>{
-  let link;
-  try{const url=new URL(location.href);url.hash='bia='+encodeURIComponent(JSON.stringify(collectSetting()));link=url.href;}
-  catch(error){setSettingStatus(error.message);return;}
-  try{await navigator.clipboard.writeText(link);$('settingLinkFallback').hidden=true;setSettingStatus('Setting link copied. It includes your specimen text and settings.');}
-  catch{$('settingLinkFallback').hidden=false;$('settingLink').value=link;$('settingLink').focus();$('settingLink').select();setSettingStatus('Copy the link below. It includes your specimen text and settings.');}
-});
-try{$('loadSetting').disabled=!localStorage.getItem(STORAGE_KEY)}catch{$('loadSetting').disabled=true}
-function loadSharedSetting(){
-  if(!location.hash.startsWith('#bia='))return;
-  try{restoreSetting(JSON.parse(decodeURIComponent(location.hash.slice(5))));setSettingStatus('Shared playground setting restored.');$('system').scrollIntoView({behavior:'instant',block:'start'});}
-  catch{setSettingStatus('This shared setting could not be restored. The current preview is ready to use.');}
-}
-window.addEventListener('hashchange',loadSharedSetting);
-loadSharedSetting();
