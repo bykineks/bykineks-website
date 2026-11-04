@@ -202,3 +202,10 @@ h2.kicker{margin-top:0}.glyph-overview-title{margin:0}.hero{position:relative}.h
 .playground-toolbar select:focus-visible{outline:2px solid #111;outline-offset:3px}
 #system .wardrobe-status{min-height:0;margin:8px 0 0;font-size:10px}#system .wardrobe-status:empty{display:none}
 @media(max-width:600px){.playground-toolbar{gap:12px}.playground-toolbar select{font-size:16px}.playground-toolbar label{flex-basis:40%}}
+
+/* Availability follows Bia's editorial text-link layout. */
+.availability-intro h2{max-width:360px;line-height:1.2}
+.availability-intro p{font-size:13px;line-height:1.45;max-width:360px;margin:12px 0 0}
+.availability .links{flex-wrap:wrap;max-width:52%;align-items:center}
+.availability .links a{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:800px){.availability .links{max-width:none;justify-content:flex-start}}

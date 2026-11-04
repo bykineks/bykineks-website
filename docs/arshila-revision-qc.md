@@ -82,3 +82,17 @@ Verified in browser: AURORA STUDIO retained while switching double-struck to swa
 User found category tabs plus feature chips too complex. Replaced them with two labeled native dropdowns (sample Text and OpenType style); all 17 presets remain available in one list. Try example is shown only after choosing a preset. Removed category-tab handlers. Advanced individual feature controls remain collapsed. Browser verified custom AURORA STUDIO preserved while switching styles with animation running, ARSHILA sample and scoped swashes, original-style reset, sample-text selection, and no page overflow at 320/390/768/1440 px.
 
 Removed the Advanced OpenType panel at user request. Preset feature tags now come directly from LOOKS rather than removed DOM controls; removed combination/reset listeners and unreachable Custom settings option. Original in the dropdown resets the preset.
+
+## Availability hierarchy
+
+Purchase links now form the first row (MyFonts primary, Monotype secondary); existing trial ZIP and specimen PDF are quieter links beneath. Destinations and download behavior retained. Button minimum heights are 48 px and resource links 44 px. Verified no document overflow at 320/390/768/1440 px. Demo ZIP CRC test passed; original OTF/TTF demo entries present. PDF exists with a PDF header. MyFonts destination resolves to Arshila by Bykineks; Monotype search could not be independently fetched by the web tool, so its existing search URL is retained and labeled Find on Monotype Fonts. No new trial/specimen functionality or assets added.
+
+Availability correction: replaced boxed purchase hierarchy with Bia’s existing editorial intro and four inline text links, adapted to Arshila. Removed the unused boxed layout styles. All four original destinations are retained.
+
+## Arshila SEO/GEO follow-up
+
+Updated page/social titles and descriptions (140-character meta description), social image dimensions and alt text. Consolidated image/product/page markup into a connected six-entity JSON-LD graph with explicit Organization, Person and WebSite definitions. Product facts remain based on verified font assets; published year and designer are PropertyValue facts instead of an incomplete release date or unsupported Product creator field. Added the verified MyFonts product URL as sameAs. No offers, price or ratings fabricated.
+
+Visible About copy now consistently says 2,500 glyphs and describes the existing variable/OpenType playground. Updated only Arshila's llms.txt entry and sitemap lastmod (2026-11-04). Canonical and index/follow retained.
+
+Validation: repository SEO/GEO audit has no blocking errors; pre-existing warnings on unrelated pages remain. Parsed JSON-LD, resolved graph entity references, checked single H1/canonical, unique IDs and internal anchors. Existing availability layout checked on desktop/mobile. Google Rich Results Test and Search Console were not run; Product markup without offers/reviews/ratings does not establish product rich-result eligibility. Reference: https://developers.google.com/search/docs/appearance/structured-data/product-snippet and https://developers.google.com/search/docs/appearance/structured-data/sd-policies . This work does not promise indexing, rankings or AI citations.
