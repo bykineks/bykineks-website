@@ -86,3 +86,5 @@ Removed the Advanced OpenType panel at user request. Preset feature tags now com
 ## Availability hierarchy
 
 Purchase links now form the first row (MyFonts primary, Monotype secondary); existing trial ZIP and specimen PDF are quieter links beneath. Destinations and download behavior retained. Button minimum heights are 48 px and resource links 44 px. Verified no document overflow at 320/390/768/1440 px. Demo ZIP CRC test passed; original OTF/TTF demo entries present. PDF exists with a PDF header. MyFonts destination resolves to Arshila by Bykineks; Monotype search could not be independently fetched by the web tool, so its existing search URL is retained and labeled Find on Monotype Fonts. No new trial/specimen functionality or assets added.
+
+Availability correction: replaced boxed purchase hierarchy with Bia’s existing editorial intro and four inline text links, adapted to Arshila. Removed the unused boxed layout styles. All four original destinations are retained.

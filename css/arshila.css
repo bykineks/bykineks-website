@@ -203,15 +203,9 @@ h2.kicker{margin-top:0}.glyph-overview-title{margin:0}.hero{position:relative}.h
 #system .wardrobe-status{min-height:0;margin:8px 0 0;font-size:10px}#system .wardrobe-status:empty{display:none}
 @media(max-width:600px){.playground-toolbar{gap:12px}.playground-toolbar select{font-size:16px}.playground-toolbar label{flex-basis:40%}}
 
-/* Availability: purchase actions first, existing downloads beneath. */
-#availability{align-items:start;gap:24px}
-#availability h2{font-size:18px;line-height:1.4;padding-top:10px}
-.availability-actions{display:flex;flex-direction:column;align-items:flex-end;gap:12px;min-width:0}
-.purchase-links{display:flex;gap:12px;flex-wrap:wrap}
-.purchase-links a{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 20px;font-size:13px;font-weight:600;border:1px solid #111;text-decoration:none}
-.purchase-links .buy-primary{background:#111;color:#fff}.purchase-links .buy-secondary{background:#fff;color:#111}
-.purchase-links .buy-primary:hover{background:#333}.purchase-links .buy-secondary:hover{background:#f4f4f4}
-.resource-links{display:flex;flex-wrap:wrap;gap:8px 24px}.resource-links a{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:12px;text-decoration:underline;text-underline-offset:4px}.resource-format{font-size:9px;color:#777;text-decoration:none;letter-spacing:.05em}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:800px){#availability{display:grid;grid-template-columns:1fr;gap:16px}#availability h2{padding-top:0}.availability-actions{align-items:stretch}.purchase-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.purchase-links a{padding:12px;font-size:12px;text-align:center}.resource-links{justify-content:flex-start}}
-@media(max-width:480px){.purchase-links{grid-template-columns:1fr}}
+/* Availability follows Bia's editorial text-link layout. */
+.availability-intro h2{max-width:360px;line-height:1.2}
+.availability-intro p{font-size:13px;line-height:1.45;max-width:360px;margin:12px 0 0}
+.availability .links{flex-wrap:wrap;max-width:52%;align-items:center}
+.availability .links a{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:800px){.availability .links{max-width:none;justify-content:flex-start}}
