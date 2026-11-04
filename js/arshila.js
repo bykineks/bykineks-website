@@ -2,20 +2,37 @@ const SECTIONS={"BASIC LATIN":["A","B","C","D","E","F","G","H","I","J","K","L","
 const LANGUAGES=["Belarusian", "Bosnian", "Bulgarian", "Chechen", "Macedonian", "Russian", "Serbian", "Ukrainian", "Greek", "Afrikaans", "Albanian", "Asturian", "Asu", "Basque", "Bemba", "Bena", "Breton", "Catalan", "Chiga", "Colognian", "Cornish", "Croatian", "Czech", "Danish", "Dutch", "Embu", "English", "Esperanto", "Estonian", "Faroese", "Filipino", "Finnish", "French", "Friulian", "Galician", "Ganda", "German", "Gusii", "Hungarian", "Icelandic", "Igbo", "Inari Sami", "Indonesian", "Irish", "Italian", "Jola-Fonyi", "Kabuverdianu", "Kalaallisut", "Kalenjin", "Kamba", "Kikuyu", "Kinyarwanda", "Latvian", "Lithuanian", "Lower Sorbian", "Luo", "Luxembourgish", "Luyia", "Machame", "Makhuwa-Meetto", "Makonde", "Malagasy", "Maltese", "Manx", "Meru", "Morisyen", "Nama", "Northern Sami", "North Ndebele", "Norwegian Bokmål", "Norwegian Nynorsk", "Nyankole", "Oromo", "Polish", "Portuguese", "Prussian", "Quechua", "Romanian", "Romansh", "Rombo", "Rundi", "Rwa", "Samburu", "Sango", "Sangu", "Scottish Gaelic", "Sena", "Shambala", "Shona", "Slovak", "Slovenian", "Soga", "Somali", "Spanish", "Swahili", "Swedish", "Swiss German", "Taita", "Teso", "Turkish", "Upper Sorbian", "Uzbek (Latin)", "Vietnamese", "Volapük", "Vunjo", "Walser", "Welsh", "Western Frisian", "Yoruba", "Zulu"];
 
 const ALT_ENTRIES=[{"text": "A", "features": {"swsh": 1}, "name": "swsh A"}, {"text": "B", "features": {"swsh": 1}, "name": "swsh B"}, {"text": "E", "features": {"swsh": 1}, "name": "swsh E"}, {"text": "F", "features": {"swsh": 1}, "name": "swsh F"}, {"text": "H", "features": {"swsh": 1}, "name": "swsh H"}, {"text": "O", "features": {"swsh": 1}, "name": "swsh O"}, {"text": "a", "features": {"swsh": 1}, "name": "swsh a"}, {"text": "A", "features": {"ss04": 1}, "name": "ss04 A"}, {"text": "B", "features": {"ss04": 1}, "name": "ss04 B"}, {"text": "E", "features": {"ss04": 1}, "name": "ss04 E"}, {"text": "F", "features": {"ss04": 1}, "name": "ss04 F"}, {"text": "H", "features": {"ss04": 1}, "name": "ss04 H"}, {"text": "a", "features": {"ss04": 1}, "name": "ss04 a"}, {"text": "n", "features": {"ss04": 1}, "name": "ss04 n"}, {"text": "A", "features": {"ss05": 1}, "name": "ss05 A"}, {"text": "F", "features": {"ss05": 1}, "name": "ss05 F"}, {"text": "a", "features": {"ss05": 1}, "name": "ss05 a"}, {"text": "n", "features": {"ss05": 1}, "name": "ss05 n"}, {"text": "H", "features": {"ss08": 1}, "name": "ss08 H"}, {"text": "O", "features": {"ss08": 1}, "name": "ss08 O"}, {"text": "A", "features": {"fina": 1}, "name": "fina A"}];
-const LOOKS={"outline":{"label":"Double-struck","text":"AURA","features":{"titl":1}},"stencil":{"label":"Stencil","text":"ATELIER","features":{"ss07":1}},"sans":{"label":"Sans serif alternates","text":"MODERN","features":{"salt":1}},"stars":{"label":"With stars","text":"NIGHT","features":{"ss06":1}},"circles":{"label":"Outlined circles","text":"EDITION","features":{"ss02":1}},"filled":{"label":"Filled circles","text":"EDITION","features":{"ss03":1}},"swash":{"label":"Swashes","text":"ARSHILA","features":{"swsh":1,"ss04":1},"markup":"<span style=\"font-feature-settings:'swsh' 1,'ss04' 0\">A</span><span style=\"font-feature-settings:'swsh' 0,'ss04' 0\">RSHIL</span><span style=\"font-feature-settings:'swsh' 0,'ss04' 1\">A</span>"},"alternate5":{"label":"Alternate forms 5","text":"Fable","features":{"ss05":1}},"alternate8":{"label":"Alternate forms 8","text":"OH","features":{"ss08":1}},"editorial":{"label":"Discretionary ligatures","text":"HIGH","features":{"dlig":1}},"standard":{"label":"Standard ligatures","text":"office","features":{"liga":1}},"smallcaps":{"label":"Small caps","text":"atelier","features":{"smcp":1}},"petitecaps":{"label":"Petite caps","text":"ATELIER","features":{"c2sc":1}},"superior":{"label":"Superior figures","text":"H2","features":{"sups":1}},"numerator":{"label":"Numerators","text":"12","features":{"numr":1}},"denominator":{"label":"Denominators","text":"12","features":{"dnom":1}},"inferior":{"label":"Inferior figures","text":"H2O","features":{"subs":1}}};
+const LOOKS={"outline":{"label":"Double-struck","text":"AURA","features":{"titl":1}},"stencil":{"label":"Stencil","text":"ATELIER","features":{"ss07":1}},"sans":{"label":"Sans serif alternates","text":"MODERN","features":{"salt":1}},"stars":{"label":"With stars","text":"NIGHT","features":{"ss06":1}},"circles":{"label":"Outlined circles","text":"EDITION","features":{"ss02":1}},"filled":{"label":"Filled circles","text":"EDITION","features":{"ss03":1}},"swash":{"label":"Swashes","text":"ARSHILA","features":{"swsh":1,"ss04":1}},"alternate5":{"label":"Alternate forms 5","text":"Fable","features":{"ss05":1}},"alternate8":{"label":"Alternate forms 8","text":"OH","features":{"ss08":1}},"editorial":{"label":"Discretionary ligatures","text":"HIGH","features":{"dlig":1}},"standard":{"label":"Standard ligatures","text":"office","features":{"liga":1}},"smallcaps":{"label":"Small caps","text":"atelier","features":{"smcp":1}},"petitecaps":{"label":"Petite caps","text":"ATELIER","features":{"c2sc":1}},"superior":{"label":"Superior figures","text":"H2","features":{"sups":1}},"numerator":{"label":"Numerators","text":"12","features":{"numr":1}},"denominator":{"label":"Denominators","text":"12","features":{"dnom":1}},"inferior":{"label":"Inferior figures","text":"H2O","features":{"subs":1}}};
 const $=id=>document.getElementById(id);
 const axes={wght:{range:'wghtRange',value:'wghtValue'},wdth:{range:'wdthRange',value:'wdthValue'},ital:{range:'italRange',value:'italValue'}};
 const defaults={wght:900,wdth:100,ital:0};let state={...defaults};let animationFrame=null;let animationStart=0;
 const featureButtons=[...document.querySelectorAll('[data-feature]')];
+let activeLook=null;
 let features=Object.fromEntries(featureButtons.map(button=>[button.dataset.feature,button.dataset.feature==='liga'?1:0]));
 function applyFeatures(){
-  if($('liveSpecimen').querySelector('[data-scoped-swash]'))$('liveSpecimen').textContent=$('liveSpecimen').textContent;
-  document.querySelectorAll('[data-look]').forEach(button=>{
-    const expected={...Object.fromEntries(Object.keys(features).map(tag=>[tag,tag==='liga'?1:0])),...LOOKS[button.dataset.look].features};
-    button.setAttribute('aria-pressed',String($('liveSpecimen').textContent===LOOKS[button.dataset.look].text&&Object.keys(features).every(tag=>features[tag]===expected[tag])));
-  });
-  $('liveSpecimen').style.fontFeatureSettings=Object.entries(features).map(([tag,value])=>'"'+tag+'" '+value).join(',');
-  featureButtons.forEach(button=>{const on=!!features[button.dataset.feature];button.setAttribute('aria-pressed',String(on));button.classList.toggle('is-on',on)});
+ const specimen=$('liveSpecimen');
+ specimen.classList.toggle('has-scoped-swash',activeLook==='swash');
+ if(specimen.querySelector('[data-scoped-swash]'))specimen.textContent=specimen.textContent;
+ specimen.style.fontFeatureSettings=Object.entries(features).map(([tag,value])=>'"'+tag+'" '+value).join(',');
+ if(activeLook==='swash'){
+  const text=specimen.textContent,first=text.indexOf('A'),last=text.lastIndexOf('A');
+  specimen.style.fontFeatureSettings=Object.entries(features).map(([tag,value])=>'"'+tag+'" '+(['swsh','ss04'].includes(tag)?0:value)).join(',');
+  if(first!==-1){
+   const wrapper=document.createElement('span');wrapper.dataset.scopedSwash='';
+   for(const [index,char] of Array.from(text).entries()){
+    // String offsets are used below so non-BMP text before A remains intact.
+   }
+   const append=(value,tag)=>{const span=document.createElement('span');span.textContent=value;if(tag)span.style.fontFeatureSettings='"swsh" '+Number(tag==='swsh')+',"ss04" '+Number(tag==='ss04');wrapper.append(span)};
+   append(text.slice(0,first));append('A','swsh');
+   if(last>first){append(text.slice(first+1,last));append('A','ss04');append(text.slice(last+1));}
+   else append(text.slice(first+1));
+   specimen.replaceChildren(wrapper);
+  }
+ }
+ document.querySelectorAll('[data-look]').forEach(button=>button.setAttribute('aria-pressed',String(activeLook===button.dataset.look)));
+ featureButtons.forEach(button=>{const on=!!features[button.dataset.feature];button.setAttribute('aria-pressed',String(on));button.classList.toggle('is-on',on)});
+ $('originalLook').setAttribute('aria-pressed',String(!activeLook&&Object.entries(features).every(([tag,value])=>value===(tag==='liga'?1:0))));
+ $('useLookExample').disabled=!activeLook;
 }
 function applyVariable(){
   $('liveSpecimen').style.fontVariationSettings=Object.entries(state).map(([tag,value])=>'"'+tag+'" '+value).join(',');
@@ -39,23 +56,39 @@ const mobile=matchMedia('(max-width:800px)');
 function resetSpecimen(){for(const [range,input,value] of [['sizeRange','sizeInput',mobile.matches?40:64],['leadingRange','leadingInput',1.2],['trackingRange','trackingInput',0]]){$(range).value=value;$(input).value=$(range).value}applySpecimen()}
 $('resetSpecimen').addEventListener('click',resetSpecimen);
 featureButtons.forEach(button=>button.addEventListener('click',()=>{
- const tag=button.dataset.feature,on=!features[tag];
+ activeLook=null;const tag=button.dataset.feature,on=!features[tag];
  if(on && ['Form','Figures'].includes(button.dataset.group) && !$('combineFeatures').checked)featureButtons.filter(other=>other.dataset.group===button.dataset.group).forEach(other=>features[other.dataset.feature]=0);
  features[tag]=Number(on);applyFeatures();$('featureStatus').textContent=button.querySelector('span').firstChild.textContent.trim()+(on?' enabled.':' disabled.');
 }));
-$('combineFeatures').addEventListener('change',()=>{if(!$('combineFeatures').checked){for(const group of ['Form','Figures']){const selected=featureButtons.filter(button=>button.dataset.group===group&&features[button.dataset.feature]);selected.slice(0,-1).forEach(button=>features[button.dataset.feature]=0)}applyFeatures();$('featureStatus').textContent='Guided feature selection restored.'}});
-$('resetFeatures').addEventListener('click',()=>{$('combineFeatures').checked=false;Object.keys(features).forEach(tag=>features[tag]=tag==='liga'?1:0);applyFeatures();$('featureStatus').textContent='Standard forms restored.'});
+$('combineFeatures').addEventListener('change',()=>{activeLook=null;if(!$('combineFeatures').checked){for(const group of ['Form','Figures']){const selected=featureButtons.filter(button=>button.dataset.group===group&&features[button.dataset.feature]);selected.slice(0,-1).forEach(button=>features[button.dataset.feature]=0)}applyFeatures();$('featureStatus').textContent='Guided feature selection restored.'}});
+$('resetFeatures').addEventListener('click',()=>{activeLook=null;$('combineFeatures').checked=false;Object.keys(features).forEach(tag=>features[tag]=tag==='liga'?1:0);applyFeatures();$('featureStatus').textContent='Standard forms restored.'});
 document.querySelectorAll('[data-look]').forEach(button=>button.addEventListener('click',()=>{
- stopAnimation();Object.keys(features).forEach(tag=>features[tag]=tag==='liga'?1:0);Object.assign(features,LOOKS[button.dataset.look].features);applyFeatures();
- const look=LOOKS[button.dataset.look];$('liveSpecimen').textContent=look.text;resetSpecimen();document.querySelectorAll('[data-text]').forEach(item=>item.setAttribute('aria-pressed','false'));applyFeatures();if(look.markup){$('liveSpecimen').innerHTML='<span data-scoped-swash>'+look.markup+'</span>';$('combineFeatures').checked=true;}$('featureStatus').textContent=look.label+' example loaded.';
- $('systemTitle').focus({preventScroll:true});$('system').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth'});
+ activeLook=button.dataset.look;
+ Object.keys(features).forEach(tag=>features[tag]=tag==='liga'?1:0);
+ Object.assign(features,LOOKS[activeLook].features);
+ $('combineFeatures').checked=activeLook==='swash';
+ applyFeatures();
+ $('featureStatus').textContent=LOOKS[activeLook].label+' applied to your text.'+(activeLook==='swash'?' Swashes use the first and last capital A.':'');
 }));
+$('originalLook').addEventListener('click',()=>{
+ activeLook=null;$('combineFeatures').checked=false;
+ Object.keys(features).forEach(tag=>features[tag]=tag==='liga'?1:0);
+ applyFeatures();$('featureStatus').textContent='Original forms restored. Your text and axes are unchanged.';
+});
+$('useLookExample').addEventListener('click',()=>{
+ if(!activeLook)return;
+ $('liveSpecimen').textContent=LOOKS[activeLook].text;
+ document.querySelectorAll('[data-text]').forEach(item=>item.setAttribute('aria-pressed','false'));
+ applyFeatures();$('featureStatus').textContent=LOOKS[activeLook].label+' sample loaded. Axes and animation are unchanged.';
+});
+
 document.querySelectorAll('[data-text]').forEach(button=>button.addEventListener('click',()=>{
-  $('liveSpecimen').textContent=button.dataset.text;stopAnimation();
+  $('liveSpecimen').textContent=button.dataset.text;
   const paragraph=button.textContent==='Paragraph';
   for(const [range,input,value] of [['sizeRange','sizeInput',paragraph?24:(mobile.matches?40:64)],['leadingRange','leadingInput',paragraph?1.4:1.2]]){$(range).value=value;$(input).value=$(range).value;}
-  document.querySelectorAll('[data-text]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));applySpecimen();
+  document.querySelectorAll('[data-text]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));applySpecimen();applyFeatures();
 }));
+$('liveSpecimen').addEventListener('blur',()=>{if(activeLook==='swash')applyFeatures()});
 $('liveSpecimen').addEventListener('input',()=>document.querySelectorAll('[data-text]').forEach(button=>button.setAttribute('aria-pressed','false')));
 
 /* Correct feature-specific specimen entries; no aalt-first-choice stand-ins. */
@@ -162,7 +195,6 @@ applyVariable();applyFeatures();resetSpecimen();pauseHero(reducedMotion.matches)
   });
  });
  document.querySelector('.wardrobe-tabs').hidden=false;
- document.querySelector('.wardrobe-swipe').hidden=false;
- document.querySelector('.feature-library').classList.add('has-category-tabs');
+ document.querySelector('.integrated-wardrobe').classList.add('has-category-tabs');
  select(0);
 })();
