@@ -23,6 +23,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 - Unified workspace follow-up: the 17 retained wardrobe presets now share the live variable specimen. Feature selection preserves text, axes and interpolation; only Use feature sample replaces text. Swashes scope to first/last capital A.
 
+- Named-style toolbar follow-up: Text selector removed; Weight (100–900), Width (75/100/125) and Style (ital 0/1) are synchronized with the variable sliders. All 54 combinations match original named instances. Off-instance values show Custom; 17 OpenType presets remain independent.
+
 ## Bilgen
 
 - Page/assets: `bilgen.html`, `css/bilgen.css`, `js/bilgen.js`; resolve static/variable assets.

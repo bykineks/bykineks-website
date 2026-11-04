@@ -5,6 +5,7 @@ const ALT_ENTRIES=[{"text": "A", "features": {"swsh": 1}, "name": "swsh A"}, {"t
 const LOOKS={"outline":{"label":"Double-struck","text":"AURA","features":{"titl":1}},"stencil":{"label":"Stencil","text":"ATELIER","features":{"ss07":1}},"sans":{"label":"Sans serif alternates","text":"MODERN","features":{"salt":1}},"stars":{"label":"With stars","text":"NIGHT","features":{"ss06":1}},"circles":{"label":"Outlined circles","text":"EDITION","features":{"ss02":1}},"filled":{"label":"Filled circles","text":"EDITION","features":{"ss03":1}},"swash":{"label":"Swashes","text":"ARSHILA","features":{"swsh":1,"ss04":1}},"alternate5":{"label":"Alternate forms 5","text":"Fable","features":{"ss05":1}},"alternate8":{"label":"Alternate forms 8","text":"OH","features":{"ss08":1}},"editorial":{"label":"Discretionary ligatures","text":"HIGH","features":{"dlig":1}},"standard":{"label":"Standard ligatures","text":"office","features":{"liga":1}},"smallcaps":{"label":"Small caps","text":"atelier","features":{"smcp":1}},"petitecaps":{"label":"Petite caps","text":"ATELIER","features":{"c2sc":1}},"superior":{"label":"Superior figures","text":"H2","features":{"sups":1}},"numerator":{"label":"Numerators","text":"12","features":{"numr":1}},"denominator":{"label":"Denominators","text":"12","features":{"dnom":1}},"inferior":{"label":"Inferior figures","text":"H2O","features":{"subs":1}}};
 const $=id=>document.getElementById(id);
 const axes={wght:{range:'wghtRange',value:'wghtValue'},wdth:{range:'wdthRange',value:'wdthValue'},ital:{range:'italRange',value:'italValue'}};
+const stylePresets={wght:{id:'weightPreset',values:[100,200,300,400,500,600,700,800,900]},wdth:{id:'widthPreset',values:[75,100,125]},ital:{id:'stylePreset',values:[0,1]}};
 const defaults={wght:900,wdth:100,ital:0};let state={...defaults};let animationFrame=null;let animationStart=0;
 const featureTags=[...new Set(['liga',...Object.values(LOOKS).flatMap(look=>Object.keys(look.features))])];
 let activeLook=null;
@@ -34,10 +35,21 @@ function applyFeatures(){
 }
 function applyVariable(){
   $('liveSpecimen').style.fontVariationSettings=Object.entries(state).map(([tag,value])=>'"'+tag+'" '+value).join(',');
-  for(const [tag,axis] of Object.entries(axes)){$(axis.range).value=state[tag];$(axis.value).value=tag==='ital'?Number(state[tag]).toFixed(2):Math.round(state[tag])}
+  for(const [tag,axis] of Object.entries(axes)){
+    $(axis.range).value=state[tag];
+    $(axis.value).value=tag==='ital'?Number(state[tag]).toFixed(2):Number(state[tag].toFixed(2));
+    const preset=stylePresets[tag],match=preset.values.find(value=>Math.abs(value-state[tag])<1e-6);
+    const selected=match===undefined?'custom':String(match);
+    if($(preset.id).value!==selected)$(preset.id).value=selected;
+  }
 }
 function stopAnimation(){if(animationFrame!==null)cancelAnimationFrame(animationFrame);animationFrame=null;$('playVariable').textContent='Animate';$('playVariable').setAttribute('aria-label','Play variable animation');$('playVariable').setAttribute('aria-pressed','false')}
 Object.entries(axes).forEach(([tag,axis])=>$(axis.range).addEventListener('input',()=>{stopAnimation();state[tag]=Number($(axis.range).value);applyVariable()}));
+Object.entries(stylePresets).forEach(([tag,preset])=>$(preset.id).addEventListener('change',()=>{
+ const value=Number($(preset.id).value);
+ if(!preset.values.includes(value))return;
+ stopAnimation();state[tag]=value;applyVariable();
+}));
 $('resetVariable').addEventListener('click',()=>{stopAnimation();state={...defaults};applyVariable()});
 const frames=[{wght:900,wdth:100,ital:0},{wght:100,wdth:75,ital:0},{wght:500,wdth:125,ital:0},{wght:900,wdth:125,ital:1},{wght:900,wdth:100,ital:0}];
 function animate(time){const p=((time-animationStart)%8000)/8000*4;const index=Math.floor(p),t=p-index,e=t*t*(3-2*t);for(const tag of Object.keys(state))state[tag]=frames[index][tag]+(frames[index+1][tag]-frames[index][tag])*e;applyVariable();animationFrame=requestAnimationFrame(animate)}
@@ -63,19 +75,10 @@ $('featurePreset').addEventListener('change',()=>{
 $('useLookExample').addEventListener('click',()=>{
  if(!activeLook)return;
  $('liveSpecimen').textContent=LOOKS[activeLook].text;
- $('sampleText').value='custom';
  applyFeatures();$('featureStatus').textContent='';
 });
 
-$('sampleText').addEventListener('change',()=>{
- const option=$('sampleText').selectedOptions[0];if(!option.dataset.text)return;
- $('liveSpecimen').textContent=option.dataset.text;
- const paragraph=option.textContent==='Paragraph';
- for(const [range,input,value] of [['sizeRange','sizeInput',paragraph?24:(mobile.matches?40:64)],['leadingRange','leadingInput',paragraph?1.4:1.2]]){$(range).value=value;$(input).value=$(range).value;}
- applySpecimen();applyFeatures();
-});
 $('liveSpecimen').addEventListener('blur',()=>{if(activeLook==='swash')applyFeatures()});
-$('liveSpecimen').addEventListener('input',()=>{$('sampleText').value='custom'});
 
 /* Correct feature-specific specimen entries; no aalt-first-choice stand-ins. */
 SECTIONS.ALTERNATES=ALT_ENTRIES.map(entry=>entry.text);
