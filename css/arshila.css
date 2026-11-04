@@ -158,3 +158,5 @@ h2.kicker{margin-top:0}.glyph-overview-title{margin:0}.hero{position:relative}.h
 .look-note{font-size:11px;line-height:1.5;color:#555;min-height:3em}.look-card small{margin-top:auto}.wardrobe-note{margin-top:22px}
 @media(max-width:800px){#feature-library .look-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#feature-library .look-card{padding:16px}.look-heading{flex-wrap:wrap}.look-comparison{min-height:160px}}
 @media(max-width:600px){#feature-library .look-grid{grid-template-columns:1fr}#feature-library .look-before,#feature-library .look-after{font-size:32px}.look-comparison{min-height:152px}}
+
+#feature-library [data-look="swash"] .look-before,#feature-library [data-look="swash"] .look-after{font-size:clamp(17px,1.65vw,24px);white-space:nowrap;padding-inline:24px}
