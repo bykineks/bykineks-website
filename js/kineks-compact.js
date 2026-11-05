@@ -10,11 +10,43 @@ function applyVariable(){
   const found=preset.values.find(value=>Math.abs(value-state[tag])<1e-7);$(preset.id).value=found===undefined?'custom':String(found);
  }
 }
-for(const [tag,preset] of Object.entries(presets)){
- $(tag+'Range').addEventListener('input',()=>{state[tag]=Number($(tag+'Range').value);applyVariable()});
- $(preset.id).addEventListener('change',()=>{const n=Number($(preset.id).value);if(preset.values.includes(n)){state[tag]=n;applyVariable()}});
+// Animation starts only on request and stops when a manual axis control takes over.
+let animationFrame = null;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+function stopAnimation(){
+ if(animationFrame !== null) cancelAnimationFrame(animationFrame);
+ animationFrame = null;
+ $('animateVariable').textContent = 'Animate';
 }
-$('resetVariable').addEventListener('click',()=>{state={...defaults};applyVariable()});
+$('animateVariable').addEventListener('click',()=>{
+ if(animationFrame !== null){stopAnimation();return}
+ const start = performance.now();
+ const phases = Object.fromEntries(Object.entries(presets).map(([tag,preset])=>{
+  const min=preset.values[0],max=preset.values[preset.values.length-1];
+  return [tag,Math.acos(1-2*(state[tag]-min)/(max-min))];
+ }));
+ // Reduced-motion users explicitly opt in with this button; use a slower cycle.
+ const duration = reducedMotion.matches ? 24000 : 10000;
+ function tick(now){
+  for(const [tag,preset] of Object.entries(presets)){
+   const min=preset.values[0],max=preset.values[preset.values.length-1];
+   const value=min+(max-min)*(1-Math.cos(phases[tag]+(now-start)*2*Math.PI/duration))/2;
+   state[tag]=tag==='wght'?Math.round(value):value;
+  }
+  applyVariable();
+  animationFrame=requestAnimationFrame(tick);
+ }
+ $('animateVariable').textContent='Pause';
+ animationFrame=requestAnimationFrame(tick);
+});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAnimation()});
+window.addEventListener('pagehide',stopAnimation);
+reducedMotion.addEventListener('change',stopAnimation);
+for(const [tag,preset] of Object.entries(presets)){
+ $(tag+'Range').addEventListener('input',()=>{stopAnimation();state[tag]=Number($(tag+'Range').value);applyVariable()});
+ $(preset.id).addEventListener('change',()=>{stopAnimation();const n=Number($(preset.id).value);if(preset.values.includes(n)){state[tag]=n;applyVariable()}});
+}
+$('resetVariable').addEventListener('click',()=>{stopAnimation();state={...defaults};applyVariable()});
 $('featurePreset').addEventListener('change',()=>{const v=$('featurePreset').value;$('liveSpecimen').style.fontFeatureSettings='"ss01" '+Number(v==='ss01')+',"ss02" '+Number(v==='ss02')+',"liga" '+Number(v!=='unligated')});
 function applySpecimen(){$('liveSpecimen').style.fontSize=$('sizeRange').value+'px';$('liveSpecimen').style.lineHeight=$('leadingRange').value;$('liveSpecimen').style.letterSpacing=$('trackingRange').value+'em'}
 for(const key of ['size','leading','tracking']){
