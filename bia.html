@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Bia is a transitional type system by Dede Kurniawan and Bykineks, featuring 200 styles across Serif Low, Serif High, Sans Low, and Sans High.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp">
 <title>Bia — 200-Style Transitional Typeface | Bykineks</title>
-<link rel="stylesheet" href="css/bia.css?v=simple-playground-3">
+<link rel="stylesheet" href="css/bia.css?v=context-lightbox-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -204,10 +204,10 @@
 <p class="section-note">Both previews use weight 400, normal width, and upright forms, so you can compare serif and contrast directly.</p>
 </section>
 
-<section id="in-context" class="context-section" aria-labelledby="context-title" aria-roledescription="carousel">
+<section id="in-context" class="context-section" aria-labelledby="context-title">
 <div class="section-head"><h2 id="context-title" class="kicker">Bia in context</h2><span class="system-count">Six type studies</span></div>
 <div class="bia-gallery-frame">
-<div id="bia-gallery-track" class="bia-gallery-track" tabindex="0" role="group" aria-label="Type studies. Use the left and right arrow keys to browse.">
+<div id="bia-gallery-track" class="bia-gallery-track">
   <figure><img src="assets/images/bia-context/bia-preview-05.webp" alt="Three mobile storefronts compare Bia Serif High, Sans Low and Sans High." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>Three storefronts pair Bia Serif High with a handbag collection, Sans Low with a watch, and Sans High with a couture campaign.</figcaption></figure>
   <figure><img src="assets/images/bia-context/bia-preview-06.webp" alt="La Skin facial wash packaging with callouts identifying the Bia styles used on its label." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>On the La Skin tube, Bia Sans High Bold sets the brand name, while Bia Sans Low Ultra Condensed fits the cleanser description on one line.</figcaption></figure>
   <figure><img src="assets/images/bia-context/bia-preview-07.webp" alt="Bia headlines and navigation in a series of black fashion and beauty layouts." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>Across these fashion and beauty layouts, large Bia headlines contrast with the small navigation labels and blue-outlined shopping links.</figcaption></figure>
@@ -215,12 +215,11 @@
   <figure><img src="assets/images/bia-context/bia-preview-09.webp" alt="Spaced serif capitals on the cover and spine of Stuck in Time With You." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>On Stuck in Time With You, widely spaced serif capitals form three lines on the cover and a single line along the spine.</figcaption></figure>
   <figure><img src="assets/images/bia-context/bia-preview-04.webp" alt="Annotated Daily News front page showing how Bia styles work across the masthead, headlines and body text." width="2000" height="1000" loading="lazy" decoding="async"><figcaption>The Daily News masthead uses Bia Serif Low Bold Condensed, while the secondary headline uses Bia Sans Low Semi Bold Condensed.</figcaption></figure>
 </div>
-<div class="bia-gallery-controls" hidden>
-  <button type="button" aria-controls="bia-gallery-track" aria-label="Previous study">&#8592;</button>
-  <span aria-live="polite" aria-atomic="true">01 / 06</span>
-  <button type="button" aria-controls="bia-gallery-track" aria-label="Next study">&#8594;</button>
 </div>
-</div>
+<dialog id="bia-context-lightbox" class="bia-context-lightbox" aria-label="Bia type study" aria-describedby="bia-context-caption">
+  <button type="button" class="bia-context-close" aria-label="Close image" autofocus>&times;</button>
+  <figure><img id="bia-context-image" alt=""><figcaption id="bia-context-caption"></figcaption></figure>
+</dialog>
 </section>
 
 <section id="glyphs" class="glyph-section" aria-labelledby="character-set-title">
@@ -279,42 +278,46 @@
 <script src="js/bia.js?v=simple-playground-3"></script>
 <script>
 (() => {
-  const track = document.getElementById('bia-gallery-track');
-  const controls = track.nextElementSibling;
-  const [previous, next] = controls.querySelectorAll('button');
-  const counter = controls.querySelector('span');
-  const slides = track.children;
-  const number = value => String(value).padStart(2, '0');
-  const index = () => Math.max(0, Math.min(slides.length - 1,
-    Math.round(track.scrollLeft / slides[0].getBoundingClientRect().width)));
-
-  function sync() {
-    const current = index();
-    const label = number(current + 1) + ' / ' + number(slides.length);
-    if (counter.textContent !== label) counter.textContent = label;
-    previous.setAttribute('aria-disabled', String(current === 0));
-    next.setAttribute('aria-disabled', String(current === slides.length - 1));
-  }
-
-  function move(step) {
-    const target = slides[index() + step];
-    if (!target) return;
-    track.scrollLeft += target.getBoundingClientRect().left - track.getBoundingClientRect().left;
-    sync();
-  }
-
-  previous.addEventListener('click', () => move(-1));
-  next.addEventListener('click', () => move(1));
-  track.addEventListener('keydown', event => {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-    event.preventDefault();
-    move(event.key === 'ArrowLeft' ? -1 : 1);
+  const gallery = document.getElementById('bia-gallery-track');
+  const dialog = document.getElementById('bia-context-lightbox');
+  if (!gallery || !dialog || typeof dialog.showModal !== 'function') return;
+  const fullImage = document.getElementById('bia-context-image');
+  const caption = document.getElementById('bia-context-caption');
+  let opener;
+  let previousOverflow;
+  gallery.querySelectorAll('figure').forEach(figure => {
+    const image = figure.querySelector('img');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'bia-context-open';
+    button.setAttribute('aria-label', 'Enlarge image: ' + image.alt);
+    button.setAttribute('aria-haspopup', 'dialog');
+    image.before(button);
+    button.append(image);
+    button.addEventListener('click', () => {
+      opener = button;
+      fullImage.src = image.currentSrc || image.src;
+      fullImage.alt = image.alt;
+      caption.textContent = figure.querySelector('figcaption').textContent;
+      previousOverflow = document.documentElement.style.overflow;
+      dialog.showModal();
+      document.documentElement.style.overflow = 'hidden';
+    });
   });
-  track.addEventListener('scroll', sync, {passive: true});
-  window.addEventListener('resize', sync);
-  controls.hidden = false;
-  sync();
+  dialog.querySelector('.bia-context-close').addEventListener('click', () => dialog.close());
+  let startedOutside = false;
+  dialog.addEventListener('pointerdown', event => { startedOutside = event.target === dialog; });
+  dialog.addEventListener('click', event => {
+    if (startedOutside && event.target === dialog) dialog.close();
+    startedOutside = false;
+  });
+  dialog.addEventListener('close', () => {
+    document.documentElement.style.overflow = previousOverflow;
+    fullImage.removeAttribute('src');
+    if (opener) opener.focus({preventScroll: true});
+  });
 })();
 </script>
 </body>
 </html>
+
