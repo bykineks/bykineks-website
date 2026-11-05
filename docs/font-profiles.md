@@ -55,7 +55,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 - Actual axes: wght 300–700 (font default 700; playground starts at Regular 400), slnt 0–9.600006103515625. Preserve the positive slnt coordinate in this particular font; no synthetic italic or width control.
 - GSUB tags: aalt, case, hist, liga, locl, ordn, salt, ss01, ss02, sups. HarfBuzz verified ss01 affects A/n/y, ss02 affects a/n and liga handles fi/fl/ff/ffi/ffl/long-s+t. The focused toolbar offers Original, alternate sets 1/2, and Ligatures off. It does not claim every GSUB feature is exposed.
 - Character browser: 370 entries = 364 visible encoded characters plus six verified ligature sequences. Categories generated from the supplied font cmap, not copied from Arshila. Unicode/category search restores prior selection and expansion on clear.
-- Layout follows Arshila's hierarchy with a simpler two-axis workspace, 12/14/16 px samples and six user-supplied interface concepts. Each image has 2000×1000 and 1000×500 WebP variants. The full-resolution lightbox supports outside click, close button and Escape.
+- Layout follows Arshila's hierarchy with a simpler two-axis workspace, 8/10/12 pt samples and six user-supplied interface concepts. Each image has 2000×1000 and 1000×500 WebP variants. The full-resolution lightbox supports outside click, close button and Escape.
+- Axis animation: explicit Animate/Pause, manual axis/preset and Reset axes stop it; hidden tabs stop it. Reduced-motion preference uses a slower, explicitly requested cycle.
 - Existing 90-language list and licensing/trial/PDF destinations preserved. Full linguistic coverage, Safari/iOS and download contents are not independently certified. See `kineks-compact-revision-qc.md` for verification scope.
 
 ## Other fonts / new family
