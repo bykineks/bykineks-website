@@ -118,43 +118,46 @@ function filterGlyphs(){const q=$('glyphSearch').value.trim(),query=q.toLowerCas
 $('glyphSearch').addEventListener('input',filterGlyphs);$('clearSearch').addEventListener('click',()=>{$('glyphSearch').value='';filterGlyphs();$('glyphSearch').focus()});
 $('languageList').textContent=LANGUAGES.join(' · ');
 
-/* Full-width mockup carousel, matching Bia. */
+/* Arshila in use: thumbnails and full-resolution modal viewer. */
 (() => {
-  const track = document.getElementById('arshila-gallery-track');
-  const controls = track.nextElementSibling;
-  const [previous, next] = controls.querySelectorAll('button');
-  const counter = controls.querySelector('span');
-  const slides = track.children;
-  const number = value => String(value).padStart(2, '0');
-  const index = () => Math.max(0, Math.min(slides.length - 1,
-    Math.round(track.scrollLeft / slides[0].getBoundingClientRect().width)));
-
-  function sync() {
-    const current = index();
-    const label = number(current + 1) + ' / ' + number(slides.length);
-    if (counter.textContent !== label) counter.textContent = label;
-    previous.setAttribute('aria-disabled', String(current === 0));
-    next.setAttribute('aria-disabled', String(current === slides.length - 1));
-  }
-
-  function move(step) {
-    const target = slides[index() + step];
-    if (!target) return;
-    track.scrollLeft += target.getBoundingClientRect().left - track.getBoundingClientRect().left;
-    sync();
-  }
-
-  previous.addEventListener('click', () => move(-1));
-  next.addEventListener('click', () => move(1));
-  track.addEventListener('keydown', event => {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-    event.preventDefault();
-    move(event.key === 'ArrowLeft' ? -1 : 1);
+  const gallery = document.getElementById('arshila-gallery-track');
+  const dialog = document.getElementById('arshila-context-lightbox');
+  if (!gallery || !dialog || typeof dialog.showModal !== 'function') return;
+  const fullImage = document.getElementById('arshila-context-image');
+  const caption = document.getElementById('arshila-context-caption');
+  let opener;
+  let previousOverflow;
+  gallery.querySelectorAll('figure').forEach(figure => {
+    const image = figure.querySelector('img');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'arshila-context-open';
+    button.setAttribute('aria-label', 'Enlarge image: ' + image.alt);
+    button.setAttribute('aria-haspopup', 'dialog');
+    image.before(button);
+    button.append(image);
+    button.addEventListener('click', () => {
+      opener = button;
+      fullImage.src = image.src;
+      fullImage.alt = image.alt;
+      caption.textContent = figure.querySelector('figcaption').textContent;
+      previousOverflow = document.documentElement.style.overflow;
+      dialog.showModal();
+      document.documentElement.style.overflow = 'hidden';
+    });
   });
-  track.addEventListener('scroll', sync, {passive: true});
-  window.addEventListener('resize', sync);
-  controls.hidden = false;
-  sync();
+  dialog.querySelector('.arshila-context-close').addEventListener('click', () => dialog.close());
+  let startedOutside = false;
+  dialog.addEventListener('pointerdown', event => { startedOutside = event.target === dialog; });
+  dialog.addEventListener('click', event => {
+    if (startedOutside && event.target === dialog) dialog.close();
+    startedOutside = false;
+  });
+  dialog.addEventListener('close', () => {
+    document.documentElement.style.overflow = previousOverflow;
+    fullImage.removeAttribute('src');
+    if (opener) opener.focus({preventScroll: true});
+  });
 })();
 
 const reducedMotion=matchMedia('(prefers-reduced-motion:reduce)');
