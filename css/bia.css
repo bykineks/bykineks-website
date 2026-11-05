@@ -102,36 +102,23 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #111;
 @media(max-width:800px){.section-nav{gap:0 20px;padding:0 10px}.hero .motion-toggle{top:0;right:0}}
 @media(prefers-reduced-motion:reduce){.hero .motion-toggle{display:none}}
 
-/* Bia in context */
-.bia-gallery-frame { position: relative; }
-.bia-gallery-track {
-  display: flex;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-}
-.bia-gallery-track figure {
-  flex: 0 0 100%;
-  min-width: 0;
-  margin: 0;
-  scroll-snap-align: start;
-}
-.bia-gallery-track img { display: block; width: 100%; height: auto; }
-.bia-gallery-track figcaption { margin: 10px 0; font-size: 14px; }
-.bia-gallery-controls:not([hidden]) {
-  position: absolute;
-  top: clamp(6px, 1vw, 16px);
-  right: clamp(6px, 1vw, 16px);
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: #fff;
-  color: #111;
-  border: 1px solid #111;
-}
-.bia-gallery-controls span { font-variant-numeric: tabular-nums; }
-.bia-gallery-controls button { width: 44px; height: 44px; border: 0; background: transparent; color: inherit; font-size: 20px; cursor: pointer; }
-.bia-gallery-controls button[aria-disabled="true"] { opacity: .4; cursor: default; }
+/* Bia in context: compact studies with a native modal image viewer. */
+.bia-gallery-track { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px 16px; }
+.bia-gallery-track figure { min-width:0; margin:0; }
+.bia-gallery-track img { display:block; width:100%; height:auto; aspect-ratio:2/1; object-fit:contain; }
+.bia-gallery-track figcaption { margin:10px 0 0; font-size:12px; line-height:1.5; color:#555; }
+.bia-context-open { display:block; width:100%; padding:0; border:0; background:transparent; cursor:zoom-in; }
+.bia-context-open:focus-visible,.bia-context-close:focus-visible { outline:2px solid #111; outline-offset:4px; }
+.bia-context-lightbox { position:fixed; inset:0; width:100%; height:100%; max-width:none; max-height:none; margin:0; padding:64px 24px 24px; box-sizing:border-box; border:0; background:transparent; color:#fff; }
+.bia-context-lightbox[open] { display:flex; align-items:center; justify-content:center; }
+.bia-context-lightbox::backdrop { background:rgba(0,0,0,.88); }
+.bia-context-lightbox figure { width:fit-content; max-width:1400px; margin:0; pointer-events:none; }
+.bia-context-lightbox img { display:block; width:auto; height:auto; max-width:100%; max-height:calc(100dvh - 200px); margin:0 auto; object-fit:contain; pointer-events:auto; }
+.bia-context-lightbox figcaption { max-width:850px; max-height:100px; overflow:auto; margin:16px auto 0; font-size:13px; line-height:1.5; pointer-events:auto; }
+.bia-context-close { position:absolute; top:12px; right:16px; width:44px; height:44px; padding:0; border:0; background:transparent; color:#fff; font:inherit; font-size:32px; cursor:pointer; }
+.bia-context-close:focus-visible { outline-color:#fff; }
+@media(max-width:1000px) { .bia-gallery-track { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:540px) { .bia-gallery-track { grid-template-columns:1fr; gap:24px; } .bia-context-lightbox { padding:60px 12px 20px; } }
 
 /* Variable type specimen */
 #system .variable-playground {
@@ -173,3 +160,4 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #111;
 @media(min-width:801px){#system{scroll-margin-top:44px}}
 @media(max-width:1100px){.bia-playground-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}.bia-playground-toolbar label:last-of-type{grid-column:1/-1}}
 @media(max-width:600px){.bia-playground-toolbar select{font-size:16px}}
+
