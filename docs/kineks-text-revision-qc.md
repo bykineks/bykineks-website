@@ -27,3 +27,11 @@ Sources: Preview 3, 4, 6, 8, 9 and 11.png from the supplied Kineks Text Preview/
 ## Limits
 
 No Safari/iOS device run, full language certification, commercial/trial contents audit or checkout test. No production publication performed in this revision.
+
+## SEO/GEO follow-up
+
+Updated title, 148-character meta/social descriptions, social image dimensions and Twitter alt text. Rewrote About more concisely with designer, reading use cases, ten styles, verified axis bounds and a contextual comparison/link to Kineks Compact. No new page sections.
+
+Connected six JSON-LD entities: Organization, Person, WebSite, ImageObject, Product and WebPage. Preserved product facts, canonical and indexability. Replaced Product creator/incomplete releaseDate with explicit Designer and Published year properties. No offers, ratings or price assumptions added. Image dimensions read from the real 2000×1000 asset.
+
+Checks: JSON parsing, complete local entity references, unique IDs, one H1/canonical, valid comparison destination, no blocking repository SEO/GEO audit errors, and no document overflow at 320/390/1440 px. About visually checked. Search Console, indexing performance and Google Rich Results Test remain unverified. Product metadata alone does not establish rich-result eligibility or AI recommendation performance. Sitemap/llms changes were outside this three-point follow-up.

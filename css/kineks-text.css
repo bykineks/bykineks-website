@@ -21,3 +21,4 @@
 .text-context-close:focus-visible { outline-color:#fff; }
 @media(max-width:1000px) { .text-gallery-track { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:540px) { .text-gallery-track { grid-template-columns:1fr; gap:24px; } .text-context-lightbox { padding:60px 12px 20px; } }
+.intro-grid .copy a{text-decoration:underline;text-underline-offset:4px}
