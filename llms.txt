@@ -17,7 +17,7 @@ Location: Indonesia
 
 ## Typefaces
 
-- Kineks: https://bykineks.com/kineks.html
+- Kineks: https://bykineks.com/kineks.html — Static Sans, Serif and Slab superfamily by Dede Kurniawan and BYKINEKS: 90 styles, five weights, three widths and matching italics; no variable axes.
 - Kineks Text: https://bykineks.com/kineks-text.html
 - Kineks Compact: https://bykineks.com/kineks-compact.html
 - Kineks Symbols: https://bykineks.com/kineks-symbol.html
