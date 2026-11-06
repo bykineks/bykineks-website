@@ -70,7 +70,16 @@ These profiles guide discovery; they do not replace inspection of the current fo
 - Six supplied 2000×1000 PNGs converted unchanged in composition to 2000×1000 and 1000×500 WebP variants. Grid/lightbox follows Compact; captions describe reading/editorial concepts rather than client work.
 - Existing 90-language list and licensing/demo/PDF destinations retained. Full linguistic coverage, commercial download inventory and Safari/iOS are not independently certified. See kineks-text-revision-qc.md.
 
+## Kineks
+
+- Page: kineks.html; original 90 static WOFF2 files mapped by js/kineks-data.js, unchanged. No variable assets or axes.
+- Audit 2026-11-07: 3 voices (Sans/Serif/Slab), 5 weights, 3 widths, upright/italic = 90 complete combinations. Each has 387 internal glyphs including .notdef, 365 common cmap entries, version 1.000.
+- ss01 affects A/a/n/y; ss02 affects a/n. Both sets and standard ligature samples shape differently when enabled across all 90 assets, verified using HarfBuzz. Do not copy Text's ss01 repertoire.
+- Character set: 362 visible encoded characters plus six standard ligature sequences, 368 preview entries. Selected static style follows into the character study.
+- Static family/weight/width/style selectors preserve user text. No axis controls, animation or synthetic font styles. Six supplied mockups have full and mobile WebP variants with a grid/lightbox.
+- Existing language list and download/licensing links preserved; full linguistic coverage and download contents are not independently certified. See kineks-revision-qc.md.
+
 ## Other fonts / new family
 
-Kineks, Avita, Alvera, Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
+Avita, Alvera, Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
 
