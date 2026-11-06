@@ -59,7 +59,18 @@ These profiles guide discovery; they do not replace inspection of the current fo
 - Axis animation: explicit Animate/Pause, manual axis/preset and Reset axes stop it; hidden tabs stop it. Reduced-motion preference uses a slower, explicitly requested cycle.
 - Existing 90-language list and licensing/trial/PDF destinations preserved. Full linguistic coverage, Safari/iOS and download contents are not independently certified. See `kineks-compact-revision-qc.md` for verification scope.
 
+## Kineks Text
+
+- Page/assets: kineks-text.html, css/kineks-text.css, js/kineks-text.js; original `assets/fonts/Kineks Text-VF.woff2` and static KineksText assets retained unchanged.
+- Audit 2026-11-07: variable and Regular have 389 internal glyphs (including .notdef), 365 cmap entries, version 1.000. Ten named instances match five weights (300/400/500/600/700), upright and oblique. Variable font default weight 700; playground starts at 400.
+- Actual axes wght 300–700 and slnt 0–12, distinct from Compact's 0–9.600006103515625. No synthetic italic or copied Compact axis bound.
+- Original ss01 substitutions A/n/y, ss02 a/n and standard ligatures ff/fi/fl/ffi/ffl/long-s+t verified via GSUB and HarfBuzz. Toolbar uses Original, the two alternate sets, and Ligatures off.
+- Character study regenerated from Text cmap: 362 visible encoded characters plus six ligature sequences = 368 preview entries; spaces/control characters excluded. Every displayed codepoint is supported by this font. Total internal glyph count is separate from preview count.
+- Compact structure adapted to extended reading: editable variable specimen, synchronized named styles, explicit axis animation, 12/14/16 pt samples. Playground size is in real CSS pt, minimum 12 pt (16 CSS px), default 24 pt.
+- Six supplied 2000×1000 PNGs converted unchanged in composition to 2000×1000 and 1000×500 WebP variants. Grid/lightbox follows Compact; captions describe reading/editorial concepts rather than client work.
+- Existing 90-language list and licensing/demo/PDF destinations retained. Full linguistic coverage, commercial download inventory and Safari/iOS are not independently certified. See kineks-text-revision-qc.md.
+
 ## Other fonts / new family
 
-Kineks, Kineks Text, Avita, Alvera, Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
+Kineks, Avita, Alvera, Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
 
