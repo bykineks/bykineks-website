@@ -22,3 +22,7 @@ Six supplied 2000×1000 PNGs (Preview 2/3/4/5/6/9) converted to full 2000×1000 
 ## Limits
 
 Local Chromium preview only; Safari/iOS, full linguistic coverage and commercial download contents not independently tested. Existing SEO metadata retained. Not pushed, merged or deployed as part of this revision.
+
+## SEO/GEO follow-up
+
+Metadata now identifies 90 static Sans/Serif/Slab styles. Added social image dimensions and Twitter image alt. Organization, Person, WebSite, ImageObject, Product and WebPage entities resolve within the page graph. Removed Product creator/releaseDate year-only fields; retained designer/published year as PropertyValue. Visible copy explains real style combinations, OpenType and contextual links to Text/Compact. Updated only the Kineks entry in llms.txt. Existing sitemap already includes the canonical URL. No invented offers, ratings, FAQ or language certification. Repository SEO/GEO audit: no blocking errors; unrelated warnings remain. JSON parsing, internal entity references, single H1/canonical and local family links pass. No guarantee of search ranking or AI recommendations.
