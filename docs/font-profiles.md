@@ -86,7 +86,14 @@ These profiles guide discovery; they do not replace inspection of the current fo
 - Language Support compares the common 659 Unicode mappings across all 54 tester WOFF2 files against Fontconfig 2.16.0 orthographies. Lists are grouped by script and report character coverage.
 - The Avita in use gallery presents six supplied studies, including celestial symbols, Greek lettering, interface and packaging concepts, as full and smaller WebPs.
 
+## Alvera
+
+- Page: alvera/index.html. Alvera-VF.woff2 reports Version 1.000, 1,060 internal glyphs and 1,018 Unicode mappings.
+- Weight 400–700 and Grade 64–100, defaults 400 and 64. Four named instances: Regular and Bold, each in Circle and Square. The tester uses the original VF.
+- Character Set has 971 entries, 970 unique strings, all supported by the VF cmap. The existing language list was retained without a new orthography audit.
+- Four supplied application studies are available as responsive WebP images.
+
 ## Other fonts / new family
 
-Alvera, Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
+Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
 
