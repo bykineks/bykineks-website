@@ -26,7 +26,7 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 | symbol font with arrows, pictograms and geometric forms | `/kineks-symbol.html` | future symbol systems article | Strong product page, content gap |
 | transitional serif and sans superfamily | `/bia.html` | `/labs/bia/`, `/blog/what-is-a-type-system/` | Strong product / experimental support |
 | Gothic Sans / architectural display typeface | `/caelia.html` | future Caelia design article | Strong product page, content gap |
-| geometric sans with Latin, Greek and Cyrillic | `/avita.html` | future multilingual sans article | Strong product page, content gap |
+| geometric sans with Latin, Greek and Cyrillic | `/avita/` | future multilingual sans article | Strong product page, content gap |
 | modern serif with extensive OpenType features | `/arshila.html` | future OpenType article | Strong product page, content gap |
 | condensed geometric sans with interlocking capitals | `/bilgen.html` | `/labs/bilgen/` | Strong product concept, schema pending |
 | Art Nouveau serif typeface | `/neela.html` | future revival / Art Nouveau article | Product coverage, schema pending |

@@ -81,8 +81,9 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Avita
 
-- Page: avita.html, css/avita.css and js/avita.js. The tester points to 54 distinct WOFF2 files, all verified static (no fvar).
+- Page: avita/index.html, css/avita.css and js/avita.js. The tester points to 54 distinct WOFF2 files, all verified static (no fvar).
 - Regular has 737 internal glyphs including .notdef and 659 Unicode mappings. The existing Character Set has 732 visible glyph entries and includes outline previews. Latin, Greek, Cyrillic and representative celestial symbols were checked in Regular cmap.
+- Language Support compares the common 659 Unicode mappings across all 54 tester WOFF2 files against Fontconfig 2.16.0 orthographies. Lists are grouped by script and report character coverage.
 - The Avita in use gallery presents six supplied studies, including celestial symbols, Greek lettering, interface and packaging concepts, as full and smaller WebPs.
 
 ## Other fonts / new family

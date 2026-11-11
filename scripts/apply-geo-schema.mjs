@@ -144,8 +144,8 @@ const products = [
     props: { Styles: '54', Glyphs: '2,500', Classification: 'Modern Serif', 'Language support': '110 languages', 'Variable axes': 'Weight, Width, Slant', Version: '2.0' }
   },
   {
-    file: 'avita.html', name: 'Avita', title: 'Avita — Geometric Sans Serif | Bykineks',
-    url: 'https://bykineks.com/avita.html', image: 'https://bykineks.com/assets/images/avita-geometric-sans-typeface-54-styles-103-languages.webp',
+    file: 'avita/index.html', name: 'Avita', title: 'Avita — Geometric Sans Serif | Bykineks',
+    url: 'https://bykineks.com/avita/', image: 'https://bykineks.com/assets/images/avita-geometric-sans-typeface-54-styles-103-languages.webp',
     description: 'Avita is a geometric sans serif with 54 styles across nine weights, three widths, and matching obliques, with Latin, Greek, and Cyrillic support.',
     category: 'Typeface family', releaseDate: '2022',
     props: { Styles: '54', 'Glyphs in Regular': '737', Languages: '103', Classification: 'Geometric Sans', Weights: '9', Widths: '3', 'Script coverage': 'Latin, Greek and Cyrillic' }
