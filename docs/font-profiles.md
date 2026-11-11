@@ -43,8 +43,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Kineks Symbols
 
-- Page/assets: `kineks-symbol.html`, `css/kineks-symbol.css`, `js/kineks-symbol.js`, `Kineks-Symbol.woff2`.
-- Role: functional symbols and visual communication. User confirmed sole style Bold (internal weight 700).
+- Page/assets: `kineks-symbol/index.html`, `css/kineks-symbol.css`, `js/kineks-symbol.js`, `Kineks-Symbol.woff2`.
+- Role: functional symbols and visual communication. User confirmed sole style Bold (internal weight 700). WOFF2 name and head tables report version 1.0.
 - Previous audit: 356 glyphs, 354 Unicode mappings, 351 displayed SVG outlines; omitted mappings are carriage return and spaces. Verify SVG outlines remain aligned with the current font.
 - Emphasize category discovery, shape/proportion and practical symbol compositions; no fabricated text-font axes or paragraph presets.
 

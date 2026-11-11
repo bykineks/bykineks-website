@@ -107,13 +107,13 @@ const products = [
     props: { Styles: '10', Glyphs: '388', Classification: 'Neo-Grotesque', 'Primary use': 'UI, dashboards, navigation, notifications, wearable and automotive displays' }
   },
   {
-    file: 'kineks-symbol.html', name: 'Kineks Symbols',
+    file: 'kineks-symbol/index.html', name: 'Kineks Symbols',
     title: 'Kineks Symbols — Symbol Typeface | Bykineks',
-    url: 'https://bykineks.com/kineks-symbol.html',
+    url: 'https://bykineks.com/kineks-symbol/',
     image: 'https://bykineks.com/assets/images/kineks-symbols-geometric-symbol-typeface-icons-visual-language.webp',
     description: 'Kineks Symbols is a curated collection of functional symbols for digital and physical spaces, including directional signs, interface elements, wayfinding, transportation, facilities, safety markers, geometric forms, and everyday visual signs.',
     category: 'Symbol typeface', releaseDate: '2026',
-    props: { Styles: 'Regular', Glyphs: '356', 'Visible glyphs in specimen': '351', Content: 'Arrows, geometric forms, pictograms and symbols' }
+    props: { Styles: 'Bold', Version: '1.0', Classification: 'Symbol Typeface', Glyphs: '356', 'Visible glyphs in specimen': '351', Content: 'Arrows, geometric forms, pictograms and symbols' }
   },
   {
     file: 'bia.html', name: 'Bia', title: 'Bia — 200-Style Transitional Typeface | Bykineks',
