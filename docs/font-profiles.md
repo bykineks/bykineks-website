@@ -79,7 +79,13 @@ These profiles guide discovery; they do not replace inspection of the current fo
 - Static family/weight/width/style selectors preserve user text. No axis controls, animation or synthetic font styles. Six supplied mockups have full and mobile WebP variants with a grid/lightbox.
 - Existing language list and download/licensing links preserved; full linguistic coverage and download contents are not independently certified. See kineks-revision-qc.md.
 
+## Avita
+
+- Page: avita.html, css/avita.css and js/avita.js. The tester points to 54 distinct WOFF2 files, all verified static (no fvar).
+- Regular has 737 internal glyphs including .notdef and 659 Unicode mappings. The existing Character Set has 732 visible glyph entries and includes outline previews. Latin, Greek, Cyrillic and representative celestial symbols were checked in Regular cmap.
+- The Avita in use gallery presents six supplied studies, including celestial symbols, Greek lettering, interface and packaging concepts, as full and smaller WebPs.
+
 ## Other fonts / new family
 
-Avita, Alvera, Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
+Alvera, Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
 
