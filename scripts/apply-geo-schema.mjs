@@ -116,8 +116,8 @@ const products = [
     props: { Styles: 'Bold', Version: '1.0', Classification: 'Symbol Typeface', Glyphs: '356', 'Visible glyphs in specimen': '351', Content: 'Arrows, geometric forms, pictograms and symbols' }
   },
   {
-    file: 'bia.html', name: 'Bia', title: 'Bia — 200-Style Transitional Typeface | Bykineks',
-    url: 'https://bykineks.com/bia.html', image: 'https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp',
+    file: 'bia/index.html', name: 'Bia', title: 'Bia — 200-Style Transitional Typeface | Bykineks',
+    url: 'https://bykineks.com/bia/', image: 'https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp',
     description: 'Bia is a transitional type system with 200 styles across Serif Low, Serif High, Sans Low, and Sans High, unified by a shared typographic structure.',
     category: 'Typeface superfamily', releaseDate: '2023',
     props: { Styles: '200', Glyphs: '1,037', Classification: 'Transitional', 'Language support': '102 languages', 'Variable axes': 'Serif, Contrast, Slant, Weight, Width', Version: '2.100' }

@@ -4,7 +4,7 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Bia
 
-- Page/assets: `bia.html`, `css/bia.css`, `js/bia.js`, `assets/fonts/Bia-VF.woff2`, `Bia-SerifLowBold.woff2`.
+- Page/assets: `bia/index.html`, `css/bia.css`, `js/bia.js`, `assets/fonts/Bia-VF.woff2`, `Bia-SerifLowBold.woff2`.
 - Strength: four related Serif/Sans × Low/High contrast voices and variable exploration.
 - Verified in the 2026-11-04 audit: five axes SERF/CNTR/wght/wdth/ital; 200 named instances; version 2.100; 1,038 internal glyphs including .notdef. The approved product count is 1,037 excluding that placeholder. 791 preview entries.
 - See `bia-revision-qc.md` for axis coordinates, actual feature examples and limitations. Bia's feature exclusions and counts apply only to Bia.
