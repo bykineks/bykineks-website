@@ -179,11 +179,11 @@ const products = [
     props: { Styles: '1', Glyphs: '303', Classification: 'Handwritten Display', 'Standard ligatures': 'ffi, fi, fl' }
   },
   {
-    file: 'alvera.html', name: 'Alvera', title: 'Alvera — Modular Dot Matrix Sans Variable Typeface | Bykineks',
-    url: 'https://bykineks.com/alvera.html', image: 'https://bykineks.com/assets/images/alvera-dot-matrix-display-typeface-1134-glyphs-circle-square.webp',
+    file: 'alvera/index.html', name: 'Alvera', title: 'Alvera — Modular Dot Matrix Sans Variable Typeface | Bykineks',
+    url: 'https://bykineks.com/alvera/', image: 'https://bykineks.com/assets/images/alvera-dot-matrix-display-typeface-1134-glyphs-circle-square.webp',
     description: 'Alvera is a modular Dot Matrix Sans variable typeface with retro-futuristic character, Circle and Square configurations, and a grid-based visual system.',
     category: 'Variable typeface family', releaseDate: '2025',
-    props: { Styles: '4', Glyphs: '1060', Classification: 'Dot Matrix Sans', 'Language support': '114 languages', 'Variable axes': 'Weight, Grade', Version: '1.0' }
+    props: { Styles: '4', Glyphs: '1060', Classification: 'Dot Matrix Sans', 'Preview entries': '971', 'Weight range': '400–700', 'Grade range': '64–100', Version: '1.0' }
   }
 ];
 
