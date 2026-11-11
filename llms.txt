@@ -21,7 +21,7 @@ Location: Indonesia
 - Kineks Text: https://bykineks.com/kineks-text.html
 - Kineks Compact: https://bykineks.com/kineks-compact.html
 - Kineks Symbols: https://bykineks.com/kineks-symbol/
-- Bia: https://bykineks.com/bia.html
+- Bia: https://bykineks.com/bia/
 - Caelia: https://bykineks.com/caelia.html
 - Dareva: https://bykineks.com/dareva.html
 - Arshila: https://bykineks.com/arshila.html — Modern serif by Dede Kurniawan; 54 styles, 2,500 glyphs, variable weight/width/italic, and OpenType ligatures, swashes and caps. Includes a live type playground.
