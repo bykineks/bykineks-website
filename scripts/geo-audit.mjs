@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const baseUrl = 'https://bykineks.com/';
-const ignoredFiles = new Set(['blog.html']);
+const ignoredFiles = new Set(['blog.html', 'avita.html']);
 const ignoredDirs = new Set(['.git', '.github', 'assets', 'css', 'js', 'scripts', 'node_modules']);
 const nonProductRootPages = new Set(['index.html', 'about.html', 'contact.html', 'blog.html']);
 
@@ -69,7 +69,7 @@ function localTargetExists(file, href) {
   if (!clean) return true;
 
   const fromDir = path.dirname(path.join(root, file));
-  const target = path.resolve(fromDir, clean);
+  const target = clean.startsWith('/') ? path.resolve(root, '.' + clean) : path.resolve(fromDir, clean);
 
   if (fs.existsSync(target)) return true;
   if (clean.endsWith('/') && fs.existsSync(path.join(target, 'index.html'))) return true;
@@ -79,7 +79,7 @@ function localTargetExists(file, href) {
 for (const file of htmlFiles) {
   const source = fs.readFileSync(path.join(root, file), 'utf8');
   const isRootHtml = !file.includes('/');
-  const isProduct = isRootHtml && !nonProductRootPages.has(file);
+  const isProduct = file === 'avita/index.html' || (isRootHtml && !nonProductRootPages.has(file));
   const isArticle = /<meta\s+property=["']og:type["']\s+content=["']article["']/i.test(source) || /<article\b/i.test(source);
   const isLabExperiment = file.startsWith('labs/') && file !== 'labs/index.html';
   const canonical = canonicalFor(file);

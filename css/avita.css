@@ -41,3 +41,12 @@
 .avita-context-close:focus-visible { outline-color:#fff; }
 @media(max-width:1000px) { .avita-gallery-track { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:540px) { .avita-gallery-track { grid-template-columns:1fr; gap:24px; } .avita-context-lightbox { padding:60px 12px 20px; } }
+
+.avita-language-support {
+  margin: 48px 0;
+  padding-top: 24px;
+  border-top: 1px solid #aaa;
+}
+.avita-language-note { color: #555; font-size: 13px; line-height: 1.5; }
+.avita-language-note a { text-decoration: underline; }
+.avita-language-list { margin: 28px 0 0; line-height: 1.85; }

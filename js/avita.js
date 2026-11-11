@@ -38,7 +38,7 @@
 
  const specimenText = preview.textContent;
  function reset() {
-   selector.value = 'assets/fonts/avita/Avita-Regular.woff2';
+   selector.value = selector.querySelector('option[selected]').value;
    preview.textContent = specimenText;
    for (const [id, value] of [['size', innerWidth <= 800 ? 40 : 60], ['leading', 1.15], ['tracking', 0]]) {
      $(id + 'Range').value = value;
