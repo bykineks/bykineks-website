@@ -5,13 +5,13 @@
   font-display: swap;
 }
 @font-face {
-  font-family: BilgenRegular;
-  src: url("../assets/fonts/bilgen/Bilgen-Regular.woff2") format("woff2");
+  font-family: BilgenVariable;
+  font-weight: 100 900;
+  src: url("../labs/assets/fonts/Bilgen-VF.woff2") format("woff2");
   font-display: swap;
 }
 .product-title { font-family: BilgenDisplay, sans-serif; font-weight: 900; }
-.type-preview { font-family: BilgenRegular, sans-serif; }
-.family-controls { grid-template-columns: minmax(0, 24em); }
+.type-preview { font-family: BilgenVariable, sans-serif; }
 .glyph-source { position: absolute; width: 0; height: 0; overflow: hidden; }
 .glyph-overview-title { margin: 0; }
 .glyph-group summary { padding: 12px 0; cursor: pointer; font-size: 13px; }
@@ -29,3 +29,29 @@
 .type-preview[data-interlock="mix"] { font-feature-settings: "liga" 1, "dlig" 1; }
 .type-preview[data-interlock="second"] { font-feature-settings: "liga" 1, "dlig" 0; }
 .type-preview[data-interlock="off"] { font-feature-settings: "liga" 0, "dlig" 0; }
+
+.bilgen-in-use { border-top: 1px solid #aaa; padding-top: 24px; margin: 48px 0; }
+.bilgen-gallery-track { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px 16px; }
+.bilgen-gallery-track figure { min-width:0; margin:0; }
+.bilgen-gallery-track img { display:block; width:100%; height:auto; aspect-ratio:2/1; object-fit:contain; }
+.bilgen-gallery-track figcaption { margin:10px 0 0; font-size:12px; line-height:1.5; color:#555; }
+.bilgen-context-open { display:block; width:100%; padding:0; border:0; background:transparent; cursor:zoom-in; }
+.bilgen-context-open:focus-visible,.bilgen-context-close:focus-visible { outline:2px solid #111; outline-offset:4px; }
+.bilgen-context-lightbox { position:fixed; inset:0; width:100%; height:100%; max-width:none; max-height:none; margin:0; padding:64px 24px 24px; box-sizing:border-box; border:0; background:transparent; color:#fff; }
+.bilgen-context-lightbox[open] { display:flex; align-items:center; justify-content:center; }
+.bilgen-context-lightbox::backdrop { background:rgba(0,0,0,.88); }
+.bilgen-context-lightbox figure { width:fit-content; max-width:1400px; margin:0; pointer-events:none; }
+.bilgen-context-lightbox img { display:block; width:auto; height:auto; max-width:100%; max-height:calc(100dvh - 200px); margin:0 auto; object-fit:contain; pointer-events:auto; }
+.bilgen-context-lightbox figcaption { max-width:850px; max-height:100px; overflow:auto; margin:16px auto 0; font-size:13px; line-height:1.5; pointer-events:auto; }
+.bilgen-context-close { position:absolute; top:12px; right:16px; width:44px; height:44px; padding:0; border:0; background:transparent; color:#fff; font:inherit; font-size:32px; cursor:pointer; }
+.bilgen-context-close:focus-visible { outline-color:#fff; }
+@media(max-width:1000px) { .bilgen-gallery-track { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:540px) { .bilgen-gallery-track { grid-template-columns:1fr; gap:24px; } .bilgen-context-lightbox { padding:60px 12px 20px; } }
+
+.bilgen-axes input { width: 100%; }
+.bilgen-axes output { float: right; }
+
+.bilgen-title-b { font-feature-settings: "ss01" 1; }
+.bilgen-title-i { font-feature-settings: "ss02" 1; }
+.bilgen-title-lg { font-feature-settings: "liga" 1, "dlig" 0; }
+.bilgen-title-en { font-feature-settings: "liga" 0, "dlig" 1; }
