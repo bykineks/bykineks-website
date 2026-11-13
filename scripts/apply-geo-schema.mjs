@@ -130,8 +130,8 @@ const products = [
     props: { Styles: '5', Glyphs: '1,932', Classification: 'Gothic Sans', Version: '1.0', 'Script coverage': 'Latin, IPA, Cyrillic and Greek' }
   },
   {
-    file: 'dareva.html', name: 'Dareva', title: 'Dareva — Neo-Humanist Sans Serif | Bykineks',
-    url: 'https://bykineks.com/dareva.html', image: 'https://bykineks.com/assets/images/dareva-neo-humanist-sans-optical-size-typeface-digital-reading.webp',
+    file: 'dareva/index.html', name: 'Dareva', title: 'Dareva — Neo-Humanist Sans Serif | Bykineks',
+    url: 'https://bykineks.com/dareva/', image: 'https://bykineks.com/assets/images/dareva-neo-humanist-sans-optical-size-typeface-digital-reading.webp',
     description: 'Dareva is a neo-humanist sans serif designed for screen reading, with Micro, Text, and Display optical sizes and matching obliques.',
     category: 'Typeface family', releaseDate: '2026',
     props: { Styles: '36', Classification: 'Neo-Humanist Sans', 'Optical sizes': 'Micro, Text, Display', Weights: '6 per optical size', 'Glyphs in Regular Text': '361' }
