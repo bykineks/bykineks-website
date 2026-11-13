@@ -20,9 +20,9 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 | large typeface superfamily for branding and editorial | `/kineks.html` | `/bia/`, `/blog/what-is-a-type-system/` | Strong product coverage |
 | typeface for dense UI or limited space | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact.html` | Strong query-oriented + product coverage |
 | typography for dashboards / compact interfaces | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact.html` | Strong query-oriented coverage |
-| typeface for long-form digital reading | `/kineks-text.html` and `/dareva.html` | `/blog/designing-dareva/` | Good, can be strengthened |
-| typeface with optical sizes | `/dareva.html` | `/blog/designing-dareva/` | Strong |
-| why optical size matters in digital typography | `/blog/designing-dareva/` | `/dareva.html` | Strong |
+| typeface for long-form digital reading | `/kineks-text.html` and `/dareva/` | `/blog/designing-dareva/` | Good, can be strengthened |
+| typeface with optical sizes | `/dareva/` | `/blog/designing-dareva/` | Strong |
+| why optical size matters in digital typography | `/blog/designing-dareva/` | `/dareva/` | Strong |
 | symbol font with arrows, pictograms and geometric forms | `/kineks-symbol/` | future symbol systems article | Strong product page, content gap |
 | transitional serif and sans superfamily | `/bia/` | `/labs/bia/`, `/blog/what-is-a-type-system/` | Strong product / experimental support |
 | Gothic Sans / architectural display typeface | `/caelia/` | future Caelia design article | Strong product page, content gap |
