@@ -43,3 +43,44 @@
  for (const event of ['click', 'focusin', 'pointerover']) gallery.addEventListener(event, showGlyph);
  reset();
 })();
+
+(() => {
+  const gallery = document.getElementById('gin-gallery-track');
+  const dialog = document.getElementById('gin-context-lightbox');
+  if (!gallery || !dialog || typeof dialog.showModal !== 'function') return;
+  const fullImage = document.getElementById('gin-context-image');
+  const caption = document.getElementById('gin-context-caption');
+  let opener;
+  let previousOverflow;
+  gallery.querySelectorAll('figure').forEach(figure => {
+    const image = figure.querySelector('img');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'gin-context-open';
+    button.setAttribute('aria-label', 'Enlarge image: ' + image.alt);
+    button.setAttribute('aria-haspopup', 'dialog');
+    image.before(button);
+    button.append(image);
+    button.addEventListener('click', () => {
+      opener = button;
+      fullImage.src = image.src;
+      fullImage.alt = image.alt;
+      caption.textContent = figure.querySelector('figcaption').textContent;
+      previousOverflow = document.documentElement.style.overflow;
+      dialog.showModal();
+      document.documentElement.style.overflow = 'hidden';
+    });
+  });
+  dialog.querySelector('.gin-context-close').addEventListener('click', () => dialog.close());
+  let startedOutside = false;
+  dialog.addEventListener('pointerdown', event => { startedOutside = event.target === dialog; });
+  dialog.addEventListener('click', event => {
+    if (startedOutside && event.target === dialog) dialog.close();
+    startedOutside = false;
+  });
+  dialog.addEventListener('close', () => {
+    document.documentElement.style.overflow = previousOverflow;
+    fullImage.removeAttribute('src');
+    if (opener) opener.focus({preventScroll: true});
+  });
+})();

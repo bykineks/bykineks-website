@@ -158,8 +158,8 @@ const products = [
     props: { Styles: '27', 'Glyphs in Regular': '1,737', Languages: '66+', Classification: 'Geometric Sans', Weights: '9', 'Slant variants': 'Upright, Left, Right', 'OpenType feature': 'Interlocking capitals' }
   },
   {
-    file: 'gin.html', name: 'GIN', title: 'GIN — Calligraffiti Script | Bykineks',
-    url: 'https://bykineks.com/gin.html', image: 'https://bykineks.com/assets/images/gin-calligraffiti-script-font-decorative-lettering-typeface.webp',
+    file: 'gin/index.html', name: 'GIN', title: 'GIN — Calligraffiti Script | Bykineks',
+    url: 'https://bykineks.com/gin/', image: 'https://bykineks.com/assets/images/gin-calligraffiti-script-font-decorative-lettering-typeface.webp',
     description: 'GIN is a calligraffiti-inspired display script with expressive directional strokes and standard fi and fl ligatures.',
     category: 'Display script typeface', releaseDate: '2022',
     props: { Styles: '1', Glyphs: '232', Classification: 'Calligraffiti Script', 'Standard ligatures': 'fi, fl' }
