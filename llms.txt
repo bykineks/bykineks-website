@@ -27,7 +27,7 @@ Location: Indonesia
 - Arshila: https://bykineks.com/arshila.html — Modern serif by Dede Kurniawan; 54 styles, 2,500 glyphs, variable weight/width/italic, and OpenType ligatures, swashes and caps. Includes a live type playground.
 - Avita: https://bykineks.com/avita/
 - Alvera: https://bykineks.com/alvera/
-- Bilgen: https://bykineks.com/bilgen.html
+- Bilgen: https://bykineks.com/bilgen/
 - Gin: https://bykineks.com/gin.html
 - Neela: https://bykineks.com/neela.html
 - Wakaba: https://bykineks.com/wakaba.html

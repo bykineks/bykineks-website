@@ -3,26 +3,24 @@
  const $ = id => document.getElementById(id);
  const preview = $('typePreview');
  const selector = $('bilgen-style');
- const faces = new Map();
- async function selectStyle() {
-   const option = selector.selectedOptions[0];
-   if (!faces.has(option.value)) {
-     const face = new FontFace('BilgenStyle' + selector.selectedIndex, 'url("' + option.value + '")');
-     faces.set(option.value, face.load().then(loaded => {
-       document.fonts.add(loaded);
-       return loaded;
-     }).catch(error => { faces.delete(option.value); throw error; }));
-   }
-   try {
-     const loaded = await faces.get(option.value);
-     if (selector.value !== option.value) return;
-     preview.style.fontFamily = loaded.family;
-     $('styleStatus').textContent = 'Bilgen ' + option.textContent;
-   } catch {
-     if (selector.value === option.value) $('styleStatus').textContent = 'Style could not load. Choose it again to retry.';
-   }
+ const weight = $('bilgen-weight');
+ const slant = $('bilgen-slant');
+ function applyAxes() {
+   const value = weight.value + ':' + slant.value;
+   const preset = Array.from(selector.options).find(option => option.value === value);
+   selector.value = preset ? value : 'custom';
+   preview.style.fontVariationSettings = `"wght" ${weight.value}, "slnt" ${slant.value}`;
+   $('bilgen-weight-value').value = weight.value;
+   $('bilgen-slant-value').value = slant.value + '°';
+   $('styleStatus').textContent = preset ? 'Bilgen ' + preset.textContent : 'Bilgen Custom';
+ }
+ function selectStyle() {
+   [weight.value, slant.value] = selector.value.split(':');
+   applyAxes();
  }
  selector.addEventListener('change', selectStyle);
+ weight.addEventListener('input', applyAxes);
+ slant.addEventListener('input', applyAxes);
  const controls=[['size','fontSize','px'],['leading','lineHeight',''],['tracking','letterSpacing','em']];
  controls.forEach(([id,prop,unit])=>{
   const range=$(id+'Range'),field=$(id+'Input');
@@ -41,7 +39,7 @@
  interlock.addEventListener('change', applyInterlock);
  const specimenText = preview.textContent;
  function reset() {
-   selector.value = 'assets/fonts/bilgen/Bilgen-Regular.woff2';
+   selector.value = selector.querySelector('option[selected]').value;
    interlock.value = 'mix';
    applyInterlock();
    preview.textContent = specimenText;
@@ -62,4 +60,45 @@
  const gallery = document.querySelector('.glyph-groups');
  for (const event of ['click', 'focusin', 'pointerover']) gallery.addEventListener(event, showGlyph);
  reset();
+})();
+
+(() => {
+  const gallery = document.getElementById('bilgen-gallery-track');
+  const dialog = document.getElementById('bilgen-context-lightbox');
+  if (!gallery || !dialog || typeof dialog.showModal !== 'function') return;
+  const fullImage = document.getElementById('bilgen-context-image');
+  const caption = document.getElementById('bilgen-context-caption');
+  let opener;
+  let previousOverflow;
+  gallery.querySelectorAll('figure').forEach(figure => {
+    const image = figure.querySelector('img');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'bilgen-context-open';
+    button.setAttribute('aria-label', 'Enlarge image: ' + image.alt);
+    button.setAttribute('aria-haspopup', 'dialog');
+    image.before(button);
+    button.append(image);
+    button.addEventListener('click', () => {
+      opener = button;
+      fullImage.src = image.src;
+      fullImage.alt = image.alt;
+      caption.textContent = figure.querySelector('figcaption').textContent;
+      previousOverflow = document.documentElement.style.overflow;
+      dialog.showModal();
+      document.documentElement.style.overflow = 'hidden';
+    });
+  });
+  dialog.querySelector('.bilgen-context-close').addEventListener('click', () => dialog.close());
+  let startedOutside = false;
+  dialog.addEventListener('pointerdown', event => { startedOutside = event.target === dialog; });
+  dialog.addEventListener('click', event => {
+    if (startedOutside && event.target === dialog) dialog.close();
+    startedOutside = false;
+  });
+  dialog.addEventListener('close', () => {
+    document.documentElement.style.overflow = previousOverflow;
+    fullImage.removeAttribute('src');
+    if (opener) opener.focus({preventScroll: true});
+  });
 })();

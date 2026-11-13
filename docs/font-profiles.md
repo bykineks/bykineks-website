@@ -29,7 +29,7 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Bilgen
 
-- Page/assets: `bilgen.html`, `css/bilgen.css`, `js/bilgen.js`; resolve static/variable assets.
+- Page/assets: `bilgen/index.html`, `css/bilgen.css`, `js/bilgen.js`; 27 static WOFF2 styles plus the Bilgen Lab variable font (Weight and Slant).
 - User priority: interlocking capitals. Existing page describes paired capitals and a Mix option; preserve working composition behavior.
 - First audit join triggers, sets, mixed combinations, unsupported pairs and style availability. A pair/word builder with verified examples is more relevant than Bia's voice cards.
 - Current HTML claims 27 styles and nine weights with upright/left/right styles; verify package inventory and axis coordinates before adding controls or counts.

@@ -151,8 +151,8 @@ const products = [
     props: { Styles: '54', 'Glyphs in Regular': '737', Languages: '103', Classification: 'Geometric Sans', Weights: '9', Widths: '3', 'Script coverage': 'Latin, Greek and Cyrillic' }
   },
   {
-    file: 'bilgen.html', name: 'Bilgen', title: 'Bilgen — Geometric Sans Serif | Bykineks',
-    url: 'https://bykineks.com/bilgen.html', image: 'https://bykineks.com/assets/images/bilgen-geometric-sans-variable-font-27-styles-interlock-ligatures.webp',
+    file: 'bilgen/index.html', name: 'Bilgen', title: 'Bilgen — Condensed Sans with Interlocking Capitals | Bykineks',
+    url: 'https://bykineks.com/bilgen/', image: 'https://bykineks.com/assets/images/bilgen-geometric-sans-variable-font-27-styles-interlock-ligatures.webp',
     description: 'Bilgen is a condensed geometric sans with interlocking capitals and 27 styles spanning nine weights with upright, left-leaning, and right-leaning variants.',
     category: 'Typeface family', releaseDate: '2024',
     props: { Styles: '27', 'Glyphs in Regular': '1,737', Languages: '66+', Classification: 'Geometric Sans', Weights: '9', 'Slant variants': 'Upright, Left, Right', 'OpenType feature': 'Interlocking capitals' }
