@@ -36,7 +36,7 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Caelia
 
-- Page/assets: `caelia.html`, `css/caelia.css`, `js/caelia-character-set.js`, `assets/fonts/Caelia-*.woff2`.
+- Page/assets: `caelia/index.html`, `css/caelia.css`, `js/caelia-character-set.js`, `assets/fonts/Caelia-*.woff2`.
 - User priority: multiscript. Begin by mapping actual scripts and shaping support; emphasize script-specific specimens and mixed-script hierarchy.
 - Previous binary audit: five weight assets, 1,932 glyphs and 1,607 Unicode mappings per file. Previous displayed repertoire: 1,273 entries. Recheck current assets; preview coverage is a selection.
 - Existing categories include Latin, IPA, Cyrillic, Greek, ligatures and symbols. Native-script labels and appropriate samples should replace a Latin-only default where useful. Verify language claims independently; do not copy Bia's 102-language list.

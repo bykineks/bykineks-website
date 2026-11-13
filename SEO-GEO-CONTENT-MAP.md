@@ -25,7 +25,7 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 | why optical size matters in digital typography | `/blog/designing-dareva/` | `/dareva.html` | Strong |
 | symbol font with arrows, pictograms and geometric forms | `/kineks-symbol/` | future symbol systems article | Strong product page, content gap |
 | transitional serif and sans superfamily | `/bia/` | `/labs/bia/`, `/blog/what-is-a-type-system/` | Strong product / experimental support |
-| Gothic Sans / architectural display typeface | `/caelia.html` | future Caelia design article | Strong product page, content gap |
+| Gothic Sans / architectural display typeface | `/caelia/` | future Caelia design article | Strong product page, content gap |
 | geometric sans with Latin, Greek and Cyrillic | `/avita/` | future multilingual sans article | Strong product page, content gap |
 | modern serif with extensive OpenType features | `/arshila.html` | future OpenType article | Strong product page, content gap |
 | condensed geometric sans with interlocking capitals | `/bilgen/` | `/labs/bilgen/` | Product schema and Interlock tester |

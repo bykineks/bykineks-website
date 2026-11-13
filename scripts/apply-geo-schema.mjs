@@ -123,8 +123,8 @@ const products = [
     props: { Styles: '200', Glyphs: '1,037', Classification: 'Transitional', 'Language support': '102 languages', 'Variable axes': 'Serif, Contrast, Slant, Weight, Width', Version: '2.100' }
   },
   {
-    file: 'caelia.html', name: 'Caelia', title: 'Caelia — Gothic Sans Typeface | Bykineks',
-    url: 'https://bykineks.com/caelia.html', image: 'https://bykineks.com/assets/images/caelia-gothic-sans-typeface-bykineks.webp',
+    file: 'caelia/index.html', name: 'Caelia', title: 'Caelia — Gothic Sans Typeface | Bykineks',
+    url: 'https://bykineks.com/caelia/', image: 'https://bykineks.com/assets/images/caelia-gothic-sans-typeface-bykineks.webp',
     description: 'Caelia is a Gothic Sans typeface shaped by sharp architectural character, pointed geometry, strong verticality, and sculptural proportions.',
     category: 'Typeface family', releaseDate: '2024',
     props: { Styles: '5', Glyphs: '1,932', Classification: 'Gothic Sans', Version: '1.0', 'Script coverage': 'Latin, IPA, Cyrillic and Greek' }
