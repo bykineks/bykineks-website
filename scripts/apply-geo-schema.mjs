@@ -165,8 +165,8 @@ const products = [
     props: { Styles: '1', Glyphs: '232', Classification: 'Calligraffiti Script', 'Standard ligatures': 'fi, fl' }
   },
   {
-    file: 'neela.html', name: 'Neela', title: 'Neela — Art Nouveau Serif | Bykineks',
-    url: 'https://bykineks.com/neela.html', image: 'https://bykineks.com/assets/images/neela-serif-nouveau-typeface-27-styles-62-languages.webp',
+    file: 'neela/index.html', name: 'Neela', title: 'Neela — Art Nouveau Serif | Bykineks',
+    url: 'https://bykineks.com/neela/', image: 'https://bykineks.com/assets/images/neela-serif-nouveau-typeface-27-styles-62-languages.webp',
     description: 'Neela is an Art Nouveau serif family with 27 styles, combining nine weights with Normal, Condensed, and Expanded widths.',
     category: 'Typeface family', releaseDate: '2023',
     props: { Styles: '27', 'Glyphs in Regular': '206', Classification: 'Art Nouveau Serif', Weights: '9', Widths: 'Normal, Condensed, Expanded' }
