@@ -11,7 +11,7 @@
 }
 .product-title { font-family: NeelaDisplay, sans-serif; font-weight: 900; }
 .type-preview { font-family: NeelaRegular, sans-serif; }
-.family-controls { grid-template-columns: minmax(0, 24em); }
+.family-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .glyph-source { position: absolute; width: 0; height: 0; overflow: hidden; }
 .glyph-overview-title { margin: 0; }
 .glyph-group summary { padding: 12px 0; cursor: pointer; font-size: 13px; }
@@ -23,3 +23,25 @@
 @media (max-width: 800px) {
   .glyph-preview { position: sticky; top: 0; z-index: 1; height: 145px; max-width: none; }
 }
+
+.neela-in-use { border-top: 1px solid #aaa; padding-top: 24px; margin: 48px 0; }
+.neela-gallery-track { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px 16px; }
+.neela-gallery-track figure { min-width:0; margin:0; }
+.neela-gallery-track img { display:block; width:100%; height:auto; aspect-ratio:2/1; object-fit:contain; }
+.neela-gallery-track figcaption { margin:10px 0 0; font-size:12px; line-height:1.5; color:#555; }
+.neela-context-open { display:block; width:100%; padding:0; border:0; background:transparent; cursor:zoom-in; }
+.neela-context-open:focus-visible,.neela-context-close:focus-visible { outline:2px solid #111; outline-offset:4px; }
+.neela-context-lightbox { position:fixed; inset:0; width:100%; height:100%; max-width:none; max-height:none; margin:0; padding:64px 24px 24px; box-sizing:border-box; border:0; background:transparent; color:#fff; }
+.neela-context-lightbox[open] { display:flex; align-items:center; justify-content:center; }
+.neela-context-lightbox::backdrop { background:rgba(0,0,0,.88); }
+.neela-context-lightbox figure { width:fit-content; max-width:1400px; margin:0; pointer-events:none; }
+.neela-context-lightbox img { display:block; width:auto; height:auto; max-width:100%; max-height:calc(100dvh - 200px); margin:0 auto; object-fit:contain; pointer-events:auto; }
+.neela-context-lightbox figcaption { max-width:850px; max-height:100px; overflow:auto; margin:16px auto 0; font-size:13px; line-height:1.5; pointer-events:auto; }
+.neela-context-close { position:absolute; top:12px; right:16px; width:44px; height:44px; padding:0; border:0; background:transparent; color:#fff; font:inherit; font-size:32px; cursor:pointer; }
+.neela-context-close:focus-visible { outline-color:#fff; }
+@media(max-width:1000px) { .neela-gallery-track { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:540px) { .neela-gallery-track { grid-template-columns:1fr; gap:24px; } .neela-context-lightbox { padding:60px 12px 20px; } }
+
+
+.type-preview { overflow-wrap: anywhere; }
+@media(max-width: 480px) { .family-controls { grid-template-columns: 1fr; } }
