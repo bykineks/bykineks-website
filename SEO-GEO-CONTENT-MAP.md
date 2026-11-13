@@ -31,7 +31,7 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 | condensed geometric sans with interlocking capitals | `/bilgen/` | `/labs/bilgen/` | Product schema and Interlock tester |
 | Art Nouveau serif typeface | `/neela/` | future revival / Art Nouveau article | Product coverage, schema pending |
 | calligraffiti display script | `/gin/` | future lettering-to-type article | Product coverage, schema pending |
-| handwritten display font for packaging | `/wakaba.html` | `/blog/wakaba/` | Strong contextual case study, schema pending |
+| handwritten display font for packaging | `/wakaba/` | `/blog/wakaba/` | Strong contextual case study, schema pending |
 | dot matrix / retro-futuristic variable typeface | `/alvera/` | future modular type article | Strong product page, schema pending |
 | experimental variable typography | `/labs/` | individual Labs experiments | Strong Labs identity; experiment metadata can improve gradually |
 

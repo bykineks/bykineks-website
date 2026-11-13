@@ -172,8 +172,8 @@ const products = [
     props: { Styles: '27', 'Glyphs in Regular': '206', Classification: 'Art Nouveau Serif', Weights: '9', Widths: 'Normal, Condensed, Expanded' }
   },
   {
-    file: 'wakaba.html', name: 'Wakaba', title: 'Wakaba — Handwritten Display | Bykineks',
-    url: 'https://bykineks.com/wakaba.html', image: 'https://bykineks.com/assets/images/wakaba-playful-display-font-handwritten-organic-lettering.webp',
+    file: 'wakaba/index.html', name: 'Wakaba', title: 'Wakaba — Handwritten Display | Bykineks',
+    url: 'https://bykineks.com/wakaba/', image: 'https://bykineks.com/assets/images/wakaba-playful-display-font-handwritten-organic-lettering.webp',
     description: 'Wakaba is a playful handwritten display typeface with rounded strokes, irregular rhythm, and standard ffi, fi, and fl ligatures.',
     category: 'Handwritten display typeface', releaseDate: '2022',
     props: { Styles: '1', Glyphs: '303', Classification: 'Handwritten Display', 'Standard ligatures': 'ffi, fi, fl' }

@@ -14,3 +14,24 @@
 @media (max-width: 800px) {
   .glyph-preview { position: sticky; top: 0; z-index: 1; height: 145px; max-width: none; }
 }
+
+.wakaba-in-use { border-top: 1px solid #aaa; padding-top: 24px; margin: 48px 0; }
+.wakaba-gallery-track { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 16px; }
+.wakaba-gallery-track figure { min-width:0; margin:0; }
+.wakaba-gallery-track img { display:block; width:100%; height:auto; aspect-ratio:2/1; object-fit:contain; }
+.wakaba-gallery-track figcaption { margin:10px 0 0; font-size:12px; line-height:1.5; color:#555; }
+.wakaba-context-open { display:block; width:100%; padding:0; border:0; background:transparent; cursor:zoom-in; }
+.wakaba-context-open:focus-visible,.wakaba-context-close:focus-visible { outline:2px solid #111; outline-offset:4px; }
+.wakaba-context-lightbox { position:fixed; inset:0; width:100%; height:100%; max-width:none; max-height:none; margin:0; padding:64px 24px 24px; box-sizing:border-box; border:0; background:transparent; color:#fff; }
+.wakaba-context-lightbox[open] { display:flex; align-items:center; justify-content:center; }
+.wakaba-context-lightbox::backdrop { background:rgba(0,0,0,.88); }
+.wakaba-context-lightbox figure { width:fit-content; max-width:1400px; margin:0; pointer-events:none; }
+.wakaba-context-lightbox img { display:block; width:auto; height:auto; max-width:100%; max-height:calc(100dvh - 200px); margin:0 auto; object-fit:contain; pointer-events:auto; }
+.wakaba-context-lightbox figcaption { max-width:850px; max-height:100px; overflow:auto; margin:16px auto 0; font-size:13px; line-height:1.5; pointer-events:auto; }
+.wakaba-context-close { position:absolute; top:12px; right:16px; width:44px; height:44px; padding:0; border:0; background:transparent; color:#fff; font:inherit; font-size:32px; cursor:pointer; }
+.wakaba-context-close:focus-visible { outline-color:#fff; }
+@media(max-width:1000px) { .wakaba-gallery-track { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:540px) { .wakaba-gallery-track { grid-template-columns:1fr; gap:24px; } .wakaba-context-lightbox { padding:60px 12px 20px; } }
+
+
+.type-preview { overflow-wrap: anywhere; }
