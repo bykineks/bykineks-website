@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const baseUrl = 'https://bykineks.com/';
-const ignoredFiles = new Set(['blog.html', 'avita.html', 'kineks-symbol.html', 'alvera.html', 'bia.html', 'bilgen.html', 'caelia.html', 'dareva.html', 'gin.html', 'neela.html']);
+const ignoredFiles = new Set(['blog.html', 'avita.html', 'kineks-symbol.html', 'alvera.html', 'bia.html', 'bilgen.html', 'caelia.html', 'dareva.html', 'gin.html', 'neela.html', 'wakaba.html']);
 const ignoredDirs = new Set(['.git', '.github', 'assets', 'css', 'js', 'scripts', 'node_modules']);
 const nonProductRootPages = new Set(['index.html', 'about.html', 'contact.html', 'blog.html']);
 
@@ -79,7 +79,7 @@ function localTargetExists(file, href) {
 for (const file of htmlFiles) {
   const source = fs.readFileSync(path.join(root, file), 'utf8');
   const isRootHtml = !file.includes('/');
-  const isProduct = file === 'neela/index.html' || file === 'gin/index.html' || file === 'dareva/index.html' || file === 'caelia/index.html' || file === 'bilgen/index.html' || file === 'bia/index.html' || file === 'alvera/index.html' || file === 'avita/index.html' || file === 'kineks-symbol/index.html' || (isRootHtml && !nonProductRootPages.has(file));
+  const isProduct = file === 'wakaba/index.html' || file === 'neela/index.html' || file === 'gin/index.html' || file === 'dareva/index.html' || file === 'caelia/index.html' || file === 'bilgen/index.html' || file === 'bia/index.html' || file === 'alvera/index.html' || file === 'avita/index.html' || file === 'kineks-symbol/index.html' || (isRootHtml && !nonProductRootPages.has(file));
   const isArticle = /<meta\s+property=["']og:type["']\s+content=["']article["']/i.test(source) || /<article\b/i.test(source);
   const isLabExperiment = file.startsWith('labs/') && file !== 'labs/index.html';
   const canonical = canonicalFor(file);
