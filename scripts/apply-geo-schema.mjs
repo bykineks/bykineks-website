@@ -98,9 +98,9 @@ const products = [
     }
   },
   {
-    file: 'kineks-compact.html', name: 'Kineks Compact',
+    file: 'kineks-compact/index.html', name: 'Kineks Compact',
     title: 'Kineks Compact — Space-Efficient Neo-Grotesque Typeface | Bykineks',
-    url: 'https://bykineks.com/kineks-compact.html',
+    url: 'https://bykineks.com/kineks-compact/',
     image: 'https://bykineks.com/assets/images/kineks-compact-type-system-10-styles.webp',
     description: 'Kineks Compact is a neo-grotesque sans typeface designed for space-efficient digital interfaces, compact displays, and information-dense environments.',
     category: 'Typeface family', releaseDate: '2026',

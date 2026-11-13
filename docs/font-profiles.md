@@ -50,7 +50,7 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Kineks Compact
 
-- Page/assets: `kineks-compact.html`, `css/kineks-compact.css`, `js/kineks-compact.js`, `assets/fonts/KineksCompact-VF.woff2` (user-supplied binary, unchanged).
+- Page/assets: `kineks-compact/index.html`, `css/kineks-compact.css`, `js/kineks-compact.js`, `assets/fonts/KineksCompact-VF.woff2` (user-supplied binary, unchanged).
 - Binary audit 2026-11-05: version 1.000; 388 internal glyphs including .notdef, 367 Unicode mappings; existing product count 388 retained. Ten named instances agree with the existing ten-style inventory: five weights 300/400/500/600/700, upright and oblique.
 - Actual axes: wght 300–700 (font default 700; playground starts at Regular 400), slnt 0–9.600006103515625. Preserve the positive slnt coordinate in this particular font; no synthetic italic or width control.
 - GSUB tags: aalt, case, hist, liga, locl, ordn, salt, ss01, ss02, sups. HarfBuzz verified ss01 affects A/n/y, ss02 affects a/n and liga handles fi/fl/ff/ffi/ffl/long-s+t. The focused toolbar offers Original, alternate sets 1/2, and Ligatures off. It does not claim every GSUB feature is exposed.
