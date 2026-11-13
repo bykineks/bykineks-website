@@ -18,8 +18,8 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 | typefaces designed as systems | `/blog/what-is-a-type-system/` | `/`, `/about.html`, `/kineks.html`, `/bia/` | Strong positioning + explanatory article |
 | type family vs superfamily vs type system | `/blog/what-is-a-type-system/` | `/kineks.html`, `/bia/` | Strong query-oriented coverage |
 | large typeface superfamily for branding and editorial | `/kineks.html` | `/bia/`, `/blog/what-is-a-type-system/` | Strong product coverage |
-| typeface for dense UI or limited space | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact.html` | Strong query-oriented + product coverage |
-| typography for dashboards / compact interfaces | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact.html` | Strong query-oriented coverage |
+| typeface for dense UI or limited space | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact/` | Strong query-oriented + product coverage |
+| typography for dashboards / compact interfaces | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact/` | Strong query-oriented coverage |
 | typeface for long-form digital reading | `/kineks-text.html` and `/dareva/` | `/blog/designing-dareva/` | Good, can be strengthened |
 | typeface with optical sizes | `/dareva/` | `/blog/designing-dareva/` | Strong |
 | why optical size matters in digital typography | `/blog/designing-dareva/` | `/dareva/` | Strong |
