@@ -1,0 +1,7 @@
+:root { --bia-f7f7f7:#f7f7f7;--bia-f3f3f3:#f3f3f3;--bia-080808:#080808;--bia-777:#777;--bia-bbb:#bbb;--bia-666:#666;--bia-555:#555;--bia-aaa:#aaa;--bia-111:#111;--bia-fff:#fff; }
+html[data-theme="dark"] { --bia-f7f7f7:#242424;--bia-f3f3f3:#292929;--bia-080808:#eeede8;--bia-777:#aaa9a3;--bia-bbb:#555550;--bia-666:#aaa9a3;--bia-555:#b8b7b1;--bia-aaa:#656560;--bia-111:#eeede8;--bia-fff:#151515; }
+html[data-theme="dark"] body { color:#eeede8; }
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] button { color:inherit; }
+html[data-theme="dark"] input[type="range"] { accent-color:#eeede8; }
+html[data-theme="dark"] .bia-context-lightbox,html[data-theme="dark"] .bia-context-close { color:#fff; }
+html[data-theme="dark"] :focus-visible { outline-color:#eeede8; }

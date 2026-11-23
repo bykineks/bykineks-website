@@ -1,0 +1,23 @@
+html { background:#fff; color-scheme:light; }
+header { gap:24px; }
+.nav { margin-left:auto; }
+.theme-toggle { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:32px; margin-top:-9px; padding:7px 0 7px 18px; border:0; border-left:1px solid #c6c6c6; background:transparent; color:inherit; font:600 12px/1 KineksText,Arial,sans-serif; cursor:pointer; }
+.theme-icon { font:20px/1 Arial,sans-serif; }
+.theme-toggle:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
+html[data-theme="dark"] { --black:#eeeDE8; --gray:#aaa9a3; background:#151515; color-scheme:dark; }
+html[data-theme="dark"] body { background:#151515; }
+html[data-theme="dark"] .logo img { content:url("/assets/logo/bykineks-dark.svg"); }
+html[data-theme="dark"] .font-row.disabled,
+html[data-theme="dark"] .kineks-choices,
+html[data-theme="dark"] .kineks-trigger,
+html[data-theme="dark"] .font-row.is-touching { background:#1c1c1c; }
+html[data-theme="dark"] .kineks-choice:hover,
+html[data-theme="dark"] .kineks-trigger:active { background:#252525; }
+html[data-theme="dark"] .theme-toggle { border-left-color:#555; }
+@media(max-width:650px) {
+ header { flex-wrap:wrap; gap:12px 16px; align-items:center; }
+ .logo { margin-right:auto; }
+ .nav { order:3; width:100%; margin:8px 0 0; justify-content:space-between; font-size:12px; gap:12px; }
+ .theme-toggle { margin-top:0; min-height:40px; padding-left:16px; }
+}
+html[data-theme="dark"] .font-row:hover, html[data-theme="dark"] .font-row:not(.disabled).is-touching, html[data-theme="dark"] .kineks-accordion[open] > .kineks-trigger { background:#1c1c1c; }
