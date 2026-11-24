@@ -57,3 +57,38 @@
 .symbols-context-close { position:absolute; top:12px; right:16px; width:44px; height:44px; padding:0; border:0; background:transparent; color:#fff; font:inherit; font-size:32px; cursor:pointer; }
 .symbols-context-close:focus-visible { outline-color:#fff; }
 @media(max-width:540px) { .symbols-gallery-track { grid-template-columns:1fr; gap:24px; } .symbols-context-lightbox { padding:60px 12px 20px; } }
+
+.theme-toggle { font-family: KineksCompactUI, Arial, sans-serif; }
+
+html[data-theme="dark"] body { color: var(--black); }
+
+html[data-theme="dark"] :is(.top-grid, .about-meta-item, .glyph-overview-head, .glyph-preview, .availability, .footer) {
+  border-color: var(--black);
+}
+
+html[data-theme="dark"] :is(.symbols-in-use, .glyph-preview-meta, .glyph-groups, .glyph-group, .symbol-grid, .symbol-grid .glyph) {
+  border-color: #555550;
+}
+
+html[data-theme="dark"] :is(.font-info-label, .system-count, .glyph-preview-meta span:last-child, .glyph-title small, .links button:disabled) {
+  color: var(--gray);
+}
+
+html[data-theme="dark"] :is(.character-set-note, .symbols-gallery-track figcaption) { color: #b8b7b1; }
+
+html[data-theme="dark"] :is(.glyph-preview, .glyph-title, .symbol-grid .glyph) {
+  background: #151515;
+  color: var(--black);
+}
+
+html[data-theme="dark"] :is(.glyph-title:hover, .symbol-grid .glyph:hover, .symbol-grid .glyph:focus-visible) {
+  background: #292929;
+}
+
+html[data-theme="dark"] .symbol-grid .glyph[aria-pressed="true"] {
+  background: var(--black);
+  color: #151515;
+}
+
+html[data-theme="dark"] :is(.glyph-title, .symbols-context-open):focus-visible { outline-color: var(--black); }
+html[data-theme="dark"] .symbol-grid .glyph:focus-visible { box-shadow: inset 0 0 0 2px currentColor; }
