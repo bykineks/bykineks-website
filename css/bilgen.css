@@ -55,3 +55,33 @@
 .bilgen-title-i { font-feature-settings: "ss02" 1; }
 .bilgen-title-lg { font-feature-settings: "liga" 1, "dlig" 0; }
 .bilgen-title-en { font-feature-settings: "liga" 0, "dlig" 1; }
+
+.theme-toggle { font-family: KineksCompactUI, Arial, sans-serif; }
+.glyph-preview-char svg { fill: currentColor; }
+
+html[data-theme="dark"] body { color: var(--black); }
+
+html[data-theme="dark"] :is(.top-grid, .about-meta-item, .type-system, .glyph-overview-head, .glyph-preview, .availability, .footer, .family-controls select, .control-heading input) {
+  border-color: var(--black);
+}
+
+html[data-theme="dark"] :is(.family-controls, .specimen-controls, .glyph-preview-meta, .glyph-groups, .glyph-group, .glyph-grid, .glyph, .reset-button, .bilgen-in-use) {
+  border-color: #555550;
+}
+
+html[data-theme="dark"] :is(.font-info-label, .system-count, .type-system-count, .control-heading span, .specimen-note, .glyph-preview-meta span:last-child, .glyph-group small, .bilgen-gallery-track figcaption) {
+  color: var(--gray);
+}
+
+html[data-theme="dark"] :is(.family-controls select, .control-heading input, .reset-button, .glyph-preview, .glyph) {
+  background: #151515;
+  color: var(--black);
+}
+
+html[data-theme="dark"] :is(.glyph:hover, .glyph:focus-visible, .reset-button:hover) { background: #292929; }
+html[data-theme="dark"] input[type=range] { accent-color: var(--black); }
+html[data-theme="dark"] :is(.type-preview, .family-controls select, .control-heading input, .reset-button, .glyph-group summary, .bilgen-context-open):focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+html[data-theme="dark"] .glyph:focus-visible { box-shadow: inset 0 0 0 2px currentColor; }
