@@ -22,7 +22,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link rel="stylesheet" href="css/home.css?v=arshila-hover-1">
+<link rel="stylesheet" href="css/home.css?v=bilgen-hover-2">
 <!-- GEO:HOME-SCHEMA -->
 <script type="application/ld+json">
 {
@@ -165,7 +165,7 @@
     </div>
 
     <div class="font-row bilgen">
-      <a href="/bilgen/"><span>BILGEN</span></a>
+      <a href="/bilgen/" aria-label="Bilgen"><span class="bilgen-home-word" aria-hidden="true"><span class="bilgen-title-b" aria-hidden="true">B</span><span class="bilgen-title-i" aria-hidden="true">I</span><span class="bilgen-title-lg" aria-hidden="true">LG</span><span class="bilgen-title-en" aria-hidden="true">EN</span></span></a>
     </div>
 
     <div class="font-row caelia">
@@ -288,11 +288,12 @@
     const isBia = row.classList.contains('bia');
     const isAlvera = row.classList.contains('alvera');
     const isArshila = row.classList.contains('arshila');
+    const isBilgen = row.classList.contains('bilgen');
     row.addEventListener('pointermove', function(e){
       const rect = row.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       row.style.setProperty('--mx', x + '%');
-      if ((isBia || isAlvera || isArshila) && specimenMotion.matches && e.pointerType === 'mouse') {
+      if ((isBia || isAlvera || isArshila || isBilgen) && specimenMotion.matches && e.pointerType === 'mouse') {
         const horizontal = Math.max(0, Math.min(1, x / 100));
         const vertical = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
         if (isBia) {
@@ -302,10 +303,13 @@
         } else if (isAlvera) {
           row.style.setProperty('--alvera-grade', Math.round(64 + horizontal * 36));
           row.style.setProperty('--alvera-weight', Math.round(400 + vertical * 300));
-        } else {
+        } else if (isArshila) {
           row.style.setProperty('--arshila-width', Math.round(75 + horizontal * 50));
           row.style.setProperty('--arshila-weight', Math.round(100 + vertical * 800));
           row.style.setProperty('--arshila-italic', vertical.toFixed(2));
+        } else {
+          row.style.setProperty('--bilgen-slant', (-15 + horizontal * 30).toFixed(1));
+          row.style.setProperty('--bilgen-weight', Math.round(100 + vertical * 800));
         }
       }
     });
@@ -324,6 +328,10 @@
         row.style.removeProperty('--arshila-width');
         row.style.removeProperty('--arshila-weight');
         row.style.removeProperty('--arshila-italic');
+      }
+      if (isBilgen) {
+        row.style.removeProperty('--bilgen-slant');
+        row.style.removeProperty('--bilgen-weight');
       }
       row.style.setProperty('--mx', '50%');
       row.classList.remove('is-touching');
