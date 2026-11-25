@@ -11,6 +11,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 - Current Bia playground: standalone Four voices cards removed. Family selector preserves the four SERF/CNTR pairs, alongside synchronized Weight/Width/Style/OpenType selectors. All 200 named combinations verified against Bia-VF. Intermediate axes show Custom; Save & share was subsequently removed at user request; the toolbar OpenType selector remains.
 
+- Opening specimen: viewport-height Bia wordmark using the existing variable font and verified axes. Animation pauses when the specimen leaves view. The About section follows the opening specimen.
+
 ## Arshila
 
 - Page/assets: arshila/index.html, css/arshila.css, js/arshila.js; original Arshila-VF.woff2 and Arshila-Black.woff2 preserved.
