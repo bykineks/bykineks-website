@@ -13,7 +13,7 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Arshila
 
-- Page/assets: arshila.html, css/arshila.css, js/arshila.js; original Arshila-VF.woff2 and Arshila-Black.woff2 preserved.
+- Page/assets: arshila/index.html, css/arshila.css, js/arshila.js; original Arshila-VF.woff2 and Arshila-Black.woff2 preserved.
 - User priority: extensive OpenType exploration. Main experience now uses verified before/after looks, grouped controls, an advanced combination option and application mockups supplied by BYKINEKS.
 - Binary audit 2026-11-04: variable version 2.000, 54 named instances (9 weights × 3 widths × 2 italic states), 2,501 internal glyphs / 1,319 Unicode mappings. Product count 2,500 excludes .notdef. The static Black asset differs: 2,502 internal glyphs / 1,321 mappings; do not silently assume identical assets.
 - Actual axes: wght 100–900, wdth 75–125, ital 0–1. All preview text code points and all original liga/dlig sequences were verified against the variable font.
@@ -61,7 +61,7 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Kineks Text
 
-- Page/assets: kineks-text.html, css/kineks-text.css, js/kineks-text.js; original `assets/fonts/Kineks Text-VF.woff2` and static KineksText assets retained unchanged.
+- Page/assets: kineks-text/index.html, css/kineks-text.css, js/kineks-text.js; original `assets/fonts/Kineks Text-VF.woff2` and static KineksText assets retained unchanged.
 - Audit 2026-11-07: variable and Regular have 389 internal glyphs (including .notdef), 365 cmap entries, version 1.000. Ten named instances match five weights (300/400/500/600/700), upright and oblique. Variable font default weight 700; playground starts at 400.
 - Actual axes wght 300–700 and slnt 0–12, distinct from Compact's 0–9.600006103515625. No synthetic italic or copied Compact axis bound.
 - Original ss01 substitutions A/n/y, ss02 a/n and standard ligatures ff/fi/fl/ffi/ffl/long-s+t verified via GSUB and HarfBuzz. Toolbar uses Original, the two alternate sets, and Ligatures off.
@@ -72,7 +72,7 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Kineks
 
-- Page: kineks.html; original 90 static WOFF2 files mapped by js/kineks-data.js, unchanged. No variable assets or axes.
+- Page: kineks/index.html; original 90 static WOFF2 files mapped by js/kineks-data.js, unchanged. No variable assets or axes.
 - Audit 2026-11-07: 3 voices (Sans/Serif/Slab), 5 weights, 3 widths, upright/italic = 90 complete combinations. Each has 387 internal glyphs including .notdef, 365 common cmap entries, version 1.000.
 - ss01 affects A/a/n/y; ss02 affects a/n. Both sets and standard ligature samples shape differently when enabled across all 90 assets, verified using HarfBuzz. Do not copy Text's ss01 repertoire.
 - Character set: 362 visible encoded characters plus six standard ligature sequences, 368 preview entries. Selected static style follows into the character study.

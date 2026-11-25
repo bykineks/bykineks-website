@@ -3,9 +3,9 @@ import path from 'node:path';
 
 const root = process.cwd();
 const baseUrl = 'https://bykineks.com/';
-const ignoredFiles = new Set(['blog.html', 'avita.html', 'kineks-symbol.html', 'alvera.html', 'bia.html', 'bilgen.html', 'caelia.html', 'dareva.html', 'gin.html', 'neela.html', 'wakaba.html', 'kineks-compact.html']);
+const ignoredFiles = new Set(['arshila.html', 'kineks.html', 'kineks-text.html', 'about.html', 'contact.html', 'blog.html', 'avita.html', 'kineks-symbol.html', 'alvera.html', 'bia.html', 'bilgen.html', 'caelia.html', 'dareva.html', 'gin.html', 'neela.html', 'wakaba.html', 'kineks-compact.html']);
 const ignoredDirs = new Set(['.git', '.github', 'assets', 'css', 'js', 'scripts', 'node_modules']);
-const nonProductRootPages = new Set(['index.html', 'about.html', 'contact.html', 'blog.html']);
+const nonProductRootPages = new Set(['index.html']);
 
 function collectHtml(dir = root) {
   const files = [];
@@ -79,7 +79,7 @@ function localTargetExists(file, href) {
 for (const file of htmlFiles) {
   const source = fs.readFileSync(path.join(root, file), 'utf8');
   const isRootHtml = !file.includes('/');
-  const isProduct = file === 'kineks-compact/index.html' || file === 'wakaba/index.html' || file === 'neela/index.html' || file === 'gin/index.html' || file === 'dareva/index.html' || file === 'caelia/index.html' || file === 'bilgen/index.html' || file === 'bia/index.html' || file === 'alvera/index.html' || file === 'avita/index.html' || file === 'kineks-symbol/index.html' || (isRootHtml && !nonProductRootPages.has(file));
+  const isProduct = ['arshila/index.html', 'kineks/index.html', 'kineks-text/index.html'].includes(file) || file === 'kineks-compact/index.html' || file === 'wakaba/index.html' || file === 'neela/index.html' || file === 'gin/index.html' || file === 'dareva/index.html' || file === 'caelia/index.html' || file === 'bilgen/index.html' || file === 'bia/index.html' || file === 'alvera/index.html' || file === 'avita/index.html' || file === 'kineks-symbol/index.html' || (isRootHtml && !nonProductRootPages.has(file));
   const isArticle = /<meta\s+property=["']og:type["']\s+content=["']article["']/i.test(source) || (!isProduct && /<article\b/i.test(source));
   const isLabExperiment = file.startsWith('labs/') && file !== 'labs/index.html';
   const canonical = canonicalFor(file);
@@ -167,7 +167,7 @@ for (const file of htmlFiles) {
     if (!has(/"datePublished"\s*:/i, source)) warnings.push(`${file}: article schema missing datePublished`);
     if (!has(/"mainEntityOfPage"\s*:/i, source)) warnings.push(`${file}: article schema missing mainEntityOfPage`);
 
-    if (!source.includes('https://bykineks.com/about.html#dede-kurniawan')) {
+    if (!source.includes('https://bykineks.com/about/#dede-kurniawan')) {
       warnings.push(`${file}: article author is not linked to the canonical Dede Kurniawan entity`);
     }
     if (!source.includes('https://bykineks.com/#organization')) {
