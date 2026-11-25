@@ -6,7 +6,7 @@ const LOOKS={"outline":{"label":"Double-struck","text":"AURA","features":{"titl"
 const $=id=>document.getElementById(id);
 const axes={wght:{range:'wghtRange',value:'wghtValue'},wdth:{range:'wdthRange',value:'wdthValue'},ital:{range:'italRange',value:'italValue'}};
 const stylePresets={wght:{id:'weightPreset',values:[100,200,300,400,500,600,700,800,900]},wdth:{id:'widthPreset',values:[75,100,125]},ital:{id:'stylePreset',values:[0,1]}};
-const defaults={wght:900,wdth:100,ital:0};let state={...defaults};let animationFrame=null;let animationStart=0;
+const defaults={wght:900,wdth:100,ital:0};let state={...defaults};let animationFrame=null;let animationStart=null;
 const featureTags=[...new Set(['liga',...Object.values(LOOKS).flatMap(look=>Object.keys(look.features))])];
 let activeLook=null;
 let features=Object.fromEntries(featureTags.map(tag=>[tag,Number(tag==='liga')]));
@@ -52,8 +52,8 @@ Object.entries(stylePresets).forEach(([tag,preset])=>$(preset.id).addEventListen
 }));
 $('resetVariable').addEventListener('click',()=>{stopAnimation();state={...defaults};applyVariable()});
 const frames=[{wght:900,wdth:100,ital:0},{wght:100,wdth:75,ital:0},{wght:500,wdth:125,ital:0},{wght:900,wdth:125,ital:1},{wght:900,wdth:100,ital:0}];
-function animate(time){const p=((time-animationStart)%8000)/8000*4;const index=Math.floor(p),t=p-index,e=t*t*(3-2*t);for(const tag of Object.keys(state))state[tag]=frames[index][tag]+(frames[index+1][tag]-frames[index][tag])*e;applyVariable();animationFrame=requestAnimationFrame(animate)}
-$('playVariable').addEventListener('click',()=>{if(animationFrame!==null){stopAnimation();return}animationStart=performance.now();$('playVariable').title='Pause variable animation';$('playVariable').setAttribute('aria-label','Pause variable animation');$('playVariable').setAttribute('aria-pressed','true');animationFrame=requestAnimationFrame(animate)});
+function animate(time){animationStart ??= time;const p=((time-animationStart)%8000)/8000*(frames.length-1);const index=Math.floor(p),t=p-index,e=t*t*(3-2*t);for(const tag of Object.keys(state))state[tag]=frames[index][tag]+(frames[index+1][tag]-frames[index][tag])*e;applyVariable();animationFrame=requestAnimationFrame(animate)}
+$('playVariable').addEventListener('click',()=>{if(animationFrame!==null){stopAnimation();return}animationStart=null;$('playVariable').title='Pause variable animation';$('playVariable').setAttribute('aria-label','Pause variable animation');$('playVariable').setAttribute('aria-pressed','true');animationFrame=requestAnimationFrame(animate)});
 const testerModes = [...document.querySelectorAll('[data-arshila-mode]')];
 testerModes.forEach(button => button.addEventListener('click', () => {
   testerModes.forEach(mode => {
