@@ -1120,3 +1120,39 @@ header{
     transform:translateY(7px);
   }
 }
+
+@font-face {
+  font-family:AlveraHomeVariable;
+  src:url("../assets/fonts/Alvera-VF.woff2") format("woff2");
+  font-weight:400 700;
+  font-display:swap;
+}
+
+/* Interactive homepage specimens */
+.font-row:is(.bia,.alvera) > a {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+}
+.font-row:is(.bia,.alvera):not(.disabled):is(:hover,.is-touching) > a { transform:none; color:var(--black); }
+.font-row:is(.bia,.alvera) > a:focus-visible { outline:2px solid currentColor; outline-offset:-5px; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .font-row:is(.bia,.alvera) { transition:height .28s ease, background-color .28s ease; }
+  .font-row:is(.bia,.alvera):hover { height:clamp(220px,24vw,260px); }
+  .font-row:is(.bia,.alvera):hover > a { font-size:clamp(72px,9.2vw,128px); }
+  .font-row:is(.bia,.alvera) > a {
+    transition:font-variation-settings .12s ease-out, font-size .28s ease;
+  }
+  .font-row.bia > a {
+    font-variation-settings:"SERF" var(--bia-serif,1),"CNTR" 100,"wght" var(--bia-weight,700),"wdth" var(--bia-width,100),"ital" 0;
+  }
+  .font-row.alvera > a {
+    font-family:AlveraHomeVariable,Alvera,sans-serif;
+    font-variation-settings:"wght" var(--alvera-weight,700),"GRAD" var(--alvera-grade,100);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .font-row:is(.bia,.alvera), .font-row:is(.bia,.alvera)::before, .font-row:is(.bia,.alvera) > a { transition:none; }
+}

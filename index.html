@@ -22,7 +22,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link rel="stylesheet" href="css/home.css?v=arshila-desktop-larger-20261104">
+<link rel="stylesheet" href="css/home.css?v=bia-alvera-hover-1">
 <!-- GEO:HOME-SCHEMA -->
 <script type="application/ld+json">
 {
@@ -282,14 +282,38 @@
 </script>
 
 <script>
+  const specimenMotion = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
   document.querySelectorAll('.font-row:not(.disabled)').forEach(function(row){
+    const isBia = row.classList.contains('bia');
+    const isAlvera = row.classList.contains('alvera');
     row.addEventListener('pointermove', function(e){
       const rect = row.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       row.style.setProperty('--mx', x + '%');
+      if ((isBia || isAlvera) && specimenMotion.matches && e.pointerType === 'mouse') {
+        const horizontal = Math.max(0, Math.min(1, x / 100));
+        const vertical = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+        if (isBia) {
+          row.style.setProperty('--bia-width', Math.round(50 + horizontal * 100));
+          row.style.setProperty('--bia-weight', Math.round(300 + vertical * 400));
+          row.style.setProperty('--bia-serif', vertical.toFixed(2));
+        } else {
+          row.style.setProperty('--alvera-grade', Math.round(64 + horizontal * 36));
+          row.style.setProperty('--alvera-weight', Math.round(400 + vertical * 300));
+        }
+      }
     });
 
     row.addEventListener('pointerleave', function(){
+      if (isBia) {
+        row.style.removeProperty('--bia-width');
+        row.style.removeProperty('--bia-weight');
+        row.style.removeProperty('--bia-serif');
+      }
+      if (isAlvera) {
+        row.style.removeProperty('--alvera-grade');
+        row.style.removeProperty('--alvera-weight');
+      }
       row.style.setProperty('--mx', '50%');
       row.classList.remove('is-touching');
     });
