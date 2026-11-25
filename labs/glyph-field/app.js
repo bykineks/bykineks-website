@@ -34,7 +34,9 @@ canvas.addEventListener('pointerup',e=>{dragging=false;if(!moved){const g=pick(e
 canvas.addEventListener('wheel',e=>{e.preventDefault();const f=Math.exp(e.deltaY*.00115);if(selected){targetDistance=clamp(targetDistance*f,.32,16);currentDistance=lerp(currentDistance,targetDistance,.35)}else targetFreeDistance=clamp(targetFreeDistance*f,5,70)},{passive:false});
 search.addEventListener('keydown',e=>{if(e.key!=='Enter')return;const g=searchGlyph(search.value);if(g)beginFocus(g);else search.animate([{transform:'translateX(0)'},{transform:'translateX(-5px)'},{transform:'translateX(5px)'},{transform:'translateX(0)'}],{duration:220})});
 addEventListener('keydown',e=>{if(e.key==='Escape'){clearSelection();search.blur()}});
-function draw(){
+const orbitPreview = document.documentElement.classList.contains("lab-preview") && !matchMedia("(prefers-reduced-motion: reduce)").matches;
+function draw(now){
+  if (orbitPreview && Number.isFinite(now)) yaw = now * .00012;
   freeDistance=lerp(freeDistance,targetFreeDistance,.08); if(selected&&!flight)currentDistance=lerp(currentDistance,targetDistance,.14);
   if(flight){flight.t=Math.min(1,flight.t+.022);const t=smooth(flight.t);const s=flight.start,e=flight.end;flight.cam=[lerp(s[0],e[0],t),lerp(s[1],e[1],t),lerp(s[2],e[2],t)];if(flight.t>=1){flight=null;currentDistance=targetDistance}}
   const target=selected?selected.p:[0,0,0],dist=selected?currentDistance:freeDistance; const list=[];
