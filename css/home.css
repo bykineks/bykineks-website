@@ -1139,8 +1139,8 @@ header{
 .font-row:is(.bia,.alvera):not(.disabled):is(:hover,.is-touching) > a { transform:none; color:var(--black); }
 .font-row:is(.bia,.alvera) > a:focus-visible { outline:2px solid currentColor; outline-offset:-5px; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .font-row:is(.bia,.alvera) { transition:height .28s ease, background-color .28s ease; }
-  .font-row:is(.bia,.alvera):hover { height:clamp(220px,24vw,260px); }
+  .font-list .font-row:not(.disabled) { transition:height .28s ease, background-color .28s ease; }
+  .font-list .font-row:not(.disabled):hover { height:clamp(220px,24vw,260px); }
   .font-row:is(.bia,.alvera):hover > a { font-size:clamp(72px,9.2vw,128px); }
   .font-row:is(.bia,.alvera) > a {
     transition:font-variation-settings .12s ease-out, font-size .28s ease;
@@ -1155,4 +1155,18 @@ header{
 }
 @media (prefers-reduced-motion: reduce) {
   .font-row:is(.bia,.alvera), .font-row:is(.bia,.alvera)::before, .font-row:is(.bia,.alvera) > a { transition:none; }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .font-list { --static-hover-scale: 1.45; }
+  .font-row:not(.bia,.alvera,.disabled) > a,
+  .kineks-trigger .kineks-trigger-name,
+  .kineks-choice .kineks-choice-name { transition:scale .28s ease, transform .55s ease, color .35s ease; }
+  .font-row:not(.bia,.alvera,.disabled):hover > a,
+  .kineks-trigger:hover .kineks-trigger-name { scale:var(--static-hover-scale); }
+  .kineks-choice .kineks-choice-name { transform-origin:left center; }
+  .kineks-choice:hover .kineks-choice-name { scale:1.12; }
+}
+@media (max-width: 800px) {
+  .font-list { --static-hover-scale: 1.2; }
 }
