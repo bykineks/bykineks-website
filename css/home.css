@@ -1160,10 +1160,10 @@ header{
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .font-list { --static-hover-scale: 1.45; }
-  .font-row:not(.bia,.alvera,.arshila,.disabled) > a,
+  .font-row:not(.bia,.alvera,.arshila,.bilgen,.disabled) > a,
   .kineks-trigger .kineks-trigger-name,
   .kineks-choice .kineks-choice-name { transition:scale .28s ease, transform .55s ease, color .35s ease; }
-  .font-row:not(.bia,.alvera,.arshila,.disabled):hover > a,
+  .font-row:not(.bia,.alvera,.arshila,.bilgen,.disabled):hover > a,
   .kineks-trigger:hover .kineks-trigger-name { scale:var(--static-hover-scale); }
   .kineks-choice .kineks-choice-name { transform-origin:left center; }
   .kineks-choice:hover .kineks-choice-name { scale:1.12; }
@@ -1197,4 +1197,30 @@ header{
   .arshila-hover-word .feat-ss06 { font-feature-settings:"ss06" 1; }
   .arshila-hover-word .feat-dlig { font-feature-settings:"dlig" 1; }
   .arshila-hover-word .feat-fina { font-feature-settings:"fina" 1; }
+}
+
+@font-face {
+  font-family:BilgenHomeVariable;
+  src:url("../labs/assets/fonts/Bilgen-VF.woff2") format("woff2");
+  font-weight:100 900;
+  font-display:swap;
+}
+.font-row.bilgen .bilgen-home-word {
+  font-family:BilgenHomeVariable,Bilgen,sans-serif;
+  font-size:clamp(38px,5.1vw,72px);
+  font-variation-settings:"wght" var(--bilgen-weight,900),"slnt" var(--bilgen-slant,0);
+  line-height:1;
+  white-space:nowrap;
+}
+.font-row.bilgen .bilgen-home-word > span { font-family:inherit; font-size:inherit; font-weight:inherit; font-variation-settings:inherit; }
+.font-row.bilgen:is(:hover,.is-touching) .bilgen-home-word,
+.font-row.bilgen:is(:hover,.is-touching) .bilgen-home-word > span { transform:none; }
+.bilgen-home-word .bilgen-title-b { font-feature-settings:"ss01" 1; }
+.bilgen-home-word .bilgen-title-i { font-feature-settings:"ss02" 1; }
+.bilgen-home-word .bilgen-title-lg { font-feature-settings:"liga" 1,"dlig" 0; }
+.bilgen-home-word .bilgen-title-en { font-feature-settings:"liga" 0,"dlig" 1; }
+.font-row.bilgen > a:focus-visible { outline:2px solid currentColor; outline-offset:-5px; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .font-row.bilgen .bilgen-home-word { transition:font-variation-settings .12s ease-out, font-size .28s ease; }
+  .font-row.bilgen:hover .bilgen-home-word { font-size:clamp(64px,9.2vw,128px); }
 }
