@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Bia is a transitional type system by Dede Kurniawan and Bykineks, featuring 200 styles across Serif Low, Serif High, Sans Low, and Sans High.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/bia-type-system-200-styles-serif-sans.webp">
 <title>Bia — 200-Style Transitional Typeface | Bykineks</title>
-<link rel="stylesheet" href="/css/bia.css?v=theme-1">
+<link rel="stylesheet" href="/css/bia.css?v=fullscreen-hero-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -130,22 +130,22 @@
 </header>
 
 <main>
-<section class="hero">
-  <h1 class="bia-variable" aria-label="Bia">Bia</h1>
-  <button type="button" id="toggleHeroMotion" class="motion-toggle" aria-pressed="false" aria-label="Pause title animation" title="Pause title animation"><span aria-hidden="true">Ⅱ</span></button>
-  <p class="tagline">A transitional type system exploring the balance between classical form, contemporary proportions, and expressive typographic contrast.</p>
-  <div class="hero-actions"><a href="#system">Try Bia ↓</a><a href="#compare">Compare Bia ↓</a><a href="#availability">Buy licences ↓</a></div>
+<section class="hero" aria-labelledby="bia-title">
+  <h1 id="bia-title" class="bia-variable">Bia</h1>
+  <div class="hero-controls">
+    <a href="#about-bia">Explore Bia ↓</a>
+    <button type="button" id="toggleHeroMotion" class="motion-toggle" aria-pressed="false" aria-label="Pause title animation" title="Pause title animation"><span aria-hidden="true">Ⅱ</span></button>
+  </div>
 </section>
 
-
-
-
-<section class="intro-grid">
+<section class="intro-grid" id="about-bia">
   <div>
     <h2 class="kicker">About</h2>
+    <p class="tagline">A transitional type system exploring the balance between classical form, contemporary proportions, and expressive typographic contrast.</p>
     <div class="copy">
       <p>Bia is a transitional type system built for expressive and functional typography across editorial, branding, packaging, identity, and display applications. Its four contrasting classifications—Serif Low, Serif High, Sans Low, and Sans High—are unified by a shared typographic structure, allowing different visual voices to work naturally within the same family.</p>
       <p>With five weights and five widths, Bia moves from compact, restrained compositions to expansive and expressive display settings, making it suitable for headlines, logotypes, editorial layouts, brand identities, packaging, and digital experiences.</p>
+    <div class="hero-actions"><a href="#system">Try Bia ↓</a><a href="#compare">Compare Bia ↓</a><a href="#availability">Buy licences ↓</a></div>
     </div>
   </div>
   <div class="font-info">
@@ -279,7 +279,7 @@
 </footer>
 </div>
 
-<script src="/js/bia.js?v=simple-playground-3"></script>
+<script src="/js/bia.js?v=fullscreen-hero-1"></script>
 <script>
 (() => {
   const gallery = document.getElementById('bia-gallery-track');

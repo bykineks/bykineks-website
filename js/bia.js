@@ -234,19 +234,31 @@ $('preview-count').textContent=Object.values(SECTIONS).reduce((total,chars)=>tot
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const heroTitle=document.querySelector('.bia-variable');
 const heroToggle=$('toggleHeroMotion');
+let heroInView = true;
+function updateHeroMotion(){
+  const paused = heroToggle.getAttribute('aria-pressed') === 'true';
+  heroTitle.classList.toggle('is-paused', paused || !heroInView || document.hidden);
+}
+if ('IntersectionObserver' in window) {
+  const heroObserver = new IntersectionObserver(([entry]) => {
+    heroInView = entry.isIntersecting;
+    updateHeroMotion();
+  });
+  heroObserver.observe(heroTitle);
+}
 function setHeroPaused(paused){
-  heroTitle.style.animationPlayState=paused?'paused':'running';
   heroToggle.setAttribute('aria-pressed',String(paused));
   const label=paused?'Play title animation':'Pause title animation';
   heroToggle.setAttribute('aria-label',label);
   heroToggle.title=label;
   heroToggle.querySelector('span').textContent=paused?'▶':'Ⅱ';
+  updateHeroMotion();
 }
 heroToggle.addEventListener('click',()=>setHeroPaused(heroToggle.getAttribute('aria-pressed')!=='true'));
 reducedMotion.addEventListener('change',()=>{stopAnimation();setHeroPaused(reducedMotion.matches)});
 document.addEventListener('visibilitychange',()=>{
-  if(document.hidden){stopAnimation();heroTitle.style.animationPlayState='paused'}
-  else setHeroPaused(heroToggle.getAttribute('aria-pressed')==='true');
+  if(document.hidden)stopAnimation();
+  updateHeroMotion();
 });
 setHeroPaused(reducedMotion.matches);
 
