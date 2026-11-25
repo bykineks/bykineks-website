@@ -5,22 +5,67 @@
  const selector = $('bilgen-style');
  const weight = $('bilgen-weight');
  const slant = $('bilgen-slant');
- function applyAxes() {
+const testerModes = [...document.querySelectorAll('[data-bilgen-mode]')];
+testerModes.forEach(button => button.addEventListener('click', () => {
+  testerModes.forEach(mode => {
+    const selected = mode === button;
+    mode.setAttribute('aria-pressed', String(selected));
+    $(mode.getAttribute('aria-controls')).hidden = !selected;
+  });
+}));
+const testerToggle = $('bilgenToolsToggle');
+testerToggle.addEventListener('click', () => {
+  testerToggle.setAttribute('aria-expanded', String(testerToggle.getAttribute('aria-expanded') === 'false'));
+});
+
+
+ const play = $('playVariable');
+ let frame = null;
+ let started;
+ function stopAnimation() {
+   if (frame !== null) cancelAnimationFrame(frame);
+   frame = null;
+   play.setAttribute('aria-pressed','false');
+   play.title = 'Play variable animation';
+   play.setAttribute('aria-label',play.title);
+   applyAxes();
+ }
+ function animate(time) {
+   started ??= time;
+   const wave = Math.sin((time-started) * Math.PI / 3000);
+   weight.value = Math.round(500 + 400 * wave);
+   slant.value = (15 * wave).toFixed(1);
+   applyAxes(false);
+   frame = requestAnimationFrame(animate);
+ }
+ play.addEventListener('click', () => {
+   if (frame !== null) { stopAnimation(); return; }
+   started = undefined;
+   play.setAttribute('aria-pressed','true');
+   play.title = 'Pause variable animation';
+   play.setAttribute('aria-label',play.title);
+   frame = requestAnimationFrame(animate);
+ });
+ document.addEventListener('visibilitychange', () => {
+   if (document.hidden && frame !== null) stopAnimation();
+ });
+
+ function applyAxes(announce = true) {
    const value = weight.value + ':' + slant.value;
    const preset = Array.from(selector.options).find(option => option.value === value);
    selector.value = preset ? value : 'custom';
    preview.style.fontVariationSettings = `"wght" ${weight.value}, "slnt" ${slant.value}`;
    $('bilgen-weight-value').value = weight.value;
    $('bilgen-slant-value').value = slant.value + '°';
-   $('styleStatus').textContent = preset ? 'Bilgen ' + preset.textContent : 'Bilgen Custom';
+   if (announce) $('styleStatus').textContent = preset ? 'Bilgen ' + preset.textContent : 'Bilgen Custom';
  }
  function selectStyle() {
    [weight.value, slant.value] = selector.value.split(':');
-   applyAxes();
+   stopAnimation();
  }
  selector.addEventListener('change', selectStyle);
- weight.addEventListener('input', applyAxes);
- slant.addEventListener('input', applyAxes);
+ weight.addEventListener('input', stopAnimation);
+ slant.addEventListener('input', stopAnimation);
  const controls=[['size','fontSize','px'],['leading','lineHeight',''],['tracking','letterSpacing','em']];
  controls.forEach(([id,prop,unit])=>{
   const range=$(id+'Range'),field=$(id+'Input');
@@ -43,7 +88,7 @@
    interlock.value = 'mix';
    applyInterlock();
    preview.textContent = specimenText;
-   for (const [id, value] of [['size', innerWidth <= 800 ? 40 : 60], ['leading', 1.15], ['tracking', 0]]) {
+   for (const [id, value] of [['size', Math.min(190, Math.max(48, Math.round(document.documentElement.clientWidth * .105)))], ['leading', 1.15], ['tracking', 0]]) {
      $(id + 'Range').value = value;
      $(id + 'Range').dispatchEvent(new Event('input'));
    }
@@ -101,4 +146,29 @@
     fullImage.removeAttribute('src');
     if (opener) opener.focus({preventScroll: true});
   });
+})();
+
+(() => {
+  const title = document.querySelector('.bilgen-hero .product-title');
+  const button = document.getElementById('bilgenHeroMotion');
+  let inView = true;
+  function updateMotion() {
+    const paused = button.getAttribute('aria-pressed') === 'true';
+    title.classList.toggle('is-paused', paused || !inView || document.hidden);
+  }
+  button.addEventListener('click', () => {
+    const paused = button.getAttribute('aria-pressed') !== 'true';
+    button.setAttribute('aria-pressed', String(paused));
+    button.setAttribute('aria-label', paused ? 'Play title animation' : 'Pause title animation');
+    button.firstElementChild.textContent = paused ? '▶' : 'Ⅱ';
+    updateMotion();
+  });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      updateMotion();
+    });
+    observer.observe(title);
+  }
+  document.addEventListener('visibilitychange', updateMotion);
 })();
