@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="Explore Arshila by BYKINEKS: a modern serif with 54 styles, 2,500 glyphs, three variable axes and expressive OpenType features. Try it live.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/arshila-modern-serif-54-styles-swash-ligatures.webp">
 <title>Arshila — Modern Variable Serif Font | BYKINEKS</title>
-<link rel="stylesheet" href="/css/arshila.css?v=theme-1">
+<link rel="stylesheet" href="/css/arshila.css?v=final-format-1">
 <!-- GEO:PRODUCT-SCHEMA -->
 <script type="application/ld+json">
 {
@@ -160,16 +160,17 @@
   <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-icon" aria-hidden="true">&#9680;</span><span id="themeLabel">Dark</span></button>
 </header>
 <main>
-<section class="hero">
-  <p class="tagline">A modern serif with timeless elegance and sophistication.</p>
-  <h1 class="arshila-variable arshila-headline" aria-label="Arshila">
+<section class="hero" aria-labelledby="arshila-title">
+  <h1 id="arshila-title" class="arshila-variable arshila-headline" aria-label="Arshila">
     <span class="feat-swsh">A</span><span>𝖱</span><span class="feat-ss06">S</span><span class="feat-dlig">HI</span><span>𝕃</span><span class="feat-fina">A</span>
   </h1>
-  <button id="heroMotion" class="hero-motion" type="button" aria-label="Pause title animation" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
-  <div class="hero-actions"><a href="#system">Try Arshila ↓</a><a href="#feature-library">Explore OpenType ↓</a><a href="#mockups">See it in use ↓</a></div>
+  <div class="hero-controls">
+    <a href="#about-arshila">Explore Arshila ↓</a>
+    <button id="heroMotion" class="hero-motion" type="button" aria-label="Pause title animation" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
+  </div>
 </section>
-<section class="intro-grid">
-  <div><h2 class="kicker">About</h2><div class="copy">
+<section class="intro-grid" id="about-arshila">
+  <div><h2 class="kicker">About</h2><p class="tagline">A modern serif with timeless elegance and sophistication.</p><div class="copy">
     <p>Arshila is a modern serif typeface shaped by timeless sophistication and refined elegance. Its forms combine classical proportions with high contrast, crisp terminals, and sweeping fluid curves.</p>
     <p>With 2,500 glyphs, Arshila features extensive OpenType capabilities including small caps, petite caps, and stylistic alternates to expand design possibilities. The result is a contemporary typeface with a distinctive balance of strength and delicate beauty.</p>
     <p>Designed for expressive typography, Arshila works perfectly across branding, fashion, wedding invitations, luxury skincare packaging, and editorial applications.</p>
@@ -182,25 +183,40 @@
 <nav class="section-nav" aria-label="Arshila page sections"><a href="#system">Try &amp; OpenType</a><a href="#mockups">In use</a><a href="#glyphs">Characters</a><a href="#availability">Licensing</a></nav><section id="system" class="system-section">
   <div class="section-head"><h2 class="kicker" id="systemTitle" tabindex="-1">Shape your words</h2><div class="system-count">3 Axes</div></div>
   <div class="variable-playground">
-    <div class="specimen-column">
-      <div class="playground-toolbar"><label>Weight<select id="weightPreset" aria-label="Weight"><option value="100">Thin</option><option value="200">Extra Light</option><option value="300">Light</option><option value="400">Regular</option><option value="500">Medium</option><option value="600">Semi Bold</option><option value="700">Bold</option><option value="800">Extra Bold</option><option value="900">Black</option><option value="custom" disabled>Custom</option></select></label><label>Width<select id="widthPreset" aria-label="Width"><option value="75">Condensed</option><option value="100">Normal</option><option value="125">Expanded</option><option value="custom" disabled>Custom</option></select></label><label>Style<select id="stylePreset" aria-label="Style"><option value="0">Upright</option><option value="1">Italic</option><option value="custom" disabled>Custom</option></select></label><label id="feature-library" class="opentype-select">OpenType<select id="featurePreset" aria-label="OpenType style"><option value="original">Original</option><option value="outline">Double-struck</option><option value="stencil">Stencil</option><option value="sans">Sans serif alternates</option><option value="stars">With stars</option><option value="circles">Outlined circles</option><option value="filled">Filled circles</option><option value="swash">Swashes</option><option value="alternate5">Alternate forms 5</option><option value="alternate8">Alternate forms 8</option><option value="editorial">Discretionary ligatures</option><option value="standard">Standard ligatures</option><option value="smallcaps">Small caps</option><option value="petitecaps">Petite caps</option><option value="superior">Superior figures</option><option value="numerator">Numerators</option><option value="denominator">Denominators</option><option value="inferior">Inferior figures</option></select></label><button type="button" id="useLookExample" hidden>Try example</button></div><p id="featureStatus" class="wardrobe-status" role="status"></p>
-<div class="specimen-stage"><div id="liveSpecimen" class="live-specimen" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Editable Arshila specimen" aria-describedby="specimen-help">Arshila, in every detail.</div><span class="edit-hint" aria-hidden="true">Click to edit</span></div>
-  <div class="specimen-controls">
-    <div class="specimen-control"><div class="control-heading"><label for="sizeRange">Size</label><input id="sizeInput" aria-label="Font size in pixels" type="number" min="24" max="240" step="1" value="50"><span>px</span></div><input id="sizeRange" type="range" min="24" max="240" step="1" value="50"></div>
-    <div class="specimen-control"><div class="control-heading"><label for="leadingRange">Leading</label><input id="leadingInput" aria-label="Line height" type="number" min="0.60" max="1.40" step="0.01" value="1.20"></div><input id="leadingRange" type="range" min="0.60" max="1.40" step="0.01" value="1.20"></div>
-    <div class="specimen-control"><div class="control-heading"><label for="trackingRange">Tracking</label><input id="trackingInput" aria-label="Letter spacing in em" type="number" min="-0.08" max="0.05" step="0.005" value="0"><span>em</span></div><input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="0"></div>
-    <button id="resetSpecimen" class="reset-button" type="button">Reset type</button>
-  </div>
+    <p id="featureStatus" class="wardrobe-status arshila-visually-hidden" role="status"></p>
+    <div id="liveSpecimen" class="live-specimen" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Editable Arshila specimen" aria-describedby="specimen-help">Arshila</div>
+    <button class="arshila-tools-toggle" id="arshilaToolsToggle" type="button" aria-controls="arshilaTesterTools" aria-expanded="false">Tester controls</button>
+    <div class="arshila-tester-tools" id="arshilaTesterTools" role="group" aria-label="Specimen controls">
+      <div class="arshila-tester-modes" role="group" aria-label="Control mode">
+        <button type="button" data-arshila-mode aria-controls="arshilaTypePanel" aria-pressed="false" aria-label="Type" title="Type"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 5h10M3 11h10M6 3v4m4 2v4"/></svg></button>
+        <button type="button" data-arshila-mode aria-controls="arshilaAxesPanel" aria-pressed="true" aria-label="Axes" title="Axes"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13V3m0 10h10M5 10l3-4 2 2 3-4"/></svg></button>
+        <button type="button" data-arshila-mode aria-controls="arshilaStylePanel" aria-pressed="false" aria-label="Style" title="Style"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 12 7 4l4 8M5 9h4m3-4h3m-1.5-1.5v3"/></svg></button>
+      </div>
+        <div class="specimen-controls arshila-mode-panel" id="arshilaTypePanel" hidden>
+          <div class="specimen-control"><div class="control-heading"><label for="sizeRange">Size</label><input id="sizeInput" aria-label="Font size in pixels" type="number" min="24" max="240" step="1" value="50"><span>px</span></div><input id="sizeRange" type="range" min="24" max="240" step="1" value="50"></div>
+          <div class="specimen-control"><div class="control-heading"><label for="leadingRange">Leading</label><input id="leadingInput" aria-label="Line height" type="number" min="0.60" max="1.40" step="0.01" value="1.20"></div><input id="leadingRange" type="range" min="0.60" max="1.40" step="0.01" value="1.20"></div>
+          <div class="specimen-control"><div class="control-heading"><label for="trackingRange">Tracking</label><input id="trackingInput" aria-label="Letter spacing in em" type="number" min="-0.08" max="0.05" step="0.005" value="0"><span>em</span></div><input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="0"></div>
+          <button id="resetSpecimen" class="reset-button" type="button" aria-label="Reset text size, leading and tracking" title="Reset text size, leading and tracking"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 7a5 5 0 1 0-.8 4M13 3v4H9"/></svg></button>
+        </div>
+        <div class="variable-controls arshila-mode-panel" id="arshilaAxesPanel" role="group" aria-label="Variable axes">
+          <div class="axis-control"><label for="wghtRange"><span title="Weight">WGHT</span> <output id="wghtValue">900</output></label><input id="wghtRange" aria-label="Weight" type="range" min="100" max="900" step="1" value="900"></div>
+          <div class="axis-control"><label for="wdthRange"><span title="Width">WDTH</span> <output id="wdthValue">100</output></label><input id="wdthRange" aria-label="Width" type="range" min="75" max="125" step="1" value="100"></div>
+          <div class="axis-control"><label for="italRange"><span title="Italic">ITAL</span> <output id="italValue">0</output></label><input id="italRange" aria-label="Italic" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="axis-actions">
+            <button id="resetVariable" type="button" aria-label="Reset variable axes" title="Reset variable axes"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 7a5 5 0 1 0-.8 4M13 3v4H9"/></svg></button>
+          </div>
+        </div>
+      <div class="arshila-playground-toolbar arshila-mode-panel" id="arshilaStylePanel" hidden>
+        <label>Weight<select id="weightPreset" aria-label="Weight"><option value="100">Thin</option><option value="200">Extra Light</option><option value="300">Light</option><option value="400">Regular</option><option value="500">Medium</option><option value="600">Semi Bold</option><option value="700">Bold</option><option value="800">Extra Bold</option><option value="900">Black</option><option value="custom" disabled>Custom</option></select></label>
+        <label>Width<select id="widthPreset" aria-label="Width"><option value="75">Condensed</option><option value="100">Normal</option><option value="125">Expanded</option><option value="custom" disabled>Custom</option></select></label>
+        <label>Style<select id="stylePreset" aria-label="Style"><option value="0">Upright</option><option value="1">Italic</option><option value="custom" disabled>Custom</option></select></label>
+        <label id="feature-library" class="opentype-select">OpenType<select id="featurePreset" aria-label="OpenType style"><option value="original">Original</option><option value="outline">Double-struck</option><option value="stencil">Stencil</option><option value="sans">Sans serif alternates</option><option value="stars">With stars</option><option value="circles">Outlined circles</option><option value="filled">Filled circles</option><option value="swash">Swashes</option><option value="alternate5">Alternate forms 5</option><option value="alternate8">Alternate forms 8</option><option value="editorial">Discretionary ligatures</option><option value="standard">Standard ligatures</option><option value="smallcaps">Small caps</option><option value="petitecaps">Petite caps</option><option value="superior">Superior figures</option><option value="numerator">Numerators</option><option value="denominator">Denominators</option><option value="inferior">Inferior figures</option></select></label>
+        <button type="button" id="useLookExample" hidden>Try example</button>
+      </div>
+        <button id="playVariable" type="button" aria-label="Play variable animation" aria-pressed="false" title="Play variable animation"></button>
     </div>
-    <div class="variable-controls" role="group" aria-labelledby="axes-title">
-      <h3 class="kicker" id="axes-title">Variable axes</h3>
-      <div class="axis-control"><label for="wghtRange">Weight <output id="wghtValue">900</output></label><input id="wghtRange" type="range" min="100" max="900" step="1" value="900"></div>
-      <div class="axis-control"><label for="wdthRange">Width <output id="wdthValue">100</output></label><input id="wdthRange" type="range" min="75" max="125" step="1" value="100"></div>
-      <div class="axis-control"><label for="italRange">Italic <output id="italValue">0</output></label><input id="italRange" type="range" min="0" max="1" step="0.01" value="0"></div>
-      <div class="axis-actions"><button id="playVariable" type="button" aria-label="Play variable animation" aria-pressed="false">Animate</button><button id="resetVariable" type="button" aria-label="Reset variable axes">Reset axes</button></div>
-    </div>
   </div>
-<p class="specimen-note" id="specimen-help">Click the specimen text to edit it. Explore Arshila’s three axes and OpenType features without losing your words.</p>
+  <p id="specimen-help" class="arshila-visually-hidden">Edit the specimen text. Hover over the specimen or use Tester controls to show the toolbar.</p>
 </section>
 <section id="mockups" class="mockup-section" aria-labelledby="mockup-title">
 <div class="section-head"><h2 id="mockup-title" class="kicker">Arshila in use</h2><span class="system-count">Six type studies</span></div>
@@ -228,16 +244,16 @@
 <section class="system-preview-image" aria-label="Arshila typeface preview"><img src="/assets/images/arshila-modern-serif-54-styles-swash-ligatures.webp" alt="Arshila modern serif typeface featuring 54 styles and expressive OpenType features" width="2000" height="1000" loading="lazy" decoding="async"></section>
 <section id="availability" class="availability">
   <div class="availability-intro"><h2>Make it part of your next project.</h2><p>Explore licensing on MyFonts, or find Arshila in Monotype Fonts.</p></div>
-  <div class="links">
-    <a href="https://www.myfonts.com/collections/arshila-font-bykineks" target="_blank" rel="noopener noreferrer">Buy licences on MyFonts ↗</a>
-    <a href="https://www.monotype.com/font-library?query=Arshila" target="_blank" rel="noopener noreferrer">Monotype Fonts ↗</a>
-    <a href="/assets/trial/Arshila-V2.0-DEMO.zip" download>Free trial ↓</a>
-    <a href="/assets/specimens/Arshila-Specimen.pdf" target="_blank" rel="noopener">Specimen PDF ↓</a>
+  <div class="links arshila-resource-links">
+    <a href="https://www.myfonts.com/collections/arshila-font-bykineks" target="_blank" rel="noopener noreferrer"><span class="arshila-link-window"><span class="arshila-link-label">Buy licences on MyFonts</span></span><span class="arshila-link-arrow" aria-hidden="true">↗</span></a>
+    <a href="https://www.monotype.com/font-library?query=Arshila" target="_blank" rel="noopener noreferrer"><span class="arshila-link-window"><span class="arshila-link-label">Monotype Fonts</span></span><span class="arshila-link-arrow" aria-hidden="true">↗</span></a>
+    <a href="/assets/trial/Arshila-V2.0-DEMO.zip" download><span class="arshila-link-window"><span class="arshila-link-label">Free trial</span></span><span class="arshila-link-arrow" aria-hidden="true">↓</span></a>
+    <a href="/assets/specimens/Arshila-Specimen.pdf" target="_blank" rel="noopener"><span class="arshila-link-window"><span class="arshila-link-label">Specimen PDF</span></span><span class="arshila-link-arrow" aria-hidden="true">↓</span></a>
   </div>
 </section>
 </main>
 <footer class="footer"><div class="info"><strong>Information</strong><a href="https://bykineks.com/about/">About ↗</a><a href="https://bykineks.com/contact/">Contact Us ↗</a><a href="https://id.pinterest.com/bykineks/" target="_blank" rel="noopener noreferrer">Pinterest ↗</a><a href="https://www.instagram.com/bykineks/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.linkedin.com/company/bykineks/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div><div class="brand-block"><div class="brand">BYKINEKS</div><div class="copyline">2021–2026 Bykineks. All rights reserved</div></div></footer>
 </div>
-<script src="/js/arshila.js?v=in-use-lightbox-1"></script>
+<script src="/js/arshila.js?v=final-format-1"></script>
 </body>
 </html>
