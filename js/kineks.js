@@ -12,7 +12,7 @@ const preview=$('typePreview'),status=$('styleStatus');
   status.textContent='Loading selected style…';
   try{
    if(!cache.has(name)){
-    const face=new FontFace(name,'url("assets/fonts/'+selected.file+'")');
+    const face=new FontFace(name,'url("/assets/fonts/'+selected.file+'")');
     cache.set(name,face.load().then(loaded=>{document.fonts.add(loaded);return loaded;}).catch(error=>{cache.delete(name);throw error;}));
    }
    await cache.get(name);

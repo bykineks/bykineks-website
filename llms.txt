@@ -3,8 +3,8 @@
 > Bykineks is an independent Indonesian type foundry developing typographic systems for branding, editorial, and digital experiences.
 
 Official website: https://bykineks.com/
-About: https://bykineks.com/about.html
-Contact: https://bykineks.com/contact.html
+About: https://bykineks.com/about/
+Contact: https://bykineks.com/contact/
 
 ## Foundry
 
@@ -17,14 +17,14 @@ Location: Indonesia
 
 ## Typefaces
 
-- Kineks: https://bykineks.com/kineks.html � Static Sans, Serif and Slab superfamily by Dede Kurniawan and BYKINEKS: 90 styles, five weights, three widths and matching italics; no variable axes.
-- Kineks Text: https://bykineks.com/kineks-text.html
+- Kineks: https://bykineks.com/kineks/ � Static Sans, Serif and Slab superfamily by Dede Kurniawan and BYKINEKS: 90 styles, five weights, three widths and matching italics; no variable axes.
+- Kineks Text: https://bykineks.com/kineks-text/
 - Kineks Compact: https://bykineks.com/kineks-compact/
 - Kineks Symbols: https://bykineks.com/kineks-symbol/
 - Bia: https://bykineks.com/bia/
 - Caelia: https://bykineks.com/caelia/
 - Dareva: https://bykineks.com/dareva/
-- Arshila: https://bykineks.com/arshila.html — Modern serif by Dede Kurniawan; 54 styles, 2,500 glyphs, variable weight/width/italic, and OpenType ligatures, swashes and caps. Includes a live type playground.
+- Arshila: https://bykineks.com/arshila/ — Modern serif by Dede Kurniawan; 54 styles, 2,500 glyphs, variable weight/width/italic, and OpenType ligatures, swashes and caps. Includes a live type playground.
 - Avita: https://bykineks.com/avita/
 - Alvera: https://bykineks.com/alvera/
 - Bilgen: https://bykineks.com/bilgen/

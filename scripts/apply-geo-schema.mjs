@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 const ORG = 'https://bykineks.com/#organization';
-const PERSON = 'https://bykineks.com/about.html#dede-kurniawan';
+const PERSON = 'https://bykineks.com/about/#dede-kurniawan';
 const WEBSITE = 'https://bykineks.com/#website';
 
 function jsonLd(data) {
@@ -84,10 +84,10 @@ function ensureHome() {
 
 const products = [
   {
-    file: 'kineks-text.html',
+    file: 'kineks-text/index.html',
     name: 'Kineks Text',
     title: 'Kineks Text — Neo-Grotesque Variable Typeface | Bykineks',
-    url: 'https://bykineks.com/kineks-text.html',
+    url: 'https://bykineks.com/kineks-text/',
     image: 'https://bykineks.com/assets/images/kineks-text-type-system-10-styles.webp',
     description: 'Kineks Text is a neo-grotesque text typeface designed for readability, extended reading, editorial typography, and digital publications.',
     category: 'Typeface family',
@@ -137,8 +137,8 @@ const products = [
     props: { Styles: '36', Classification: 'Neo-Humanist Sans', 'Optical sizes': 'Micro, Text, Display', Weights: '6 per optical size', 'Glyphs in Regular Text': '361' }
   },
   {
-    file: 'arshila.html', name: 'Arshila', title: 'Arshila — Modern Serif Typeface | Bykineks',
-    url: 'https://bykineks.com/arshila.html', image: 'https://bykineks.com/assets/images/arshila-modern-serif-54-styles-swash-ligatures.webp',
+    file: 'arshila/index.html', name: 'Arshila', title: 'Arshila — Modern Serif Typeface | Bykineks',
+    url: 'https://bykineks.com/arshila/', image: 'https://bykineks.com/assets/images/arshila-modern-serif-54-styles-swash-ligatures.webp',
     description: 'Arshila is a modern serif typeface combining classical proportions, high contrast, crisp terminals, fluid curves, and extensive OpenType features.',
     category: 'Typeface family', releaseDate: '2023',
     props: { Styles: '54', Glyphs: '2,500', Classification: 'Modern Serif', 'Language support': '110 languages', 'Variable axes': 'Weight, Width, Slant', Version: '2.0' }

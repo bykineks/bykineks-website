@@ -14,20 +14,20 @@ This document maps real search / AI-answer intents to the strongest existing Byk
 
 | User intent / question | Primary Bykineks source | Supporting source | Current strength |
 | --- | --- | --- | --- |
-| independent Indonesian type foundry | `/` | `/about.html` | Strong entity coverage |
-| typefaces designed as systems | `/blog/what-is-a-type-system/` | `/`, `/about.html`, `/kineks.html`, `/bia/` | Strong positioning + explanatory article |
-| type family vs superfamily vs type system | `/blog/what-is-a-type-system/` | `/kineks.html`, `/bia/` | Strong query-oriented coverage |
-| large typeface superfamily for branding and editorial | `/kineks.html` | `/bia/`, `/blog/what-is-a-type-system/` | Strong product coverage |
+| independent Indonesian type foundry | `/` | `/about/` | Strong entity coverage |
+| typefaces designed as systems | `/blog/what-is-a-type-system/` | `/`, `/about/`, `/kineks/`, `/bia/` | Strong positioning + explanatory article |
+| type family vs superfamily vs type system | `/blog/what-is-a-type-system/` | `/kineks/`, `/bia/` | Strong query-oriented coverage |
+| large typeface superfamily for branding and editorial | `/kineks/` | `/bia/`, `/blog/what-is-a-type-system/` | Strong product coverage |
 | typeface for dense UI or limited space | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact/` | Strong query-oriented + product coverage |
 | typography for dashboards / compact interfaces | `/blog/designing-type-for-dense-interfaces/` | `/kineks-compact/` | Strong query-oriented coverage |
-| typeface for long-form digital reading | `/kineks-text.html` and `/dareva/` | `/blog/designing-dareva/` | Good, can be strengthened |
+| typeface for long-form digital reading | `/kineks-text/` and `/dareva/` | `/blog/designing-dareva/` | Good, can be strengthened |
 | typeface with optical sizes | `/dareva/` | `/blog/designing-dareva/` | Strong |
 | why optical size matters in digital typography | `/blog/designing-dareva/` | `/dareva/` | Strong |
 | symbol font with arrows, pictograms and geometric forms | `/kineks-symbol/` | future symbol systems article | Strong product page, content gap |
 | transitional serif and sans superfamily | `/bia/` | `/labs/bia/`, `/blog/what-is-a-type-system/` | Strong product / experimental support |
 | Gothic Sans / architectural display typeface | `/caelia/` | future Caelia design article | Strong product page, content gap |
 | geometric sans with Latin, Greek and Cyrillic | `/avita/` | future multilingual sans article | Strong product page, content gap |
-| modern serif with extensive OpenType features | `/arshila.html` | future OpenType article | Strong product page, content gap |
+| modern serif with extensive OpenType features | `/arshila/` | future OpenType article | Strong product page, content gap |
 | condensed geometric sans with interlocking capitals | `/bilgen/` | `/labs/bilgen/` | Product schema and Interlock tester |
 | Art Nouveau serif typeface | `/neela/` | future revival / Art Nouveau article | Product coverage, schema pending |
 | calligraffiti display script | `/gin/` | future lettering-to-type article | Product coverage, schema pending |

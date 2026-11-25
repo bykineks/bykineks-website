@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bykineks.com/</loc></url>
-  <url><loc>https://bykineks.com/about.html</loc></url>
-  <url><loc>https://bykineks.com/contact.html</loc></url>
+  <url><loc>https://bykineks.com/about/</loc></url>
+  <url><loc>https://bykineks.com/contact/</loc></url>
   <url><loc>https://bykineks.com/blog/</loc></url>
   <url><loc>https://bykineks.com/blog/designing-type-for-dense-interfaces/</loc></url>
   <url><loc>https://bykineks.com/blog/what-is-a-type-system/</loc></url>
@@ -10,15 +10,15 @@
   <url><loc>https://bykineks.com/blog/wakaba/</loc></url>
   <url><loc>https://bykineks.com/labs/</loc></url>
   <url><loc>https://bykineks.com/alvera/</loc></url>
-  <url><loc>https://bykineks.com/arshila.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://bykineks.com/arshila/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://bykineks.com/avita/</loc></url>
   <url><loc>https://bykineks.com/bia/</loc></url>
   <url><loc>https://bykineks.com/bilgen/</loc></url>
   <url><loc>https://bykineks.com/caelia/</loc></url>
   <url><loc>https://bykineks.com/dareva/</loc></url>
   <url><loc>https://bykineks.com/gin/</loc></url>
-  <url><loc>https://bykineks.com/kineks.html</loc></url>
-  <url><loc>https://bykineks.com/kineks-text.html</loc></url>
+  <url><loc>https://bykineks.com/kineks/</loc></url>
+  <url><loc>https://bykineks.com/kineks-text/</loc></url>
   <url><loc>https://bykineks.com/kineks-compact/</loc></url>
   <url><loc>https://bykineks.com/kineks-symbol/</loc></url>
   <url><loc>https://bykineks.com/neela/</loc></url>

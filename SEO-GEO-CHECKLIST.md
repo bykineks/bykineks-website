@@ -14,7 +14,7 @@ Use this checklist whenever a new public page is added or an existing typeface r
 - Public specifications kept consistent across visible copy and structured data: styles/fonts, classification, glyphs, scripts/languages, version, release year, axes, and designer where applicable.
 - Product/WebPage JSON-LD linked to:
   - `https://bykineks.com/#organization`
-  - `https://bykineks.com/about.html#dede-kurniawan`
+  - `https://bykineks.com/about/#dede-kurniawan`
   - `https://bykineks.com/#website`
 - Add the canonical URL to `sitemap.xml`.
 - Add major public typeface pages to `llms.txt`.
@@ -39,7 +39,7 @@ Do not publish unreleased specifications as current product facts unless the pag
 - Unique title, description, canonical URL, and Open Graph metadata.
 - Visible author and publication date.
 - Article JSON-LD with headline, description, author, publisher, datePublished, mainEntityOfPage, and representative image.
-- Connect Dede Kurniawan to `https://bykineks.com/about.html#dede-kurniawan` when applicable.
+- Connect Dede Kurniawan to `https://bykineks.com/about/#dede-kurniawan` when applicable.
 - Connect Bykineks to `https://bykineks.com/#organization`.
 - Add the article to the blog index and `sitemap.xml`.
 - Link naturally to relevant typeface/product pages.
