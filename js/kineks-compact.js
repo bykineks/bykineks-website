@@ -11,16 +11,33 @@ function applyVariable(){
  }
 }
 // Animation starts only on request and stops when a manual axis control takes over.
+const testerModes = [...document.querySelectorAll('[data-kc-mode]')];
+testerModes.forEach(button => button.addEventListener('click', () => {
+  testerModes.forEach(mode => {
+    const selected = mode === button;
+    mode.setAttribute('aria-pressed', String(selected));
+    $(mode.getAttribute('aria-controls')).hidden = !selected;
+  });
+}));
+const testerToggle = $('kcToolsToggle');
+testerToggle.addEventListener('click', () => {
+  testerToggle.setAttribute('aria-expanded', String(testerToggle.getAttribute('aria-expanded') === 'false'));
+});
+
+
+
 let animationFrame = null;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 function stopAnimation(){
  if(animationFrame !== null) cancelAnimationFrame(animationFrame);
  animationFrame = null;
- $('animateVariable').textContent = 'Animate';
+ $('playVariable').setAttribute('aria-pressed','false');
+ $('playVariable').title = 'Play variable animation';
+ $('playVariable').setAttribute('aria-label',$('playVariable').title);
 }
-$('animateVariable').addEventListener('click',()=>{
+$('playVariable').addEventListener('click',()=>{
  if(animationFrame !== null){stopAnimation();return}
- const start = performance.now();
+ let start;
  const phases = Object.fromEntries(Object.entries(presets).map(([tag,preset])=>{
   const min=preset.values[0],max=preset.values[preset.values.length-1];
   return [tag,Math.acos(1-2*(state[tag]-min)/(max-min))];
@@ -28,6 +45,7 @@ $('animateVariable').addEventListener('click',()=>{
  // Reduced-motion users explicitly opt in with this button; use a slower cycle.
  const duration = reducedMotion.matches ? 24000 : 10000;
  function tick(now){
+  start ??= now;
   for(const [tag,preset] of Object.entries(presets)){
    const min=preset.values[0],max=preset.values[preset.values.length-1];
    const value=min+(max-min)*(1-Math.cos(phases[tag]+(now-start)*2*Math.PI/duration))/2;
@@ -36,7 +54,9 @@ $('animateVariable').addEventListener('click',()=>{
   applyVariable();
   animationFrame=requestAnimationFrame(tick);
  }
- $('animateVariable').textContent='Pause';
+ $('playVariable').setAttribute('aria-pressed','true');
+ $('playVariable').title = 'Pause variable animation';
+ $('playVariable').setAttribute('aria-label',$('playVariable').title);
  animationFrame=requestAnimationFrame(tick);
 });
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAnimation()});
@@ -135,3 +155,28 @@ $('languageList').textContent=LANGUAGES.join(' · ');
   });
 })();
 
+
+(() => {
+  const title = document.querySelector('.kc-hero h1');
+  const button = document.getElementById('kcHeroMotion');
+  let inView = true;
+  function updateMotion() {
+    const paused = button.getAttribute('aria-pressed') === 'true';
+    title.classList.toggle('is-paused', paused || !inView || document.hidden);
+  }
+  button.addEventListener('click', () => {
+    const paused = button.getAttribute('aria-pressed') !== 'true';
+    button.setAttribute('aria-pressed', String(paused));
+    button.setAttribute('aria-label', paused ? 'Play title animation' : 'Pause title animation');
+    button.firstElementChild.textContent = paused ? '▶' : 'Ⅱ';
+    updateMotion();
+  });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      updateMotion();
+    });
+    observer.observe(title);
+  }
+  document.addEventListener('visibilitychange', updateMotion);
+})();
