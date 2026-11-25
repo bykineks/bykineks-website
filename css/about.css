@@ -236,3 +236,10 @@ header{display:flex;align-items:flex-start;justify-content:space-between}.logo{d
 @media (max-width:370px){
   .about-head h1{font-size:35px}
 }
+
+.logo { flex-shrink: 0; }
+.theme-toggle { font-family: KineksCompact, Arial, sans-serif; }
+html[data-theme="dark"] .marker::before { background: #777; }
+@media (max-width: 650px) {
+  header { align-items: center; }
+}
