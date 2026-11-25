@@ -6,11 +6,18 @@
 <title>Field — Bykineks Labs</title>
 <meta name="description" content="Field — an interactive generative typography experiment by Bykineks Labs using Kineks Compact.">
 <link rel="stylesheet" href="field.css">
+<script src="/js/home-theme.js?v=experiment-1"></script>
+<style>
+html[data-theme="dark"] { color-scheme:dark; }
+:is(a,button,input):focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+html[data-theme="dark"] { --bg:#151515; --fg:#eeede8; --muted:#aaa9a3; --line:#767670; }
+html[data-theme="dark"] .stage-hint { color:#555; }
+</style>
 </head>
 <body>
 <main class="field-lab">
   <header class="lab-header">
-    <a class="brand" href="/" aria-label="Back to Bykineks Labs">← LABS</a>
+    <a class="brand" href="/labs/" aria-label="Back to Bykineks Labs">← LABS</a>
     <span class="lab-label">BYKINEKS LABS / FIELD</span>
   </header>
 

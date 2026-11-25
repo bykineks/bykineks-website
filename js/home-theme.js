@@ -6,6 +6,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('themeToggle');
     const label = document.getElementById('themeLabel');
+    if (!toggle || !label) return;
     function render() {
       const dark = document.documentElement.dataset.theme === 'dark';
       toggle.setAttribute('aria-pressed', String(dark));
