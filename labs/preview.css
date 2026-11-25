@@ -1,0 +1,38 @@
+html.lab-preview,
+html.lab-preview body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.lab-preview :is(.lab-header, .intro, .controls, .lab-footer, .topbar, .lab-head, .hero, .hint, .meta, .stage-hint) {
+  display: none;
+}
+
+.lab-preview:has(#gl) :is(header, .search, .footer, .inspect) {
+  display: none;
+}
+
+.lab-preview .stage {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.lab-preview .stage #word {
+  font-size: clamp(45px, 24vw, 180px) !important;
+}
+
+.lab-preview .stage #specimen {
+  font-size: clamp(46px, 18vw, 145px) !important;
+}
