@@ -49,7 +49,7 @@ function stopAnimation(){
     cancelAnimationFrame(animationFrame);
     animationFrame=null;
   }
-  $('playVariable').textContent='Animate';
+  $('playVariable').title='Play variable animation';
   $('playVariable').setAttribute('aria-label','Play variable animation');
   $('playVariable').setAttribute('aria-pressed','false');
 }
@@ -118,7 +118,7 @@ function animateVariable(time){
 
 function startAnimation(){
   if(animationFrame!==null)return;
-  $('playVariable').textContent='Pause';
+  $('playVariable').title='Pause variable animation';
   $('playVariable').setAttribute('aria-label','Pause variable animation');
   $('playVariable').setAttribute('aria-pressed','true');
   animationStart=performance.now();
@@ -128,8 +128,19 @@ function startAnimation(){
 $('playVariable').addEventListener('click',()=>animationFrame!==null?stopAnimation():startAnimation());
 $('resetVariable').addEventListener('click',resetVariable);
 
-const compactScreen=matchMedia('(max-width:800px)');
-const DEFAULT_SPECIMEN={size:compactScreen.matches?48:96,leading:1.1,tracking:-0.025};
+const DEFAULT_SPECIMEN={size:Math.round(Math.min(200,Math.max(64,document.documentElement.clientWidth * .12))),leading:1.1,tracking:-0.025};
+const testerModes = [...document.querySelectorAll('[data-bia-mode]')];
+testerModes.forEach(button => button.addEventListener('click', () => {
+  testerModes.forEach(mode => {
+    const selected = mode === button;
+    mode.setAttribute('aria-pressed', String(selected));
+    $(mode.getAttribute('aria-controls')).hidden = !selected;
+  });
+}));
+const testerToggle = $('biaToolsToggle');
+testerToggle.addEventListener('click', () => {
+  testerToggle.setAttribute('aria-expanded', String(testerToggle.getAttribute('aria-expanded') === 'false'));
+});
 for(const [range,input,key] of [['sizeRange','sizeInput','size'],['leadingRange','leadingInput','leading'],['trackingRange','trackingInput','tracking']]){$(range).value=DEFAULT_SPECIMEN[key];$(input).value=$(range).value;}
 function applySpecimenControls(){
   const specimen=$('liveSpecimen');
