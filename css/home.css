@@ -1207,7 +1207,7 @@ header{
 }
 .font-row.bilgen .bilgen-home-word {
   font-family:BilgenHomeVariable,Bilgen,sans-serif;
-  font-size:clamp(38px,5.1vw,72px);
+  font-size:clamp(32px,4.2vw,52px);
   font-variation-settings:"wght" var(--bilgen-weight,900),"slnt" var(--bilgen-slant,0);
   line-height:1;
   white-space:nowrap;
