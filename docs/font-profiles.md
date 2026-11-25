@@ -15,6 +15,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Arshila
 
+- Opening specimen: near-full-screen Arshila wordmark with existing OpenType treatments and variable animation. The full-width tester retains the OpenType selector, with variable axes available on demand.
+
 - Page/assets: arshila/index.html, css/arshila.css, js/arshila.js; original Arshila-VF.woff2 and Arshila-Black.woff2 preserved.
 - User priority: extensive OpenType exploration. Main experience now uses verified before/after looks, grouped controls, an advanced combination option and application mockups supplied by BYKINEKS.
 - Binary audit 2026-11-04: variable version 2.000, 54 named instances (9 weights × 3 widths × 2 italic states), 2,501 internal glyphs / 1,319 Unicode mappings. Product count 2,500 excludes .notdef. The static Black asset differs: 2,502 internal glyphs / 1,321 mappings; do not silently assume identical assets.

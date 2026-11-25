@@ -43,7 +43,7 @@ function applyVariable(){
     if($(preset.id).value!==selected)$(preset.id).value=selected;
   }
 }
-function stopAnimation(){if(animationFrame!==null)cancelAnimationFrame(animationFrame);animationFrame=null;$('playVariable').textContent='Animate';$('playVariable').setAttribute('aria-label','Play variable animation');$('playVariable').setAttribute('aria-pressed','false')}
+function stopAnimation(){if(animationFrame!==null)cancelAnimationFrame(animationFrame);animationFrame=null;$('playVariable').title='Play variable animation';$('playVariable').setAttribute('aria-label','Play variable animation');$('playVariable').setAttribute('aria-pressed','false')}
 Object.entries(axes).forEach(([tag,axis])=>$(axis.range).addEventListener('input',()=>{stopAnimation();state[tag]=Number($(axis.range).value);applyVariable()}));
 Object.entries(stylePresets).forEach(([tag,preset])=>$(preset.id).addEventListener('change',()=>{
  const value=Number($(preset.id).value);
@@ -53,7 +53,20 @@ Object.entries(stylePresets).forEach(([tag,preset])=>$(preset.id).addEventListen
 $('resetVariable').addEventListener('click',()=>{stopAnimation();state={...defaults};applyVariable()});
 const frames=[{wght:900,wdth:100,ital:0},{wght:100,wdth:75,ital:0},{wght:500,wdth:125,ital:0},{wght:900,wdth:125,ital:1},{wght:900,wdth:100,ital:0}];
 function animate(time){const p=((time-animationStart)%8000)/8000*4;const index=Math.floor(p),t=p-index,e=t*t*(3-2*t);for(const tag of Object.keys(state))state[tag]=frames[index][tag]+(frames[index+1][tag]-frames[index][tag])*e;applyVariable();animationFrame=requestAnimationFrame(animate)}
-$('playVariable').addEventListener('click',()=>{if(animationFrame!==null){stopAnimation();return}animationStart=performance.now();$('playVariable').textContent='Pause';$('playVariable').setAttribute('aria-label','Pause variable animation');$('playVariable').setAttribute('aria-pressed','true');animationFrame=requestAnimationFrame(animate)});
+$('playVariable').addEventListener('click',()=>{if(animationFrame!==null){stopAnimation();return}animationStart=performance.now();$('playVariable').title='Pause variable animation';$('playVariable').setAttribute('aria-label','Pause variable animation');$('playVariable').setAttribute('aria-pressed','true');animationFrame=requestAnimationFrame(animate)});
+const testerModes = [...document.querySelectorAll('[data-arshila-mode]')];
+testerModes.forEach(button => button.addEventListener('click', () => {
+  testerModes.forEach(mode => {
+    const selected = mode === button;
+    mode.setAttribute('aria-pressed', String(selected));
+    $(mode.getAttribute('aria-controls')).hidden = !selected;
+  });
+}));
+const testerToggle = $('arshilaToolsToggle');
+testerToggle.addEventListener('click', () => {
+  testerToggle.setAttribute('aria-expanded', String(testerToggle.getAttribute('aria-expanded') === 'false'));
+});
+
 function applySpecimen(){ $('liveSpecimen').style.fontSize=$('sizeRange').value+'px';$('liveSpecimen').style.lineHeight=$('leadingRange').value;$('liveSpecimen').style.letterSpacing=$('trackingRange').value+'em' }
 for(const [rangeId,inputId] of [['sizeRange','sizeInput'],['leadingRange','leadingInput'],['trackingRange','trackingInput']]){
  const range=$(rangeId),input=$(inputId);
@@ -63,7 +76,7 @@ for(const [rangeId,inputId] of [['sizeRange','sizeInput'],['leadingRange','leadi
  input.addEventListener('blur',commit);input.addEventListener('change',commit);input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();commit()}});
 }
 const mobile=matchMedia('(max-width:800px)');
-function resetSpecimen(){for(const [range,input,value] of [['sizeRange','sizeInput',mobile.matches?40:64],['leadingRange','leadingInput',1.2],['trackingRange','trackingInput',0]]){$(range).value=value;$(input).value=$(range).value}applySpecimen()}
+function resetSpecimen(){for(const [range,input,value] of [['sizeRange','sizeInput',Math.round(Math.min(200,Math.max(56,document.documentElement.clientWidth * .115)))],['leadingRange','leadingInput',1.2],['trackingRange','trackingInput',0]]){$(range).value=value;$(input).value=$(range).value}applySpecimen()}
 $('resetSpecimen').addEventListener('click',resetSpecimen);
 $('featurePreset').addEventListener('change',()=>{
  activeLook=$('featurePreset').value==='original'?null:$('featurePreset').value;
@@ -161,6 +174,30 @@ $('languageList').textContent=LANGUAGES.join(' · ');
 })();
 
 const reducedMotion=matchMedia('(prefers-reduced-motion:reduce)');
-function pauseHero(paused){document.querySelector('.arshila-variable').style.animationPlayState=paused?'paused':'running';$('heroMotion').setAttribute('aria-pressed',String(paused));$('heroMotion').setAttribute('aria-label',paused?'Play title animation':'Pause title animation');$('heroMotion').firstElementChild.textContent=paused?'▶':'Ⅱ'}
-$('heroMotion').addEventListener('click',()=>pauseHero($('heroMotion').getAttribute('aria-pressed')!=='true'));reducedMotion.addEventListener('change',()=>{stopAnimation();pauseHero(reducedMotion.matches)});document.addEventListener('visibilitychange',()=>{if(document.hidden){stopAnimation();document.querySelector('.arshila-variable').style.animationPlayState='paused'}else pauseHero($('heroMotion').getAttribute('aria-pressed')==='true')});
+const heroTitle = $('arshila-title');
+const heroMotion = $('heroMotion');
+let heroInView = true;
+function updateHeroMotion(){
+  const paused = heroMotion.getAttribute('aria-pressed') === 'true';
+  heroTitle.classList.toggle('is-paused', paused || !heroInView || document.hidden);
+}
+function pauseHero(paused){
+  heroMotion.setAttribute('aria-pressed',String(paused));
+  heroMotion.setAttribute('aria-label',paused?'Play title animation':'Pause title animation');
+  heroMotion.firstElementChild.textContent=paused?'▶':'Ⅱ';
+  updateHeroMotion();
+}
+if ('IntersectionObserver' in window) {
+  const heroObserver = new IntersectionObserver(([entry]) => {
+    heroInView = entry.isIntersecting;
+    updateHeroMotion();
+  });
+  heroObserver.observe(heroTitle);
+}
+heroMotion.addEventListener('click',()=>pauseHero(heroMotion.getAttribute('aria-pressed')!=='true'));
+reducedMotion.addEventListener('change',()=>{stopAnimation();pauseHero(reducedMotion.matches)});
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden)stopAnimation();
+  updateHeroMotion();
+});
 applyVariable();applyFeatures();resetSpecimen();pauseHero(reducedMotion.matches);
