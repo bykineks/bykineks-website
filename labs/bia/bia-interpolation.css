@@ -121,8 +121,8 @@ body{
 
 button{
   border:1px solid #aaa;
-  background:#fff;
-  color:#080808;
+  background:var(--paper);
+  color:var(--black);
   padding:8px 12px;
   font:inherit;
   font-size:11px;
@@ -131,14 +131,14 @@ button{
 
 button:hover,
 button:focus-visible{
-  background:#080808;
-  color:#fff;
-  border-color:#080808;
+  background:var(--black);
+  color:var(--paper);
+  border-color:var(--black);
 }
 
 input[type=range]{
   width:min(260px,34vw);
-  accent-color:#080808;
+  accent-color:var(--black);
 }
 
 output{

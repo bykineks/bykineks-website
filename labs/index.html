@@ -39,6 +39,8 @@
   }
 }
 </script>
+<link rel="stylesheet" href="/css/home-theme.css?v=1">
+<script src="/js/home-theme.js"></script>
 <style>
 @font-face{
   font-family:"Kineks Compact";
@@ -308,6 +310,22 @@ h1{
   .preview-gravity{font-size:22vw}.preview-bia{font-size:25vw}.preview-bilgen{font-size:14vw}.preview-field .field-word{font-size:28vw}
   .footer{flex-direction:column;gap:8px}
 }
+
+.logo{flex-shrink:0}
+.theme-toggle{font-family:"Kineks Compact",Arial,sans-serif}
+html[data-theme="dark"],html[data-theme="dark"] body{background:#151515;color:var(--black)}
+html[data-theme="dark"] .experiment-stage{background:#202020}
+html[data-theme="dark"] .experiment{color:var(--black);border-color:#555550}
+html[data-theme="dark"] :is(.intro,.stage-kicker,.stage-number,.number,.family,.description){color:var(--gray)}
+html[data-theme="dark"] :is(.hero,.footer){border-color:var(--black)}
+html[data-theme="dark"] .preview-field .field-word{color:var(--black)}
+html[data-theme="dark"] .preview-field i{background:var(--black)}
+html[data-theme="dark"] .preview-bezier :is(path,circle){stroke:var(--black)}
+html[data-theme="dark"] .preview-bezier line{stroke:#777}
+html[data-theme="dark"] .experiment:is(:hover,:focus-visible),
+html[data-theme="dark"] .experiment:is(:hover,:focus-visible) :is(.number,.family,.description,.open,.lab-title){color:#F2C400}
+.experiment:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+@media(max-width:650px){header{align-items:center}}
 </style>
 </head>
 <body>
@@ -323,6 +341,7 @@ h1{
       <a href="../about.html">About</a>
       <a href="../contact.html">Contact</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-icon" aria-hidden="true">&#9680;</span><span id="themeLabel">Dark</span></button>
   </header>
 
   <section class="hero">
