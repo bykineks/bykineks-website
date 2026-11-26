@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Explore Avita, a geometric sans serif in 54 styles. Try its weights, widths and obliques, and browse its glyphs.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/avita-geometric-sans-typeface-54-styles-103-languages.webp">
 <link rel="stylesheet" href="/css/kineks.css?v=shared-layout-restore-1">
-<link rel="stylesheet" href="/css/avita.css?v=avita-theme-1">
+<link rel="stylesheet" href="/css/avita.css?v=avita-format-1">
 <!-- GEO:PRODUCT-SCHEMA -->
 <script type="application/ld+json">
 {
@@ -119,9 +119,9 @@
 </header>
 
 <main class="product">
-<h1 class="product-title">Avita</h1>
+<section class="avita-opening"><h1 class="product-title">Avita</h1><a href="#about-avita">Explore Avita ↓</a></section>
 
-<section class="top-grid about-layout">
+<section class="top-grid about-layout" id="about-avita">
 <div>
 <div class="kicker">About</div>
 <div class="copy"><p>Avita is a geometric sans serif with a tall x-height and sharply cut details. The Hairline lets the geometry of a letter show through, while the Black turns the same shape into a dense headline.</p><p>Nine weights come in three widths, each with a matching oblique. Alongside Latin, Greek and Cyrillic letters, the family includes celestial symbols, arrows and alternate letterforms.</p></div></div>
@@ -134,8 +134,18 @@
 </div></section>
 
 
-<section class="type-system" aria-label="Avita type tester"><div class="type-system-head"><div class="type-system-title">Type system</div><div class="type-system-count">54 styles</div></div>
-<div class="family-controls"><div class="axis-control"><label for="avita-style">Style</label><select id="avita-style"><option value="/assets/fonts/avita/Avita-Hairline.woff2">Hairline</option>
+<nav class="avita-section-nav" aria-label="Avita page sections"><a href="#system">Try</a><a href="#avita-in-use">In use</a><a href="#glyphs">Characters</a><a href="#availability">Licensing</a></nav>
+<section class="type-system" id="system" aria-label="Avita type tester">
+<div class="type-system-head"><h2 class="type-system-title">Type system</h2><div class="type-system-count">54 styles</div></div>
+<div class="avita-playground">
+  <div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">Signals from orbit.</div>
+  <button id="avitaToolsToggle" class="avita-tools-toggle" type="button" aria-controls="avitaTools" aria-expanded="false">Tester controls</button>
+  <div id="avitaTools" class="avita-tools" role="group" aria-label="Specimen controls">
+    <div class="avita-modes" role="group" aria-label="Control mode">
+      <button type="button" data-avita-mode aria-controls="avitaStyle" aria-pressed="true" aria-label="Style" title="Style"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 12 7 4l4 8M5 9h4m3-4h3m-1.5-1.5v3"/></svg></button>
+      <button type="button" data-avita-mode aria-controls="avitaType" aria-pressed="false" aria-label="Type" title="Type"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 5h10M3 11h10M6 3v4m4 2v4"/></svg></button>
+    </div>
+    <div class="family-controls avita-style" id="avitaStyle"><div class="axis-control"><label for="avita-style">Style</label><select id="avita-style"><option value="/assets/fonts/avita/Avita-Hairline.woff2">Hairline</option>
 <option value="/assets/fonts/avita/Avita-HairlineOblique.woff2">Hairline Oblique</option>
 <option value="/assets/fonts/avita/Avita-Thin.woff2">Thin</option>
 <option value="/assets/fonts/avita/Avita-ThinOblique.woff2">Thin Oblique</option>
@@ -190,13 +200,16 @@
 <option value="/assets/fonts/avita/Avita-BlackExpanded.woff2">Black Expanded</option>
 <option value="/assets/fonts/avita/Avita-BlackExpandedOblique.woff2">Black Expanded Oblique</option>
 </select></div></div>
-<div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">Signals from orbit.</div><div id="styleStatus" class="specimen-note" role="status">Avita Regular</div><div class="specimen-controls">
+    <div class="specimen-controls avita-type" id="avitaType" hidden>
   <div class="specimen-control"><div class="control-heading"><label for="sizeRange">Size</label><input aria-label="Size in pixels" id="sizeInput" type="number" min="12" max="240" step="1" value="60"><span>px</span></div><input id="sizeRange" type="range" min="12" max="240" step="1" value="60"></div>
   <div class="specimen-control"><div class="control-heading"><label for="leadingRange">Leading</label><input aria-label="Line height" id="leadingInput" type="number" min="0.60" max="2" step="0.01" value="1.15"></div><input id="leadingRange" type="range" min="0.60" max="2" step="0.01" value="1.15"></div>
   <div class="specimen-control"><div class="control-heading"><label for="trackingRange">Tracking</label><input aria-label="Tracking in em" id="trackingInput" type="number" min="-0.08" max="0.05" step="0.005" value="0"><span>em</span></div><input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="0"></div>
   <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
 </div>
-<div class="specimen-note">Click the specimen text to edit it. Choose a style. Adjust size, leading, and tracking.</div>
+  </div>
+</div>
+<div id="styleStatus" class="specimen-note" role="status">Avita Regular</div>
+<p class="specimen-note">Edit the specimen and compare any of the 54 styles.</p>
 </section>
 
 <section id="avita-in-use" class="avita-in-use" aria-labelledby="avita-in-use-title">
@@ -1720,14 +1733,14 @@
 </section>
 <section class="image-preview-section"><img src="/assets/images/avita-geometric-sans-typeface-54-styles-103-languages.webp" alt="Avita geometric sans serif specimen" loading="lazy"></section>
 
-<section class="availability"><h2>Availability</h2><div class="links">
-<a href="https://www.myfonts.com/collections/avita-font-bykineks">Buy licences ↗</a>
+<section class="availability" id="availability"><h2>Availability</h2><div class="links avita-resource-links">
+<a href="https://www.myfonts.com/collections/avita-font-bykineks"><span class="avita-link-window"><span class="avita-link-label">Buy licences</span></span><span aria-hidden="true">↗</span></a>
 </div></section>
 </main>
 
 <footer class="footer"><div class="info"><strong>Information</strong><a href="/about/">About ↗</a><a href="/contact/">Contact Us ↗</a><a href="https://id.pinterest.com/bykineks/" target="_blank">Pinterest ↗</a><a href="https://www.instagram.com/bykineks/" target="_blank">Instagram ↗</a><a href="https://www.linkedin.com/company/bykineks/?viewAsMember=true" target="_blank">LinkedIn ↗</a></div><div><div class="brand">BYKINEKS</div><div class="copyline">2021–2026 Bykineks. All rights reserved</div></div></footer>
 </div>
 
-<script src="/js/avita.js?v=clean-url-1"></script>
+<script src="/js/avita.js?v=avita-format-1"></script>
 </body>
 </html>

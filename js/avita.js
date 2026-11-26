@@ -99,3 +99,18 @@
     if (opener) opener.focus({preventScroll: true});
   });
 })();
+
+(() => {
+  const toggle = document.getElementById('avitaToolsToggle');
+  const modes = document.querySelectorAll('[data-avita-mode]');
+  toggle.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', String(toggle.getAttribute('aria-expanded') === 'false'));
+  });
+  modes.forEach(button => button.addEventListener('click', () => {
+    modes.forEach(mode => {
+      const selected = mode === button;
+      mode.setAttribute('aria-pressed', String(selected));
+      document.getElementById(mode.getAttribute('aria-controls')).hidden = !selected;
+    });
+  }));
+})();
