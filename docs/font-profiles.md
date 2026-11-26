@@ -78,6 +78,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Kineks
 
+- Opening specimen: static Kineks Bold Sans. The centered tester reveals Style and Type controls on demand, using the existing static files and OpenType settings.
+
 - Page: kineks/index.html; original 90 static WOFF2 files mapped by js/kineks-data.js, unchanged. No variable assets or axes.
 - Audit 2026-11-07: 3 voices (Sans/Serif/Slab), 5 weights, 3 widths, upright/italic = 90 complete combinations. Each has 387 internal glyphs including .notdef, 365 common cmap entries, version 1.000.
 - ss01 affects A/a/n/y; ss02 affects a/n. Both sets and standard ligature samples shape differently when enabled across all 90 assets, verified using HarfBuzz. Do not copy Text's ss01 repertoire.
