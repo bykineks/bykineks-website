@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Explore Dareva, a neo-humanist sans serif in 36 styles. Try its Micro, Text and Display optical sizes, and browse its glyphs.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/dareva-neo-humanist-sans-optical-size-typeface-digital-reading.webp">
 <link rel="stylesheet" href="/css/kineks.css?v=shared-layout-restore-1">
-<link rel="stylesheet" href="/css/dareva.css?v=dareva-theme-1">
+<link rel="stylesheet" href="/css/dareva.css?v=dareva-format-1">
 <!-- GEO:PRODUCT-SCHEMA -->
 <script type="application/ld+json">
 {
@@ -104,9 +104,9 @@
 </header>
 
 <main class="product">
-<h1 class="product-title">Dareva</h1>
+<section class="dareva-opening"><h1 class="product-title">Dareva</h1><a href="#about-dareva">Explore Dareva ↓</a></section>
 
-<section class="top-grid about-layout">
+<section class="top-grid about-layout" id="about-dareva">
 <div>
 <div class="kicker">About</div>
 <div class="copy"><p>Dareva is a neo-humanist sans serif designed for reading on screen. Micro gives small labels and captions room to breathe. Text holds a steady rhythm across a paragraph. Display brings the same letterforms closer together for headlines.</p><p>Each optical size comes in six weights from Extra Light to Bold, with a matching oblique.</p></div></div>
@@ -121,8 +121,18 @@
 </div></section>
 
 
-<section class="type-system" aria-label="Dareva type tester"><div class="type-system-head"><div class="type-system-title">Shape your words</div><div class="type-system-count">36 styles</div></div>
-<div class="family-controls"><div class="axis-control"><label for="dareva-optical">Optical size</label><select id="dareva-optical"><option>Micro</option><option selected>Text</option><option>Display</option></select></div><div class="axis-control"><label for="dareva-style">Style</label><select id="dareva-style"><optgroup label="Micro">
+<nav class="dareva-section-nav" aria-label="Dareva page sections"><a href="#system">Try</a><a href="#optical-sizes">Optical sizes</a><a href="#dareva-in-use">In use</a><a href="#glyphs">Characters</a><a href="#availability">Licensing</a></nav>
+<section class="type-system" id="system" aria-label="Dareva type tester">
+<div class="type-system-head"><h2 class="type-system-title">Shape your words</h2><div class="type-system-count">36 styles</div></div>
+<div class="dareva-playground">
+  <div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">A quiet place to read.</div>
+  <button id="darevaToolsToggle" class="dareva-tools-toggle" type="button" aria-controls="darevaTools" aria-expanded="false">Tester controls</button>
+  <div id="darevaTools" class="dareva-tools" role="group" aria-label="Specimen controls">
+    <div class="dareva-modes" role="group" aria-label="Control mode">
+      <button type="button" data-dareva-mode aria-controls="darevaStyle" aria-pressed="true" aria-label="Style" title="Style"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 12 7 4l4 8M5 9h4m3-4h3m-1.5-1.5v3"/></svg></button>
+      <button type="button" data-dareva-mode aria-controls="darevaType" aria-pressed="false" aria-label="Type" title="Type"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 5h10M3 11h10M6 3v4m4 2v4"/></svg></button>
+    </div>
+    <div class="family-controls dareva-style" id="darevaStyle"><div class="axis-control"><label for="dareva-optical">Optical size</label><select id="dareva-optical"><option>Micro</option><option selected>Text</option><option>Display</option></select></div><div class="axis-control"><label for="dareva-style">Style</label><select id="dareva-style"><optgroup label="Micro">
 <option value="/assets/fonts/dareva/Dareva-ExtraLightMicro.woff2">Micro Extra Light</option>
 <option value="/assets/fonts/dareva/Dareva-ExtraLightMicroOblique.woff2">Micro Extra Light Oblique</option>
 <option value="/assets/fonts/dareva/Dareva-LightMicro.woff2">Micro Light</option>
@@ -162,16 +172,19 @@
 <option value="/assets/fonts/dareva/Dareva-BoldDisplay.woff2">Display Bold</option>
 <option value="/assets/fonts/dareva/Dareva-BoldDisplayOblique.woff2">Display Bold Oblique</option>
 </optgroup></select></div></div>
-<div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">A quiet place to read.</div><div id="styleStatus" class="specimen-note" role="status">Dareva Text Regular</div><div class="specimen-controls">
+    <div class="specimen-controls dareva-type" id="darevaType" hidden>
   <div class="specimen-control"><div class="control-heading"><label for="sizeRange">Size</label><input aria-label="Size in pixels" id="sizeInput" type="number" min="12" max="240" step="1" value="60"><span>px</span></div><input id="sizeRange" type="range" min="12" max="240" step="1" value="60"></div>
   <div class="specimen-control"><div class="control-heading"><label for="leadingRange">Leading</label><input aria-label="Line height" id="leadingInput" type="number" min="0.60" max="2" step="0.01" value="1.15"></div><input id="leadingRange" type="range" min="0.60" max="2" step="0.01" value="1.15"></div>
   <div class="specimen-control"><div class="control-heading"><label for="trackingRange">Tracking</label><input aria-label="Tracking in em" id="trackingInput" type="number" min="-0.08" max="0.05" step="0.005" value="0"><span>em</span></div><input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="0"></div>
   <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
 </div>
-<div class="specimen-note">Click the specimen text to edit it. Choose a style. Adjust size, leading, and tracking.</div>
+  </div>
+</div>
+<div id="styleStatus" class="specimen-note" role="status">Dareva Text Regular</div>
+<p class="specimen-note">Edit the specimen and compare Micro, Text, and Display.</p>
 </section>
 
-<section class="optical-study" aria-label="Optical size comparison"><h2>Optical sizes</h2><p>Compare the same word at the same size. Look at the spacing and the openings in the lowercase letters.</p><div class="optical-examples"><div><small>Micro · 8–12 px · labels and captions</small><span>Reading</span></div><div><small>Text · 14–24 px · paragraphs and interfaces</small><span>Reading</span></div><div><small>Display · 36–72 px · headlines</small><span>Reading</span></div></div></section>
+<section id="optical-sizes" class="optical-study" aria-label="Optical size comparison"><h2>Optical sizes</h2><p>Compare the same word at the same size. Look at the spacing and the openings in the lowercase letters.</p><div class="optical-examples"><div><small>Micro · 8–12 px · labels and captions</small><span>Reading</span></div><div><small>Text · 14–24 px · paragraphs and interfaces</small><span>Reading</span></div><div><small>Display · 36–72 px · headlines</small><span>Reading</span></div></div></section>
 <section id="dareva-in-use" class="dareva-in-use" aria-labelledby="dareva-in-use-title">
   <h2 id="dareva-in-use-title" class="kicker">Dareva in context</h2>
   <div id="dareva-gallery-track" class="dareva-gallery-track">
@@ -913,16 +926,16 @@
 </div></div></section>
 <section class="image-preview-section"><img src="/assets/images/dareva-neo-humanist-sans-optical-size-typeface-digital-reading.webp" alt="Dareva optical size specimen" loading="lazy"></section>
 
-<section class="availability"><h2>Availability</h2><div class="links">
-<a href="/assets/trial/Dareva-Trial.zip" download>Free trial ↓</a>
-<a href="/blog/designing-dareva/">Designing Dareva ↗</a>
-<a href="https://www.myfonts.com/collections/dareva-font-bykineks">Buy licences ↗</a>
+<section class="availability" id="availability"><h2>Availability</h2><div class="links dareva-resource-links">
+<a href="/assets/trial/Dareva-Trial.zip" download><span class="dareva-link-window"><span class="dareva-link-label">Free trial</span></span><span aria-hidden="true">↓</span></a>
+<a href="/blog/designing-dareva/"><span class="dareva-link-window"><span class="dareva-link-label">Designing Dareva</span></span><span aria-hidden="true">↗</span></a>
+<a href="https://www.myfonts.com/collections/dareva-font-bykineks"><span class="dareva-link-window"><span class="dareva-link-label">Buy licences</span></span><span aria-hidden="true">↗</span></a>
 </div></section>
 </main>
 
 <footer class="footer"><div class="info"><strong>Information</strong><a href="/about/">About ↗</a><a href="/contact/">Contact Us ↗</a><a href="https://id.pinterest.com/bykineks/" target="_blank">Pinterest ↗</a><a href="https://www.instagram.com/bykineks/" target="_blank">Instagram ↗</a><a href="https://www.linkedin.com/company/bykineks/?viewAsMember=true" target="_blank">LinkedIn ↗</a></div><div><div class="brand">BYKINEKS</div><div class="copyline">2021–2026 Bykineks. All rights reserved</div></div></footer>
 </div>
 
-<script src="/js/dareva.js?v=optical-1"></script>
+<script src="/js/dareva.js?v=dareva-format-1"></script>
 </body>
 </html>
