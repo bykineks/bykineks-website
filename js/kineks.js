@@ -117,3 +117,18 @@ $('languageList').textContent=LANGUAGES.join(' · ');
 
 
 updateStyle();
+
+(() => {
+  const toggle = document.getElementById('kineksToolsToggle');
+  const modes = document.querySelectorAll('[data-kineks-mode]');
+  toggle.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', String(toggle.getAttribute('aria-expanded') === 'false'));
+  });
+  modes.forEach(button => button.addEventListener('click', () => {
+    modes.forEach(mode => {
+      const selected = mode === button;
+      mode.setAttribute('aria-pressed', String(selected));
+      document.getElementById(mode.getAttribute('aria-controls')).hidden = !selected;
+    });
+  }));
+})();
