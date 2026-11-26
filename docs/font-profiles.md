@@ -47,6 +47,8 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Kineks Symbols
 
+- Opening specimen: static composition using the existing wheelchair, toilet, and restroom outlines. Section navigation leads to the existing category browser, gallery, and licensing.
+
 - Page/assets: `kineks-symbol/index.html`, `css/kineks-symbol.css`, `js/kineks-symbol.js`, `Kineks-Symbol.woff2`.
 - Role: functional symbols and visual communication. User confirmed sole style Bold (internal weight 700). WOFF2 name and head tables report version 1.0.
 - Previous audit: 356 glyphs, 354 Unicode mappings, 351 displayed SVG outlines; omitted mappings are carriage return and spaces. Verify SVG outlines remain aligned with the current font.
