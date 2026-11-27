@@ -103,5 +103,9 @@ These profiles guide discovery; they do not replace inspection of the current fo
 
 ## Other fonts / new family
 
-Dareva, Gin, Neela, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
+Dareva, Gin, Wakaba, and future products have no verified capability profile in this benchmark yet. Inspect their actual page and assets before assigning a main experience. Do not derive specifications or use cases solely from names or visual similarity. Add a compact evidence-backed profile when first audited, following the fields in `font-page-benchmark.md`.
 
+
+## Neela
+
+The product page and assets/fonts/neela expose 27 WOFF2 styles across three widths and nine weights. The tester switches between those files and uses the same editable headline to compare proportions. The existing gallery shows book covers, stationery, packaging and posters. Keep the existing glyph browser and licensing destinations.

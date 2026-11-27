@@ -75,3 +75,52 @@ html[data-theme="dark"] :is(.type-preview, .family-controls select, .control-hea
   outline-offset: 3px;
 }
 html[data-theme="dark"] .glyph:focus-visible { box-shadow: inset 0 0 0 2px currentColor; }
+
+.neela-hero {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  min-height: 75svh;
+  padding-block: 24px;
+  text-align: center;
+}
+
+.neela-hero .product-title {
+  margin: 0;
+  font-size: clamp(64px, 21vw, 320px);
+  line-height: 1.12;
+}
+
+.neela-hero a,
+.neela-section-nav a {
+  padding: 12px 4px;
+}
+
+.neela-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 24px;
+  border-block: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+
+.neela-tools {
+  margin-top: 16px;
+  padding-inline: 16px;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  border-radius: 6px;
+}
+
+.neela-tools summary {
+  width: fit-content;
+  padding-block: 12px;
+  cursor: pointer;
+}
+
+#system .type-preview {
+  display: grid;
+  align-content: center;
+  min-height: clamp(240px, 36vw, 460px);
+  margin-inline: auto;
+  text-align: center;
+}
