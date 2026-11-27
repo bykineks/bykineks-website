@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Explore Neela, an Art Nouveau serif in 27 styles. Compare nine weights in three widths.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/neela-serif-nouveau-typeface-27-styles-62-languages.webp">
 <link rel="stylesheet" href="/css/kineks.css?v=shared-layout-restore-1">
-<link rel="stylesheet" href="/css/neela.css?v=neela-theme-1">
+<link rel="stylesheet" href="/css/neela.css?v=neela-format-1">
 <!-- GEO:PRODUCT-SCHEMA -->
 <script type="application/ld+json">
 {
@@ -104,9 +104,9 @@
 </header>
 
 <main class="product">
-<h1 class="product-title">Neela</h1>
+<div class="neela-hero"><h1 class="product-title">Neela</h1><a href="#about-neela">Explore Neela ↓</a></div>
 
-<section class="top-grid about-layout">
+<section id="about-neela" class="top-grid about-layout">
 <div>
 <div class="kicker">About</div>
 <div class="copy"><p>Neela brings Art Nouveau curves to a serif family built in three widths. Try the same headline in Condensed and Expanded to see how its curves fit a different measure.</p><p>Nine weights run from Thin to Black in each width.</p></div></div>
@@ -121,7 +121,9 @@
 </div></section>
 
 
-<section class="type-system" aria-label="Neela type tester"><div class="type-system-head"><div class="type-system-title">Shape your words</div><div class="type-system-count">27 styles</div></div>
+<nav class="neela-section-nav" aria-label="Neela page sections"><a href="#system">Try</a><a href="#neela-in-use">In use</a><a href="#glyphs">Characters</a><a href="#availability">Licensing</a></nav>
+<section id="system" class="type-system" aria-label="Neela type tester"><div class="type-system-head"><div class="type-system-title">Shape your words</div><div class="type-system-count">27 styles</div></div>
+<details class="neela-tools"><summary>Tester controls</summary>
 <div class="family-controls"><div class="axis-control"><label for="neela-width">Width</label><select id="neela-width"><option>Normal</option><option>Condensed</option><option>Expanded</option></select></div><div class="axis-control"><label for="neela-style">Weight</label><select id="neela-style"><optgroup label="Normal">
 <option value="/assets/fonts/neela/Neela-Thin.woff2">Thin · Normal</option>
 <option value="/assets/fonts/neela/Neela-ExtraLight.woff2">Extra Light · Normal</option>
@@ -153,12 +155,15 @@
 <option value="/assets/fonts/neela/Neela-ExtraBoldExpanded.woff2">Extra Bold · Expanded</option>
 <option value="/assets/fonts/neela/Neela-BlackExpanded.woff2">Black · Expanded</option>
 </optgroup></select></div></div>
-<div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">Garden ornaments</div><div id="styleStatus" class="specimen-note" role="status">Neela Regular</div><div class="specimen-controls">
+<div class="specimen-controls">
   <div class="specimen-control"><div class="control-heading"><label for="sizeRange">Size</label><input aria-label="Size in pixels" id="sizeInput" type="number" min="12" max="240" step="1" value="60"><span>px</span></div><input id="sizeRange" type="range" min="12" max="240" step="1" value="60"></div>
   <div class="specimen-control"><div class="control-heading"><label for="leadingRange">Leading</label><input aria-label="Line height" id="leadingInput" type="number" min="0.60" max="2" step="0.01" value="1.15"></div><input id="leadingRange" type="range" min="0.60" max="2" step="0.01" value="1.15"></div>
   <div class="specimen-control"><div class="control-heading"><label for="trackingRange">Tracking</label><input aria-label="Tracking in em" id="trackingInput" type="number" min="-0.08" max="0.05" step="0.005" value="0"><span>em</span></div><input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="0"></div>
   <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
 </div>
+</details>
+<div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">Garden ornaments</div>
+<div id="styleStatus" class="specimen-note" role="status">Neela Regular</div>
 <div class="specimen-note">Click the specimen text to edit it. Choose a style. Adjust size, leading, and tracking.</div>
 </section>
 
@@ -593,7 +598,7 @@
 </div></div></section>
 <section class="image-preview-section"><img src="/assets/images/neela-serif-nouveau-typeface-27-styles-62-languages.webp" alt="Neela typeface specimen" loading="lazy"></section>
 
-<section class="availability"><h2>Availability</h2><div class="links">
+<section id="availability" class="availability"><h2>Availability</h2><div class="links">
 <a href="/assets/trial/Neela-Demo.zip" download>Free trial ↓</a>
 <a href="https://www.myfonts.com/collections/neela-font-bykineks">Buy licences ↗</a>
 </div></section>
