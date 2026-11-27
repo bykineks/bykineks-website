@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Try Wakaba, a playful handwritten display face. Explore its ligatures and character set.">
 <meta name="twitter:image" content="https://bykineks.com/assets/images/wakaba-playful-display-font-handwritten-organic-lettering.webp">
 <link rel="stylesheet" href="/css/kineks.css?v=shared-layout-restore-1">
-<link rel="stylesheet" href="/css/wakaba.css?v=wakaba-theme-1">
+<link rel="stylesheet" href="/css/wakaba.css?v=wakaba-format-1">
 <!-- GEO:PRODUCT-SCHEMA -->
 <script type="application/ld+json">
 {
@@ -99,9 +99,9 @@
 </header>
 
 <main class="product">
-<h1 class="product-title">Wakaba</h1>
+<div class="wakaba-hero"><h1 class="product-title">Wakaba</h1><a href="#about-wakaba">Explore Wakaba ↓</a></div>
 
-<section class="top-grid about-layout">
+<section id="about-wakaba" class="top-grid about-layout">
 <div>
 <div class="kicker">About</div>
 <div class="copy"><p>Wakaba is a handwritten display face with rounded strokes and an irregular rhythm. Try a short phrase, then compare the joins in words like “office” and “flowers”.</p></div></div>
@@ -116,14 +116,18 @@
 </div></section>
 
 
-<section class="type-system" aria-label="Wakaba type tester"><div class="type-system-head"><div class="type-system-title">Shape your words</div><div class="type-system-count">1 style</div></div>
+<nav class="wakaba-section-nav" aria-label="Wakaba page sections"><a href="#system">Try</a><a href="#wakaba-in-use">In use</a><a href="#glyphs">Characters</a><a href="#availability">Licensing</a></nav>
+<section id="system" class="type-system" aria-label="Wakaba type tester"><div class="type-system-head"><div class="type-system-title">Shape your words</div><div class="type-system-count">1 style</div></div>
+<details class="wakaba-tools"><summary>Tester controls</summary>
 <div class="family-controls"><div class="axis-control"><label for="ligatures">Standard ligatures</label><select id="ligatures"><option value="on" selected>On · ffi, fi and fl</option><option value="off">Off</option></select></div></div>
-<div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">office, fine flowers</div><div id="styleStatus" class="specimen-note" role="status">Wakaba Regular</div><div class="specimen-controls">
+<div class="specimen-controls">
   <div class="specimen-control"><div class="control-heading"><label for="sizeRange">Size</label><input aria-label="Size in pixels" id="sizeInput" type="number" min="12" max="240" step="1" value="60"><span>px</span></div><input id="sizeRange" type="range" min="12" max="240" step="1" value="60"></div>
   <div class="specimen-control"><div class="control-heading"><label for="leadingRange">Leading</label><input aria-label="Line height" id="leadingInput" type="number" min="0.60" max="2" step="0.01" value="1.15"></div><input id="leadingRange" type="range" min="0.60" max="2" step="0.01" value="1.15"></div>
   <div class="specimen-control"><div class="control-heading"><label for="trackingRange">Tracking</label><input aria-label="Tracking in em" id="trackingInput" type="number" min="-0.08" max="0.05" step="0.005" value="0"><span>em</span></div><input id="trackingRange" type="range" min="-0.08" max="0.05" step="0.005" value="0"></div>
   <button id="resetSpecimen" class="reset-button" type="button">Reset ↺</button>
 </div>
+</details>
+<div id="typePreview" class="type-preview" contenteditable="plaintext-only" role="textbox" aria-label="Editable type specimen" aria-multiline="true" spellcheck="false">office, fine flowers</div><div id="styleStatus" class="specimen-note" role="status">Wakaba Regular</div>
 <div class="specimen-note">Click the specimen text to edit it. Toggle ligatures to compare the joins in “office”, “fine”, and “flowers”.</div>
 </section>
 
@@ -737,7 +741,7 @@
 </div></div></section>
 <section class="image-preview-section"><img src="/assets/images/wakaba-playful-display-font-handwritten-organic-lettering.webp" alt="Wakaba typeface specimen" loading="lazy"></section>
 
-<section class="availability"><h2>Availability</h2><div class="links">
+<section id="availability" class="availability"><h2>Availability</h2><div class="links">
 <a href="/assets/trial/Wakaba-Demo.zip" download>Free trial ↓</a>
 <a href="/blog/wakaba/">Wakaba in use ↗</a>
 <a href="https://www.myfonts.com/collections/wakaba-font-bykineks">Buy licences ↗</a>
